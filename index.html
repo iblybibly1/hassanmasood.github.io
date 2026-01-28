@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hassan Masood — Portfolio</title>
+  <meta name="description" content="Portfolio of Hassan Masood — Sustainability, CSRD/CBAM, Sales Development, Data & Growth." />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <header class="nav">
+    <a class="logo" href="#top">HM<span class="dot">.</span></a>
+    <nav class="links">
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#proof">Proof</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="iconBtn" id="themeBtn" aria-label="Toggle theme">☾</button>
+  </header>
+
+  <main id="top" class="wrap">
+    <section class="hero">
+      <div class="heroLeft">
+        <div class="badge" id="roleBadge">Loading…</div>
+        <h1 id="name">Hassan Masood</h1>
+        <p class="sub" id="headline"></p>
+
+        <div class="ctaRow">
+          <a class="btn primary" id="cvBtn" href="#" target="_blank" rel="noreferrer">Download CV</a>
+          <a class="btn ghost" id="linkedinBtn" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn ghost" href="#contact">Contact</a>
+        </div>
+
+        <div class="quickGrid" id="quickGrid"></div>
+      </div>
+
+      <div class="heroRight">
+        <div class="card glass">
+          <div class="cardTitle">Snapshot</div>
+          <div class="metrics" id="metrics"></div>
+          <div class="divider"></div>
+          <div class="miniTitle">Focus</div>
+          <div class="chips" id="focusChips"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="sectionHead">
+        <h2>Skills</h2>
+        <p>Filter by track. Tap a skill to highlight where it shows up.</p>
+      </div>
+
+      <div class="chipBar" id="skillFilters"></div>
+      <div class="skillsGrid" id="skillsGrid"></div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="sectionHead">
+        <h2>Experience</h2>
+        <p>Timeline with expandable details.</p>
+      </div>
+
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="sectionHead">
+        <h2>Projects</h2>
+        <p>Cards + tags + spotlight modal.</p>
+      </div>
+
+      <div class="projectBar">
+        <input id="projectSearch" class="search" placeholder="Search projects…" />
+        <div class="chipBar" id="projectFilters"></div>
+      </div>
+
+      <div class="projectsGrid" id="projectsGrid"></div>
+    </section>
+
+    <section id="proof" class="section">
+      <div class="sectionHead">
+        <h2>Proof</h2>
+        <p>Wins, certificates, and a recommendation highlight.</p>
+      </div>
+
+      <div class="proofGrid">
+        <div class="card glass">
+          <div class="cardTitle">Achievements</div>
+          <div class="ticker" id="ticker"></div>
+        </div>
+
+        <div class="card glass">
+          <div class="cardTitle">Recommendation</div>
+          <blockquote class="quote" id="quote"></blockquote>
+          <div class="quoteBy" id="quoteBy"></div>
+          <a class="btn ghost" id="refBtn" href="#" target="_blank" rel="noreferrer">Open reference letter</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="sectionHead">
+        <h2>Contact</h2>
+        <p>Quick, clean, and recruiter-friendly.</p>
+      </div>
+
+      <div class="contactGrid">
+        <div class="card glass">
+          <div class="cardTitle">Say hi</div>
+          <p class="muted" id="locationLine"></p>
+          <div class="contactRow">
+            <a class="btn primary" id="emailBtn" href="#">Email</a>
+            <a class="btn ghost" id="phoneBtn" href="#">Call</a>
+          </div>
+          <p class="tiny muted">Tip: keep videos on YouTube and embed them into project cards.</p>
+        </div>
+
+        <div class="card glass">
+          <div class="cardTitle">Quick links</div>
+          <div class="linkList" id="links"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span id="footerLine"></span>
+    </footer>
+  </main>
+
+  <dialog class="modal" id="modal">
+    <div class="modalBox glass">
+      <div class="modalHead">
+        <div>
+          <div class="modalTitle" id="modalTitle"></div>
+          <div class="modalMeta" id="modalMeta"></div>
+        </div>
+        <button class="iconBtn" id="closeModal" aria-label="Close">✕</button>
+      </div>
+      <div class="modalBody" id="modalBody"></div>
+      <div class="modalTags" id="modalTags"></div>
+      <div class="modalActions" id="modalActions"></div>
+    </div>
+  </dialog>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
