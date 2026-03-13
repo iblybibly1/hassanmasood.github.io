@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Contact — Hassan Masood</title>
+  <link rel="stylesheet" href="css/main.css"/>
+  <style>
+  .contact-layout { display:grid; grid-template-columns:1fr 1.4fr; gap:5rem; align-items:start; }
+
+  /* Left info panel */
+  .c-info { display:flex; flex-direction:column; gap:0; }
+  .c-row { padding:1.1rem 0; border-bottom:1px solid var(--border); display:flex; flex-direction:column; gap:0.25rem; }
+  .c-row:last-child { border-bottom:none; }
+  .c-row .label { display:block; }
+  .c-val { font-size:0.9rem; font-weight:400; color:var(--text-1); line-height:1.5; }
+  .c-val a { color:var(--accent); transition:opacity 0.15s; }
+  .c-val a:hover { opacity:0.75; }
+  .c-val.muted { color:var(--text-2); font-weight:300; }
+
+  .avail-box {
+    display:flex; align-items:flex-start; gap:0.85rem;
+    padding:1.25rem; background:var(--green-dim);
+    border:1px solid rgba(52,211,153,0.2); border-radius:var(--radius-md);
+    margin-top:2rem;
+  }
+  .avail-box .nav-pill-dot { flex-shrink:0; margin-top:0.2rem; }
+  .avail-text { font-size:0.82rem; font-weight:400; color:var(--green); line-height:1.6; }
+
+  /* Form */
+  .form-card {
+    background:var(--bg-raised); border:1px solid var(--border);
+    border-radius:var(--radius-xl);
+    box-shadow:var(--shadow-md);
+    overflow:hidden;
+  }
+  .form-card-header {
+    padding:1.5rem 2rem; border-bottom:1px solid var(--border);
+    background:var(--bg-overlay);
+  }
+  .form-card-title { font-family:var(--font-display); font-size:1.2rem; font-weight:700; letter-spacing:-0.02em; color:var(--text-1); margin-bottom:0.2rem; }
+  .form-card-sub { font-size:0.82rem; font-weight:300; color:var(--text-3); }
+
+  .form-body { padding:2rem; display:flex; flex-direction:column; gap:1.1rem; }
+  .form-row-2 { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .form-note-text { font-size:0.75rem; font-weight:300; color:var(--text-3); text-align:center; line-height:1.5; }
+
+  .submit-btn {
+    width:100%; justify-content:center; min-height:50px;
+    font-size:0.9rem;
+  }
+  .form-success {
+    display:none; padding:0.9rem 1rem;
+    background:var(--green-dim); border:1px solid rgba(52,211,153,0.2);
+    border-radius:var(--radius-sm); text-align:center;
+    font-family:var(--font-mono); font-size:0.72rem;
+    letter-spacing:0.06em; color:var(--green); font-weight:500;
+  }
+
+  /* References */
+  .ref-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.5rem; }
+  .ref-card {
+    background:var(--bg-raised); border:1px solid var(--border);
+    border-radius:var(--radius-lg); padding:1.75rem;
+    display:flex; flex-direction:column; gap:0.85rem;
+    transition:border-color 0.2s, box-shadow 0.2s;
+  }
+  .ref-card:hover { border-color:var(--border-hover); box-shadow:var(--shadow-sm); }
+  .ref-avatar {
+    width:48px; height:48px; border-radius:50%;
+    background:var(--accent-dim); border:1px solid var(--border-accent);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display); font-size:1rem; font-weight:700;
+    color:var(--accent); flex-shrink:0;
+  }
+  .ref-name { font-family:var(--font-display); font-size:1.05rem; font-weight:700; letter-spacing:-0.01em; color:var(--text-1); }
+  .ref-role { font-size:0.75rem; font-weight:400; color:var(--text-3); margin-top:0.15rem; }
+  .ref-note { font-size:0.82rem; font-weight:300; color:var(--text-2); line-height:1.6; flex:1; }
+  .ref-email { font-family:var(--font-mono); font-size:0.65rem; color:var(--accent); text-decoration:none; margin-top:auto; transition:opacity 0.15s; }
+  .ref-email:hover { opacity:0.75; }
+
+  @media(max-width:960px) { .contact-layout { grid-template-columns:1fr; gap:3rem; } }
+  @media(max-width:560px) { .form-row-2 { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">Hassan<span class="dot">.</span></a>
+  <div class="nav-center">
+    <a href="index.html">Home</a><a href="about.html">About</a>
+    <a href="work.html">Work</a><a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right">
+    <div class="nav-pill"><div class="nav-pill-dot"></div>Open to work</div>
+    <a href="contact.html" class="nav-cta">Hire me</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="work.html">Work</a>
+  <a href="projects.html">Projects</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="drawer-cta">Hire me →</a>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="eyebrow reveal">Contact</div>
+    <h1 class="heading-xl reveal reveal-d1">Get in touch.</h1>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-layout">
+
+      <!-- LEFT -->
+      <div class="reveal">
+        <p class="lead" style="margin-bottom:2.5rem">
+          I'm actively looking for new opportunities in sustainability, compliance, operations, finance, and tech. If you have a role or project in mind — I'd love to hear from you.
+        </p>
+        <div class="c-info">
+          <div class="c-row"><span class="label">Email</span><div class="c-val"><a href="mailto:m.hassan.masood@hotmail.com">m.hassan.masood@hotmail.com</a></div></div>
+          <div class="c-row"><span class="label">Phone</span><div class="c-val"><a href="tel:+358403600110">(+358) 040-360 0110</a></div></div>
+          <div class="c-row"><span class="label">Location</span><div class="c-val">Inkoo, Länsi-Uusimaa, Finland</div></div>
+          <div class="c-row"><span class="label">GitHub</span><div class="c-val"><a href="https://github.com/iblybibly1" target="_blank">github.com/iblybibly1</a></div></div>
+          <div class="c-row"><span class="label">Target sectors</span><div class="c-val muted">Sustainability · ESG Compliance · Operations<br>Finance · Sales · Tech</div></div>
+          <div class="c-row"><span class="label">Target salary</span><div class="c-val">€3,500 – €4,000 / month</div></div>
+        </div>
+        <div class="avail-box">
+          <div class="nav-pill-dot"></div>
+          <div class="avail-text">Available now — actively interviewing across the Uusimaa region and open to relocation.</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: FORM -->
+      <div class="reveal reveal-d1">
+        <div class="form-card">
+          <div class="form-card-header">
+            <div class="form-card-title">Send a message</div>
+            <div class="form-card-sub">I typically respond within 24 hours.</div>
+          </div>
+          <div class="form-body">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="fn">First name</label>
+                <input class="form-input" id="fn" type="text" placeholder="Anna" autocomplete="given-name"/>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="ln">Last name</label>
+                <input class="form-input" id="ln" type="text" placeholder="Virtanen" autocomplete="family-name"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="em">Email address</label>
+              <input class="form-input" id="em" type="email" placeholder="anna@company.fi" autocomplete="email"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="org">Company / Organisation</label>
+              <input class="form-input" id="org" type="text" placeholder="Optional" autocomplete="organization"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="typ">Reason for contact</label>
+              <select class="form-select" id="typ">
+                <option value="">Select one…</option>
+                <option>Job opportunity</option>
+                <option>Freelance / Project collaboration</option>
+                <option>Consulting inquiry</option>
+                <option>Networking</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="msg">Message</label>
+              <textarea class="form-textarea" id="msg" placeholder="Tell me about the role, project, or what you have in mind…"></textarea>
+            </div>
+            <button class="btn btn-primary btn-lg submit-btn" id="submitBtn" onclick="submitForm()">
+              Send message →
+            </button>
+            <div class="form-success" id="formSuccess">
+              ✓ Message sent — I'll be in touch soon.
+            </div>
+            <p class="form-note-text">Clicking send will open your email client with all fields pre-filled. Alternatively, email me directly at m.hassan.masood@hotmail.com</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider-glow"></div>
+
+<!-- REFERENCES -->
+<section class="section" style="background:var(--bg-raised)">
+  <div class="container">
+    <div class="eyebrow reveal">References</div>
+    <h2 class="heading-md reveal reveal-d1" style="margin-bottom:2.5rem">Key references</h2>
+    <div class="ref-grid reveal reveal-d2">
+      <div class="ref-card">
+        <div class="ref-avatar">AK</div>
+        <div>
+          <div class="ref-name">Aino Kuusava</div>
+          <div class="ref-role">CSR Manager · Tammer Brands Oy</div>
+        </div>
+        <div class="ref-note">ESG & CSRD compliance supervisor during Hassan's role at Tammer Brands (Jun–Oct 2024).</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-avatar">MT</div>
+        <div>
+          <div class="ref-name">Marita Tuomala</div>
+          <div class="ref-role">Head of Degree Programme · Int'l Business, TAMK</div>
+        </div>
+        <div class="ref-note">Academic supervisor and programme director for Hassan's BBA at TAMK.</div>
+        <a href="mailto:marita.tuomala@tuni.fi" class="ref-email">marita.tuomala@tuni.fi</a>
+      </div>
+      <div class="ref-card">
+        <div class="ref-avatar">AM</div>
+        <div>
+          <div class="ref-name">Asim Mahmood</div>
+          <div class="ref-role">CEO · ECO Group of Companies</div>
+        </div>
+        <div class="ref-note">Professional reference from Hassan's Assistant Manager role at Environmental Consultancies & Options.</div>
+        <a href="mailto:asim@eco-intl.org" class="ref-email">asim@eco-intl.org</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container"><div class="footer-inner">
+    <a href="index.html" class="footer-logo">Hassan<span class="dot">.</span></a>
+    <nav class="footer-nav"><a href="about.html">About</a><a href="work.html">Work</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a><a href="https://github.com/iblybibly1" target="_blank">GitHub</a></nav>
+    <span class="footer-copy">© 2025 M. Hassan Masood · Inkoo, Finland</span>
+  </div></div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+function submitForm() {
+  const fn  = document.getElementById('fn').value.trim();
+  const ln  = document.getElementById('ln').value.trim();
+  const em  = document.getElementById('em').value.trim();
+  const org = document.getElementById('org').value.trim();
+  const typ = document.getElementById('typ').value;
+  const msg = document.getElementById('msg').value.trim();
+
+  if (!fn || !em || !msg) {
+    alert('Please fill in your name, email, and message before sending.');
+    return;
+  }
+  const subject = encodeURIComponent(
+    'Portfolio Contact' + (typ ? ': ' + typ : '') + (org ? ' — ' + org : '')
+  );
+  const body = encodeURIComponent(
+    'From: ' + fn + ' ' + ln +
+    '\nEmail: ' + em +
+    (org ? '\nOrganisation: ' + org : '') +
+    (typ ? '\nType: ' + typ : '') +
+    '\n\n' + msg
+  );
+  window.location.href = 'mailto:m.hassan.masood@hotmail.com?subject=' + subject + '&body=' + body;
+
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = '✓ Sent';
+  btn.style.background = 'var(--green)';
+  btn.disabled = true;
+  document.getElementById('formSuccess').style.display = 'block';
+}
+</script>
+</body>
+</html>
