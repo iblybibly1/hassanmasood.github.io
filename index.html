@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hassan Masood — Sustainable Business Developer</title>
+  <meta name="description" content="Finland-based International Business professional specialising in ESG compliance, operations, and data-driven strategy."/>
+  <link rel="canonical" href="https://hassanmasood.fi/"/>
+  <link rel="stylesheet" href="css/main.css"/>
+  <style>
+  /* ─── HERO ─────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    padding-top: var(--nav-h);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 55% 70% at 70% 40%, rgba(79,140,247,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 50% at 20% 80%, rgba(52,211,153,0.04) 0%, transparent 55%);
+  }
+  .hero-grid-bg {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.35;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 72px 72px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+  .hero-inner {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr 420px;
+    gap: 5rem; align-items: center;
+    padding: 4rem 0 5rem;
+  }
+
+  /* Name block */
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 7.5vw, 7.5rem);
+    font-weight: 800; line-height: 0.95;
+    letter-spacing: -0.035em; color: var(--text-1);
+    margin-bottom: 1.5rem;
+  }
+  .hero-name .line-dim {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(240,244,255,0.2);
+  }
+
+  .hero-title-badge {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--bg-overlay); border: 1px solid var(--border);
+    border-radius: 100px; padding: 0.4rem 1rem;
+    font-size: 0.82rem; font-weight: 500; color: var(--text-2);
+    margin-bottom: 1.75rem;
+  }
+  .hero-title-badge .badge-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 0 2px rgba(52,211,153,0.2);
+    animation: live-pulse 2s infinite;
+  }
+
+  .hero-desc {
+    font-size: 1.05rem; font-weight: 300;
+    line-height: 1.82; color: var(--text-2);
+    max-width: 52ch; margin-bottom: 2.25rem;
+  }
+  .hero-desc strong { color: var(--text-1); font-weight: 500; }
+
+  .hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+
+  .hero-meta {
+    display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    display: flex; align-items: center; gap: 0.45rem;
+    font-family: var(--font-mono); font-size: 0.68rem;
+    font-weight: 400; letter-spacing: 0.08em; color: var(--text-3);
+  }
+  .hero-meta-item svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+  /* ─── PROFILE CARD ─── */
+  .profile-card {
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    animation: fadeIn 1s 0.4s both;
+  }
+  .profile-photo {
+    height: 280px; background: var(--bg-overlay);
+    position: relative; overflow: hidden;
+  }
+  .profile-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top center;
+    transition: transform 0.5s ease;
+  }
+  .profile-card:hover .profile-photo img { transform: scale(1.03); }
+  .profile-photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 4.5rem;
+    font-weight: 800; color: var(--text-3);
+    letter-spacing: -0.04em;
+  }
+  .profile-photo-badge {
+    position: absolute; bottom: 1rem; left: 1rem;
+    background: rgba(6,10,20,0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.3rem 0.75rem;
+    display: flex; align-items: center; gap: 0.45rem;
+    font-family: var(--font-mono); font-size: 0.62rem;
+    font-weight: 500; color: var(--green); letter-spacing: 0.08em;
+  }
+
+  .profile-body { padding: 1.5rem; }
+  .profile-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem; font-weight: 700;
+    letter-spacing: -0.02em; color: var(--text-1);
+    margin-bottom: 0.15rem;
+  }
+  .profile-role {
+    font-size: 0.8rem; font-weight: 400; color: var(--text-3);
+    margin-bottom: 1.25rem;
+  }
+  .profile-stats {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm); overflow: hidden;
+    margin-bottom: 1.25rem;
+  }
+  .profile-stat {
+    background: var(--bg-overlay); padding: 0.8rem 0.5rem;
+    text-align: center;
+  }
+  .profile-stat-n {
+    font-family: var(--font-display);
+    font-size: 1.35rem; font-weight: 800;
+    letter-spacing: -0.02em; color: var(--text-1);
+    line-height: 1;
+  }
+  .profile-stat-l {
+    font-family: var(--font-mono); font-size: 0.55rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-3); margin-top: 0.2rem;
+  }
+  .profile-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+  /* ─── EXPERIENCE STRIP ─── */
+  .exp-strip { border-top: 1px solid var(--border); }
+  .exp-strip-inner {
+    display: flex; flex-direction: column;
+  }
+  .exp-strip-item {
+    display: grid;
+    grid-template-columns: 160px 1fr max-content;
+    gap: 2rem; align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.18s;
+    border-radius: var(--radius-sm);
+    cursor: default;
+  }
+  .exp-strip-item:last-child { border-bottom: none; }
+  .exp-strip-item:hover { background: var(--bg-raised); padding-left: 1rem; padding-right: 1rem; margin: 0 -1rem; }
+  .exp-date-text {
+    font-family: var(--font-mono); font-size: 0.68rem;
+    font-weight: 400; letter-spacing: 0.06em; color: var(--text-3);
+  }
+  .exp-strip-role {
+    font-family: var(--font-display);
+    font-size: 1.05rem; font-weight: 700;
+    letter-spacing: -0.01em; color: var(--text-1);
+    margin-bottom: 0.2rem;
+  }
+  .exp-strip-co {
+    font-size: 0.8rem; font-weight: 400; color: var(--accent);
+  }
+
+  /* ─── AWARDS BAND ─── */
+  .awards-band {
+    background: var(--bg-raised);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .awards-band-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .award-tile {
+    padding: 2.25rem 2rem;
+    border-right: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 0.4rem;
+    transition: background 0.2s;
+  }
+  .award-tile:last-child { border-right: none; }
+  .award-tile:hover { background: var(--bg-overlay); }
+  .award-n {
+    font-family: var(--font-display);
+    font-size: 2rem; font-weight: 800;
+    letter-spacing: -0.03em; color: var(--text-1); line-height: 1;
+  }
+  .award-n.blue { color: var(--accent); }
+  .award-title-text {
+    font-size: 0.82rem; font-weight: 500; color: var(--text-1);
+    line-height: 1.4;
+  }
+  .award-org-text {
+    font-family: var(--font-mono); font-size: 0.62rem;
+    letter-spacing: 0.05em; color: var(--text-3);
+  }
+
+  /* ─── CTA SECTION ─── */
+  .cta-section {
+    position: relative; overflow: hidden; text-align: center;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(79,140,247,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  /* Hero load animations */
+  .hero-left > * { animation: fadeUp 0.7s both; }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.32s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.44s; }
+  .hero-left > *:nth-child(5) { animation-delay: 0.52s; }
+
+  @media (max-width: 1060px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-right { max-width: 400px; }
+  }
+  @media (max-width: 720px) {
+    .hero-right { display: none; }
+    .awards-band-grid { grid-template-columns: 1fr 1fr; }
+    .award-tile:nth-child(2) { border-right: none; }
+    .award-tile:nth-child(3) { border-top: 1px solid var(--border); }
+    .exp-strip-item { grid-template-columns: 1fr; gap: 0.35rem; }
+    .exp-date-text  { display: none; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────── -->
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">Hassan<span class="dot">.</span></a>
+  <div class="nav-center">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="work.html">Work</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right">
+    <div class="nav-pill">
+      <div class="nav-pill-dot"></div>
+      Open to work
+    </div>
+    <a href="contact.html" class="nav-cta">Hire me</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<nav class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="work.html">Work</a>
+  <a href="projects.html">Projects</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="drawer-cta">Hire me →</a>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-bg"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-title-badge">
+          <div class="badge-dot"></div>
+          Available for new roles · Inkoo, Finland
+        </div>
+        <h1 class="hero-name">
+          Muhammad<br>
+          Hassan<br>
+          <span class="line-dim">Masood</span>
+        </h1>
+        <p class="hero-desc">
+          Finland-based professional with 5+ years across <strong>ESG compliance, international operations,</strong> and <strong>sales strategy.</strong> BBA graduate of TAMK (CGPA 4.29). Six languages. Competitive strategist, technologist, and builder.
+        </p>
+        <div class="hero-btns">
+          <a href="work.html" class="btn btn-primary btn-lg btn-arrow">View my work</a>
+          <a href="contact.html" class="btn btn-secondary btn-lg">Get in touch</a>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="7" r="3"/><path d="M8 2C5.24 2 3 4.24 3 7c0 4.25 5 7 5 7s5-2.75 5-7c0-2.76-2.24-5-5-5z"/></svg>
+            Inkoo, Länsi-Uusimaa
+          </div>
+          <div class="hero-meta-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="10" rx="1.5"/><path d="M2 6l6 4 6-4"/></svg>
+            m.hassan.masood@hotmail.com
+          </div>
+          <div class="hero-meta-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2a6 6 0 100 12A6 6 0 008 2zM3 8h2m6 0h2M8 3v2m0 6v2"/></svg>
+            github.com/iblybibly1
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="profile-card">
+          <div class="profile-photo">
+            <img src="assets/img/profile.jpg" alt="M. Hassan Masood"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="profile-photo-placeholder" style="display:none">HM</div>
+            <div class="profile-photo-badge">
+              <div class="nav-pill-dot"></div>
+              Open to work
+            </div>
+          </div>
+          <div class="profile-body">
+            <div class="profile-name">M. Hassan Masood</div>
+            <div class="profile-role">Sustainable Business Developer · Inkoo, FI</div>
+            <div class="profile-stats">
+              <div class="profile-stat">
+                <div class="profile-stat-n">4.29</div>
+                <div class="profile-stat-l">GPA / 5</div>
+              </div>
+              <div class="profile-stat">
+                <div class="profile-stat-n">6+</div>
+                <div class="profile-stat-l">Languages</div>
+              </div>
+              <div class="profile-stat">
+                <div class="profile-stat-n">5+</div>
+                <div class="profile-stat-l">Yrs exp</div>
+              </div>
+            </div>
+            <div class="profile-chips">
+              <span class="tag tag-green">ESG · CSRD</span>
+              <span class="tag tag-blue">CBAM</span>
+              <span class="tag">Power BI</span>
+              <span class="tag">Salesforce</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE STRIP ──────────────────────────────────── -->
+<section class="section-sm exp-strip">
+  <div class="container">
+    <div class="section-header-row reveal" style="margin-bottom:2rem">
+      <div>
+        <div class="eyebrow">Experience</div>
+        <h2 class="heading-md">Recent positions</h2>
+      </div>
+      <a href="work.html" class="btn btn-ghost btn-md btn-arrow">Full history</a>
+    </div>
+    <div class="exp-strip-inner">
+      <div class="exp-strip-item reveal">
+        <div class="exp-date-text">Mar – Dec 2025</div>
+        <div>
+          <div class="exp-strip-role">Sales Development Rep & Project Lead</div>
+          <div class="exp-strip-co">FinSell Oy</div>
+        </div>
+        <div class="tags-row" style="margin-top:0">
+          <span class="tag tag-blue">Sales</span>
+          <span class="tag">CRM</span>
+          <span class="tag">HubSpot</span>
+        </div>
+      </div>
+      <div class="exp-strip-item reveal reveal-d1">
+        <div class="exp-date-text">Jun – Oct 2024</div>
+        <div>
+          <div class="exp-strip-role">ESG & CSRD Compliance Specialist</div>
+          <div class="exp-strip-co">Tammer Brands Oy</div>
+        </div>
+        <div class="tags-row" style="margin-top:0">
+          <span class="tag tag-green">ESG</span>
+          <span class="tag tag-green">CBAM</span>
+          <span class="tag tag-green">LCA</span>
+        </div>
+      </div>
+      <div class="exp-strip-item reveal reveal-d2">
+        <div class="exp-date-text">2023 – 2024</div>
+        <div>
+          <div class="exp-strip-role">Strategy Consultant</div>
+          <div class="exp-strip-co">Tampere Business Case Club</div>
+        </div>
+        <div class="tags-row" style="margin-top:0">
+          <span class="tag">Strategy</span>
+          <span class="tag">Consulting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── AWARDS BAND ───────────────────────────────────────── -->
+<section class="awards-band section-sm">
+  <div class="container">
+    <div class="eyebrow reveal" style="margin-bottom:1.75rem">Recognition</div>
+    <div class="awards-band-grid reveal">
+      <div class="award-tile">
+        <div class="award-n blue">3rd</div>
+        <div class="award-title-text">Huawei Tech Arena Finland</div>
+        <div class="award-org-text">UI/UX · HarmonyOS · 2025</div>
+      </div>
+      <div class="award-tile">
+        <div class="award-n">1st</div>
+        <div class="award-title-text">Sales Pitch Competition</div>
+        <div class="award-org-text">Platform 6 · Feb 2023</div>
+      </div>
+      <div class="award-tile">
+        <div class="award-n">1st</div>
+        <div class="award-title-text">Business Startup Competition</div>
+        <div class="award-org-text">TAMK · Mar 2022</div>
+      </div>
+      <div class="award-tile">
+        <div class="award-n blue">OCI</div>
+        <div class="award-title-text">Oracle AI Foundations Associate</div>
+        <div class="award-org-text">Oracle · Dec 2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────── -->
+<section class="section-lg cta-section">
+  <div class="container" style="position:relative;z-index:1;text-align:center">
+    <div class="eyebrow reveal" style="justify-content:center">Let's talk</div>
+    <h2 class="heading-lg reveal reveal-d1" style="margin-bottom:1.25rem; color:var(--text-1)">
+      Open to new<br><span class="text-gradient">opportunities.</span>
+    </h2>
+    <p class="lead reveal reveal-d2" style="max-width:48ch;margin:0 auto 2.5rem">
+      Targeting roles in sustainability, compliance, operations, finance, and tech. Based in Inkoo — open to the wider Uusimaa region and relocation. Target: €3,500–4,000/month.
+    </p>
+    <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap" class="reveal reveal-d3">
+      <a href="contact.html" class="btn btn-primary btn-lg btn-arrow">Get in touch</a>
+      <a href="work.html" class="btn btn-ghost btn-lg">View full CV</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">Hassan<span class="dot">.</span></a>
+      <nav class="footer-nav">
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://github.com/iblybibly1" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+      <span class="footer-copy">© 2025 M. Hassan Masood · Inkoo, Finland</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
