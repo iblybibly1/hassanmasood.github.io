@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Projects & Awards — Hassan Masood</title>
+  <link rel="stylesheet" href="css/main.css"/>
+  <style>
+  .proj-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:1.5rem; }
+  .proj-card {
+    background:var(--bg-raised); border:1px solid var(--border);
+    border-radius:var(--radius-lg); padding:2rem;
+    display:flex; flex-direction:column; gap:0.85rem;
+    position:relative; overflow:hidden;
+    transition:border-color 0.22s, box-shadow 0.22s, transform 0.22s;
+  }
+  .proj-card::after {
+    content:''; position:absolute;
+    top:0; left:0; right:0; height:2px;
+    background:linear-gradient(90deg,var(--accent),var(--green));
+    transform:scaleX(0); transform-origin:left;
+    transition:transform 0.35s cubic-bezier(0.23,1,0.32,1);
+  }
+  .proj-card:hover { border-color:var(--border-hover); box-shadow:var(--shadow-md); transform:translateY(-3px); }
+  .proj-card:hover::after { transform:scaleX(1); }
+
+  .proj-header { display:flex; align-items:center; justify-content:space-between; gap:0.75rem; }
+  .proj-cat { font-family:var(--font-mono); font-size:0.62rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); }
+  .proj-badge {
+    font-family:var(--font-mono); font-size:0.58rem; font-weight:500;
+    letter-spacing:0.08em; padding:0.2rem 0.6rem; border-radius:100px;
+    background:var(--green-dim); color:var(--green);
+    border:1px solid rgba(52,211,153,0.25); white-space:nowrap;
+  }
+  .proj-badge.wip { background:var(--bg-overlay); color:var(--text-3); border-color:var(--border); }
+
+  .proj-name { font-family:var(--font-display); font-size:1.3rem; font-weight:700; letter-spacing:-0.02em; color:var(--text-1); line-height:1.15; }
+  .proj-desc { font-size:0.87rem; font-weight:300; line-height:1.7; color:var(--text-2); flex:1; }
+
+  .proj-footer { display:flex; align-items:center; justify-content:space-between; gap:0.75rem; flex-wrap:wrap; margin-top:auto; padding-top:1rem; border-top:1px solid var(--border); }
+  .proj-link {
+    display:inline-flex; align-items:center; gap:0.35rem;
+    font-family:var(--font-mono); font-size:0.65rem; font-weight:500;
+    letter-spacing:0.08em; text-transform:uppercase; color:var(--accent);
+    transition:gap 0.18s, opacity 0.18s;
+  }
+  .proj-link:hover { gap:0.6rem; }
+  .proj-link svg { width:11px; height:11px; flex-shrink:0; }
+
+  /* Awards */
+  .awards-list { display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; }
+  .award-row {
+    background:var(--bg-raised); padding:1.75rem 2rem;
+    display:grid; grid-template-columns:72px 1fr auto;
+    align-items:center; gap:2rem;
+    transition:background 0.18s;
+  }
+  .award-row:hover { background:var(--bg-overlay); }
+  .award-rank {
+    font-family:var(--font-display); font-size:1.6rem; font-weight:800;
+    letter-spacing:-0.03em; color:var(--text-1); line-height:1;
+  }
+  .award-rank.accent { color:var(--accent); }
+  .award-info-title { font-family:var(--font-display); font-size:1rem; font-weight:700; letter-spacing:-0.01em; color:var(--text-1); margin-bottom:0.2rem; }
+  .award-info-org   { font-size:0.8rem; font-weight:400; color:var(--text-3); }
+  .award-info-desc  { font-size:0.8rem; font-weight:300; color:var(--text-2); margin-top:0.35rem; line-height:1.5; }
+  .award-year-pill  {
+    font-family:var(--font-mono); font-size:0.62rem; font-weight:500;
+    letter-spacing:0.06em; white-space:nowrap;
+    padding:0.3rem 0.75rem; border-radius:100px;
+    background:var(--bg-overlay); border:1px solid var(--border); color:var(--text-3);
+  }
+
+  @media(max-width:640px) {
+    .award-row { grid-template-columns:52px 1fr; gap:1rem; }
+    .award-year-pill { display:none; }
+  }
+  </style>
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">Hassan<span class="dot">.</span></a>
+  <div class="nav-center">
+    <a href="index.html">Home</a><a href="about.html">About</a>
+    <a href="work.html">Work</a><a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right">
+    <div class="nav-pill"><div class="nav-pill-dot"></div>Open to work</div>
+    <a href="contact.html" class="nav-cta">Hire me</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="work.html">Work</a>
+  <a href="projects.html">Projects</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="drawer-cta">Hire me →</a>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="eyebrow reveal">Portfolio</div>
+    <h1 class="heading-xl reveal reveal-d1">Projects &<br>Awards.</h1>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow reveal">Selected work</div>
+    <h2 class="heading-md reveal reveal-d1" style="margin-bottom:2.5rem">Projects</h2>
+    <div class="proj-grid">
+
+      <div class="proj-card reveal">
+        <div class="proj-header">
+          <span class="proj-cat">E-Commerce · International</span>
+          <span class="proj-badge">Live</span>
+        </div>
+        <div class="proj-name">Arctic Finds</div>
+        <p class="proj-desc">Independently built and operated a profitable international digital store. Managed product sourcing, logistics, international payments, and cross-border fulfilment — fully self-funded, with customers across multiple countries.</p>
+        <div class="tags-row"><span class="tag">E-Commerce</span><span class="tag">International Sales</span><span class="tag">Logistics</span><span class="tag">Entrepreneurship</span></div>
+        <div class="proj-footer">
+          <div></div>
+          <a href="https://arcticfinds.com" class="proj-link" target="_blank" rel="noopener">
+            arcticfinds.com
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M4 2h6v6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="proj-card reveal reveal-d1">
+        <div class="proj-header">
+          <span class="proj-cat">UI/UX · HarmonyOS</span>
+          <span class="proj-badge">3rd Place</span>
+        </div>
+        <div class="proj-name">Huawei Tech Arena Finland 2025</div>
+        <p class="proj-desc">Developed a complete UI/UX interface for Huawei's HarmonyOS using Vanilla JS and WebGL. Placed 3rd nationally at Finland's premier Huawei developer competition — the only non-CS competitor on the podium.</p>
+        <div class="tags-row"><span class="tag tag-blue">UI/UX Design</span><span class="tag">HarmonyOS</span><span class="tag">Vanilla JS</span><span class="tag">WebGL</span></div>
+        <div class="proj-footer">
+          <span class="tag">Dec 2025</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal reveal-d2">
+        <div class="proj-header">
+          <span class="proj-cat">Finance · Automation</span>
+        </div>
+        <div class="proj-name">Algorithmic Trading Tools</div>
+        <p class="proj-desc">Self-trained in financial markets since 2012 across stocks, options, and futures. Built custom trading bots and KPI indicators combining technical and fundamental analysis, options strategies, and forward market analysis in automated Python workflows.</p>
+        <div class="tags-row"><span class="tag">Python</span><span class="tag">Algo Trading</span><span class="tag">Options</span><span class="tag">Futures</span><span class="tag">Technical Analysis</span></div>
+        <div class="proj-footer">
+          <div></div>
+          <a href="https://github.com/iblybibly1" class="proj-link" target="_blank" rel="noopener">
+            GitHub
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M4 2h6v6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-header">
+          <span class="proj-cat">Mobile · Development</span>
+          <span class="proj-badge wip">In Progress</span>
+        </div>
+        <div class="proj-name">Android App</div>
+        <p class="proj-desc">Building a simple Android application for publication on the Google Play Store. Exploring end-to-end product design, mobile UX, and independent app distribution as a hands-on development initiative.</p>
+        <div class="tags-row"><span class="tag">Android</span><span class="tag">Google Play</span><span class="tag">Mobile Dev</span></div>
+        <div class="proj-footer">
+          <span class="tag">2025 →</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal reveal-d1">
+        <div class="proj-header">
+          <span class="proj-cat">Film · Sustainability</span>
+        </div>
+        <div class="proj-name">Karu Films Documentary</div>
+        <p class="proj-desc">Performed as a foreign sustainability expert in a documentary by Karu Films Oy, Tampere (June 2024) — scriptless, on-site roleplay format exploring sustainable business practices in the Finnish context.</p>
+        <div class="tags-row"><span class="tag">Sustainability</span><span class="tag">Documentary</span><span class="tag">Public Speaking</span></div>
+        <div class="proj-footer">
+          <span class="tag">Jun 2024</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal reveal-d2">
+        <div class="proj-header">
+          <span class="proj-cat">Finance · Education</span>
+        </div>
+        <div class="proj-name">Tampere Capital RY Lecture</div>
+        <p class="proj-desc">Delivered a guest lecture on private equities and financial markets at Tampere Capital RY (April 2023) — covering investment vehicles, market structure, and portfolio strategy for a student finance audience.</p>
+        <div class="tags-row"><span class="tag">Finance</span><span class="tag">Public Speaking</span><span class="tag">Private Equity</span></div>
+        <div class="proj-footer">
+          <span class="tag">Apr 2023</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider-glow"></div>
+
+<!-- AWARDS -->
+<section class="section" style="background:var(--bg-raised)">
+  <div class="container">
+    <div class="eyebrow reveal">Recognition</div>
+    <h2 class="heading-md reveal reveal-d1" style="margin-bottom:2.5rem">Awards & competitions</h2>
+    <div class="awards-list reveal reveal-d2">
+      <div class="award-row">
+        <div class="award-rank accent">3rd</div>
+        <div>
+          <div class="award-info-title">Huawei Tech Arena Finland 2025</div>
+          <div class="award-info-org">Huawei Technologies</div>
+          <div class="award-info-desc">UI/UX interface for HarmonyOS using Vanilla JS & WebGL. Only non-CS competitor on the podium.</div>
+        </div>
+        <span class="award-year-pill">Dec 2025</span>
+      </div>
+      <div class="award-row">
+        <div class="award-rank" style="font-size:1.1rem;color:var(--text-2)">Final</div>
+        <div>
+          <div class="award-info-title">International Sales Competition 2024</div>
+          <div class="award-info-org">Haaga-Helia University of Applied Sciences</div>
+          <div class="award-info-desc">Represented Tampere University against Finland's top business school students.</div>
+        </div>
+        <span class="award-year-pill">2024</span>
+      </div>
+      <div class="award-row">
+        <div class="award-rank">1st</div>
+        <div>
+          <div class="award-info-title">Sales Pitch Competition</div>
+          <div class="award-info-org">Platform 6, Tampere</div>
+          <div class="award-info-desc">First place demonstrating persuasion, product knowledge, and presentation under competitive pressure.</div>
+        </div>
+        <span class="award-year-pill">Feb 2023</span>
+      </div>
+      <div class="award-row">
+        <div class="award-rank">1st</div>
+        <div>
+          <div class="award-info-title">Business Startup Competition</div>
+          <div class="award-info-org">Tampere University of Applied Sciences</div>
+          <div class="award-info-desc">First place for business model, pitch, and commercial viability — judged by industry experts.</div>
+        </div>
+        <span class="award-year-pill">Mar 2022</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container"><div class="footer-inner">
+    <a href="index.html" class="footer-logo">Hassan<span class="dot">.</span></a>
+    <nav class="footer-nav"><a href="about.html">About</a><a href="work.html">Work</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a><a href="https://github.com/iblybibly1" target="_blank">GitHub</a></nav>
+    <span class="footer-copy">© 2025 M. Hassan Masood · Inkoo, Finland</span>
+  </div></div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
