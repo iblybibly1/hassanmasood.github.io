@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Work & Education — Hassan Masood</title>
+  <link rel="stylesheet" href="css/main.css"/>
+  <style>
+  /* Timeline */
+  .timeline { position:relative; }
+  .timeline::before {
+    content:''; position:absolute;
+    left:0; top:6px; bottom:0;
+    width:1px; background:linear-gradient(to bottom, var(--accent) 0%, var(--border) 80%, transparent 100%);
+  }
+  .tl-item {
+    display:grid; grid-template-columns:200px 1fr;
+    gap:2.5rem; padding:0 0 3.5rem 2.5rem;
+    position:relative;
+  }
+  .tl-item:last-child { padding-bottom:0; }
+  .tl-dot {
+    position:absolute; left:-5px; top:5px;
+    width:11px; height:11px; border-radius:50%;
+    background:var(--bg-base); border:2px solid var(--accent);
+    transition:background 0.2s;
+  }
+  .tl-item:hover .tl-dot { background:var(--accent); box-shadow:0 0 0 4px var(--accent-dim); }
+  .tl-left { padding-top:0.2rem; }
+  .tl-date {
+    font-family:var(--font-mono); font-size:0.68rem;
+    font-weight:500; letter-spacing:0.06em; color:var(--text-3);
+    display:block; margin-bottom:0.5rem;
+  }
+  .tl-co {
+    font-size:0.78rem; font-weight:600; color:var(--accent);
+    letter-spacing:0.02em;
+  }
+  .tl-role {
+    font-family:var(--font-display); font-size:clamp(1.2rem,2.2vw,1.65rem);
+    font-weight:700; letter-spacing:-0.02em; color:var(--text-1);
+    line-height:1.15; margin-bottom:1.1rem;
+  }
+  .tl-bullets { list-style:none; display:flex; flex-direction:column; gap:0.55rem; margin-bottom:1.1rem; }
+  .tl-bullets li {
+    font-size:0.88rem; font-weight:300; line-height:1.7;
+    color:var(--text-2); padding-left:1.1rem; position:relative;
+  }
+  .tl-bullets li::before {
+    content:''; position:absolute; left:0; top:0.65rem;
+    width:4px; height:1.5px; background:var(--accent); border-radius:1px;
+  }
+
+  /* Education */
+  .edu-cards { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+  .edu-card {
+    background:var(--bg-raised); border:1px solid var(--border);
+    border-radius:var(--radius-lg); overflow:hidden;
+    transition:border-color 0.2s, box-shadow 0.2s;
+  }
+  .edu-card:hover { border-color:var(--border-hover); box-shadow:var(--shadow-md); }
+  .edu-card-top {
+    background:var(--bg-overlay); padding:2rem;
+    border-bottom:1px solid var(--border);
+  }
+  .edu-year {
+    font-family:var(--font-mono); font-size:0.65rem;
+    font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:0.75rem; display:block;
+  }
+  .edu-inst {
+    font-family:var(--font-display); font-size:1.35rem;
+    font-weight:700; letter-spacing:-0.02em; color:var(--text-1);
+    line-height:1.15; margin-bottom:0.5rem;
+  }
+  .edu-degree { font-size:0.85rem; font-weight:300; color:var(--text-2); line-height:1.6; }
+  .edu-card-body { padding:1.75rem 2rem; }
+  .edu-highlights { list-style:none; display:flex; flex-direction:column; gap:0.55rem; }
+  .edu-highlights li {
+    font-size:0.83rem; font-weight:300; color:var(--text-2);
+    padding-left:1rem; position:relative; line-height:1.55;
+  }
+  .edu-highlights li::before {
+    content:''; position:absolute; left:0; top:0.6rem;
+    width:4px; height:4px; border-radius:50%; background:var(--green);
+  }
+
+  /* Certifications */
+  .cert-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; }
+  .cert-item {
+    background:var(--bg-raised); padding:1.5rem;
+    display:flex; align-items:flex-start; gap:1rem;
+    transition:background 0.18s;
+  }
+  .cert-item:hover { background:var(--bg-overlay); }
+  .cert-badge {
+    width:44px; height:44px; flex-shrink:0;
+    background:var(--accent-dim); border:1px solid var(--border-accent);
+    border-radius:var(--radius-sm);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-mono); font-size:0.58rem;
+    font-weight:500; letter-spacing:0.06em; color:var(--accent);
+    text-transform:uppercase;
+  }
+  .cert-name { font-size:0.88rem; font-weight:500; color:var(--text-1); margin-bottom:0.2rem; line-height:1.4; }
+  .cert-org  { font-family:var(--font-mono); font-size:0.62rem; letter-spacing:0.06em; color:var(--text-3); }
+
+  @media(max-width:760px) {
+    .tl-item { grid-template-columns:1fr; gap:0.35rem; padding-left:2rem; }
+    .tl-left { display:flex; gap:0.75rem; flex-wrap:wrap; align-items:baseline; }
+    .edu-cards { grid-template-columns:1fr; }
+  }
+  </style>
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">Hassan<span class="dot">.</span></a>
+  <div class="nav-center">
+    <a href="index.html">Home</a><a href="about.html">About</a>
+    <a href="work.html">Work</a><a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right">
+    <div class="nav-pill"><div class="nav-pill-dot"></div>Open to work</div>
+    <a href="contact.html" class="nav-cta">Hire me</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="work.html">Work</a>
+  <a href="projects.html">Projects</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="drawer-cta">Hire me →</a>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="eyebrow reveal">Career</div>
+    <h1 class="heading-xl reveal reveal-d1">Work &<br>Education.</h1>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow reveal">Professional history</div>
+    <h2 class="heading-md reveal reveal-d1" style="margin-bottom:3.5rem">Experience</h2>
+    <div class="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-left">
+          <span class="tl-date">Mar 2025 – Dec 2025</span>
+          <div class="tl-co">FinSell Oy</div>
+        </div>
+        <div>
+          <div class="tl-role">Sales Development Rep<br>& Project Lead</div>
+          <ul class="tl-bullets">
+            <li>Recruited, trained, and managed the outdoor sales team for World Vision fundraising campaigns, driving targeted growth of the donor and supporter base.</li>
+            <li>Led donor acquisition in a high-velocity field environment; consistently met campaign targets.</li>
+            <li>Managed CRM workflows and reporting via HubSpot, MS Office, Excel, and Google Workspace; owned scheduling and stakeholder communications.</li>
+            <li>Structured onboarding and motivational frameworks for incoming sales representatives.</li>
+          </ul>
+          <div class="tags-row"><span class="tag tag-blue">Sales</span><span class="tag">CRM</span><span class="tag">Team Leadership</span><span class="tag">HubSpot</span><span class="tag">Fundraising</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-left">
+          <span class="tl-date">Jun 2024 – Oct 2024</span>
+          <div class="tl-co">Tammer Brands Oy</div>
+        </div>
+        <div>
+          <div class="tl-role">ESG & CSRD<br>Compliance Specialist</div>
+          <ul class="tl-bullets">
+            <li>Implemented EU Carbon Border Adjustment Mechanism (CBAM) and ESG/CSRD compliance frameworks; coordinated supplier data with Finnish Customs (Tulli) and submitted records directly to the EU portal.</li>
+            <li>Identified and reclassified CN codes for imported product lines, directly reducing applicable customs duties and improving tariff classification accuracy.</li>
+            <li>Conducted Life Cycle Assessment (LCA) data collection across the product supply chain to underpin sustainability disclosures and emissions reporting.</li>
+            <li>Led cross-functional CBAM knowledge-sharing sessions and trained supplier partners on compliance obligations and data submission requirements.</li>
+            <li>Managed risk assessments and Product Quality Book (PQB) evaluations in line with EU import legislation.</li>
+          </ul>
+          <div class="tags-row"><span class="tag tag-green">ESG</span><span class="tag tag-green">CSRD</span><span class="tag tag-green">CBAM</span><span class="tag">LCA</span><span class="tag">CN Codes</span><span class="tag">Tulli / Customs</span><span class="tag">Risk Assessment</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-left">
+          <span class="tl-date">May 2023 – Dec 2024</span>
+          <div class="tl-co">Tampere Business Case Club</div>
+        </div>
+        <div>
+          <div class="tl-role">Strategy Consultant</div>
+          <ul class="tl-bullets">
+            <li>Advised international organisations — including Lufthansa, Sidoste, and TeamViewer — on complex strategic business cases as a core consulting team member.</li>
+            <li>Conducted market research, competitor benchmarking, and financial analysis; delivered recommendations to senior stakeholders.</li>
+            <li>Represented Tampere University at International Business Case Consulting Competition and European Sales Competition 2024 (Haaga-Helia UAS).</li>
+          </ul>
+          <div class="tags-row"><span class="tag">Strategy</span><span class="tag">Consulting</span><span class="tag">Market Research</span><span class="tag">Financial Analysis</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-left">
+          <span class="tl-date">Jun 2020 – Mar 2021</span>
+          <div class="tl-co">Environmental Consultancies & Options</div>
+        </div>
+        <div>
+          <div class="tl-role">Assistant Manager</div>
+          <ul class="tl-bullets">
+            <li>Implemented a streamlined supply chain in Punjab connecting 2,400 waste collection centres, significantly reducing operational lead time.</li>
+            <li>Hired, trained, and managed the complete waste collection and disposal team.</li>
+            <li>Managed regulatory documentation and renewed government licences for hazardous chemical handling.</li>
+          </ul>
+          <div class="tags-row"><span class="tag">Operations</span><span class="tag">Supply Chain</span><span class="tag">Compliance</span><span class="tag">Team Management</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-left">
+          <span class="tl-date">Dec 2017 – Jan 2020</span>
+          <div class="tl-co">Vapemall PK</div>
+        </div>
+        <div>
+          <div class="tl-role">Business Development Manager</div>
+          <ul class="tl-bullets">
+            <li>Scaled the business from online-only to multiple successful brick-and-mortar locations.</li>
+            <li>Managed end-to-end supply chain: invoicing, shipment clearance, inventory control, and delivery logistics.</li>
+            <li>Served as financial advisor and strategic sales coordinator through the expansion phase.</li>
+          </ul>
+          <div class="tags-row"><span class="tag">Business Dev</span><span class="tag">Supply Chain</span><span class="tag">Finance</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider-glow"></div>
+
+<!-- EDUCATION -->
+<section class="section" style="background:var(--bg-raised)">
+  <div class="container">
+    <div class="eyebrow reveal">Academic</div>
+    <h2 class="heading-md reveal reveal-d1" style="margin-bottom:2.5rem">Education</h2>
+    <div class="edu-cards reveal reveal-d2">
+      <div class="edu-card">
+        <div class="edu-card-top">
+          <span class="edu-year">Aug 2021 — Dec 2024</span>
+          <div class="edu-inst">Tampere University of Applied Sciences</div>
+          <div class="edu-degree">BBA — International Business · CGPA 4.29/5.0<br>Specialisations: HR Management · Sustainable Business · Accounting & Finance</div>
+        </div>
+        <div class="edu-card-body">
+          <ul class="edu-highlights">
+            <li>Thesis: Conflict Management in Finnish Multinational Corporations</li>
+            <li>Exchange: Ondokuz Mayıs University, Turkey — International Economics, Regional Development, Advanced Accounting</li>
+            <li>External studies at Metropolia UAS (Marketing)</li>
+            <li>1st place · Sales Pitch Competition — Platform 6 (Feb 2023)</li>
+            <li>1st place · Business Startup Competition — TAMK (Mar 2022)</li>
+            <li>Finalist · International Sales Competition 2024 — Haaga-Helia UAS</li>
+            <li>Profitable international digital store: arcticfinds.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-card-top">
+          <span class="edu-year">Aug 2018 — Aug 2020</span>
+          <div class="edu-inst">University of Cambridge</div>
+          <div class="edu-degree">Cambridge Advanced Level (A-Level)</div>
+        </div>
+        <div class="edu-card-body">
+          <ul class="edu-highlights">
+            <li>Business</li>
+            <li>Information Technology</li>
+            <li>English Language</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-glow"></div>
+
+<!-- CERTIFICATIONS -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow reveal">Credentials</div>
+    <h2 class="heading-md reveal reveal-d1" style="margin-bottom:2.5rem">Certifications</h2>
+    <div class="cert-grid reveal reveal-d2">
+      <div class="cert-item"><div class="cert-badge">OCI</div><div><div class="cert-name">Oracle AI Foundations Associate</div><div class="cert-org">Oracle · Dec 2024</div></div></div>
+      <div class="cert-item"><div class="cert-badge">PBI</div><div><div class="cert-name">Power BI Data Methods</div><div class="cert-org">LinkedIn Learning · Dec 2024</div></div></div>
+      <div class="cert-item"><div class="cert-badge">TAB</div><div><div class="cert-name">Tableau Certified Data Analyst (Prep)</div><div class="cert-org">LinkedIn Learning · Dec 2024</div></div></div>
+      <div class="cert-item"><div class="cert-badge">ENT</div><div><div class="cert-name">Entrepreneurial Thinking & Change Leadership</div><div class="cert-org">Tampere Universities · Dec 2024</div></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container"><div class="footer-inner">
+    <a href="index.html" class="footer-logo">Hassan<span class="dot">.</span></a>
+    <nav class="footer-nav"><a href="about.html">About</a><a href="work.html">Work</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a><a href="https://github.com/iblybibly1" target="_blank">GitHub</a></nav>
+    <span class="footer-copy">© 2025 M. Hassan Masood · Inkoo, Finland</span>
+  </div></div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
