@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Harmony Horses — Luxury Equestrian</title>
+  <link rel="stylesheet" href="css/main.css"/>
+  <style>
+  body{background:var(--black)}
+  .hero{min-height:100vh;padding-top:var(--nav-h);display:flex;align-items:center;position:relative;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--black) 0%,#1A1408 60%,var(--black) 100%)}
+  .hero-pattern{position:absolute;inset:0;opacity:.035;background-image:repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 50%);background-size:24px 24px}
+  .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:5rem 0}
+  .hero-pre{font-family:var(--body);font-size:.65rem;font-weight:500;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.75rem;margin-bottom:1.75rem;animation:fadeUp .7s .1s both}
+  .hero-pre::before{content:'';width:2rem;height:1px;background:var(--gold)}
+  h1{animation:fadeUp .8s .25s both}
+  .hero-tagline{font-family:var(--display);font-size:1.1rem;font-weight:300;font-style:italic;color:var(--text-2);line-height:1.7;max-width:40ch;margin:1.5rem 0 2.5rem;animation:fadeUp .7s .45s both}
+  .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .7s .6s both}
+  .hero-right{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr auto;gap:2px;animation:fadeIn 1s .4s both}
+  .hero-img-tall{grid-row:1/3;overflow:hidden;position:relative;min-height:440px}
+  .hero-img-tall img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-img-tall-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,8,.4) 0%,transparent 50%)}
+  .hero-stat{background:var(--black3);padding:1.6rem;display:flex;flex-direction:column;gap:.3rem;border-left:2px solid var(--border)}
+  .hero-stat-n{font-family:var(--display);font-size:2.4rem;font-weight:300;line-height:1;color:var(--gold)}
+  .hero-stat-l{font-family:var(--body);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)}
+
+  /* FULL BLEED */
+  .img-band{height:400px;overflow:hidden;position:relative}
+  .img-band img{width:100%;height:100%;object-fit:cover;object-position:center 35%}
+  .img-band-ov{position:absolute;inset:0;background:linear-gradient(to bottom,var(--black) 0%,transparent 25%,transparent 75%,var(--black) 100%)}
+
+  /* INTRO */
+  .intro{background:var(--black2)}
+  .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+  .intro-img{aspect-ratio:4/5;overflow:hidden;position:relative}
+  .intro-img::after{content:'';position:absolute;top:-14px;left:-14px;right:14px;bottom:14px;border:1px solid var(--border2);pointer-events:none;z-index:1}
+  .intro-img img{width:100%;height:100%;object-fit:cover;object-position:center top}
+  .intro-quote{font-family:var(--display);font-size:1.25rem;font-weight:300;font-style:italic;color:var(--gold-lt);line-height:1.65;border-left:2px solid var(--gold);padding-left:1.5rem;margin:2rem 0}
+
+  /* SERVICES */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:3rem}
+  .svc-tile{background:var(--black2);display:flex;flex-direction:column;transition:background .25s;position:relative;overflow:hidden}
+  .svc-tile::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+  .svc-tile:hover{background:var(--black3)}
+  .svc-tile:hover::after{transform:scaleX(1)}
+  .svc-thumb{height:180px;overflow:hidden;flex-shrink:0}
+  .svc-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .svc-tile:hover .svc-thumb img{transform:scale(1.05)}
+  .svc-body{padding:2rem;display:flex;flex-direction:column;gap:.65rem;flex:1}
+  .svc-num{font-family:var(--body);font-size:.6rem;letter-spacing:.2em;color:var(--gold)}
+  .svc-name{font-family:var(--display);font-size:1.5rem;font-weight:300;color:var(--text-1);line-height:1.1}
+  .svc-desc{font-size:.85rem;font-weight:300;color:var(--text-2);line-height:1.7;flex:1}
+
+  /* FACILITIES */
+  .fac-strip{background:var(--black3);padding:5.5rem 0}
+  .fac-row{display:flex;gap:2px;background:var(--border);border:1px solid var(--border);margin-top:2.5rem;overflow:hidden}
+  .fac-col{flex:1;background:var(--black2);display:flex;flex-direction:column;overflow:hidden;transition:background .2s}
+  .fac-col:hover{background:var(--black4)}
+  .fac-col-img{height:140px;overflow:hidden}
+  .fac-col-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .fac-col:hover .fac-col-img img{transform:scale(1.06)}
+  .fac-col-body{padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:.35rem}
+  .fac-col-name{font-family:var(--display);font-size:1.1rem;font-weight:300;color:var(--text-1)}
+  .fac-col-desc{font-size:.75rem;font-weight:300;color:var(--text-3);line-height:1.6}
+
+  /* CTA */
+  .cta-band{background:var(--black2);text-align:center;padding:7rem 0}
+  .cta-band .lead{max-width:48ch;margin:0 auto 2.5rem}
+  .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @media(max-width:960px){
+    .hero-inner,.intro-grid{grid-template-columns:1fr}
+    .hero-right{display:none}
+    .svc-grid{grid-template-columns:1fr}
+    .fac-row{flex-wrap:wrap}
+    .fac-col{flex:1 1 45%}
+  }
+  </style>
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">Harmony Horses<span>Luxury Equestrian</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li>
+    <li><a href="facilities.html">Facilities</a></li><li><a href="staff.html">Our team</a></li>
+    <li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-book">Book a visit</a>
+  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+</nav>
+<nav class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="facilities.html">Facilities</a>
+  <a href="staff.html">Our team</a><a href="events.html">Events</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="drawer-book">Book a visit</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-pre">Luxury Equestrian</div>
+        <h1 class="heading-xl">Where horses<br>meet <em>harmony.</em></h1>
+        <p class="hero-tagline">A premier stable where world-class care, expert training, and timeless equestrian tradition come together.</p>
+        <div class="hero-btns">
+          <a href="services.html" class="btn btn-gold">Explore services</a>
+          <a href="contact.html" class="btn btn-outline">Book a visit</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-img-tall">
+          <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=600&q=80&fit=crop" alt="Horse portrait"/>
+          <div class="hero-img-tall-overlay"></div>
+        </div>
+        <div class="hero-stat"><div class="hero-stat-n">15+</div><div class="hero-stat-l">Years of excellence</div></div>
+        <div class="hero-stat"><div class="hero-stat-n">40+</div><div class="hero-stat-l">Resident horses</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="img-band">
+  <img src="https://images.unsplash.com/photo-1534053000-56b6da7c3a98?w=1600&q=80&fit=crop" alt="Horses galloping"/>
+  <div class="img-band-ov"></div>
+</div>
+
+<section class="section intro">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-img reveal">
+        <img src="https://images.unsplash.com/photo-1598974357801-cbca100e65d3?w=700&q=80&fit=crop" alt="Horse in stable"/>
+      </div>
+      <div>
+        <div class="eyebrow reveal">Our philosophy</div>
+        <h2 class="heading-lg reveal reveal-d1">Rooted in <em>respect,</em><br>refined by passion.</h2>
+        <p class="lead reveal reveal-d2" style="margin:1.25rem 0 0">At Harmony Horses, every detail is considered — from the quality of forage to the dedication of our instructors. We believe the bond between horse and rider is built on trust, patience, and mutual understanding.</p>
+        <blockquote class="intro-quote reveal reveal-d2">"The horse is a mirror to your soul — and sometimes you might not like what you see in the mirror."</blockquote>
+        <a href="staff.html" class="btn btn-ghost reveal reveal-d3">Meet our team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--black)">
+  <div class="container">
+    <div class="eyebrow eyebrow-center reveal">What we offer</div>
+    <h2 class="heading-lg reveal reveal-d1" style="text-align:center">Our <em>services</em></h2>
+    <div class="svc-grid reveal reveal-d2">
+      <div class="svc-tile">
+        <div class="svc-thumb"><img src="https://images.unsplash.com/photo-1569017388730-020b5f80a004?w=600&q=80&fit=crop" alt="Riding lessons"/></div>
+        <div class="svc-body">
+          <div class="svc-num">01</div>
+          <div class="svc-name">Riding lessons</div>
+          <p class="svc-desc">Private and group instruction for all ages and skill levels, from first-time riders to competitive equestrians.</p>
+          <a href="services.html" class="btn btn-ghost" style="margin-top:auto">Learn more</a>
+        </div>
+      </div>
+      <div class="svc-tile">
+        <div class="svc-thumb"><img src="https://images.unsplash.com/photo-1576452280497-7e3a2d43e1b1?w=600&q=80&fit=crop" alt="Horse boarding"/></div>
+        <div class="svc-body">
+          <div class="svc-num">02</div>
+          <div class="svc-name">Horse boarding</div>
+          <p class="svc-desc">Full and partial board with spacious stalls, daily turnout, and personalised feeding programmes.</p>
+          <a href="services.html" class="btn btn-ghost" style="margin-top:auto">Learn more</a>
+        </div>
+      </div>
+      <div class="svc-tile">
+        <div class="svc-thumb"><img src="https://images.unsplash.com/photo-1548953359-59d56ae9fe5a?w=600&q=80&fit=crop" alt="Training"/></div>
+        <div class="svc-body">
+          <div class="svc-num">03</div>
+          <div class="svc-name">Training & coaching</div>
+          <p class="svc-desc">Professional competitive training in dressage, show jumping, and cross-country with certified coaches.</p>
+          <a href="services.html" class="btn btn-ghost" style="margin-top:auto">Learn more</a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem" class="reveal">
+      <a href="services.html" class="btn btn-outline">View all services</a>
+    </div>
+  </div>
+</section>
+
+<section class="fac-strip">
+  <div class="container">
+    <div class="eyebrow eyebrow-center reveal">World-class facilities</div>
+    <h2 class="heading-lg reveal reveal-d1" style="text-align:center">Built for <em>excellence</em></h2>
+    <div class="fac-row reveal reveal-d2">
+      <div class="fac-col">
+        <div class="fac-col-img"><img src="https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=400&q=80&fit=crop" alt="Indoor arena"/></div>
+        <div class="fac-col-body"><div class="fac-col-name">Indoor arena</div><div class="fac-col-desc">60×20m heated, premium footing</div></div>
+      </div>
+      <div class="fac-col">
+        <div class="fac-col-img"><img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=400&q=80&fit=crop" alt="Outdoor arena"/></div>
+        <div class="fac-col-body"><div class="fac-col-name">Outdoor arena</div><div class="fac-col-desc">All-weather riding surface</div></div>
+      </div>
+      <div class="fac-col">
+        <div class="fac-col-img"><img src="https://images.unsplash.com/photo-1576452280497-7e3a2d43e1b1?w=400&q=80&fit=crop" alt="Stables"/></div>
+        <div class="fac-col-body"><div class="fac-col-name">40 stables</div><div class="fac-col-desc">Spacious, ventilated, immaculate</div></div>
+      </div>
+      <div class="fac-col">
+        <div class="fac-col-img"><img src="https://images.unsplash.com/photo-1559666126-84f389727b9a?w=400&q=80&fit=crop" alt="Paddocks"/></div>
+        <div class="fac-col-body"><div class="fac-col-name">Paddocks & trails</div><div class="fac-col-desc">30+ hectares of grounds</div></div>
+      </div>
+      <div class="fac-col">
+        <div class="fac-col-img"><img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=400&q=80&fit=crop" alt="Clubhouse"/></div>
+        <div class="fac-col-body"><div class="fac-col-name">Clubhouse & café</div><div class="fac-col-desc">Lounge, café, changing rooms</div></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2rem" class="reveal">
+      <a href="facilities.html" class="btn btn-ghost">Explore all facilities</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <div class="eyebrow eyebrow-center reveal">Begin your journey</div>
+    <h2 class="heading-lg reveal reveal-d1">Ready to <em>ride?</em></h2>
+    <p class="lead reveal reveal-d2">Whether you're a seasoned rider or discovering horses for the first time — we'd love to welcome you to Harmony Horses.</p>
+    <div class="cta-btns reveal reveal-d3">
+      <a href="contact.html" class="btn btn-gold">Book a visit</a>
+      <a href="events.html" class="btn btn-outline">Upcoming events</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-logo-block"><div class="nav-logo">Harmony Horses<span>Luxury Equestrian</span></div><p class="footer-desc">Premier equestrian stables offering world-class boarding, training, and riding experiences.</p></div>
+      <div><div class="footer-col-title">Navigate</div><ul class="footer-links"><li><a href="services.html">Services</a></li><li><a href="facilities.html">Facilities</a></li><li><a href="staff.html">Our team</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="services.html">Riding lessons</a></li><li><a href="services.html">Horse boarding</a></li><li><a href="services.html">Training & coaching</a></li><li><a href="services.html">Horse sales</a></li></ul></div>
+      <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="tel:+358000000000">+358 00 000 0000</a></li><li><a href="mailto:info@harmonyhorsesfi.com">info@harmonyhorsesfi.com</a></li><li><a href="instagram.html">@harmonyhorsesfi</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span class="footer-copy">© 2025 Harmony Horses. All rights reserved.</span><div class="footer-social"><a href="instagram.html">Instagram</a><a href="#">Facebook</a></div></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

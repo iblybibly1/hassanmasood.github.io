@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Contact — Harmony Horses</title>
+  <link rel="stylesheet" href="css/main.css"/>
+  <style>
+  body { background: var(--black); }
+  .page-hero { padding: calc(var(--nav-h) + 5rem) 0 5rem; border-bottom: 1px solid var(--border); background: var(--black2); }
+  .contact-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 6rem; align-items: start; }
+  .c-info { display: flex; flex-direction: column; }
+  .c-row { padding: 1.25rem 0; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 0.3rem; }
+  .c-row:last-child { border-bottom: none; }
+  .c-label { font-family: var(--body); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-3); }
+  .c-val { font-family: var(--display); font-size: 1rem; font-weight: 300; color: var(--text-1); }
+  .c-val a { color: var(--gold); transition: opacity 0.15s; }
+  .c-val a:hover { opacity: 0.75; }
+  .opening-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 2.5rem; }
+  .oh-cell { background: var(--black2); padding: 1rem 1.25rem; }
+  .oh-day { font-family: var(--body); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-bottom: 0.2rem; }
+  .oh-time { font-family: var(--display); font-size: 1rem; font-weight: 300; color: var(--text-1); }
+  .form-card { background: var(--black2); border: 1px solid var(--border); padding: 2.5rem; }
+  .form-card-title { font-family: var(--display); font-size: 1.5rem; font-weight: 300; color: var(--text-1); margin-bottom: 0.3rem; }
+  .form-card-sub { font-size: 0.82rem; font-weight: 300; color: var(--text-2); margin-bottom: 2rem; }
+  .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .fg { display: flex; flex-direction: column; gap: 0.4rem; }
+  .fg.full { grid-column: 1/-1; }
+  .fg label { font-family: var(--body); font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-3); }
+  .fg input, .fg select, .fg textarea {
+    background: var(--black3); border: 1px solid var(--border);
+    color: var(--text-1); font-family: var(--body); font-size: 0.9rem;
+    font-weight: 300; padding: 0.8rem 1rem; outline: none; width: 100%;
+    transition: border-color 0.2s;
+  }
+  .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--gold); }
+  .fg input::placeholder, .fg textarea::placeholder { color: var(--text-3); }
+  .fg textarea { resize: vertical; min-height: 120px; }
+  .fg select { appearance: none; cursor: pointer; }
+  .submit-btn { width: 100%; justify-content: center; margin-top: 0.5rem; }
+  .form-success { display: none; padding: 0.9rem; background: rgba(192,155,83,0.1); border: 1px solid var(--border2); font-family: var(--body); font-size: 0.8rem; letter-spacing: 0.06em; color: var(--gold); text-align: center; }
+  .form-error { display: none; padding: 0.9rem; background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.2); font-size: 0.78rem; color: #F87171; }
+  .map-placeholder { background: var(--black3); height: 300px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+  .map-ph-text { font-family: var(--display); font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); }
+  @media(max-width:960px) { .contact-layout { grid-template-columns:1fr; gap:3.5rem; } .form-grid-2 { grid-template-columns:1fr; } .fg.full { grid-column:1; } }
+  </style>
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">Harmony Horses<span>Luxury Equestrian</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li>
+    <li><a href="facilities.html">Facilities</a></li><li><a href="staff.html">Our team</a></li>
+    <li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-book">Book a visit</a>
+  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+</nav>
+<nav class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="facilities.html">Facilities</a>
+  <a href="staff.html">Our team</a><a href="events.html">Events</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="drawer-book">Book a visit</a>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="eyebrow reveal">We'd love to hear from you</div>
+    <h1 class="heading-xl reveal reveal-d1">Get in<br><em>touch.</em></h1>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-layout">
+      <div class="reveal">
+        <p class="lead" style="margin-bottom:2.5rem">Whether you're interested in lessons, boarding, an upcoming event, or just want to come and see the stables — we'd love to welcome you.</p>
+        <div class="c-info">
+          <div class="c-row"><div class="c-label">Phone</div><div class="c-val"><a href="tel:+358000000000">+358 00 000 0000</a></div></div>
+          <div class="c-row"><div class="c-label">Email</div><div class="c-val"><a href="/cdn-cgi/l/email-protection#177e797178577f76657a78796e7f7865647264717e3974787a"><span class="__cf_email__" data-cfemail="0e676068614e666f7c6361607766617c7d6b7d6867206d6163">[email&#160;protected]</span></a></div></div>
+          <div class="c-row"><div class="c-label">Address</div><div class="c-val">[Stable Road Address]<br>Finland</div></div>
+          <div class="c-row"><div class="c-label">Instagram</div><div class="c-val"><a href="instagram.html">@harmonyhorsesfi</a></div></div>
+        </div>
+        <div style="margin-top:2.5rem">
+          <div class="eyebrow">Opening hours</div>
+          <div class="opening-grid">
+            <div class="oh-cell"><div class="oh-day">Mon – Fri</div><div class="oh-time">07:00 – 20:00</div></div>
+            <div class="oh-cell"><div class="oh-day">Saturday</div><div class="oh-time">08:00 – 18:00</div></div>
+            <div class="oh-cell"><div class="oh-day">Sunday</div><div class="oh-time">09:00 – 17:00</div></div>
+            <div class="oh-cell"><div class="oh-day">Public holidays</div><div class="oh-time">10:00 – 15:00</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-d1">
+        <div class="form-card">
+          <div class="form-card-title">Send a message</div>
+          <div class="form-card-sub">We typically respond within one business day.</div>
+          <div style="display:flex;flex-direction:column;gap:1.1rem">
+            <div class="form-grid-2">
+              <div class="fg"><label for="fn">First name</label><input id="fn" type="text" placeholder="Anna"/></div>
+              <div class="fg"><label for="ln">Last name</label><input id="ln" type="text" placeholder="Virtanen"/></div>
+            </div>
+            <div class="fg full"><label for="em">Email</label><input id="em" type="email" placeholder="anna@email.com"/></div>
+            <div class="fg full"><label for="ph">Phone (optional)</label><input id="ph" type="tel" placeholder="+358 ..."/></div>
+            <div class="fg full">
+              <label for="subj">I'm interested in</label>
+              <select id="subj">
+                <option value="">Select one…</option>
+                <option>Riding lessons</option>
+                <option>Horse boarding</option>
+                <option>Training & coaching</option>
+                <option>Events & clinics</option>
+                <option>Visiting the stables</option>
+                <option>Horse sales / loans</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="fg full"><label for="msg">Message</label><textarea id="msg" placeholder="Tell us a little more about what you're looking for…"></textarea></div>
+            <button class="btn btn-gold submit-btn" id="submitBtn" onclick="submitForm()">Send message</button>
+            <div class="form-success" id="fs">✓ Message sent — we'll be in touch soon.</div>
+            <div class="form-error" id="fe"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm" style="background:var(--black2);border-top:1px solid var(--border)">
+  <div class="container">
+    <div class="eyebrow reveal">Find us</div>
+    <div class="map-placeholder reveal reveal-d1">
+      <div class="map-ph-text">Google Maps embed — add your address</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-logo-block"><div class="nav-logo">Harmony Horses<span>Luxury Equestrian</span></div><p class="footer-desc">Premier equestrian stables offering world-class boarding, training, and riding experiences.</p></div>
+      <div><div class="footer-col-title">Navigate</div><ul class="footer-links"><li><a href="services.html">Services</a></li><li><a href="facilities.html">Facilities</a></li><li><a href="staff.html">Our team</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="services.html">Riding lessons</a></li><li><a href="services.html">Horse boarding</a></li><li><a href="services.html">Training</a></li></ul></div>
+      <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="tel:+358000000000">+358 00 000 0000</a></li><li><a href="/cdn-cgi/l/email-protection#1d74737b725d757c6f7072736475726f6e786e7b74337e7270"><span class="__cf_email__" data-cfemail="9bf2f5fdf4dbf3fae9f6f4f5e2f3f4e9e8fee8fdf2b5f8f4f6">[email&#160;protected]</span></a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span class="footer-copy">© 2025 Harmony Horses. All rights reserved.</span><div class="footer-social"><a href="instagram.html">Instagram</a><a href="#">Facebook</a></div></div>
+  </div>
+</footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.js"></script>
+<script>
+async function submitForm() {
+  const fn=document.getElementById('fn').value.trim(), em=document.getElementById('em').value.trim(), msg=document.getElementById('msg').value.trim();
+  if(!fn||!em||!msg){showErr('Please fill in your name, email, and message.');return;}
+  const btn=document.getElementById('submitBtn'); btn.disabled=true; btn.textContent='Sending…';
+  try {
+    const res=await fetch('https://formspree.io/f/YOUR_FORM_ID',{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({name:fn+' '+document.getElementById('ln').value,email:em,phone:document.getElementById('ph').value,subject:document.getElementById('subj').value,message:msg})});
+    if(res.ok){btn.textContent='✓ Sent';btn.style.background='rgba(192,155,83,0.7)';document.getElement

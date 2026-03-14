@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Instagram — Harmony Horses</title>
+  <link rel="stylesheet" href="css/main.css"/>
+  <style>
+  body { background: var(--black); }
+  .page-hero { padding: calc(var(--nav-h) + 4rem) 0 4rem; border-bottom: 1px solid var(--border); background: var(--black2); }
+
+  .ig-profile { display: flex; align-items: center; gap: 3rem; margin-bottom: 3rem; flex-wrap: wrap; }
+  .ig-avatar { width: 100px; height: 100px; border-radius: 50%; background: var(--black3); border: 2px solid var(--gold); flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .ig-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .ig-avatar-ph { font-family: var(--display); font-size: 1.5rem; font-weight: 300; color: var(--text-3); }
+  .ig-handle { font-family: var(--body); font-size: 1rem; font-weight: 500; letter-spacing: 0.04em; color: var(--text-1); margin-bottom: 0.35rem; }
+  .ig-name-full { font-family: var(--display); font-size: 1.3rem; font-weight: 300; color: var(--text-1); margin-bottom: 0.6rem; }
+  .ig-bio { font-size: 0.85rem; font-weight: 300; color: var(--text-2); line-height: 1.7; max-width: 36ch; margin-bottom: 0.75rem; }
+  .ig-link { font-family: var(--body); font-size: 0.78rem; color: var(--gold); font-weight: 500; }
+  .ig-stats { display: flex; gap: 2.5rem; }
+  .ig-stat { display: flex; flex-direction: column; align-items: center; gap: 0.1rem; }
+  .ig-stat-n { font-family: var(--display); font-size: 1.3rem; font-weight: 300; color: var(--text-1); line-height: 1; }
+  .ig-stat-l { font-family: var(--body); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); }
+  .ig-follow { background: var(--gold); color: var(--black); font-family: var(--body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.55rem 1.5rem; border: none; cursor: pointer; transition: background 0.2s; margin-top: 0.5rem; }
+  .ig-follow:hover { background: var(--gold-lt); }
+
+  /* Highlight stories */
+  .ig-stories { display: flex; gap: 1.25rem; margin-bottom: 3rem; overflow-x: auto; padding-bottom: 0.5rem; }
+  .ig-story { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+  .ig-story-ring { width: 64px; height: 64px; border-radius: 50%; background: var(--black3); border: 1.5px solid var(--gold); display: flex; align-items: center; justify-content: center; cursor: pointer; overflow: hidden; }
+  .ig-story-ring img { width: 100%; height: 100%; object-fit: cover; }
+  .ig-story-ph { font-family: var(--display); font-size: 1.2rem; color: var(--text-3); }
+  .ig-story-label { font-family: var(--body); font-size: 0.62rem; letter-spacing: 0.04em; color: var(--text-2); text-align: center; max-width: 64px; }
+
+  /* Grid */
+  .ig-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+  .ig-post { aspect-ratio: 1; background: var(--black3); position: relative; overflow: hidden; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .ig-post img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+  .ig-post:hover img { transform: scale(1.05); }
+  .ig-post-ph { font-family: var(--display); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); text-align: center; padding: 0.5rem; }
+  .ig-post-overlay { position: absolute; inset: 0; background: rgba(10,10,8,0); display: flex; align-items: center; justify-content: center; transition: background 0.25s; }
+  .ig-post:hover .ig-post-overlay { background: rgba(10,10,8,0.55); }
+  .ig-post-likes { font-family: var(--display); font-size: 1rem; font-weight: 300; color: var(--text-1); opacity: 0; transition: opacity 0.25s; display: flex; align-items: center; gap: 0.4rem; }
+  .ig-post:hover .ig-post-likes { opacity: 1; }
+  .ig-post.featured { grid-column: span 2; aspect-ratio: unset; }
+  .ig-post.featured-tall { grid-row: span 2; aspect-ratio: unset; }
+
+  /* Caption area */
+  .ig-caption-strip { background: var(--black2); border-top: 1px solid var(--border); padding: 2rem 0; }
+  .ig-latest { display: grid; grid-template-columns: 280px 1fr; gap: 2.5rem; align-items: start; }
+  .ig-latest-img { aspect-ratio: 1; background: var(--black3); display: flex; align-items: center; justify-content: center; }
+  .ig-latest-ph { font-family: var(--display); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); }
+  .ig-caption-handle { font-family: var(--body); font-size: 0.72rem; font-weight: 600; color: var(--text-1); margin-bottom: 0.4rem; }
+  .ig-caption-text { font-size: 0.88rem; font-weight: 300; color: var(--text-2); line-height: 1.75; margin-bottom: 0.75rem; }
+  .ig-hashtags { font-size: 0.78rem; font-weight: 400; color: var(--gold); opacity: 0.7; line-height: 1.8; }
+  .ig-time { font-family: var(--body); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-top: 0.75rem; }
+
+  @media(max-width:640px) { .ig-grid { grid-template-columns: repeat(3,1fr); } .ig-post.featured { grid-column: span 1; } .ig-latest { grid-template-columns:1fr; } .ig-profile { gap:2rem; } .ig-stats { gap:1.5rem; } }
+  </style>
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">Harmony Horses<span>Luxury Equestrian</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li>
+    <li><a href="facilities.html">Facilities</a></li><li><a href="staff.html">Our team</a></li>
+    <li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-book">Book a visit</a>
+  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+</nav>
+<nav class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="facilities.html">Facilities</a>
+  <a href="staff.html">Our team</a><a href="events.html">Events</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="drawer-book">Book a visit</a>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="eyebrow reveal">Social</div>
+    <h1 class="heading-xl reveal reveal-d1">Follow our<br><em>journey.</em></h1>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Profile -->
+    <div class="ig-profile reveal">
+      <div class="ig-avatar">
+        <div class="ig-avatar-ph">HH</div>
+      </div>
+      <div>
+        <div class="ig-handle">@harmonyhorsesfi</div>
+        <div class="ig-name-full">Harmony Horses</div>
+        <div class="ig-bio">🐴 Luxury equestrian stables · Finland<br>✨ Lessons · Boarding · Training · Events<br>📍 [Location], Finland</div>
+        <a href="https://instagram.com/harmonyhorsesfi" target="_blank" class="ig-link">instagram.com/harmonyhorsesfi</a>
+        <div style="margin-top:1rem"><button class="ig-follow" onclick="window.open('https://instagram.com/harmonyhorsesfi','_blank')">Follow on Instagram</button></div>
+      </div>
+      <div class="ig-stats">
+        <div class="ig-stat"><div class="ig-stat-n">128</div><div class="ig-stat-l">Posts</div></div>
+        <div class="ig-stat"><div class="ig-stat-n">2.4K</div><div class="ig-stat-l">Followers</div></div>
+        <div class="ig-stat"><div class="ig-stat-n">340</div><div class="ig-stat-l">Following</div></div>
+      </div>
+    </div>
+
+    <!-- Stories / Highlights -->
+    <div class="ig-stories reveal">
+      <div class="ig-story"><div class="ig-story-ring"><div class="ig-story-ph">🏟</div></div><div class="ig-story-label">Arena</div></div>
+      <div class="ig-story"><div class="ig-story-ring"><div class="ig-story-ph">🐴</div></div><div class="ig-story-label">Our horses</div></div>
+      <div class="ig-story"><div class="ig-story-ring"><div class="ig-story-ph">🏆</div></div><div class="ig-story-label">Competitions</div></div>
+      <div class="ig-story"><div class="ig-story-ring"><div class="ig-story-ph">🌿</div></div><div class="ig-story-label">Paddocks</div></div>
+      <div class="ig-story"><div class="ig-story-ring"><div class="ig-story-ph">👨‍👩‍👧</div></div><div class="ig-story-label">Lessons</div></div>
+      <div class="ig-story"><div class="ig-story-ring"><div class="ig-story-ph">✨</div></div><div class="ig-story-label">Behind scenes</div></div>
+      <div class="ig-story"><div class="ig-story-ring"><div class="ig-story-ph">📅</div></div><div class="ig-story-label">Events</div></div>
+    </div>
+
+    <div class="divider" style="margin-bottom:3rem"></div>
+
+    <!-- Grid -->
+    <div class="ig-grid reveal">
+      <div class="ig-post featured-tall">
+        <div class="ig-post-ph">Hero stable shot<br>portrait</div>
+        <div class="ig-post-overlay"><div class="ig-post-likes">♥ 248</div></div>
+      </div>
+      <div class="ig-post"><div class="ig-post-ph">Arena action</div><div class="ig-post-overlay"><div class="ig-post-likes">♥ 184</div></div></div>
+      <div class="ig-post"><div class="ig-post-ph">Horse close-up</div><div class="ig-post-overlay"><div class="ig-post-likes">♥ 312</div></div></div>
+      <div class="ig-post"><div class="ig-post-ph">Lesson photo</div><div class="ig-post-overlay"><div class="ig-post-likes">♥ 156</div></div></div>
+      <div class="ig-post"><div class="ig-post-ph">Sunset paddock</div><div class="ig-post-overlay"><div class="ig-post-likes">♥ 427</div></div></div>
+      <div class="ig-post"><div class="ig-post-ph">Competition rosette</div><div class="ig-post-overlay"><div class="ig-post-likes">♥ 203</div></div></div>
+      <div class="ig-post"><div class="ig-post-ph">Junior rider</div><div class="ig-post-overlay"><div class="ig-post-likes">♥ 176</div></div></div>
+      <div class="ig-post"><div class="ig-post-ph">Grooming detail</div><div class="ig-post-overlay"><div class="ig-post-likes">♥ 145</div></div></div>
+      <div class="ig-post"><div class="ig-post-ph">Winter stable</div><div class="ig-post-overlay"><div class="ig-post-likes">♥ 289</div></div></div>
+      <div class="ig-post"><div class="ig-post-ph">Jumping clinic</div><div class="ig-post-overlay"><div class="ig-post-likes">♥ 198</div></div></div>
+      <div class="ig-post"><div class="ig-post-ph">Trail ride</div><div class="ig-post-overlay"><div class="ig-post-likes">♥ 334</div></div></div>
+      <div class="ig-post"><div class="ig-post-ph">Stable at dawn</div><div class="ig-post-overlay"><div class="ig-post-likes">♥ 411</div></div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Latest post caption -->
+<section class="ig-caption-strip">
+  <div class="container">
+    <div class="eyebrow reveal">Latest post</div>
+    <div class="ig-latest reveal reveal-d1">
+      <div class="ig-latest-img"><div class="ig-latest-ph">Latest post image</div></div>
+      <div>
+        <div class="ig-caption-handle">harmonyhorsesfi</div>
+        <div class="ig-caption-text">Spring is here at Harmony Horses 🌿 The outdoor arena is back in action and our horses are loving the longer days. We have a few spots remaining for our May Dressage Clinic — drop us a message or visit the link in bio to reserve your place. See you in the saddle! 🐴✨</div>
+        <div class="ig-hashtags">#harmonyhorsesfi #equestrian #horses #dressage #showjumping #finland #ridinglessons #stablelife #horselover #equestrianlife</div>
+        <div class="ig-time">2 days ago · 248 likes · 14 comments</div>
+        <div style="margin-top:1.5rem">
+          <a href="https://instagram.com/harmonyhorsesfi" target="_blank" class="btn btn-gold" style="font-size:0.7rem;padding:0.75rem 1.5rem">Follow on Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-logo-block"><div class="nav-logo">Harmony Horses<span>Luxury Equestrian</span></div><p class="footer-desc">Premier equestrian stables offering world-class boarding, training, and riding experiences.</p></div>
+      <div><div class="footer-col-title">Navigate</div><ul class="footer-links"><li><a href="services.html">Services</a></li><li><a href="facilities.html">Facilities</a></li><li><a href="staff.html">Our team</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="services.html">Riding lessons</a></li><li><a href="services.html">Horse boarding</a></li><li><a href="services.html">Training</a></li></ul></div>
+      <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="tel:+358000000000">+358 00 000 0000</a></li><li><a href="/cdn-cgi/l/email-protection#046d6a626b446c6576696b6a7d6c6b76776177626d2a676b69"><span class="__cf_email__" data-cfemail="f891969e97b890998a9597968190978a8b9d8b9e91d69b9795">[email&#160;protected]</span></a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span class="footer-copy">© 2025 Harmony Horses. All rights reserved.</span><div class="footer-social">
