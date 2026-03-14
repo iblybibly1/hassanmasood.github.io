@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Facilities — Harmony Horses</title>
+  <link rel="stylesheet" href="css/main.css"/>
+  <style>
+  body { background: var(--black); }
+  .page-hero { padding: calc(var(--nav-h) + 5rem) 0 5rem; border-bottom: 1px solid var(--border); background: var(--black2); }
+  .fac-section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
+  .fac-section:last-of-type { border-bottom: none; }
+  .fac-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .fac-layout.reverse .fac-gallery { order: 1; } .fac-layout.reverse .fac-info { order: 2; }
+  .fac-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+  .fac-photo { aspect-ratio: 1; background: var(--black3); display: flex; align-items: center; justify-content: center; }
+  .fac-photo.wide { grid-column: 1/-1; aspect-ratio: 16/7; }
+  .fac-photo-ph { font-family: var(--display); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); text-align: center; padding: 0.75rem; }
+  .fac-info {}
+  .fac-cat { font-family: var(--body); font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+  .fac-name { font-family: var(--display); font-size: clamp(1.8rem,3vw,3rem); font-weight: 300; color: var(--text-1); line-height: 1.05; margin-bottom: 1.25rem; }
+  .fac-name em { font-style: italic; color: var(--gold-lt); }
+  .fac-specs { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); margin: 1.5rem 0; }
+  .fac-spec { display: flex; align-items: baseline; justify-content: space-between; padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); }
+  .fac-spec:last-child { border-bottom: none; }
+  .fac-spec-label { font-family: var(--body); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); }
+  .fac-spec-val { font-family: var(--display); font-size: 0.95rem; font-weight: 300; color: var(--text-1); }
+  @media(max-width:900px) { .fac-layout,.fac-layout.reverse { grid-template-columns:1fr; } .fac-layout.reverse .fac-gallery,.fac-layout.reverse .fac-info { order:unset; } }
+  </style>
+</head>
+<body>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">Harmony Horses<span>Luxury Equestrian</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li>
+    <li><a href="facilities.html">Facilities</a></li><li><a href="staff.html">Our team</a></li>
+    <li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-book">Book a visit</a>
+  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+</nav>
+<nav class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="facilities.html">Facilities</a>
+  <a href="staff.html">Our team</a><a href="events.html">Events</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="drawer-book">Book a visit</a>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="eyebrow reveal">World-class infrastructure</div>
+    <h1 class="heading-xl reveal reveal-d1">Our <em>facilities.</em></h1>
+    <p class="lead reveal reveal-d2" style="margin-top:1.25rem;max-width:56ch">Every corner of Harmony Horses has been designed with one goal — the best possible environment for horses and riders alike.</p>
+  </div>
+</div>
+
+<section class="fac-section">
+  <div class="container">
+    <div class="fac-layout reveal">
+      <div class="fac-gallery">
+        <div class="fac-photo wide"><div class="fac-photo-ph">Indoor arena wide shot</div></div>
+        <div class="fac-photo"><div class="fac-photo-ph">Arena detail</div></div>
+        <div class="fac-photo"><div class="fac-photo-ph">Lighting system</div></div>
+      </div>
+      <div class="fac-info">
+        <div class="fac-cat">Arena 01</div>
+        <div class="fac-name">Indoor <em>arena</em></div>
+        <p class="lead">Our flagship 60×20m heated indoor arena offers year-round riding whatever the Finnish weather brings.</p>
+        <div class="fac-specs">
+          <div class="fac-spec"><span class="fac-spec-label">Dimensions</span><span class="fac-spec-val">60 × 20 metres</span></div>
+          <div class="fac-spec"><span class="fac-spec-label">Footing</span><span class="fac-spec-val">Premier sand & rubber mix</span></div>
+          <div class="fac-spec"><span class="fac-spec-label">Lighting</span><span class="fac-spec-val">Full LED — competition standard</span></div>
+          <div class="fac-spec"><span class="fac-spec-label">Heating</span><span class="fac-spec-val">Underfloor radiant heating</span></div>
+          <div class="fac-spec"><span class="fac-spec-label">Mirrors</span><span class="fac-spec-val">Full-length on long side</span></div>
+          <div class="fac-spec"><span class="fac-spec-label">Viewing</span><span class="fac-spec-val">Heated spectator gallery</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fac-section" style="background:var(--black2)">
+  <div class="container">
+    <div class="fac-layout reverse reveal">
+      <div class="fac-gallery">
+        <div class="fac-photo wide"><div class="fac-photo-ph">Outdoor arena photo</div></div>
+        <div class="fac-photo"><div class="fac-photo-ph">Jump course</div></div>
+        <div class="fac-photo"><div class="fac-photo-ph">Arena surface</div></div>
+      </div>
+      <div class="fac-info">
+        <div class="fac-cat">Arena 02</div>
+        <div class="fac-name">Outdoor <em>arena &<br>jump course</em></div>
+        <p class="lead">An all-weather outdoor school and a dedicated show jumping course set against the beautiful Finnish landscape.</p>
+        <div class="fac-specs">
+          <div class="fac-spec"><span class="fac-spec-label">Outdoor school</span><span class="fac-spec-val">80 × 40 metres</span></div>
+          <div class="fac-spec"><span class="fac-spec-label">Footing</span><span class="fac-spec-val">All-weather GGT fibre</span></div>
+          <div class="fac-spec"><span class="fac-spec-label">Jump course</span><span class="fac-spec-val">12-fence course, adjustable</span></div>
+          <div class="fac-spec"><span class="fac-spec-label">Cross-country</span><span class="fac-spec-val">3km course through forest</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fac-section">
+  <div class="container">
+    <div class="fac-layout reveal">
+      <div class="fac-gallery">
+        <div class="fac-photo wide"><div class="fac-photo-ph">Stable block exterior</div></div>
+        <div class="fac-photo"><div class="fac-photo-ph">Individual stall</div></div>
+        <div class="fac-photo"><div class="fac-photo-ph">Paddocks</div></div>
+      </div>
+      <div class="fac-info">
+        <div class="fac-cat">Stabling</div>
+        <div class="fac-name">Stables &<br><em>paddocks</em></div>
+        <p class="lead">40 individually managed stalls with automatic drinkers, deep bedding, and views over our 30-hectare grounds.</p>
+        <div class="fac-specs">
+          <div class="fac-spec"><span class="fac-spec-label">Stalls</span><span class="fac-spec-val">40 × 4m × 4m boxes</span></div>
+          <div class="fac-spec"><span class="fac-spec-label">Bedding</span><span class="fac-spec-val">Premium shavings — daily mucking</span></div>
+          <div class="fac-spec"><span class="fac-spec-label">Drinkers</span><span class="fac-spec-val">Automatic, thermostat-controlled</span></div>
+          <div class="fac-spec"><span class="fac-spec-label">Paddocks</span><span class="fac-spec-val">16 individual + 4 communal</span></div>
+          <div class="fac-spec"><span class="fac-spec-label">Grounds</span><span class="fac-spec-val">30+ hectares total</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fac-section" style="background:var(--black2)">
+  <div class="container">
+    <div class="eyebrow eyebrow-center reveal">For our riders</div>
+    <h2 class="heading-lg reveal reveal-d1" style="text-align:center">Rider <em>amenities</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-top:2.5rem" class="reveal reveal-d2">
+      <div style="background:var(--black2);padding:2rem"><div style="font-family:var(--display);font-size:1.2rem;font-weight:300;color:var(--text-1);margin-bottom:0.5rem">Clubhouse & café</div><p style="font-size:0.82rem;font-weight:300;color:var(--text-2);line-height:1.7">Warm and welcoming lounge with café serving hot drinks and light meals.</p></div>
+      <div style="background:var(--black2);padding:2rem"><div style="font-family:var(--display);font-size:1.2rem;font-weight:300;color:var(--text-1);margin-bottom:0.5rem">Changing rooms</div><p style="font-size:0.82rem;font-weight:300;color:var(--text-2);line-height:1.7">Spacious male and female changing rooms with showers and secure lockers.</p></div>
+      <div style="background:var(--black2);padding:2rem"><div style="font-family:var(--display);font-size:1.2rem;font-weight:300;color:var(--text-1);margin-bottom:0.5rem">Tack room</div><p style="font-size:0.82rem;font-weight:300;color:var(--text-2);line-height:1.7">Secure, climate-controlled tack rooms for boarding clients. Saddle racks and personal storage.</p></div>
+      <div style="background:var(--black2);padding:2rem"><div style="font-family:var(--display);font-size:1.2rem;font-weight:300;color:var(--text-1);margin-bottom:0.5rem">Horse wash</div><p style="font-size:0.82rem;font-weight:300;color:var(--text-2);line-height:1.7">Heated wash boxes with hot and cold water, drying areas, and grooming stations.</p></div>
+      <div style="background:var(--black2);padding:2rem"><div style="font-family:var(--display);font-size:1.2rem;font-weight:300;color:var(--text-1);margin-bottom:0.5rem">Vet & farrier bay</div><p style="font-size:0.82rem;font-weight:300;color:var(--text-2);line-height:1.7">Dedicated area for veterinary visits and farriery, with stocks and good lighting.</p></div>
+      <div style="background:var(--black2);padding:2rem"><div style="font-family:var(--display);font-size:1.2rem;font-weight:300;color:var(--text-1);margin-bottom:0.5rem">Free parking</div><p style="font-size:0.82rem;font-weight:300;color:var(--text-2);line-height:1.7">Ample free parking with trailer and lorry spaces. Easy access from the main road.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-logo-block"><div class="nav-logo">Harmony Horses<span>Luxury Equestrian</span></div><p class="footer-desc">Premier equestrian stables offering world-class boarding, training, and riding experiences.</p></div>
+      <div><div class="footer-col-title">Navigate</div><ul class="footer-links"><li><a href="services.html">Services</a></li><li><a href="facilities.html">Facilities</a></li><li><a href="staff.html">Our team</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="services.html">Riding lessons</a></li><li><a href="services.html">Horse boarding</a></li><li><a href="services.html">Training</a></li></ul></div>
+      <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="tel:+358000000000">+358 00 000 0000</a></li><li><a href="mailto:info@harmonyhorsesfi.com">info@harmonyhorsesfi.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span class="footer-copy">© 2025 Harmony Horses. All rights reserved.</span><div class="footer-social"><a href="instagram.html">Instagram</a><a href="#">Facebook</a></div></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

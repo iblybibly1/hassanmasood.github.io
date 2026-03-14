@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Client Preview — Hassan Masood</title>
+  <meta name="robots" content="noindex, nofollow"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:      #060A14;
+    --bg2:     #0B1120;
+    --bg3:     #101828;
+    --accent:  #4F8CF7;
+    --green:   #34D399;
+    --red:     #F87171;
+    --text-1:  #F0F4FF;
+    --text-2:  #8895A7;
+    --text-3:  #4B5A6E;
+    --border:  rgba(255,255,255,0.07);
+  }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--text-1);
+    font-family: 'Manrope', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── LOCK SCREEN ───────────────────────────────── */
+  #lockScreen {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 2rem;
+    background:
+      radial-gradient(ellipse 60% 60% at 50% 40%, rgba(79,140,247,0.06) 0%, transparent 65%);
+    position: relative;
+  }
+  #lockScreen::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 72px 72px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    pointer-events: none;
+  }
+  .lock-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.75rem 2.5rem;
+    width: 100%; max-width: 400px;
+    position: relative; z-index: 1;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+  }
+  .lock-icon {
+    width: 52px; height: 52px;
+    background: rgba(79,140,247,0.1);
+    border: 1px solid rgba(79,140,247,0.2);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+  .lock-icon svg { width: 24px; height: 24px; stroke: var(--accent); }
+  .lock-from {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.62rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.4rem;
+  }
+  .lock-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.5rem; font-weight: 800;
+    letter-spacing: -0.025em; color: var(--text-1);
+    margin-bottom: 0.4rem;
+  }
+  .lock-subtitle {
+    font-size: 0.85rem; font-weight: 300;
+    color: var(--text-2); line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  .lock-field { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+  .lock-label {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.62rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-3);
+  }
+  .pw-wrap { position: relative; }
+  .pw-input {
+    width: 100%; background: var(--bg3);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px; color: var(--text-1);
+    font-family: 'Fira Code', monospace;
+    font-size: 1rem; font-weight: 400;
+    padding: 0.8rem 3rem 0.8rem 1rem;
+    outline: none; letter-spacing: 0.12em;
+    transition: border-color 0.18s, background 0.18s;
+    min-height: 48px;
+  }
+  .pw-input:focus {
+    border-color: var(--accent);
+    background: rgba(79,140,247,0.05);
+    box-shadow: 0 0 0 3px rgba(79,140,247,0.1);
+  }
+  .pw-input.error { border-color: var(--red); box-shadow: 0 0 0 3px rgba(248,113,113,0.1); }
+  .pw-toggle {
+    position: absolute; right: 12px; top: 50%;
+    transform: translateY(-50%);
+    background: none; border: none; cursor: pointer;
+    color: var(--text-3); padding: 4px;
+    transition: color 0.15s;
+  }
+  .pw-toggle:hover { color: var(--text-2); }
+  .pw-toggle svg { width: 16px; height: 16px; stroke: currentColor; }
+
+  .error-msg {
+    display: none; font-size: 0.78rem;
+    color: var(--red); font-family: 'Fira Code', monospace;
+    letter-spacing: 0.04em; margin-top: 0.35rem;
+  }
+  .error-msg.show { display: block; }
+
+  .unlock-btn {
+    width: 100%; min-height: 50px;
+    background: var(--accent); color: #fff;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.9rem; font-weight: 700;
+    border: none; border-radius: 10px;
+    cursor: pointer; letter-spacing: 0.02em;
+    transition: background 0.18s, transform 0.15s, box-shadow 0.18s;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin-top: 0.25rem;
+  }
+  .unlock-btn:hover:not(:disabled) {
+    background: #6BA3FF;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(79,140,247,0.3);
+  }
+  .unlock-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+  .lock-footer {
+    text-align: center; margin-top: 1.5rem;
+    font-size: 0.75rem; color: var(--text-3);
+    font-family: 'Fira Code', monospace;
+    letter-spacing: 0.04em;
+  }
+  .lock-footer a { color: var(--text-3); text-decoration: underline; transition: color 0.15s; }
+  .lock-footer a:hover { color: var(--text-2); }
+
+  /* shake animation */
+  @keyframes shake {
+    0%,100%{transform:translateX(0)}
+    20%{transform:translateX(-8px)}
+    40%{transform:translateX(8px)}
+    60%{transform:translateX(-5px)}
+    80%{transform:translateX(5px)}
+  }
+  .shake { animation: shake 0.4s ease; }
+
+  /* ── CONTENT (hidden until unlocked) ──────────── */
+  #content { display: none; }
+
+  /* Top bar inside content */
+  .preview-bar {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 0.75rem;
+  }
+  .preview-bar-left {
+    display: flex; align-items: center; gap: 0.85rem;
+  }
+  .preview-logo {
+    font-family: 'Sora', sans-serif;
+    font-size: 1rem; font-weight: 800;
+    letter-spacing: -0.02em; color: var(--text-1);
+  }
+  .preview-logo .dot { color: var(--accent); }
+  .preview-badge {
+    background: rgba(52,211,153,0.1);
+    border: 1px solid rgba(52,211,153,0.2);
+    border-radius: 100px;
+    padding: 3px 10px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.62rem; color: var(--green);
+    letter-spacing: 0.1em;
+  }
+  .preview-bar-right {
+    display: flex; align-items: center; gap: 0.65rem;
+  }
+  .preview-client {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.65rem; color: var(--text-3);
+    letter-spacing: 0.08em;
+  }
+  .lock-btn {
+    background: var(--bg3); border: 1px solid var(--border);
+    color: var(--text-2); font-family: 'Manrope', sans-serif;
+    font-size: 0.75rem; font-weight: 500;
+    padding: 0.4rem 0.9rem; border-radius: 6px;
+    cursor: pointer; transition: all 0.15s;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .lock-btn:hover { border-color: rgba(255,255,255,0.14); color: var(--text-1); }
+  .lock-btn svg { width: 13px; height: 13px; stroke: currentColor; }
+
+  /* ── PROJECT CONTENT AREA ─────────────────────── */
+  .project-wrap { padding: 3rem 2rem; max-width: 960px; margin: 0 auto; }
+
+  .project-header { margin-bottom: 2.5rem; }
+  .proj-eyebrow {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); display: flex; align-items: center;
+    gap: 0.6rem; margin-bottom: 0.75rem;
+  }
+  .proj-eyebrow::before { content: ''; display: block; width: 1.25rem; height: 1.5px; background: var(--accent); }
+  .proj-title {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 800; letter-spacing: -0.03em;
+    color: var(--text-1); line-height: 1.05;
+    margin-bottom: 0.75rem;
+  }
+  .proj-desc {
+    font-size: 1rem; font-weight: 300;
+    line-height: 1.8; color: var(--text-2);
+    max-width: 62ch;
+  }
+
+  .divider-glow { height: 1px; background: linear-gradient(90deg, transparent, rgba(79,140,247,0.3), transparent); margin: 2.5rem 0; }
+
+  /* Deliverables */
+  .deliverables-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden;
+    margin-bottom: 2.5rem;
+  }
+  .deliv-card {
+    background: var(--bg2); padding: 1.5rem;
+    display: flex; flex-direction: column; gap: 0.6rem;
+    transition: background 0.18s;
+  }
+  .deliv-card:hover { background: var(--bg3); }
+  .deliv-num {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.65rem; color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+  .deliv-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.95rem; font-weight: 700;
+    letter-spacing: -0.01em; color: var(--text-1);
+  }
+  .deliv-desc { font-size: 0.82rem; font-weight: 300; color: var(--text-2); line-height: 1.6; }
+  .deliv-status {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-family: 'Fira Code', monospace; font-size: 0.6rem;
+    letter-spacing: 0.08em; padding: 3px 8px;
+    border-radius: 100px; margin-top: auto;
+    width: fit-content;
+  }
+  .status-done   { background: rgba(52,211,153,0.1); color: var(--green); border: 1px solid rgba(52,211,153,0.2); }
+  .status-prog   { background: rgba(79,140,247,0.1); color: var(--accent); border: 1px solid rgba(79,140,247,0.2); }
+  .status-review { background: rgba(251,191,36,0.1); color: #FBBF24; border: 1px solid rgba(251,191,36,0.2); }
+  .status-dot    { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+  /* Timeline */
+  .timeline-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 2.5rem; }
+  .tl-row {
+    background: var(--bg2); padding: 1.1rem 1.5rem;
+    display: grid; grid-template-columns: 120px 1fr auto;
+    gap: 1.5rem; align-items: center;
+    transition: background 0.15s;
+  }
+  .tl-row:hover { background: var(--bg3); }
+  .tl-date { font-family: 'Fira Code', monospace; font-size: 0.68rem; letter-spacing: 0.06em; color: var(--text-3); }
+  .tl-milestone { font-size: 0.88rem; font-weight: 500; color: var(--text-1); }
+
+  /* Notes */
+  .notes-box {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.75rem;
+    margin-bottom: 2.5rem;
+  }
+  .notes-label {
+    font-family: 'Fira Code', monospace; font-size: 0.62rem;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text-3); margin-bottom: 0.85rem;
+  }
+  .notes-text { font-size: 0.9rem; font-weight: 300; color: var(--text-2); line-height: 1.8; }
+  .notes-text p + p { margin-top: 0.75rem; }
+
+  /* Feedback */
+  .feedback-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; }
+  .feedback-title { font-family: 'Sora', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; color: var(--text-1); margin-bottom: 0.4rem; }
+  .feedback-sub { font-size: 0.82rem; font-weight: 300; color: var(--text-2); margin-bottom: 1.25rem; }
+  .feedback-input {
+    width: 100%; background: var(--bg3);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px; color: var(--text-1);
+    font-family: 'Manrope', sans-serif; font-size: 0.88rem;
+    font-weight: 300; padding: 0.75rem 1rem;
+    resize: vertical; min-height: 100px; outline: none;
+    transition: border-color 0.18s; margin-bottom: 0.75rem;
+    display: block;
+  }
+  .feedback-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(79,140,247,0.1); }
+  .feedback-btn {
+    background: var(--accent); color: #fff;
+    font-family: 'Manrope', sans-serif; font-size: 0.82rem;
+    font-weight: 600; padding: 0.65rem 1.5rem;
+    border: none; border-radius: 8px; cursor: pointer;
+    transition: background 0.18s;
+  }
+  .feedback-btn:hover { background: #6BA3FF; }
+
+  @media (max-width: 600px) {
+    .project-wrap { padding: 2rem 1.25rem; }
+    .tl-row { grid-template-columns: 1fr; gap: 0.35rem; }
+    .tl-date { display: none; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     LOCK SCREEN
+═══════════════════════════════════════════════ -->
+<div id="lockScreen">
+  <div class="lock-card">
+    <div class="lock-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2"/>
+        <path d="M7 11V7a5 5 0 0110 0v4"/>
+      </svg>
+    </div>
+    <div class="lock-from">Hassan Masood · Client Portal</div>
+    <div class="lock-title">Project preview</div>
+    <div class="lock-subtitle">This page is password-protected. Enter the access code provided by Hassan to view your project.</div>
+
+    <div class="lock-field">
+      <div class="lock-label">Access code</div>
+      <div class="pw-wrap">
+        <input class="pw-input" type="password" id="pwInput"
+               placeholder="••••••••"
+               autocomplete="current-password"
+               onkeydown="if(event.key==='Enter')unlock()"/>
+        <button class="pw-toggle" id="pwToggle" onclick="toggleVis()" type="button" aria-label="Show password">
+          <svg id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+      </div>
+      <div class="error-msg" id="errMsg">Incorrect access code. Please try again.</div>
+    </div>
+
+    <button class="unlock-btn" id="unlockBtn" onclick="unlock()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+      Access project
+    </button>
+
+    <div class="lock-footer">
+      Don't have the code? <a href="mailto:m.hassan.masood@hotmail.com">Contact Hassan →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PROTECTED CONTENT
+     ↓ Edit everything below this line ↓
+═══════════════════════════════════════════════ -->
+<div id="content">
+
+  <!-- Preview bar -->
+  <div class="preview-bar">
+    <div class="preview-bar-left">
+      <div class="preview-logo">Hassan<span class="dot">.</span></div>
+      <div class="preview-badge">Client Preview</div>
+    </div>
+    <div class="preview-bar-right">
+      <span class="preview-client" id="clientLabel"></span>
+      <button class="lock-btn" onclick="lockPage()">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2"/>
+          <path d="M7 11V7a5 5 0 0110 0v4"/>
+        </svg>
+        Lock
+      </button>
+    </div>
+  </div>
+
+  <!-- ── PROJECT CONTENT — edit below ───────── -->
+  <div class="project-wrap">
+
+    <div class="project-header">
+      <div class="proj-eyebrow">Website project — draft for review</div>
+      <h1 class="proj-title">Harmony Horses</h1>
+      <p class="proj-desc">
+        Luxury equestrian stable website — 7 pages including Home, Services, Facilities, Staff, Events, Contact, and an Instagram showcase page. Gold & black luxury aesthetic. Desktop and mobile responsive.
+      </p>
+    </div>
+
+    <div class="divider-glow"></div>
+
+    <!-- DELIVERABLES -->
+    <div class="proj-eyebrow" style="margin-bottom:1.25rem">Deliverables</div>
+    <div class="deliverables-grid">
+
+      <div class="deliv-card">
+        <div class="deliv-num">01</div>
+        <div class="deliv-title">Design & branding</div>
+        <div class="deliv-desc">Luxury gold & black design system — typography, colour palette, and UI components.</div>
+        <span class="deliv-status status-done"><span class="status-dot"></span>Complete</span>
+      </div>
+
+      <div class="deliv-card">
+        <div class="deliv-num">02</div>
+        <div class="deliv-title">7-page website draft</div>
+        <div class="deliv-desc">Home, Services, Facilities, Staff, Events, Contact, Instagram — all pages built and linked.</div>
+        <span class="deliv-status status-review"><span class="status-dot"></span>Awaiting your review</span>
+      </div>
+
+      <div class="deliv-card">
+        <div class="deliv-num">03</div>
+        <div class="deliv-title">Photography slots</div>
+        <div class="deliv-desc">All image placeholders are clearly labelled — ready to replace with your stable photos.</div>
+        <span class="deliv-status status-review"><span class="status-dot"></span>Photos needed</span>
+      </div>
+
+      <div class="deliv-card">
+        <div class="deliv-num">04</div>
+        <div class="deliv-title">Content & copy</div>
+        <div class="deliv-desc">Draft copy written throughout. Real names, prices, address, phone, and staff details to be confirmed.</div>
+        <span class="deliv-status status-review"><span class="status-dot"></span>Your input needed</span>
+      </div>
+
+      <div class="deliv-card">
+        <div class="deliv-num">05</div>
+        <div class="deliv-title">Contact form</div>
+        <div class="deliv-desc">Form sends directly to your inbox — no email app opens for the visitor. Needs your Formspree ID.</div>
+        <span class="deliv-status status-prog"><span class="status-dot"></span>In progress</span>
+      </div>
+
+      <div class="deliv-card">
+        <div class="deliv-num">06</div>
+        <div class="deliv-title">Launch</div>
+        <div class="deliv-desc">Domain connection, final review, and go-live. Estimated 1 week after content is confirmed.</div>
+        <span class="deliv-status" style="background:rgba(255,255,255,0.04);color:var(--text-3);border-color:var(--border)"><span class="status-dot"></span>Upcoming</span>
+      </div>
+
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="proj-eyebrow" style="margin-bottom:1.25rem">Timeline</div>
+    <div class="timeline-list">
+      <div class="tl-row">
+        <div class="tl-date">Week 1</div>
+        <div class="tl-milestone">Brief, concept direction, and design system agreed</div>
+        <span class="deliv-status status-done"><span class="status-dot"></span>Done</span>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">Week 2</div>
+        <div class="tl-milestone">Full 7-page website draft built</div>
+        <span class="deliv-status status-done"><span class="status-dot"></span>Done</span>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">Now</div>
+        <div class="tl-milestone">Your review — feedback on design, content, and structure</div>
+        <span class="deliv-status status-review"><span class="status-dot"></span>Your turn</span>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">Week 3–4</div>
+        <div class="tl-milestone">Revisions + photography + real content inserted</div>
+        <span class="deliv-status" style="background:rgba(255,255,255,0.04);color:var(--text-3);border:1px solid var(--border)"><span class="status-dot"></span>Upcoming</span>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">Week 5</div>
+        <div class="tl-milestone">Final approval and live launch</div>
+        <span class="deliv-status" style="background:rgba(255,255,255,0.04);color:var(--text-3);border:1px solid var(--border)"><span class="status-dot"></span>Upcoming</span>
+      </div>
+    </div>
+
+    <!-- NOTES -->
+    <div class="proj-eyebrow" style="margin-bottom:1.25rem">Notes from Hassan</div>
+    <div class="notes-box">
+      <div class="notes-label">// project_update.md</div>
+      <div class="notes-text">
+        <p>Hi! Here is the first draft of your Harmony Horses website. All 7 pages are built — please browse through each one using the navigation menu at the top of every page.</p>
+        <p>At this stage, the main things I need from you are: <strong>your real photos</strong> (the grey boxes are placeholders), <strong>staff names and bios</strong>, your <strong>exact address and phone number</strong>, and confirmation of the <strong>pricing</strong> shown on the Services page. Everything else can be adjusted based on your feedback below.</p>
+      </div>
+    </div>
+
+    <!-- FEEDBACK -->
+    <div class="proj-eyebrow" style="margin-bottom:1.25rem">Feedback</div>
+    <div class="feedback-box">
+      <div class="feedback-title">Leave feedback</div>
+      <div class="feedback-sub">Any comments, revisions, or questions — send them directly.</div>
+      <textarea class="feedback-input" id="fbText" placeholder="Your feedback…"></textarea>
+      <button class="feedback-btn" onclick="sendFeedback()">Send feedback →</button>
+    </div>
+
+  </div>
+  <!-- ── END PROJECT CONTENT ─────────────────── -->
+
+</div>
+
+<script>
+// ── PASSWORD CONFIG ────────────────────────────────────────
+// To change the password:
+// 1. Open browser console on any page
+// 2. Run: hashPassword('yournewpassword')
+// 3. Copy the hash it prints and paste below
+//
+// Default password is: client2025
+// SHA-256 hash of "client2025":
+const STORED_HASH = 'fd15e486656b8c4536fb32bc1a8e317c948ce0143f18715751f5414309666e89';
+
+// Client name shown after unlock (optional)
+const CLIENT_NAME = 'Harmony Horses';
+
+// Formspree ID for feedback (optional — same one as contact form)
+const FORMSPREE_ID = 'YOUR_FORM_ID';
+// ───────────────────────────────────────────────────────────
+
+async function sha256(str) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+// Helper to generate a hash — call from console: hashPassword('mypassword')
+window.hashPassword = async (pw) => {
+  const h = await sha256(pw);
+  console.log('Hash for "' + pw + '":\n' + h);
+  return h;
+};
+
+async function unlock() {
+  const pw  = document.getElementById('pwInput').value;
+  const btn = document.getElementById('unlockBtn');
+  const err = document.getElementById('errMsg');
+  const inp = document.getElementById('pwInput');
+
+  if (!pw) { inp.classList.add('error'); err.classList.add('show'); return; }
+
+  btn.disabled = true;
+  btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Checking…';
+
+  const hash = await sha256(pw);
+
+  if (hash === STORED_HASH) {
+    document.getElementById('lockScreen').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+    document.getElementById('clientLabel').textContent = CLIENT_NAME;
+    sessionStorage.setItem('unlocked', STORED_HASH);
+  } else {
+    inp.classList.add('error');
+    err.classList.add('show');
+    inp.parentElement.classList.add('shake');
+    setTimeout(() => inp.parentElement.classList.remove('shake'), 420);
+    btn.disabled = false;
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Access project';
+  }
+}
+
+function lockPage() {
+  sessionStorage.removeItem('unlocked');
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('lockScreen').style.display = 'flex';
+  document.getElementById('pwInput').value = '';
+  document.getElementById('errMsg').classList.remove('show');
+  document.getElementById('pwInput').classList.remove('error');
+}
+
+function toggleVis() {
+  const inp = document.getElementById('pwInput');
+  const icon = document.getElementById('eyeIcon');
+  if (inp.type === 'password') {
+    inp.type = 'text';
+    icon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
+  } else {
+    inp.type = 'password';
+    icon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+  }
+}
+
+// Clear error on type
+document.getElementById('pwInput').addEventListener('input', () => {
+  document.getElementById('pwInput').classList.remove('error');
+  document.getElementById('errMsg').classList.remove('show');
+});
+
+// Stay unlocked within session
+if (sessionStorage.getItem('unlocked') === STORED_HASH) {
+  document.getElementById('lockScreen').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+  document.getElementById('clientLabel').textContent = CLIENT_NAME;
+}
+
+// Feedback
+async function sendFeedback() {
+  const txt = document.getElementById('fbText').value.trim();
+  if (!txt) return;
+  const btn = document.querySelector('.feedback-btn');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  try {
+    const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ _subject: 'Client Feedback — ' + CLIENT_NAME, message: txt })
+    });
+    btn.textContent = res.ok ? '✓ Feedback sent' : '✗ Failed — try again';
+    btn.style.background = res.ok ? 'var(--green)' : '#F87171';
+    if (res.ok) document.getElementById('fbText').value = '';
+  } catch {
+    btn.textContent = '✗ Network error';
+    btn.disabled = false;
+  }
+}
+</script>
+</body>
+</html>

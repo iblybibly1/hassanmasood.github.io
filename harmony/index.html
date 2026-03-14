@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Harmony Horses — Luxury Equestrian</title>
+  <meta name="description" content="Harmony Horses — a premier luxury equestrian stable offering world-class riding, training, and boarding."/>
+  <link rel="stylesheet" href="css/main.css"/>
+  <style>
+  body { background: var(--black); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; padding-top: var(--nav-h);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    background: var(--black);
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--black) 0%, #1A1408 50%, var(--black) 100%);
+  }
+  .hero-pattern {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%);
+    background-size: 24px 24px;
+  }
+  .hero-inner {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+    padding: 5rem 0;
+  }
+  .hero-pre {
+    font-family: var(--body); font-size: 0.65rem;
+    font-weight: 500; letter-spacing: 0.35em;
+    text-transform: uppercase; color: var(--gold);
+    display: flex; align-items: center; gap: 0.75rem;
+    margin-bottom: 1.75rem;
+    animation: fadeUp 0.7s 0.1s both;
+  }
+  .hero-pre::before { content: ''; width: 2rem; height: 1px; background: var(--gold); }
+  h1 { animation: fadeUp 0.8s 0.25s both; }
+  .hero-tagline {
+    font-family: var(--display); font-size: 1.1rem;
+    font-weight: 300; font-style: italic;
+    color: var(--text-2); line-height: 1.7;
+    max-width: 40ch; margin: 1.5rem 0 2.5rem;
+    animation: fadeUp 0.7s 0.45s both;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.7s 0.6s both; }
+  .hero-right {
+    display: grid; grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto; gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    animation: fadeIn 1s 0.4s both;
+  }
+  .hero-img-block {
+    background: var(--black3);
+    aspect-ratio: 1;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; position: relative;
+  }
+  .hero-img-block img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-img-block.tall { grid-row: 1 / 3; aspect-ratio: unset; }
+  .hero-img-placeholder {
+    font-family: var(--display); font-size: 0.75rem;
+    font-weight: 400; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--text-3);
+    text-align: center; padding: 1rem;
+  }
+  .hero-img-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,10,8,0.6) 0%, transparent 50%);
+  }
+  .hero-stat-block {
+    background: var(--black3); padding: 1.75rem;
+    display: flex; flex-direction: column; gap: 0.3rem;
+  }
+  .hero-stat-n {
+    font-family: var(--display); font-size: 2.5rem;
+    font-weight: 300; line-height: 1; color: var(--gold);
+  }
+  .hero-stat-l { font-family: var(--body); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); }
+
+  /* INTRO */
+  .intro { background: var(--black2); }
+  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .intro-img {
+    aspect-ratio: 4/5; background: var(--black3);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .intro-img::after {
+    content: ''; position: absolute;
+    top: -16px; left: -16px; right: 16px; bottom: 16px;
+    border: 1px solid var(--border2); pointer-events: none;
+  }
+  .intro-img img { width: 100%; height: 100%; object-fit: cover; }
+  .intro-img-ph { font-family: var(--display); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); }
+  .intro-text { padding: 1rem 0; }
+  .intro-text .lead { margin: 1.25rem 0 2rem; }
+  .intro-quote {
+    font-family: var(--display); font-size: 1.25rem;
+    font-weight: 300; font-style: italic;
+    color: var(--gold-lt); line-height: 1.65;
+    border-left: 2px solid var(--gold);
+    padding-left: 1.5rem; margin: 2rem 0;
+  }
+
+  /* SERVICES PREVIEW */
+  .services-preview { background: var(--black); }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); margin-top: 3rem; }
+  .service-tile {
+    background: var(--black2); padding: 2.5rem;
+    display: flex; flex-direction: column; gap: 0.75rem;
+    transition: background 0.25s;
+    position: relative; overflow: hidden;
+  }
+  .service-tile::after {
+    content: ''; position: absolute;
+    bottom: 0; left: 0; right: 0; height: 2px;
+    background: var(--gold); transform: scaleX(0); transform-origin: left;
+    transition: transform 0.35s;
+  }
+  .service-tile:hover { background: var(--black3); }
+  .service-tile:hover::after { transform: scaleX(1); }
+  .service-num { font-family: var(--body); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--gold); }
+  .service-name { font-family: var(--display); font-size: 1.5rem; font-weight: 300; color: var(--text-1); line-height: 1.1; }
+  .service-desc { font-size: 0.85rem; font-weight: 300; color: var(--text-2); line-height: 1.7; flex: 1; }
+
+  /* FACILITIES STRIP */
+  .facilities-strip { background: var(--black3); padding: 5rem 0; }
+  .facilities-row { display: flex; gap: 1px; background: var(--border); overflow: hidden; border: 1px solid var(--border); margin-top: 2.5rem; }
+  .fac-item { flex: 1; background: var(--black2); padding: 2rem 1.75rem; display: flex; flex-direction: column; gap: 0.5rem; transition: background 0.2s; }
+  .fac-item:hover { background: var(--black4); }
+  .fac-icon { font-size: 1.4rem; margin-bottom: 0.25rem; }
+  .fac-name { font-family: var(--display); font-size: 1.1rem; font-weight: 300; color: var(--text-1); }
+  .fac-desc { font-size: 0.78rem; font-weight: 300; color: var(--text-3); line-height: 1.6; }
+
+  /* CTA */
+  .cta-section { background: var(--black2); text-align: center; padding: 7rem 0; }
+  .cta-section .heading-lg { margin: 0.5rem 0 1.25rem; }
+  .cta-section .lead { max-width: 48ch; margin: 0 auto 2.5rem; }
+  .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+  @media(max-width:960px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-right { max-width: 480px; }
+    .intro-grid { grid-template-columns: 1fr; }
+    .intro-img { aspect-ratio: 16/9; }
+    .intro-img::after { display: none; }
+    .services-grid { grid-template-columns: 1fr; }
+    .facilities-row { flex-wrap: wrap; }
+    .fac-item { flex: 1 1 40%; }
+  }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">Harmony Horses<span>Luxury Equestrian</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="facilities.html">Facilities</a></li>
+    <li><a href="staff.html">Our team</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-book">Book a visit</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="facilities.html">Facilities</a>
+  <a href="staff.html">Our team</a>
+  <a href="events.html">Events</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="drawer-book">Book a visit</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-pre">Luxury Equestrian</div>
+        <h1 class="heading-xl">Where horses<br>meet <em>harmony.</em></h1>
+        <p class="hero-tagline">A premier stable where world-class care, expert training, and timeless equestrian tradition come together.</p>
+        <div class="hero-btns">
+          <a href="services.html" class="btn btn-gold">Explore services</a>
+          <a href="contact.html" class="btn btn-outline">Book a visit</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-img-block tall">
+          <div class="hero-img-placeholder">Stable exterior<br>photo here</div>
+          <div class="hero-img-overlay"></div>
+        </div>
+        <div class="hero-stat-block">
+          <div class="hero-stat-n">15+</div>
+          <div class="hero-stat-l">Years of excellence</div>
+        </div>
+        <div class="hero-stat-block">
+          <div class="hero-stat-n">40+</div>
+          <div class="hero-stat-l">Resident horses</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section intro">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-img reveal">
+        <div class="intro-img-ph">Interior / horse photo</div>
+      </div>
+      <div class="intro-text">
+        <div class="eyebrow reveal">Our philosophy</div>
+        <h2 class="heading-lg reveal reveal-d1">Rooted in <em>respect,</em><br>refined by passion.</h2>
+        <p class="lead reveal reveal-d2">At Harmony Horses, every detail is considered — from the quality of forage to the dedication of our instructors. We believe the bond between horse and rider is built on trust, patience, and mutual understanding.</p>
+        <blockquote class="intro-quote reveal reveal-d2">
+          "The horse is a mirror to your soul — and sometimes you might not like what you see in the mirror."
+        </blockquote>
+        <a href="staff.html" class="btn btn-ghost reveal reveal-d3">Meet our team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES PREVIEW -->
+<section class="section services-preview">
+  <div class="container">
+    <div class="eyebrow eyebrow-center reveal">What we offer</div>
+    <h2 class="heading-lg reveal reveal-d1" style="text-align:center">Our <em>services</em></h2>
+    <div class="services-grid reveal reveal-d2">
+      <div class="service-tile">
+        <div class="service-num">01</div>
+        <div class="service-name">Riding lessons</div>
+        <p class="service-desc">Private and group instruction for all ages and skill levels, from first-time riders to competitive equestrians.</p>
+        <a href="services.html" class="btn btn-ghost" style="margin-top:auto">Learn more</a>
+      </div>
+      <div class="service-tile">
+        <div class="service-num">02</div>
+        <div class="service-name">Horse boarding</div>
+        <p class="service-desc">Full and partial board options with spacious stalls, daily turnout, and personalised feeding programmes.</p>
+        <a href="services.html" class="btn btn-ghost" style="margin-top:auto">Learn more</a>
+      </div>
+      <div class="service-tile">
+        <div class="service-num">03</div>
+        <div class="service-name">Training & coaching</div>
+        <p class="service-desc">Professional competitive training in dressage, show jumping, and cross-country with certified coaches.</p>
+        <a href="services.html" class="btn btn-ghost" style="margin-top:auto">Learn more</a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem" class="reveal">
+      <a href="services.html" class="btn btn-outline">View all services</a>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES STRIP -->
+<section class="facilities-strip">
+  <div class="container">
+    <div class="eyebrow eyebrow-center reveal">World-class facilities</div>
+    <h2 class="heading-lg reveal reveal-d1" style="text-align:center">Built for <em>excellence</em></h2>
+    <div class="facilities-row reveal reveal-d2">
+      <div class="fac-item"><div class="fac-icon">🏟</div><div class="fac-name">Indoor arena</div><div class="fac-desc">60×20m heated arena with premium footing</div></div>
+      <div class="fac-item"><div class="fac-icon">🌿</div><div class="fac-name">Outdoor arena</div><div class="fac-desc">All-weather outdoor riding surface</div></div>
+      <div class="fac-item"><div class="fac-icon">🐴</div><div class="fac-name">40 stables</div><div class="fac-desc">Spacious, ventilated, and immaculately maintained</div></div>
+      <div class="fac-item"><div class="fac-icon">🌲</div><div class="fac-name">Paddocks & trails</div><div class="fac-desc">30+ hectares of paddock and forest trails</div></div>
+      <div class="fac-item"><div class="fac-icon">✨</div><div class="fac-name">Clubhouse</div><div class="fac-desc">Lounge, café, and changing facilities</div></div>
+    </div>
+    <div style="text-align:center;margin-top:2rem" class="reveal">
+      <a href="facilities.html" class="btn btn-ghost">Explore facilities</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="eyebrow eyebrow-center reveal">Begin your journey</div>
+    <h2 class="heading-lg reveal reveal-d1">Ready to <em>ride?</em></h2>
+    <p class="lead reveal reveal-d2">Whether you're a seasoned rider or discovering horses for the first time — we'd love to welcome you to Harmony Horses.</p>
+    <div class="cta-btns reveal reveal-d3">
+      <a href="contact.html" class="btn btn-gold">Book a visit</a>
+      <a href="events.html" class="btn btn-outline">Upcoming events</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-logo-block">
+        <div class="nav-logo">Harmony Horses<span>Luxury Equestrian</span></div>
+        <p class="footer-desc">Premier equestrian stables offering world-class boarding, training, and riding experiences.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="facilities.html">Facilities</a></li>
+          <li><a href="staff.html">Our team</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="services.html">Riding lessons</a></li>
+          <li><a href="services.html">Horse boarding</a></li>
+          <li><a href="services.html">Training & coaching</a></li>
+          <li><a href="services.html">Horse sales</a></li>
+          <li><a href="services.html">Events & clinics</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:+358000000000">+358 00 000 0000</a></li>
+          <li><a href="mailto:info@harmonyhorsesfi.com">info@harmonyhorsesfi.com</a></li>
+          <li><a href="#">Stable Address, Finland</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Harmony Horses. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="instagram.html">Instagram</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
