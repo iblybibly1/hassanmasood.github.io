@@ -1,23 +1,26 @@
-// Preview bar — shown when client arrives from client-preview.html
-(function() {
-  if (!sessionStorage.getItem('hh_preview')) return;
-  const bar = document.createElement('div');
-  bar.id = 'previewBar';
-  bar.innerHTML = `<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><span style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#C09B53;font-family:monospace;font-weight:500">Preview mode</span><span style="width:1px;height:14px;background:rgba(192,155,83,.3)"></span><span style="font-size:11px;color:#A89880;font-family:monospace">Harmony Horses — client draft</span></div><div style="display:flex;align-items:center;gap:10px"><a href="index.html" style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#6B5E4E;font-family:monospace;text-decoration:none" onmouseover="this.style.color='#C09B53'" onmouseout="this.style.color='#6B5E4E'">Home</a><a href="services.html" style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#6B5E4E;font-family:monospace;text-decoration:none" onmouseover="this.style.color='#C09B53'" onmouseout="this.style.color='#6B5E4E'">Services</a><a href="facilities.html" style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#6B5E4E;font-family:monospace;text-decoration:none" onmouseover="this.style.color='#C09B53'" onmouseout="this.style.color='#6B5E4E'">Facilities</a><a href="staff.html" style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#6B5E4E;font-family:monospace;text-decoration:none" onmouseover="this.style.color='#C09B53'" onmouseout="this.style.color='#6B5E4E'">Staff</a><a href="events.html" style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#6B5E4E;font-family:monospace;text-decoration:none" onmouseover="this.style.color='#C09B53'" onmouseout="this.style.color='#6B5E4E'">Events</a><a href="contact.html" style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#6B5E4E;font-family:monospace;text-decoration:none" onmouseover="this.style.color='#C09B53'" onmouseout="this.style.color='#6B5E4E'">Contact</a><span style="width:1px;height:14px;background:rgba(192,155,83,.3)"></span><a href="../client-preview.html" style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#C09B53;font-family:monospace;text-decoration:none;background:rgba(192,155,83,.1);border:1px solid rgba(192,155,83,.25);padding:4px 10px">← Dashboard</a></div>`;
-  Object.assign(bar.style,{position:'fixed',top:'0',left:'0',right:'0',zIndex:'9999',background:'rgba(10,10,8,.97)',borderBottom:'1px solid rgba(192,155,83,.18)',padding:'8px 24px',display:'flex',alignItems:'center',justifyContent:'space-between',backdropFilter:'blur(12px)',boxSizing:'border-box'});
-  document.body.prepend(bar);
-  const navEl = document.querySelector('.nav');
-  if (navEl) { navEl.style.top = '37px'; const h = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'))||72; document.documentElement.style.setProperty('--nav-h',(h+37)+'px'); }
+// Preview bar
+(function(){
+  if(!sessionStorage.getItem('hh_client'))return;
+  const b=document.createElement('div');
+  b.style.cssText='position:fixed;top:0;left:0;right:0;z-index:9999;height:38px;background:rgba(9,9,7,.97);border-bottom:1px solid rgba(192,155,83,.2);display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-family:Jost,sans-serif;font-size:11px;box-sizing:border-box;backdrop-filter:blur(12px)';
+  b.innerHTML=`<div style="display:flex;align-items:center;gap:10px"><span style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#C09B53;font-weight:600">Preview mode</span><span style="width:1px;height:14px;background:rgba(192,155,83,.25)"></span><span style="color:#A89880;font-size:10px">Harmony Horses — draft</span></div><div style="display:flex;align-items:center;gap:14px"><a href="index.html" style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#6B5E4E;text-decoration:none" onmouseover="this.style.color='#C09B53'" onmouseout="this.style.color='#6B5E4E'">Home</a><a href="services.html" style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#6B5E4E;text-decoration:none" onmouseover="this.style.color='#C09B53'" onmouseout="this.style.color='#6B5E4E'">Services</a><a href="facilities.html" style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#6B5E4E;text-decoration:none" onmouseover="this.style.color='#C09B53'" onmouseout="this.style.color='#6B5E4E'">Facilities</a><a href="staff.html" style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#6B5E4E;text-decoration:none" onmouseover="this.style.color='#C09B53'" onmouseout="this.style.color='#6B5E4E'">Staff</a><a href="events.html" style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#6B5E4E;text-decoration:none" onmouseover="this.style.color='#C09B53'" onmouseout="this.style.color='#6B5E4E'">Events</a><a href="contact.html" style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#6B5E4E;text-decoration:none" onmouseover="this.style.color='#C09B53'" onmouseout="this.style.color='#6B5E4E'">Contact</a><a href="instagram.html" style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#6B5E4E;text-decoration:none" onmouseover="this.style.color='#C09B53'" onmouseout="this.style.color='#6B5E4E'">Instagram</a><span style="width:1px;height:14px;background:rgba(192,155,83,.25)"></span><a href="../harmony-preview.html" style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#C09B53;text-decoration:none;background:rgba(192,155,83,.1);border:1px solid rgba(192,155,83,.25);padding:3px 9px" onmouseover="this.style.background='rgba(192,155,83,.2)'" onmouseout="this.style.background='rgba(192,155,83,.1)'">← Dashboard</a></div>`;
+  document.body.prepend(b);
+  const nav=document.querySelector('.nav');
+  if(nav){const h=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'))||72;document.documentElement.style.setProperty('--nav-h',(h+38)+'px');nav.style.top='38px';}
 })();
 
-const nav = document.querySelector('.nav');
-if (nav) { const s=()=>nav.classList.toggle('scrolled',scrollY>20); window.addEventListener('scroll',s,{passive:true}); s(); }
+// Nav scroll
+const _nav=document.querySelector('.nav');
+if(_nav){const s=()=>_nav.classList.toggle('scrolled',scrollY>20);window.addEventListener('scroll',s,{passive:true});s();}
 
-const toggle=document.getElementById('navToggle'),drawer=document.getElementById('navDrawer');
-if(toggle&&drawer){toggle.addEventListener('click',()=>{const o=toggle.classList.toggle('open');drawer.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';});drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{toggle.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';}));}
+// Hamburger
+const _tog=document.getElementById('navTog'),_drw=document.getElementById('navDrw');
+if(_tog&&_drw){_tog.addEventListener('click',()=>{const o=_tog.classList.toggle('open');_drw.classList.toggle('open',o);document.body.style.overflow=o?'hidden':''});_drw.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{_tog.classList.remove('open');_drw.classList.remove('open');document.body.style.overflow=''}));}
 
-const page=location.pathname.split('/').pop()||'index.html';
-document.querySelectorAll('.nav-links a,.nav-drawer a').forEach(a=>{const h=a.getAttribute('href')||'';if(h&&(page===h||(page===''||page==='index.html')&&h.includes('index')))a.classList.add('active');});
+// Active link
+const _pg=location.pathname.split('/').pop()||'index.html';
+document.querySelectorAll('.nav-links a,.nav-drawer a').forEach(a=>{const h=a.getAttribute('href')||'';if(h&&(_pg===h||(_pg===''||_pg==='index.html')&&h.includes('index')))a.classList.add('active');});
 
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+// Reveal
+const _ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.07,rootMargin:'0px 0px -36px 0px'});
+document.querySelectorAll('.rev').forEach(el=>_ro.observe(el));
