@@ -4,205 +4,105 @@
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Our Team — Harmony Horses</title>
 <link rel="stylesheet" href="css/main.css"/>
-<style>
-body{background:var(--b0)}
-
-/* TEAM GRID */
-.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:0;border:1px solid var(--bd);margin-top:3.5rem}
-.team-card{background:var(--b2);display:flex;flex-direction:column;overflow:hidden;border-right:1px solid var(--bd);border-bottom:1px solid var(--bd);transition:background .22s}
-.team-card:hover{background:var(--b3)}
-.tc-photo{height:300px;overflow:hidden;position:relative;flex-shrink:0}
-.tc-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s ease}
-.team-card:hover .tc-photo img{transform:scale(1.04)}
-.tc-photo-ov{position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to top,rgba(14,14,11,.8),transparent)}
-.tc-body{padding:1.6rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
-.tc-role{font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
-.tc-name{font-family:var(--serif);font-size:1.45rem;font-weight:300;color:var(--t1);line-height:1.1}
-.tc-bio{font-family:var(--sans);font-size:.8rem;font-weight:300;color:var(--t2);line-height:1.7;flex:1}
-.tc-certs{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem}
-
-/* VALUES */
-.val-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:0;border:1px solid var(--bd)}
-.val-card{background:var(--b2);padding:2.25rem;border-right:1px solid var(--bd);border-bottom:1px solid var(--bd);transition:background .2s}
-.val-card:hover{background:var(--b3)}
-.val-icon{font-size:1.4rem;margin-bottom:.75rem}
-.val-name{font-family:var(--serif);font-size:1.25rem;font-weight:300;color:var(--t1);margin-bottom:.6rem}
-.val-desc{font-family:var(--sans);font-size:.8rem;font-weight:300;color:var(--t2);line-height:1.7}
-
-/* JOIN */
-.join-band{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--bd)}
-.join-img{overflow:hidden;height:400px}
-.join-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.join-img:hover img{transform:scale(1.03)}
-.join-text{background:var(--b2);padding:3.5rem;display:flex;flex-direction:column;justify-content:center;gap:1.25rem}
-
-@media(max-width:900px){.join-band{grid-template-columns:1fr}.join-img{height:260px}}
-@media(max-width:620px){.tc-photo{height:240px}}
-</style>
 </head>
 <body>
 <nav class="nav" id="mainNav">
-  <a href="index.html" class="nav-logo"><span class="name">Harmony Horses</span><span class="sub">Luxury Equestrian</span></a>
-  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="facilities.html">Facilities</a></li><li><a href="staff.html">Our team</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul>
-  <a href="contact.html" class="nav-book">Book a visit</a>
+  <ul class="nav-links-left"><li><a href="services.html">Services</a></li><li><a href="facilities.html">Facilities</a></li></ul>
+  <div class="nav-logo-wrap"><div class="nav-logo">Harmony Horses</div><span class="nav-logo-sub">Equestrian</span></div>
+  <ul class="nav-links-right"><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul>
   <button class="nav-tog" id="navTog"><span></span><span></span><span></span></button>
 </nav>
 <nav class="nav-drawer" id="navDrw">
-  <a href="index.html">Home</a><a href="services.html">Services</a><a href="facilities.html">Facilities</a><a href="staff.html">Our team</a><a href="events.html">Events</a><a href="contact.html">Contact</a>
-  <a href="contact.html" class="d-book">Book a visit</a>
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="facilities.html">Facilities</a>
+  <a href="staff.html">Our Team</a><a href="events.html">Events</a><a href="contact.html">Contact</a>
 </nav>
 
-<div class="ph" style="background:var(--b1)">
-  <div class="ph-bg-img"><img src="https://images.unsplash.com/photo-1598974357801-cbca100e65d3?w=1400&q=70&fit=crop" alt=""/><div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(15,15,12,.94) 40%,rgba(15,15,12,.5) 100%)"></div></div>
-  <div class="wrap"><div class="ph-inner">
-    <div class="eyebrow rev">The people behind the horses</div>
-    <h1 class="d-xl rev d1">Our <em>team.</em></h1>
-    <p class="body-lg rev d2" style="margin-top:1.25rem;max-width:52ch">Our instructors, grooms, and stable managers share one thing — a lifelong dedication to horses and the people who love them.</p>
-  </div></div>
+<div class="ph ph-full">
+  <div class="ph-bg"><img src="https://images.unsplash.com/photo-1598974357801-cbca100e65d3?w=1600&q=85&fit=crop" alt="Our team"/></div>
+  <div class="ph-txt"><div class="ph-sub">The people</div><h1>Our Team</h1></div>
 </div>
 
-<!-- INSTRUCTORS & TRAINERS -->
-<section class="sec" style="background:var(--b0)">
-  <div class="wrap">
-    <div class="eyebrow rev">Instructors & trainers</div>
-    <h2 class="d-lg rev d1">Meet the <em>team</em></h2>
-    <div class="team-grid rev d2">
+<div class="container-sm" style="padding-top:70px;padding-bottom:70px;text-align:center">
+  <p class="statement rev">Our instructors, grooms, and stable managers share one thing — a <span class="caps">LIFELONG DEDICATION</span> to horses and the people who love them.</p>
+</div>
+<div style="border-top:1px solid #e0e0e0"></div>
 
-      <div class="team-card">
-        <div class="tc-photo">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=85&fit=crop&crop=top" alt="Head trainer"/>
-          <div class="tc-photo-ov"></div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-role">Head trainer & co-founder</div>
-          <div class="tc-name">[Name Surname]</div>
-          <p class="tc-bio">Over 20 years of competitive riding experience across dressage and show jumping. Holds FEI trainer certification with international competition credits. Passionate about building genuine partnerships between horse and rider through patient, progressive training methods.</p>
-          <div class="tc-certs"><span class="tag">FEI Certified</span><span class="tag">Dressage</span><span class="tag">Show Jumping</span></div>
-        </div>
-      </div>
+<!-- TEAM GRID -->
+<div class="container" style="padding-top:60px;padding-bottom:60px">
+  <div class="section-label rev">Instructors &amp; staff</div>
+  <div class="team-grid rev d1" style="margin-top:32px">
 
-      <div class="team-card">
-        <div class="tc-photo">
-          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&q=85&fit=crop&crop=top" alt="Senior instructor"/>
-          <div class="tc-photo-ov"></div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-role">Senior riding instructor</div>
-          <div class="tc-name">[Name Surname]</div>
-          <p class="tc-bio">Specialised in teaching beginner and junior riders with warmth and enthusiasm. Holds national Level 3 coaching qualifications and leads our popular children's programme and holiday camps. Her calm, encouraging style creates lasting confidence in new riders.</p>
-          <div class="tc-certs"><span class="tag">Level 3 Coach</span><span class="tag">Youth Specialist</span><span class="tag">Pony Club</span></div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <div class="tc-photo">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=85&fit=crop&crop=top" alt="Competition trainer"/>
-          <div class="tc-photo-ov"></div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-role">Competition trainer</div>
-          <div class="tc-name">[Name Surname]</div>
-          <p class="tc-bio">Specialist in competitive training from grassroots through to national level. Former national team reserve with an exceptional eye for detail in technical flatwork and grid exercises. Has helped numerous riders achieve their first competition placings.</p>
-          <div class="tc-certs"><span class="tag">National Level</span><span class="tag">Grid Work</span><span class="tag">Eventing</span></div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <div class="tc-photo">
-          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&q=85&fit=crop&crop=top" alt="Stable manager"/>
-          <div class="tc-photo-ov"></div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-role">Stable manager</div>
-          <div class="tc-name">[Name Surname]</div>
-          <p class="tc-bio">Oversees the daily running of the yard with meticulous attention to the health and wellbeing of every horse in our care. Holds a degree in equine nutrition and science, and manages all feeding programmes, vet liaisons, and health monitoring protocols.</p>
-          <div class="tc-certs"><span class="tag">Equine Nutrition BSc</span><span class="tag">First Aid</span><span class="tag">Yard Management</span></div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <div class="tc-photo">
-          <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&q=85&fit=crop&crop=top" alt="Senior groom"/>
-          <div class="tc-photo-ov"></div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-role">Senior groom</div>
-          <div class="tc-name">[Name Surname]</div>
-          <p class="tc-bio">Responsible for the daily care, presentation, and welfare of all stable horses. An experienced competition groom with a calm and observant approach to animal care. Has worked at international shows and brings exceptional attention to detail to every aspect of grooming.</p>
-          <div class="tc-certs"><span class="tag">Competition Groom</span><span class="tag">International Shows</span></div>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <div class="tc-photo">
-          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&q=85&fit=crop&crop=top" alt="Facilities manager"/>
-          <div class="tc-photo-ov"></div>
-        </div>
-        <div class="tc-body">
-          <div class="tc-role">Facilities & ground manager</div>
-          <div class="tc-name">[Name Surname]</div>
-          <p class="tc-bio">Manages arena maintenance, paddock rotation, cross-country course upkeep, and all infrastructure across the 30-hectare grounds. Ensures that every surface and facility is maintained to the highest standard year-round — including through Finland's demanding winters.</p>
-          <div class="tc-certs"><span class="tag">Arena Management</span><span class="tag">Course Design</span></div>
-        </div>
-      </div>
-
+    <div class="team-card">
+      <div class="team-photo"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=85&fit=crop&crop=top" alt=""/></div>
+      <div class="team-role">Head trainer &amp; co-founder</div>
+      <div class="team-name">[Name Surname]</div>
+      <p class="team-bio">Over 20 years of competitive riding experience. FEI certified trainer with international competition credits. Passionate about building genuine partnerships between horse and rider through patient, progressive methods.</p>
     </div>
+
+    <div class="team-card">
+      <div class="team-photo"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&q=85&fit=crop&crop=top" alt=""/></div>
+      <div class="team-role">Senior riding instructor</div>
+      <div class="team-name">[Name Surname]</div>
+      <p class="team-bio">Specialised in teaching beginner and junior riders with warmth and enthusiasm. Holds national Level 3 coaching qualifications and leads our children's programme and holiday camps.</p>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=85&fit=crop&crop=top" alt=""/></div>
+      <div class="team-role">Competition trainer</div>
+      <div class="team-name">[Name Surname]</div>
+      <p class="team-bio">Specialist in competitive training from grassroots through national level. Former national team reserve with an exceptional eye for technical detail in flatwork and grid exercises.</p>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&q=85&fit=crop&crop=top" alt=""/></div>
+      <div class="team-role">Stable manager</div>
+      <div class="team-name">[Name Surname]</div>
+      <p class="team-bio">Oversees the daily running of the yard with meticulous attention to the health of every horse in our care. Holds a degree in equine nutrition and manages all feeding programmes.</p>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&q=85&fit=crop&crop=top" alt=""/></div>
+      <div class="team-role">Senior groom</div>
+      <div class="team-name">[Name Surname]</div>
+      <p class="team-bio">Responsible for the daily care and presentation of all stable horses. An experienced competition groom with international show experience and a calm, observant approach to animal care.</p>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&q=85&fit=crop&crop=top" alt=""/></div>
+      <div class="team-role">Facilities &amp; grounds manager</div>
+      <div class="team-name">[Name Surname]</div>
+      <p class="team-bio">Manages arena maintenance, paddock rotation, cross-country course upkeep, and all infrastructure across our 30-hectare grounds year-round.</p>
+    </div>
+
   </div>
-</section>
+</div>
+
+<!-- FULL BLEED -->
+<div class="img-full img-h-500 rev">
+  <img src="https://images.unsplash.com/photo-1534053000-56b6da7c3a98?w=1800&q=85&fit=crop" alt="Horses in field"/>
+</div>
 
 <!-- VALUES -->
-<section class="sec" style="background:var(--b1)">
-  <div class="wrap">
-    <div class="eyebrow center rev">What guides us</div>
-    <h2 class="d-lg rev d1" style="text-align:center;margin-bottom:3rem">Our <em>values</em></h2>
-    <div class="val-grid rev d2">
-      <div class="val-card">
-        <div class="val-icon">🐴</div>
-        <div class="val-name">Horsemanship first</div>
-        <p class="val-desc">Every decision we make begins with the horse. We prioritise ethical, respectful, and empathetic handling above all else — because trust can only be earned, never demanded.</p>
-      </div>
-      <div class="val-card">
-        <div class="val-icon">⭐</div>
-        <div class="val-name">Uncompromising excellence</div>
-        <p class="val-desc">We hold ourselves to the highest standards in instruction, facilities, and care. From the quality of our footing to the depth of our coaching, excellence is not optional.</p>
-      </div>
-      <div class="val-card">
-        <div class="val-icon">🤝</div>
-        <div class="val-name">Community & belonging</div>
-        <p class="val-desc">Harmony Horses is more than a stable — it's a community of horse lovers who support, inspire, and encourage one another. Every rider belongs here, at every level.</p>
-      </div>
-      <div class="val-card" style="border-right:none">
-        <div class="val-icon">📈</div>
-        <div class="val-name">Continuous growth</div>
-        <p class="val-desc">We believe in lifelong learning — for our riders, our horses, and our team. Progress is personal, and we celebrate every milestone, however large or small.</p>
-      </div>
+<div style="background:#f5f5f5;padding:70px 0" class="rev">
+  <div class="container-sm" style="text-align:center">
+    <div class="section-label" style="justify-content:center">What guides us</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3.5rem);font-weight:400;font-style:italic;color:#1a1a1a;margin-bottom:40px">Our values</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #e0e0e0;border-left:1px solid #e0e0e0;text-align:left">
+      <div style="padding:28px;border-right:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0"><div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:400;font-style:italic;color:#1a1a1a;margin-bottom:10px">Horsemanship first</div><p style="font-family:'Lato',sans-serif;font-size:13px;font-weight:300;color:#666;line-height:1.75">Every decision begins with the horse. Trust can only be earned, never demanded.</p></div>
+      <div style="padding:28px;border-bottom:1px solid #e0e0e0"><div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:400;font-style:italic;color:#1a1a1a;margin-bottom:10px">Uncompromising excellence</div><p style="font-family:'Lato',sans-serif;font-size:13px;font-weight:300;color:#666;line-height:1.75">From arena footing to coaching depth — we hold ourselves to the highest standards.</p></div>
+      <div style="padding:28px;border-right:1px solid #e0e0e0"><div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:400;font-style:italic;color:#1a1a1a;margin-bottom:10px">Community &amp; belonging</div><p style="font-family:'Lato',sans-serif;font-size:13px;font-weight:300;color:#666;line-height:1.75">Every rider belongs here, at every level. We support and inspire one another.</p></div>
+      <div style="padding:28px"><div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:400;font-style:italic;color:#1a1a1a;margin-bottom:10px">Lifelong growth</div><p style="font-family:'Lato',sans-serif;font-size:13px;font-weight:300;color:#666;line-height:1.75">Progress is personal and we celebrate every milestone, however large or small.</p></div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- JOIN US -->
-<section class="sec" style="background:var(--b0)">
-  <div class="wrap">
-    <div class="eyebrow center rev">Careers at Harmony Horses</div>
-    <h2 class="d-lg rev d1" style="text-align:center;margin-bottom:2.5rem">Join our <em>team</em></h2>
-    <div class="join-band rev d2">
-      <div class="join-img"><img src="https://images.unsplash.com/photo-1569017388730-020b5f80a004?w=800&q=80&fit=crop" alt="Instructing"/></div>
-      <div class="join-text">
-        <h3 class="d-sm">We are always looking for passionate, talented equestrians to join the Harmony Horses family.</h3>
-        <p class="body-md">Whether you're an experienced instructor, a qualified groom, or someone passionate about working with horses — we'd love to hear from you. We offer a supportive, professional environment and the opportunity to work with exceptional horses and riders.</p>
-        <p class="body-md">Current openings and informal enquiries welcome.</p>
-        <a href="contact.html" class="btn btn-gold btn-md" style="width:fit-content">Send your CV</a>
-      </div>
-    </div>
-  </div>
-</section>
+<div style="padding:70px clamp(20px,5vw,60px);text-align:center" class="rev">
+  <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,3rem);font-weight:400;font-style:italic;color:#1a1a1a;margin-bottom:16px">Join our team.</h2>
+  <p style="font-family:'Lato',sans-serif;font-size:14px;font-weight:300;color:#666;max-width:44ch;margin:0 auto 28px;line-height:1.8">We are always looking for passionate equestrians. Informal enquiries and CVs are always welcome.</p>
+  <a href="contact.html" class="btn">Send your CV</a>
+</div>
 
-<footer><div class="wrap"><div class="ft-grid">
-  <div><div class="ft-logo"><span class="name">Harmony Horses</span><span class="sub">Luxury Equestrian</span></div><p class="ft-desc">Premier equestrian stables offering world-class boarding, training, and riding experiences.</p></div>
-  <div><div class="ft-head">Navigate</div><ul class="ft-links"><li><a href="services.html">Services</a></li><li><a href="facilities.html">Facilities</a></li><li><a href="staff.html">Our team</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-  <div><div class="ft-head">Services</div><ul class="ft-links"><li><a href="services.html">Riding lessons</a></li><li><a href="services.html">Horse boarding</a></li><li><a href="services.html">Training & coaching</a></li></ul></div>
-  <div><div class="ft-head">Contact</div><ul class="ft-links"><li><a href="tel:+358000000000">+358 00 000 0000</a></li><li><a href="mailto:info@harmonyhorsesfi.com">info@harmonyhorsesfi.com</a></li></ul></div>
-</div><div class="ft-bottom"><span class="ft-copy">© 2025 Harmony Horses. Demo draft for client review.</span><div class="ft-social"><a href="instagram.html">Instagram</a><a href="#">Facebook</a></div></div></div></footer>
+<footer><div class="container"><div class="ft-inner"><div class="ft-logo">Harmony Horses</div><div class="ft-sub">Luxury Equestrian &middot; Finland</div><div class="ft-contact"><a href="mailto:info@harmonyhorsesfi.com">info@harmonyhorsesfi.com</a><a href="tel:+358000000000">+358 00 000 0000</a></div><nav class="ft-nav"><a href="services.html">Services</a><a href="facilities.html">Facilities</a><a href="staff.html">Our team</a><a href="events.html">Events</a><a href="contact.html">Contact</a></nav></div><span class="ft-copy">&copy; 2025 Harmony Horses &mdash; Demo draft</span></div></footer>
 <script src="js/main.js"></script>
 </body>
 </html>

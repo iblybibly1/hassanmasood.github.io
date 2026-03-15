@@ -4,186 +4,129 @@
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Facilities — Harmony Horses</title>
 <link rel="stylesheet" href="css/main.css"/>
-<style>
-body{background:var(--b0)}
-.fac-section{padding:5.5rem 0;border-bottom:1px solid var(--bd)}
-.fac-section:last-child{border-bottom:none}
-.fac-layout{display:grid;grid-template-columns:1fr 1fr;gap:5.5rem;align-items:center}
-.fac-layout.fl-rev .fi{order:1}.fac-layout.fl-rev .ft{order:2}
-.fi{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-.fi-main{grid-column:1/-1;overflow:hidden;height:240px}
-.fi-main img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
-.fi-main:hover img{transform:scale(1.04)}
-.fi-sub{overflow:hidden;height:160px}
-.fi-sub img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
-.fi-sub:hover img{transform:scale(1.05)}
-.ft{} /* text col */
-.f-cat{font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
-.f-name{font-family:var(--serif);font-size:clamp(1.9rem,3vw,3rem);font-weight:300;line-height:1.05;color:var(--t1);margin-bottom:1.25rem}
-.f-name em{font-style:italic;color:var(--gold-l)}
-.specs{border:1px solid var(--bd);margin:1.5rem 0}
-.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:.65rem 1.1rem;border-bottom:1px solid var(--bd)}
-.spec-row:last-child{border-bottom:none}
-.spec-l{font-family:var(--sans);font-size:.65rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--t3)}
-.spec-v{font-family:var(--serif);font-size:.95rem;font-weight:300;color:var(--t1)}
-
-/* AMENITIES */
-.am-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0;border:1px solid var(--bd)}
-.am-card{background:var(--b2);border-right:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden;transition:background .2s}
-.am-card:last-child{border-right:none}
-.am-card:hover{background:var(--b3)}
-.am-img{height:120px;overflow:hidden;flex-shrink:0}
-.am-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.am-card:hover .am-img img{transform:scale(1.06)}
-.am-body{padding:1.25rem;display:flex;flex-direction:column;gap:.35rem}
-.am-name{font-family:var(--serif);font-size:1.1rem;font-weight:300;color:var(--t1)}
-.am-desc{font-family:var(--sans);font-size:.78rem;font-weight:300;color:var(--t3);line-height:1.6}
-
-@media(max-width:900px){.fac-layout,.fac-layout.fl-rev{grid-template-columns:1fr}.fac-layout.fl-rev .fi,.fac-layout.fl-rev .ft{order:unset}}
-@media(max-width:600px){.fi{grid-template-columns:1fr}.fi-main{height:200px}.fi-sub{display:none}}
-</style>
 </head>
 <body>
 <nav class="nav" id="mainNav">
-  <a href="index.html" class="nav-logo"><span class="name">Harmony Horses</span><span class="sub">Luxury Equestrian</span></a>
-  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="facilities.html">Facilities</a></li><li><a href="staff.html">Our team</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul>
-  <a href="contact.html" class="nav-book">Book a visit</a>
+  <ul class="nav-links-left"><li><a href="services.html">Services</a></li><li><a href="facilities.html">Facilities</a></li></ul>
+  <div class="nav-logo-wrap"><div class="nav-logo">Harmony Horses</div><span class="nav-logo-sub">Equestrian</span></div>
+  <ul class="nav-links-right"><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul>
   <button class="nav-tog" id="navTog"><span></span><span></span><span></span></button>
 </nav>
 <nav class="nav-drawer" id="navDrw">
-  <a href="index.html">Home</a><a href="services.html">Services</a><a href="facilities.html">Facilities</a><a href="staff.html">Our team</a><a href="events.html">Events</a><a href="contact.html">Contact</a>
-  <a href="contact.html" class="d-book">Book a visit</a>
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="facilities.html">Facilities</a>
+  <a href="staff.html">Our Team</a><a href="events.html">Events</a><a href="contact.html">Contact</a>
 </nav>
 
-<div class="ph" style="background:var(--b1)">
-  <div class="ph-bg-img"><img src="https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=1400&q=70&fit=crop" alt=""/><div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(15,15,12,.94) 40%,rgba(15,15,12,.5) 100%)"></div></div>
-  <div class="wrap"><div class="ph-inner">
-    <div class="eyebrow rev">World-class infrastructure</div>
-    <h1 class="d-xl rev d1">Our<br><em>facilities.</em></h1>
-    <p class="body-lg rev d2" style="margin-top:1.25rem;max-width:52ch">Every corner of Harmony Horses has been designed with a single goal — the finest possible environment for horses and riders alike.</p>
-  </div></div>
+<div class="ph ph-full">
+  <div class="ph-bg"><img src="https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=1600&q=85&fit=crop" alt="Indoor arena"/></div>
+  <div class="ph-txt"><div class="ph-sub">Our spaces</div><h1>Facilities</h1></div>
 </div>
 
-<section style="background:var(--b0)">
+<div class="container-sm" style="padding-top:70px;padding-bottom:70px;text-align:center">
+  <p class="statement rev">Every detail at Harmony Horses has been designed with one goal — the finest possible environment for <span class="caps">HORSES AND RIDERS</span> alike.</p>
+</div>
 
-  <div class="fac-section"><div class="wrap">
-    <div class="fac-layout rev">
-      <div class="fi">
-        <div class="fi-main"><img src="https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=900&q=85&fit=crop" alt="Indoor arena wide"/></div>
-        <div class="fi-sub"><img src="https://images.unsplash.com/photo-1569017388730-020b5f80a004?w=500&q=80&fit=crop" alt="Riding in arena"/></div>
-        <div class="fi-sub"><img src="https://images.unsplash.com/photo-1548953359-59d56ae9fe5a?w=500&q=80&fit=crop" alt="Jumping in arena"/></div>
-      </div>
-      <div class="ft">
-        <div class="f-cat">Arena 01</div>
-        <h2 class="f-name">Indoor <em>arena</em></h2>
-        <p class="body-lg">Our flagship heated indoor arena offers year-round riding regardless of the Finnish weather. Competition-standard lighting and footing make it equally suited to practice and performance.</p>
-        <div class="specs">
-          <div class="spec-row"><span class="spec-l">Dimensions</span><span class="spec-v">60 × 20 metres</span></div>
-          <div class="spec-row"><span class="spec-l">Footing</span><span class="spec-v">Premium sand & rubber mix</span></div>
-          <div class="spec-row"><span class="spec-l">Lighting</span><span class="spec-v">Full LED — competition standard</span></div>
-          <div class="spec-row"><span class="spec-l">Heating</span><span class="spec-v">Radiant underfloor heating</span></div>
-          <div class="spec-row"><span class="spec-l">Mirrors</span><span class="spec-v">Full-length on long side</span></div>
-          <div class="spec-row"><span class="spec-l">Spectator gallery</span><span class="spec-v">Heated seating for 40</span></div>
-          <div class="spec-row"><span class="spec-l">Sound system</span><span class="spec-v">Professional audio for dressage</span></div>
-        </div>
-      </div>
+<!-- INDOOR ARENA -->
+<div class="img-full img-h-600 rev">
+  <img src="https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=1800&q=85&fit=crop" alt="Indoor arena"/>
+</div>
+
+<div style="border-top:1px solid #e0e0e0">
+  <div class="ed-split rev">
+    <div class="ed-split-text">
+      <div class="section-label">Arena 01</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.2vw,3rem);font-weight:400;line-height:1.1;color:#1a1a1a;margin-bottom:16px">Indoor <em>arena</em></h2>
+      <p class="svc-block-desc">Our flagship heated indoor arena offers year-round riding whatever the Finnish weather brings. Competition-standard in every detail.</p>
+      <table class="spec-tbl" style="margin-top:20px">
+        <tr><td>Dimensions</td><td>60 × 20 metres</td></tr>
+        <tr><td>Footing</td><td>Premium sand &amp; rubber mix</td></tr>
+        <tr><td>Lighting</td><td>Full LED, competition standard</td></tr>
+        <tr><td>Heating</td><td>Radiant underfloor heating</td></tr>
+        <tr><td>Mirrors</td><td>Full-length on long side</td></tr>
+        <tr><td>Spectators</td><td>Heated gallery, 40 seats</td></tr>
+      </table>
     </div>
-  </div></div>
+    <div class="ed-split-img"><img src="https://images.unsplash.com/photo-1569017388730-020b5f80a004?w=900&q=85&fit=crop" alt="Riding in arena"/></div>
+  </div>
+</div>
 
-  <div class="fac-section" style="background:var(--b1)"><div class="wrap">
-    <div class="fac-layout fl-rev rev">
-      <div class="fi">
-        <div class="fi-main"><img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=900&q=85&fit=crop" alt="Outdoor arena"/></div>
-        <div class="fi-sub"><img src="https://images.unsplash.com/photo-1559666126-84f389727b9a?w=500&q=80&fit=crop" alt="Countryside trail"/></div>
-        <div class="fi-sub"><img src="https://images.unsplash.com/photo-1534053000-56b6da7c3a98?w=500&q=80&fit=crop" alt="Cross country"/></div>
-      </div>
-      <div class="ft">
-        <div class="f-cat">Arena 02</div>
-        <h2 class="f-name">Outdoor arena<br><em>& courses</em></h2>
-        <p class="body-lg">An expansive all-weather outdoor school and a dedicated show jumping course set against the stunning Finnish landscape — beautiful and functional in every season.</p>
-        <div class="specs">
-          <div class="spec-row"><span class="spec-l">Outdoor school</span><span class="spec-v">80 × 40 metres</span></div>
-          <div class="spec-row"><span class="spec-l">Footing</span><span class="spec-v">All-weather GGT fibre mix</span></div>
-          <div class="spec-row"><span class="spec-l">Show jump course</span><span class="spec-v">12 fences, fully adjustable</span></div>
-          <div class="spec-row"><span class="spec-l">Cross-country course</span><span class="spec-v">3km through forest, 18 obstacles</span></div>
-          <div class="spec-row"><span class="spec-l">Warm-up area</span><span class="spec-v">Separate lunging ring, 20m</span></div>
-        </div>
-      </div>
-    </div>
-  </div></div>
+<!-- DUO -->
+<div class="img-duo rev" style="margin-top:3px">
+  <img src="https://images.unsplash.com/photo-1548953359-59d56ae9fe5a?w=900&q=80&fit=crop" alt="Show jumping"/>
+  <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=900&q=80&fit=crop" alt="Outdoor arena"/>
+</div>
 
-  <div class="fac-section"><div class="wrap">
-    <div class="fac-layout rev">
-      <div class="fi">
-        <div class="fi-main"><img src="https://images.unsplash.com/photo-1576452280497-7e3a2d43e1b1?w=900&q=85&fit=crop" alt="Stables interior"/></div>
-        <div class="fi-sub"><img src="https://images.unsplash.com/photo-1598974357801-cbca100e65d3?w=500&q=80&fit=crop" alt="Horse in stall"/></div>
-        <div class="fi-sub"><img src="https://images.unsplash.com/photo-1559666126-84f389727b9a?w=500&q=80&fit=crop" alt="Paddock"/></div>
-      </div>
-      <div class="ft">
-        <div class="f-cat">Stabling</div>
-        <h2 class="f-name">Stables &<br><em>paddocks</em></h2>
-        <p class="body-lg">Forty individually managed stalls, designed around the horse's natural needs — spacious, well-ventilated, and managed with meticulous attention to welfare.</p>
-        <div class="specs">
-          <div class="spec-row"><span class="spec-l">Stall count</span><span class="spec-v">40 boxes</span></div>
-          <div class="spec-row"><span class="spec-l">Stall size</span><span class="spec-v">4 × 4 metres each</span></div>
-          <div class="spec-row"><span class="spec-l">Bedding</span><span class="spec-v">Premium shavings — daily mucking</span></div>
-          <div class="spec-row"><span class="spec-l">Drinkers</span><span class="spec-v">Automatic, thermostat-controlled</span></div>
-          <div class="spec-row"><span class="spec-l">Paddocks</span><span class="spec-v">16 individual + 4 communal</span></div>
-          <div class="spec-row"><span class="spec-l">Total grounds</span><span class="spec-v">30+ hectares</span></div>
-          <div class="spec-row"><span class="spec-l">Supervision</span><span class="spec-v">24/7 on-site</span></div>
-        </div>
-      </div>
-    </div>
-  </div></div>
-
-</section>
-
-<!-- RIDER AMENITIES -->
-<section class="sec" style="background:var(--b1)">
-  <div class="wrap">
-    <div class="eyebrow center rev">For our riders</div>
-    <h2 class="d-lg rev d1" style="text-align:center;margin-bottom:3rem">Rider <em>amenities</em></h2>
-    <div class="am-grid rev d2">
-      <div class="am-card">
-        <div class="am-img"><img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=400&q=80&fit=crop" alt="Clubhouse"/></div>
-        <div class="am-body"><div class="am-name">Clubhouse & café</div><p class="am-desc">Warm and welcoming lounge with café serving hot drinks, light meals, and homemade baked goods.</p></div>
-      </div>
-      <div class="am-card">
-        <div class="am-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80&fit=crop" alt="Changing rooms"/></div>
-        <div class="am-body"><div class="am-name">Changing rooms</div><p class="am-desc">Spacious male and female changing rooms with heated showers and secure lockers.</p></div>
-      </div>
-      <div class="am-card">
-        <div class="am-img"><img src="https://images.unsplash.com/photo-1576452280497-7e3a2d43e1b1?w=400&q=80&fit=crop" alt="Tack room"/></div>
-        <div class="am-body"><div class="am-name">Tack rooms</div><p class="am-desc">Secure, climate-controlled tack rooms for boarding clients — padded saddle racks and personal storage.</p></div>
-      </div>
-      <div class="am-card">
-        <div class="am-img"><img src="https://images.unsplash.com/photo-1534053000-56b6da7c3a98?w=400&q=80&fit=crop" alt="Wash bay"/></div>
-        <div class="am-body"><div class="am-name">Wash boxes</div><p class="am-desc">Heated wash boxes with hot and cold water, infrared drying lamps, and full grooming stations.</p></div>
-      </div>
-      <div class="am-card" style="border-right:none">
-        <div class="am-img"><img src="https://images.unsplash.com/photo-1559666126-84f389727b9a?w=400&q=80&fit=crop" alt="Parking"/></div>
-        <div class="am-body"><div class="am-name">Vet bay & parking</div><p class="am-desc">Dedicated veterinary treatment area and ample free parking with trailer and lorry spaces.</p></div>
-      </div>
+<!-- OUTDOOR ARENA -->
+<div style="border-top:1px solid #e0e0e0">
+  <div class="ed-split rev">
+    <div class="ed-split-img"><img src="https://images.unsplash.com/photo-1559666126-84f389727b9a?w=900&q=85&fit=crop" alt="Outdoor paddock"/></div>
+    <div class="ed-split-text" style="background:#f9f9f7">
+      <div class="section-label">Arena 02</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.2vw,3rem);font-weight:400;line-height:1.1;color:#1a1a1a;margin-bottom:16px">Outdoor arena <em>&amp; courses</em></h2>
+      <p class="svc-block-desc">An expansive all-weather outdoor school and a dedicated show jumping course set against beautiful Finnish landscape.</p>
+      <table class="spec-tbl" style="margin-top:20px">
+        <tr><td>Outdoor school</td><td>80 × 40 metres</td></tr>
+        <tr><td>Footing</td><td>All-weather GGT fibre mix</td></tr>
+        <tr><td>Jump course</td><td>12 fences, fully adjustable</td></tr>
+        <tr><td>Cross-country</td><td>3km forest course, 18 obstacles</td></tr>
+        <tr><td>Warm-up</td><td>20m lunging ring</td></tr>
+      </table>
     </div>
   </div>
-</section>
+</div>
 
-<!-- CTA -->
-<section class="sec" style="background:var(--b0);text-align:center">
-  <div class="wrap">
-    <div class="eyebrow center rev">Come and see for yourself</div>
-    <h2 class="d-lg rev d1">Book a <em>tour</em></h2>
-    <p class="body-lg rev d2" style="max-width:48ch;margin:.85rem auto 2.75rem">We'd love to show you around. Contact us to arrange a guided tour of the facilities at a time that suits you.</p>
-    <a href="contact.html" class="btn btn-gold btn-lg rev d3">Get in touch</a>
+<!-- FULL BLEED STABLES -->
+<div class="img-full img-h-500 rev">
+  <img src="https://images.unsplash.com/photo-1576452280497-7e3a2d43e1b1?w=1800&q=85&fit=crop" alt="Stables"/>
+</div>
+
+<!-- STABLING -->
+<div style="border-top:1px solid #e0e0e0">
+  <div class="ed-split rev">
+    <div class="ed-split-text">
+      <div class="section-label">Stabling</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.2vw,3rem);font-weight:400;line-height:1.1;color:#1a1a1a;margin-bottom:16px">Stables <em>&amp; paddocks</em></h2>
+      <p class="svc-block-desc">Forty individually managed stalls designed around the horse's natural needs — spacious, well-ventilated, with views over 30 hectares of grounds.</p>
+      <table class="spec-tbl" style="margin-top:20px">
+        <tr><td>Stall count</td><td>40 boxes</td></tr>
+        <tr><td>Stall size</td><td>4 × 4 metres each</td></tr>
+        <tr><td>Bedding</td><td>Premium shavings, daily mucking</td></tr>
+        <tr><td>Drinkers</td><td>Automatic, thermostat-controlled</td></tr>
+        <tr><td>Paddocks</td><td>16 individual + 4 communal</td></tr>
+        <tr><td>Grounds</td><td>30+ hectares total</td></tr>
+        <tr><td>Supervision</td><td>24/7 on-site</td></tr>
+      </table>
+    </div>
+    <div class="ed-split-img"><img src="https://images.unsplash.com/photo-1598974357801-cbca100e65d3?w=900&q=85&fit=crop&crop=top" alt="Horse in stable"/></div>
   </div>
-</section>
+</div>
 
-<footer><div class="wrap"><div class="ft-grid">
-  <div><div class="ft-logo"><span class="name">Harmony Horses</span><span class="sub">Luxury Equestrian</span></div><p class="ft-desc">Premier equestrian stables offering world-class boarding, training, and riding experiences.</p></div>
-  <div><div class="ft-head">Navigate</div><ul class="ft-links"><li><a href="services.html">Services</a></li><li><a href="facilities.html">Facilities</a></li><li><a href="staff.html">Our team</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-  <div><div class="ft-head">Services</div><ul class="ft-links"><li><a href="services.html">Riding lessons</a></li><li><a href="services.html">Horse boarding</a></li><li><a href="services.html">Training & coaching</a></li><li><a href="services.html">Horse sales</a></li></ul></div>
-  <div><div class="ft-head">Contact</div><ul class="ft-links"><li><a href="tel:+358000000000">+358 00 000 0000</a></li><li><a href="mailto:info@harmonyhorsesfi.com">info@harmonyhorsesfi.com</a></li><li><a href="instagram.html">@harmonyhorsesfi</a></li></ul></div>
-</div><div class="ft-bottom"><span class="ft-copy">© 2025 Harmony Horses. Demo draft for client review.</span><div class="ft-social"><a href="instagram.html">Instagram</a><a href="#">Facebook</a></div></div></div></footer>
+<!-- AMENITIES TRIO -->
+<div class="img-trio rev" style="margin-top:3px">
+  <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=700&q=80&fit=crop" alt="Clubhouse"/>
+  <img src="https://images.unsplash.com/photo-1534053000-56b6da7c3a98?w=700&q=80&fit=crop" alt="Wash bay"/>
+  <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&fit=crop" alt="Changing rooms"/>
+</div>
+
+<!-- AMENITIES TEXT -->
+<div style="background:#f5f5f5;padding:60px 0" class="rev">
+  <div class="container">
+    <div class="section-label" style="text-align:center;justify-content:center">For our riders</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0;border-top:1px solid #e0e0e0;border-left:1px solid #e0e0e0;margin-top:28px">
+      <div style="padding:24px;border-right:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:400;color:#1a1a1a;margin-bottom:8px">Clubhouse &amp; café</div><p style="font-family:'Lato',sans-serif;font-size:12px;font-weight:300;color:#666;line-height:1.7">Warm lounge, hot drinks, light meals, and homemade baked goods after your ride.</p></div>
+      <div style="padding:24px;border-right:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:400;color:#1a1a1a;margin-bottom:8px">Changing rooms</div><p style="font-family:'Lato',sans-serif;font-size:12px;font-weight:300;color:#666;line-height:1.7">Spacious male and female changing rooms with heated showers and secure lockers.</p></div>
+      <div style="padding:24px;border-right:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:400;color:#1a1a1a;margin-bottom:8px">Tack rooms</div><p style="font-family:'Lato',sans-serif;font-size:12px;font-weight:300;color:#666;line-height:1.7">Secure, climate-controlled storage for boarding clients with padded saddle racks.</p></div>
+      <div style="padding:24px;border-right:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0"><div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:400;color:#1a1a1a;margin-bottom:8px">Wash boxes</div><p style="font-family:'Lato',sans-serif;font-size:12px;font-weight:300;color:#666;line-height:1.7">Heated wash boxes with hot and cold water and infrared drying lamps.</p></div>
+    </div>
+  </div>
+</div>
+
+<div style="padding:70px clamp(20px,5vw,60px);text-align:center" class="rev">
+  <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,3rem);font-weight:400;font-style:italic;color:#1a1a1a;margin-bottom:28px">Come and see for yourself.</h2>
+  <a href="contact.html" class="btn">Book a tour</a>
+</div>
+
+<footer><div class="container"><div class="ft-inner"><div class="ft-logo">Harmony Horses</div><div class="ft-sub">Luxury Equestrian &middot; Finland</div><div class="ft-contact"><a href="mailto:info@harmonyhorsesfi.com">info@harmonyhorsesfi.com</a><a href="tel:+358000000000">+358 00 000 0000</a></div><nav class="ft-nav"><a href="services.html">Services</a><a href="facilities.html">Facilities</a><a href="staff.html">Our team</a><a href="events.html">Events</a><a href="contact.html">Contact</a></nav></div><span class="ft-copy">&copy; 2025 Harmony Horses &mdash; Demo draft</span></div></footer>
 <script src="js/main.js"></script>
 </body>
 </html>

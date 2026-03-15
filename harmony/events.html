@@ -4,215 +4,100 @@
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Events — Harmony Horses</title>
 <link rel="stylesheet" href="css/main.css"/>
-<style>
-body{background:var(--b0)}
-
-/* FEATURED */
-.feat-event{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--bd);margin-bottom:4rem;overflow:hidden}
-.fe-img{overflow:hidden;min-height:360px}
-.fe-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
-.fe-img:hover img{transform:scale(1.03)}
-.fe-body{background:var(--b2);padding:3rem;display:flex;flex-direction:column;justify-content:center;gap:1rem;position:relative}
-.fe-tag{font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;background:var(--gdim);color:var(--gold);border:1px solid var(--bd2);padding:.25rem .7rem;width:fit-content}
-.fe-date{font-family:var(--serif);font-size:2.5rem;font-weight:300;color:var(--gold);line-height:1}
-.fe-title{font-family:var(--serif);font-size:1.75rem;font-weight:300;color:var(--t1);line-height:1.1}
-.fe-meta{font-family:var(--sans);font-size:.78rem;font-weight:300;color:var(--t3);line-height:1.65}
-.fe-spots{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);padding:.25rem .65rem;border:1px solid var(--bd2);background:var(--gdim);display:inline-block;width:fit-content}
-
-/* CALENDAR LIST */
-.ev-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--bd)}
-.ev-row{background:var(--b2);padding:1.75rem 2rem;display:grid;grid-template-columns:90px 1fr 1fr auto;gap:2rem;align-items:center;border-bottom:1px solid var(--bd);transition:background .18s}
-.ev-row:last-child{border-bottom:none}
-.ev-row:hover{background:var(--b3)}
-.ev-date{display:flex;flex-direction:column;align-items:center;gap:.1rem}
-.ev-day{font-family:var(--serif);font-size:2.2rem;font-weight:300;color:var(--gold);line-height:1}
-.ev-mon{font-family:var(--sans);font-size:.6rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--t3)}
-.ev-cat{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem}
-.ev-name{font-family:var(--serif);font-size:1.1rem;font-weight:300;color:var(--t1);line-height:1.2}
-.ev-info{font-family:var(--sans);font-size:.75rem;font-weight:300;color:var(--t3);line-height:1.6}
-.ev-spots-col{text-align:right}
-.ev-spots-n{font-family:var(--serif);font-size:1.4rem;font-weight:300;line-height:1}
-.ev-spots-l{font-family:var(--sans);font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--t3)}
-.ev-spots-n.avail{color:var(--gold-l)}
-.ev-spots-n.low{color:#F59E0B}
-.ev-spots-n.full{color:var(--t4)}
-
-/* CLINIC CARDS */
-.clinic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0;border:1px solid var(--bd)}
-.clinic-card{background:var(--b2);overflow:hidden;border-right:1px solid var(--bd);display:flex;flex-direction:column;transition:background .2s}
-.clinic-card:last-child{border-right:none}
-.clinic-card:hover{background:var(--b3)}
-.cc-img{height:180px;overflow:hidden;flex-shrink:0}
-.cc-img img{width:100%;height:100%;object-fit:cover;transition:transform .55s}
-.clinic-card:hover .cc-img img{transform:scale(1.05)}
-.cc-body{padding:1.75rem;display:flex;flex-direction:column;gap:.65rem;flex:1}
-.cc-freq{font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
-.cc-name{font-family:var(--serif);font-size:1.3rem;font-weight:300;color:var(--t1);line-height:1.1}
-.cc-desc{font-family:var(--sans);font-size:.8rem;font-weight:300;color:var(--t2);line-height:1.7;flex:1}
-.cc-price{font-family:var(--serif);font-size:1.4rem;font-weight:300;color:var(--gold);margin-top:auto}
-
-@media(max-width:900px){.feat-event{grid-template-columns:1fr}.fe-img{min-height:240px}}
-@media(max-width:640px){.ev-row{grid-template-columns:70px 1fr;gap:1rem}.ev-info,.ev-spots-col{display:none}}
-</style>
 </head>
 <body>
 <nav class="nav" id="mainNav">
-  <a href="index.html" class="nav-logo"><span class="name">Harmony Horses</span><span class="sub">Luxury Equestrian</span></a>
-  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="facilities.html">Facilities</a></li><li><a href="staff.html">Our team</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul>
-  <a href="contact.html" class="nav-book">Book a visit</a>
+  <ul class="nav-links-left"><li><a href="services.html">Services</a></li><li><a href="facilities.html">Facilities</a></li></ul>
+  <div class="nav-logo-wrap"><div class="nav-logo">Harmony Horses</div><span class="nav-logo-sub">Equestrian</span></div>
+  <ul class="nav-links-right"><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul>
   <button class="nav-tog" id="navTog"><span></span><span></span><span></span></button>
 </nav>
 <nav class="nav-drawer" id="navDrw">
-  <a href="index.html">Home</a><a href="services.html">Services</a><a href="facilities.html">Facilities</a><a href="staff.html">Our team</a><a href="events.html">Events</a><a href="contact.html">Contact</a>
-  <a href="contact.html" class="d-book">Book a visit</a>
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="facilities.html">Facilities</a>
+  <a href="staff.html">Our Team</a><a href="events.html">Events</a><a href="contact.html">Contact</a>
 </nav>
 
-<div class="ph" style="background:var(--b1)">
-  <div class="ph-bg-img"><img src="https://images.unsplash.com/photo-1548953359-59d56ae9fe5a?w=1400&q=70&fit=crop" alt=""/><div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(15,15,12,.95) 40%,rgba(15,15,12,.5) 100%)"></div></div>
-  <div class="wrap"><div class="ph-inner">
-    <div class="eyebrow rev">What's on</div>
-    <h1 class="d-xl rev d1">Events &<br><em>clinics.</em></h1>
-    <p class="body-lg rev d2" style="margin-top:1.25rem;max-width:52ch">From beginner open days to elite-level masterclasses — there is always something happening at Harmony Horses. Places fill quickly; contact us early to avoid disappointment.</p>
-  </div></div>
+<div class="ph ph-full">
+  <div class="ph-bg"><img src="https://images.unsplash.com/photo-1548953359-59d56ae9fe5a?w=1600&q=85&fit=crop" alt="Events"/></div>
+  <div class="ph-txt"><div class="ph-sub">What's on</div><h1>Events &amp; Clinics</h1></div>
+</div>
+
+<div class="container-sm" style="padding-top:70px;padding-bottom:70px;text-align:center">
+  <p class="statement rev">From beginner open days to <span class="caps">ELITE MASTERCLASSES</span> — there is always something happening at Harmony Horses.</p>
 </div>
 
 <!-- FEATURED EVENT -->
-<section class="sec" style="background:var(--b0)">
-  <div class="wrap">
-    <div class="eyebrow rev">Spotlight</div>
-    <h2 class="d-lg rev d1" style="margin-bottom:2rem">Next <em>highlight</em></h2>
-    <div class="feat-event rev d2">
-      <div class="fe-img"><img src="https://images.unsplash.com/photo-1569017388730-020b5f80a004?w=900&q=85&fit=crop" alt="Open Day"/></div>
-      <div class="fe-body">
-        <div class="fe-tag">Open day — free entry</div>
-        <div class="fe-date">12 APR 2025</div>
-        <div class="fe-title">Spring Open Day</div>
-        <p class="body-md">Come and experience Harmony Horses for yourself. Arena demonstrations, guided stable tours, taster lessons, and a chance to meet our horses and team in a relaxed, welcoming setting. Refreshments provided. All ages and experience levels welcome.</p>
-        <div class="ev-info">Saturday 12 April · 10:00 – 16:00 · Free entry · All welcome</div>
-        <div>
-          <div class="fe-spots">Free admission — no booking required</div>
-        </div>
-        <a href="contact.html" class="btn btn-gold btn-md" style="width:fit-content;margin-top:.5rem">Get directions</a>
-      </div>
-    </div>
-
-    <!-- CALENDAR -->
-    <h2 class="d-md rev" style="margin-bottom:2rem;margin-top:1rem">2025 <em>calendar</em></h2>
-    <div class="ev-list rev d1">
-      <div class="ev-row">
-        <div class="ev-date"><div class="ev-day">12</div><div class="ev-mon">Apr</div></div>
-        <div><div class="ev-cat">Open day</div><div class="ev-name">Spring Open Day</div></div>
-        <div class="ev-info">10:00 – 16:00 · Demonstrations, tours, taster lessons · Free entry · All welcome</div>
-        <div class="ev-spots-col"><div class="ev-spots-n avail">Free</div><div class="ev-spots-l">Entry</div></div>
-      </div>
-      <div class="ev-row">
-        <div class="ev-date"><div class="ev-day">03</div><div class="ev-mon">May</div></div>
-        <div><div class="ev-cat">Competition</div><div class="ev-name">Harmony Dressage Classic</div></div>
-        <div class="ev-info">08:00 – 18:00 · Indoor arena · Intro, Prelim & Novice classes · Prizes & rosettes · €45 / rider</div>
-        <div class="ev-spots-col"><div class="ev-spots-n avail">24</div><div class="ev-spots-l">Spots left</div></div>
-      </div>
-      <div class="ev-row">
-        <div class="ev-date"><div class="ev-day">17</div><div class="ev-mon">May</div></div>
-        <div><div class="ev-cat">Clinic</div><div class="ev-name">Flatwork Masterclass</div></div>
-        <div class="ev-info">09:00 – 17:00 · Guest trainer · Max 6 riders · All levels · €120 / rider</div>
-        <div class="ev-spots-col"><div class="ev-spots-n low">3</div><div class="ev-spots-l">Spots left</div></div>
-      </div>
-      <div class="ev-row">
-        <div class="ev-date"><div class="ev-day">07</div><div class="ev-mon">Jun</div></div>
-        <div><div class="ev-cat">Children's event</div><div class="ev-name">Junior Showday</div></div>
-        <div class="ev-info">10:00 – 15:00 · Riders under 18 · Fun classes, games & prizes · €40 / rider</div>
-        <div class="ev-spots-col"><div class="ev-spots-n avail">18</div><div class="ev-spots-l">Spots left</div></div>
-      </div>
-      <div class="ev-row">
-        <div class="ev-date"><div class="ev-day">21</div><div class="ev-mon">Jun</div></div>
-        <div><div class="ev-cat">Clinic</div><div class="ev-name">Show Jumping Intensive Weekend</div></div>
-        <div class="ev-info">Two-day clinic · International guest trainer · 80–120cm · €220 for both days</div>
-        <div class="ev-spots-col"><div class="ev-spots-n full">Full</div><div class="ev-spots-l">Waitlist open</div></div>
-      </div>
-      <div class="ev-row">
-        <div class="ev-date"><div class="ev-day">18</div><div class="ev-mon">Aug</div></div>
-        <div><div class="ev-cat">Summer camp</div><div class="ev-name">Harmony Summer Horse Camp</div></div>
-        <div class="ev-info">Week-long residential camp · Ages 8–16 · Riding, stable management & outdoor activities · €480 / week</div>
-        <div class="ev-spots-col"><div class="ev-spots-n low">6</div><div class="ev-spots-l">Spots left</div></div>
-      </div>
-      <div class="ev-row">
-        <div class="ev-date"><div class="ev-day">13</div><div class="ev-mon">Sep</div></div>
-        <div><div class="ev-cat">Competition</div><div class="ev-name">Autumn Open Jumping</div></div>
-        <div class="ev-info">All day · Outdoor arena · 60cm–100cm · Individual and team classes · €35 / class</div>
-        <div class="ev-spots-col"><div class="ev-spots-n avail">40</div><div class="ev-spots-l">Spots left</div></div>
-      </div>
-      <div class="ev-row">
-        <div class="ev-date"><div class="ev-day">08</div><div class="ev-mon">Nov</div></div>
-        <div><div class="ev-cat">Clinic</div><div class="ev-name">Winter Dressage Training Day</div></div>
-        <div class="ev-info">09:00 – 16:00 · Indoor arena · Focus on rhythm, suppleness & contact · €95 / rider</div>
-        <div class="ev-spots-col"><div class="ev-spots-n avail">10</div><div class="ev-spots-l">Spots left</div></div>
-      </div>
-      <div class="ev-row">
-        <div class="ev-date"><div class="ev-day">13</div><div class="ev-mon">Dec</div></div>
-        <div><div class="ev-cat">Festive event</div><div class="ev-name">Christmas Showday & Celebration</div></div>
-        <div class="ev-info">11:00 – 17:00 · Fun classes, fancy dress, prizes, mulled wine & mince pies · All welcome</div>
-        <div class="ev-spots-col"><div class="ev-spots-n avail">Free</div><div class="ev-spots-l">Entry</div></div>
-      </div>
+<div style="border-top:1px solid #e0e0e0">
+  <div class="ed-split rev">
+    <div class="ed-split-img"><img src="https://images.unsplash.com/photo-1569017388730-020b5f80a004?w=900&q=85&fit=crop" alt="Open Day"/></div>
+    <div class="ed-split-text">
+      <div class="section-label">Next highlight — 12 April 2025</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.2vw,3rem);font-weight:400;line-height:1.1;color:#1a1a1a;margin-bottom:16px"><em>Spring Open Day</em></h2>
+      <p class="svc-block-desc">Come and experience Harmony Horses in person. Arena demonstrations, guided stable tours, taster lessons, and a chance to meet our horses and team in a relaxed, welcoming setting.</p>
+      <p style="font-family:'Lato',sans-serif;font-size:13px;font-weight:300;color:#888;line-height:1.75;margin-top:12px">Saturday 12 April &middot; 10:00 – 16:00 &middot; Free entry &middot; All welcome</p>
+      <a href="contact.html" class="btn btn-sm" style="margin-top:20px;width:fit-content">Get directions</a>
     </div>
   </div>
-</section>
+</div>
+
+<!-- CALENDAR -->
+<div class="container" style="padding-top:60px;padding-bottom:60px">
+  <div class="section-label rev">2025 calendar</div>
+  <div style="margin-top:8px" class="rev d1">
+    <div class="ev-row"><div class="ev-num"><div class="ev-day">12</div><div class="ev-mon">Apr</div></div><div><div class="ev-title">Spring Open Day</div><div class="ev-meta">10:00 – 16:00 &middot; Demonstrations, tours, taster lessons &middot; Free</div></div><div class="ev-badge ev-open">Free entry</div></div>
+    <div class="ev-row"><div class="ev-num"><div class="ev-day">03</div><div class="ev-mon">May</div></div><div><div class="ev-title">Harmony Dressage Classic</div><div class="ev-meta">08:00 – 18:00 &middot; Indoor arena &middot; Intro, Prelim &amp; Novice &middot; €45 / rider</div></div><div class="ev-badge ev-open">24 spots</div></div>
+    <div class="ev-row"><div class="ev-num"><div class="ev-day">17</div><div class="ev-mon">May</div></div><div><div class="ev-title">Flatwork Masterclass</div><div class="ev-meta">Guest trainer &middot; Max 6 riders &middot; All levels &middot; €120 / rider</div></div><div class="ev-badge ev-low">3 left</div></div>
+    <div class="ev-row"><div class="ev-num"><div class="ev-day">07</div><div class="ev-mon">Jun</div></div><div><div class="ev-title">Junior Showday</div><div class="ev-meta">Riders under 18 &middot; Fun classes, games &amp; prizes &middot; €40 / rider</div></div><div class="ev-badge ev-open">18 spots</div></div>
+    <div class="ev-row"><div class="ev-num"><div class="ev-day">21</div><div class="ev-mon">Jun</div></div><div><div class="ev-title">Show Jumping Intensive Weekend</div><div class="ev-meta">Two-day clinic &middot; International guest trainer &middot; 80–120cm &middot; €220</div></div><div class="ev-badge ev-full">Full</div></div>
+    <div class="ev-row"><div class="ev-num"><div class="ev-day">18</div><div class="ev-mon">Aug</div></div><div><div class="ev-title">Summer Horse Camp</div><div class="ev-meta">Week-long residential &middot; Ages 8–16 &middot; €480 / week</div></div><div class="ev-badge ev-low">6 left</div></div>
+    <div class="ev-row"><div class="ev-num"><div class="ev-day">13</div><div class="ev-mon">Sep</div></div><div><div class="ev-title">Autumn Open Jumping</div><div class="ev-meta">All day &middot; 60–100cm &middot; Individual &amp; team classes &middot; €35 / class</div></div><div class="ev-badge ev-open">40 spots</div></div>
+    <div class="ev-row"><div class="ev-num"><div class="ev-day">08</div><div class="ev-mon">Nov</div></div><div><div class="ev-title">Winter Dressage Training Day</div><div class="ev-meta">09:00 – 16:00 &middot; Rhythm, suppleness &amp; contact &middot; €95 / rider</div></div><div class="ev-badge ev-open">10 spots</div></div>
+    <div class="ev-row"><div class="ev-num"><div class="ev-day">13</div><div class="ev-mon">Dec</div></div><div><div class="ev-title">Christmas Showday &amp; Celebration</div><div class="ev-meta">Fun classes, fancy dress, prizes, mulled wine &middot; All welcome</div></div><div class="ev-badge ev-open">Free entry</div></div>
+  </div>
+</div>
+
+<!-- FULL BLEED -->
+<div class="img-full img-h-400 rev">
+  <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=1800&q=85&fit=crop" alt="Horse"/>
+</div>
 
 <!-- RECURRING CLINICS -->
-<section class="sec" style="background:var(--b1)">
-  <div class="wrap">
-    <div class="eyebrow center rev">Expert-led sessions</div>
-    <h2 class="d-lg rev d1" style="text-align:center;margin-bottom:3rem">Recurring <em>clinics</em></h2>
-    <div class="clinic-grid rev d2">
-      <div class="clinic-card">
-        <div class="cc-img"><img src="https://images.unsplash.com/photo-1569017388730-020b5f80a004?w=600&q=80&fit=crop" alt="Dressage clinic"/></div>
-        <div class="cc-body">
-          <div class="cc-freq">Monthly</div>
-          <div class="cc-name">Dressage clinic</div>
-          <p class="cc-desc">Monthly flatwork and dressage sessions led by our head trainer. Suitable for Intro through Elementary level. Groups of four to six riders ensure individual attention.</p>
-          <div class="cc-price">€80 / session</div>
-          <a href="contact.html" class="btn btn-outline btn-sm" style="margin-top:.5rem;width:fit-content">Reserve a place</a>
-        </div>
+<div style="background:#f5f5f5;padding:70px 0" class="rev">
+  <div class="container">
+    <div class="section-label" style="text-align:center;justify-content:center">Recurring sessions</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3.5rem);font-weight:400;font-style:italic;color:#1a1a1a;text-align:center;margin-bottom:40px">Clinics</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid #e0e0e0;border-left:1px solid #e0e0e0">
+      <div style="padding:28px;border-right:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Lato',sans-serif;font-size:10px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:#999">Monthly</div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#1a1a1a">Dressage clinic</div>
+        <p style="font-family:'Lato',sans-serif;font-size:13px;font-weight:300;color:#666;line-height:1.7;flex:1">Flatwork and dressage led by our head trainer. Intro through Elementary. Small groups of 4–6 riders.</p>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#1a1a1a">€80 / session</div>
+        <a href="contact.html" class="btn btn-sm" style="width:fit-content">Reserve</a>
       </div>
-      <div class="clinic-card">
-        <div class="cc-img"><img src="https://images.unsplash.com/photo-1548953359-59d56ae9fe5a?w=600&q=80&fit=crop" alt="Show jumping clinic"/></div>
-        <div class="cc-body">
-          <div class="cc-freq">Bi-monthly</div>
-          <div class="cc-name">Show jumping clinic</div>
-          <p class="cc-desc">Grid work, course riding, and technique refinement in small groups. Heights from 60cm to 100cm. Suitable for grassroots competitors and improving leisure riders alike.</p>
-          <div class="cc-price">€90 / session</div>
-          <a href="contact.html" class="btn btn-outline btn-sm" style="margin-top:.5rem;width:fit-content">Reserve a place</a>
-        </div>
+      <div style="padding:28px;border-right:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Lato',sans-serif;font-size:10px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:#999">Bi-monthly</div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#1a1a1a">Show jumping clinic</div>
+        <p style="font-family:'Lato',sans-serif;font-size:13px;font-weight:300;color:#666;line-height:1.7;flex:1">Grid work, course riding, and technique. Heights 60–100cm. Maximum 6 riders per session.</p>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#1a1a1a">€90 / session</div>
+        <a href="contact.html" class="btn btn-sm" style="width:fit-content">Reserve</a>
       </div>
-      <div class="clinic-card" style="border-right:none">
-        <div class="cc-img"><img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=600&q=80&fit=crop" alt="Guest trainer"/></div>
-        <div class="cc-body">
-          <div class="cc-freq">Quarterly</div>
-          <div class="cc-name">Guest trainer masterclass</div>
-          <p class="cc-desc">We regularly invite nationally and internationally recognised trainers for intensive one-day masterclasses. Strictly limited places — join our mailing list to be notified first.</p>
-          <div class="cc-price">From €120</div>
-          <a href="contact.html" class="btn btn-outline btn-sm" style="margin-top:.5rem;width:fit-content">Join mailing list</a>
-        </div>
+      <div style="padding:28px;border-bottom:1px solid #e0e0e0;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Lato',sans-serif;font-size:10px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:#999">Quarterly</div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#1a1a1a">Guest masterclass</div>
+        <p style="font-family:'Lato',sans-serif;font-size:13px;font-weight:300;color:#666;line-height:1.7;flex:1">Nationally and internationally recognised trainers. One-day intensive. Strictly limited places.</p>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#1a1a1a">From €120</div>
+        <a href="contact.html" class="btn btn-sm" style="width:fit-content">Join list</a>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- REGISTER CTA -->
-<section class="sec" style="background:var(--b0);text-align:center">
-  <div class="wrap">
-    <div class="eyebrow center rev">Don't miss out</div>
-    <h2 class="d-lg rev d1">Reserve your <em>place</em></h2>
-    <p class="body-lg rev d2" style="max-width:48ch;margin:.85rem auto 2.75rem">Places at our clinics and competitions fill quickly. Get in touch to secure your spot — or simply to ask a question about any upcoming event.</p>
-    <a href="contact.html" class="btn btn-gold btn-lg rev d3">Contact us</a>
-  </div>
-</section>
+<div style="padding:70px clamp(20px,5vw,60px);text-align:center" class="rev">
+  <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,3rem);font-weight:400;font-style:italic;color:#1a1a1a;margin-bottom:28px">Reserve your place.</h2>
+  <a href="contact.html" class="btn">Contact us</a>
+</div>
 
-<footer><div class="wrap"><div class="ft-grid">
-  <div><div class="ft-logo"><span class="name">Harmony Horses</span><span class="sub">Luxury Equestrian</span></div><p class="ft-desc">Premier equestrian stables offering world-class boarding, training, and riding experiences.</p></div>
-  <div><div class="ft-head">Navigate</div><ul class="ft-links"><li><a href="services.html">Services</a></li><li><a href="facilities.html">Facilities</a></li><li><a href="staff.html">Our team</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-  <div><div class="ft-head">Services</div><ul class="ft-links"><li><a href="services.html">Riding lessons</a></li><li><a href="services.html">Horse boarding</a></li><li><a href="services.html">Training & coaching</a></li></ul></div>
-  <div><div class="ft-head">Contact</div><ul class="ft-links"><li><a href="tel:+358000000000">+358 00 000 0000</a></li><li><a href="mailto:info@harmonyhorsesfi.com">info@harmonyhorsesfi.com</a></li></ul></div>
-</div><div class="ft-bottom"><span class="ft-copy">© 2025 Harmony Horses. Demo draft for client review.</span><div class="ft-social"><a href="instagram.html">Instagram</a><a href="#">Facebook</a></div></div></div></footer>
+<footer><div class="container"><div class="ft-inner"><div class="ft-logo">Harmony Horses</div><div class="ft-sub">Luxury Equestrian &middot; Finland</div><div class="ft-contact"><a href="mailto:info@harmonyhorsesfi.com">info@harmonyhorsesfi.com</a><a href="tel:+358000000000">+358 00 000 0000</a></div><nav class="ft-nav"><a href="services.html">Services</a><a href="facilities.html">Facilities</a><a href="staff.html">Our team</a><a href="events.html">Events</a><a href="contact.html">Contact</a></nav></div><span class="ft-copy">&copy; 2025 Harmony Horses &mdash; Demo draft</span></div></footer>
 <script src="js/main.js"></script>
 </body>
 </html>
