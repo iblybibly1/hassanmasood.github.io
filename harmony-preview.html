@@ -4,307 +4,234 @@
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Client Preview — Harmony Horses</title>
 <meta name="robots" content="noindex,nofollow"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Jost:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{min-height:100%;font-family:'Jost',sans-serif;background:#09090F;color:#F0EBE2;-webkit-font-smoothing:antialiased}
-:root{--gold:#C09B53;--gold-l:#D4B472;--gdim:rgba(192,155,83,.1);--b1:#0F0F0C;--b2:#161613;--b3:#1E1E1A;--bd:rgba(192,155,83,.14);--bd2:rgba(192,155,83,.28);--t2:#A89880;--t3:#6B5E4E;--t4:#3D3328}
-::selection{background:var(--gdim);color:var(--gold)}
+html,body{min-height:100%;-webkit-font-smoothing:antialiased;font-family:'Lato',sans-serif;font-weight:300;background:#fff;color:#1a1a1a}
+a{text-decoration:none;color:inherit}
+button{font:inherit;cursor:pointer}
+::selection{background:#f5f5f5;color:#1a1a1a}
 
 /* LOCK */
-#lock{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;position:relative;overflow:hidden}
-#lock::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 50%);background-size:28px 28px;opacity:.022;pointer-events:none}
-#lock::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 50%,rgba(192,155,83,.05) 0%,transparent 70%);pointer-events:none}
-.lcard{background:var(--b2);border:1px solid var(--bd);padding:2.75rem 2.5rem;width:100%;max-width:420px;position:relative;z-index:1;box-shadow:0 40px 100px rgba(0,0,0,.7)}
-.lcard-top{display:flex;align-items:center;gap:.85rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--bd)}
-.l-logo .name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;letter-spacing:.03em;color:#F0EBE2;display:block}
-.l-logo .sub{font-family:'Jost',sans-serif;font-size:.52rem;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:block;margin-top:2px}
-.lsep{width:1px;height:36px;background:var(--bd)}
-.lbadge{font-family:'Fira Code',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:var(--gdim);border:1px solid var(--bd2);padding:.28rem .75rem}
-.ltitle{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;letter-spacing:-.01em;color:#F0EBE2;margin-bottom:.35rem;line-height:1.1}
-.lsub{font-family:'Jost',sans-serif;font-size:.84rem;font-weight:300;color:var(--t2);line-height:1.68;margin-bottom:2rem}
-.llbl{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);display:block;margin-bottom:.4rem}
-.pw-wrap{position:relative;margin-bottom:.5rem}
-.pw-input{width:100%;background:var(--b3);border:1px solid var(--bd);color:#F0EBE2;font-family:'Fira Code',monospace;font-size:1rem;letter-spacing:.14em;padding:.82rem 3rem .82rem 1rem;outline:none;transition:border-color .2s;min-height:48px}
-.pw-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(192,155,83,.08)}
-.pw-input.err{border-color:#F87171}
-.pw-eye{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--t3);padding:4px;transition:color .15s;display:flex}
-.pw-eye:hover{color:var(--t2)}
-.pw-eye svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.5}
-.errmsg{font-family:'Fira Code',monospace;font-size:.7rem;letter-spacing:.04em;color:#F87171;display:none;margin-bottom:.65rem}
-.errmsg.show{display:block}
-.unlock-btn{width:100%;min-height:50px;background:var(--gold);color:#09090F;font-family:'Jost',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s,transform .15s;display:flex;align-items:center;justify-content:center;gap:.6rem;margin-top:.25rem}
-.unlock-btn:hover:not(:disabled){background:var(--gold-l);transform:translateY(-1px)}
-.unlock-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
-.lfoot{text-align:center;margin-top:1.4rem;font-family:'Jost',sans-serif;font-size:.74rem;color:var(--t3)}
-.lfoot a{color:var(--t3);text-decoration:underline;transition:color .15s}
-.lfoot a:hover{color:var(--gold)}
-@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
-.shake{animation:shake .4s ease}
+#lock{min-height:100vh;display:grid;grid-template-columns:1fr 1fr}
+.lock-img{overflow:hidden;position:relative}
+.lock-img img{width:100%;height:100%;object-fit:cover;object-position:center}
+.lock-img::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.15)}
+.lock-form{display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,8vw,80px);border-left:1px solid #e0e0e0}
+.lf-brand{font-family:'Playfair Display',serif;font-size:17px;font-weight:400;letter-spacing:.08em;color:#1a1a1a;margin-bottom:2px}
+.lf-brand-sub{font-family:'Lato',sans-serif;font-size:9px;font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:#aaa;margin-bottom:48px}
+.lf-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:400;font-style:italic;color:#1a1a1a;line-height:1.1;margin-bottom:14px}
+.lf-desc{font-family:'Lato',sans-serif;font-size:14px;font-weight:300;color:#666;line-height:1.78;margin-bottom:32px;max-width:38ch}
+.lf-lbl{font-family:'Lato',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:#aaa;display:block;margin-bottom:8px}
+.pw-wrap{position:relative;border-bottom:1px solid #1a1a1a;padding-bottom:10px;margin-bottom:6px}
+.pw-input{width:100%;background:transparent;border:none;font-family:'Lato',sans-serif;font-size:16px;font-weight:300;color:#1a1a1a;letter-spacing:.08em;outline:none;padding-right:28px}
+.pw-input::placeholder{color:#ccc;letter-spacing:0}
+.pw-input.err{border-bottom-color:#c0392b}
+.pw-eye{position:absolute;right:0;bottom:10px;background:none;border:none;color:#bbb;font-size:12px;cursor:pointer}
+.err-msg{font-family:'Lato',sans-serif;font-size:11px;font-weight:300;color:#c0392b;display:none;margin-bottom:12px}
+.err-msg.show{display:block}
+.unlock-btn{width:100%;padding:14px;background:#1a1a1a;color:#fff;font-family:'Lato',sans-serif;font-size:11px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;border:none;cursor:pointer;margin-top:16px;transition:background .2s}
+.unlock-btn:hover:not(:disabled){background:#333}
+.unlock-btn:disabled{opacity:.55;cursor:not-allowed}
+.lf-foot{font-family:'Lato',sans-serif;font-size:11px;font-weight:300;color:#aaa;margin-top:16px;text-align:center}
+.lf-foot a{color:#1a1a1a;text-decoration:underline}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.shake{animation:shake .3s ease}
 
 /* DASHBOARD */
-#dash{display:none}
-.dash-nav{background:var(--b2);border-bottom:1px solid var(--bd);padding:0 clamp(1.25rem,4vw,3rem);height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(14px)}
-.dash-logo .name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;letter-spacing:.03em;color:#F0EBE2;display:block}
-.dash-logo .sub{font-family:'Jost',sans-serif;font-size:.5rem;font-weight:400;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);display:block}
-.dash-right{display:flex;align-items:center;gap:.85rem}
-.dash-pill{display:flex;align-items:center;gap:.5rem;font-family:'Fira Code',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:var(--gdim);border:1px solid var(--bd2);padding:.3rem .85rem}
-.dash-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2.5s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-.lock-again{font-family:'Jost',sans-serif;font-size:.7rem;font-weight:500;color:var(--t3);background:none;border:1px solid var(--bd);padding:.4rem .9rem;cursor:pointer;transition:all .15s}
-.lock-again:hover{color:var(--gold);border-color:var(--bd2)}
+#dash{display:none;background:#fff}
+.dash-nav{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,48px);border-bottom:1px solid #e0e0e0;position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97)}
+.dash-logo{font-family:'Playfair Display',serif;font-size:16px;font-weight:400;letter-spacing:.06em;color:#1a1a1a}
+.dash-logo span{font-family:'Lato',sans-serif;font-size:8px;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:#aaa;display:block;margin-top:2px}
+.dash-right{display:flex;align-items:center;gap:16px}
+.dash-badge{font-family:'Lato',sans-serif;font-size:9px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:#aaa;border:1px solid #e0e0e0;padding:4px 10px}
+.lock-again{font-family:'Lato',sans-serif;font-size:9px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:#999;background:none;border:none;cursor:pointer;transition:color .15s}
+.lock-again:hover{color:#1a1a1a}
 
-.dash-body{max-width:1120px;margin:0 auto;padding:3rem clamp(1.25rem,4vw,3rem) 5rem}
+.dash-body{max-width:1140px;margin:0 auto;padding:48px clamp(20px,5vw,48px) 80px}
 
-/* STATUS STRIP */
-.status-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--bd);margin-bottom:3rem;background:var(--bd)}
-.ss-item{background:var(--b2);padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:.3rem}
-.ss-lbl{font-family:'Fira Code',monospace;font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--t3)}
-.ss-val{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;color:#F0EBE2;line-height:1.3}
-.ss-badge{display:inline-flex;align-items:center;gap:.4rem;font-family:'Fira Code',monospace;font-size:.56rem;letter-spacing:.08em;padding:.2rem .6rem;margin-top:.3rem;width:fit-content}
-.b-review{background:rgba(251,191,36,.09);color:#FBBF24;border:1px solid rgba(251,191,36,.2)}
-.b-done{background:rgba(52,211,153,.09);color:#34D399;border:1px solid rgba(52,211,153,.2)}
-.b-prog{background:var(--gdim);color:var(--gold);border:1px solid var(--bd2)}
-.bdot{width:4px;height:4px;border-radius:50%;background:currentColor}
+/* STATUS */
+.status-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;margin-bottom:52px}
+.ss{padding:16px 0;border-right:1px solid #e0e0e0}
+.ss:last-child{border-right:none;padding-left:24px}
+.ss:nth-child(2),.ss:nth-child(3){padding-left:24px}
+.ss-lbl{font-family:'Lato',sans-serif;font-size:9px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:#aaa;margin-bottom:5px}
+.ss-val{font-family:'Playfair Display',serif;font-size:15px;font-weight:400;color:#1a1a1a;margin-bottom:4px;line-height:1.3}
+.ss-tag{font-family:'Lato',sans-serif;font-size:9px;font-weight:400;letter-spacing:.1em;text-transform:uppercase}
+.t-review{color:#9a6820}.t-done{color:#4a7a4a}.t-prog{color:#888}
 
-/* MESSAGE BOX */
-.msg-box{background:var(--b2);border:1px solid var(--bd);border-left:2px solid var(--gold);padding:1.85rem 2rem;margin-bottom:3rem}
-.msg-from{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.65rem}
-.msg-body{font-family:'Jost',sans-serif;font-size:.88rem;font-weight:300;color:var(--t2);line-height:1.82}
-.msg-body p+p{margin-top:.65rem}
-.msg-body strong{color:#F0EBE2;font-weight:500}
+/* MESSAGE */
+.msg{border-left:1px solid #1a1a1a;padding-left:24px;margin-bottom:52px}
+.msg-from{font-family:'Lato',sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:#aaa;margin-bottom:10px}
+.msg-body{font-family:'Lato',sans-serif;font-size:14px;font-weight:300;color:#555;line-height:1.82}
+.msg-body p+p{margin-top:10px}
+.msg-body strong{color:#1a1a1a;font-weight:400}
+
+/* SECTION HEADING */
+.sec-lbl{font-family:'Lato',sans-serif;font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:#aaa;margin-bottom:20px}
 
 /* PAGE CARDS */
-.ey{font-family:'Fira Code',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.6rem;margin-bottom:1.25rem}
-.ey::before{content:'';width:1.25rem;height:1px;background:var(--gold)}
-.pages-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:0;border:1px solid var(--bd);background:var(--bd);margin-bottom:3rem}
-.pg-card{background:var(--b2);display:flex;flex-direction:column;overflow:hidden;text-decoration:none;color:inherit;position:relative;transition:background .2s;cursor:pointer}
-.pg-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .32s}
-.pg-card:hover{background:var(--b3)}
-.pg-card:hover::after{transform:scaleX(1)}
-.pg-thumb{height:170px;overflow:hidden;flex-shrink:0;background:var(--b3)}
-.pg-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
-.pg-card:hover .pg-thumb img{transform:scale(1.05)}
-.pg-body{padding:1.4rem 1.5rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
-.pg-num{font-family:'Fira Code',monospace;font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
-.pg-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;color:#F0EBE2;line-height:1.1}
-.pg-desc{font-family:'Jost',sans-serif;font-size:.78rem;font-weight:300;color:var(--t2);line-height:1.65;flex:1}
-.pg-cta{font-family:'Fira Code',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-top:auto;padding-top:.75rem;display:flex;align-items:center;gap:.4rem;transition:gap .2s}
-.pg-card:hover .pg-cta{gap:.7rem}
+.pages{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0;border-top:1px solid #e0e0e0;border-left:1px solid #e0e0e0;margin-bottom:52px}
+.pc{background:#fff;border-right:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;display:flex;flex-direction:column;cursor:pointer;transition:background .18s;overflow:hidden}
+.pc:hover{background:#fafaf8}
+.pc-img{height:150px;overflow:hidden;flex-shrink:0}
+.pc-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s}
+.pc:hover .pc-img img{transform:scale(1.05)}
+.pc-body{padding:16px;display:flex;flex-direction:column;gap:5px;flex:1}
+.pc-num{font-family:'Lato',sans-serif;font-size:9px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:#bbb}
+.pc-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:400;color:#1a1a1a;line-height:1.1}
+.pc-desc{font-family:'Lato',sans-serif;font-size:12px;font-weight:300;color:#888;line-height:1.65;flex:1}
+.pc-cta{font-family:'Lato',sans-serif;font-size:9px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:#1a1a1a;border-bottom:1px solid #e0e0e0;padding-bottom:1px;width:fit-content;margin-top:10px;transition:border-color .15s}
+.pc:hover .pc-cta{border-color:#1a1a1a}
 
 /* NEEDS */
-.needs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:0;border:1px solid var(--bd);background:var(--bd);margin-bottom:3rem}
-.need-item{background:var(--b2);padding:1.3rem 1.5rem;display:flex;gap:.85rem;align-items:flex-start}
-.need-n{font-family:'Fira Code',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);flex-shrink:0;margin-top:.05rem}
-.need-text{font-family:'Jost',sans-serif;font-size:.8rem;font-weight:300;color:var(--t2);line-height:1.65}
-.need-text strong{color:#F0EBE2;font-weight:500}
+.needs{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:0;border-top:1px solid #e0e0e0;border-left:1px solid #e0e0e0;margin-bottom:52px}
+.need{border-right:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;padding:18px;display:flex;gap:12px}
+.need-n{font-family:'Lato',sans-serif;font-size:9px;font-weight:400;letter-spacing:.12em;color:#bbb;flex-shrink:0;margin-top:1px}
+.need-txt{font-family:'Lato',sans-serif;font-size:12px;font-weight:300;color:#666;line-height:1.65}
+.need-txt strong{color:#1a1a1a;font-weight:400}
 
 /* FEEDBACK */
-.fb-box{background:var(--b2);border:1px solid var(--bd);padding:2rem}
-.fb-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:300;color:#F0EBE2;margin-bottom:.3rem}
-.fb-sub{font-family:'Jost',sans-serif;font-size:.8rem;font-weight:300;color:var(--t2);margin-bottom:1.25rem}
-.fb-ta{width:100%;background:var(--b3);border:1px solid var(--bd);color:#F0EBE2;font-family:'Jost',sans-serif;font-size:.86rem;font-weight:300;padding:.82rem 1rem;resize:vertical;min-height:120px;outline:none;transition:border-color .2s;margin-bottom:.75rem;display:block;line-height:1.65}
-.fb-ta:focus{border-color:var(--gold)}
-.fb-ta::placeholder{color:var(--t4)}
-.fb-btn{background:var(--gold);color:#09090F;font-family:'Jost',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.72rem 1.75rem;border:none;cursor:pointer;transition:background .2s}
-.fb-btn:hover{background:var(--gold-l)}
-.fb-ok{display:none;padding:.75rem 1rem;background:rgba(192,155,83,.09);border:1px solid var(--bd2);font-family:'Fira Code',monospace;font-size:.68rem;letter-spacing:.06em;color:var(--gold);margin-top:.65rem}
+.fb{border-top:1px solid #e0e0e0;padding-top:36px}
+.fb-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:400;font-style:italic;color:#1a1a1a;margin-bottom:6px}
+.fb-sub{font-family:'Lato',sans-serif;font-size:13px;font-weight:300;color:#888;margin-bottom:20px}
+.fb-ta{width:100%;background:transparent;border:none;border-bottom:1px solid #ccc;font-family:'Lato',sans-serif;font-size:14px;font-weight:300;color:#1a1a1a;padding:8px 0;resize:none;min-height:90px;outline:none;transition:border-color .2s;line-height:1.65;margin-bottom:16px;display:block}
+.fb-ta:focus{border-bottom-color:#1a1a1a}
+.fb-ta::placeholder{color:#ccc}
+.fb-btn{background:#1a1a1a;color:#fff;font-family:'Lato',sans-serif;font-size:11px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;padding:13px 32px;border:none;cursor:pointer;transition:background .18s}
+.fb-btn:hover{background:#333}
+.fb-ok{display:none;font-family:'Lato',sans-serif;font-size:11px;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:#4a7a4a;padding:12px 0;border-top:1px solid #e0e0e0;margin-top:12px}
 
-@media(max-width:760px){.status-strip{grid-template-columns:1fr 1fr}.pages-grid{grid-template-columns:1fr}.needs-grid{grid-template-columns:1fr}.dash-pill{display:none}}
-@media(max-width:480px){.status-strip{grid-template-columns:1fr}}
+@media(max-width:800px){#lock{grid-template-columns:1fr}.lock-img{display:none}.lock-form{border-left:none}.status-strip{grid-template-columns:1fr 1fr}.pages{grid-template-columns:1fr}.needs{grid-template-columns:1fr}}
+@media(max-width:480px){.status-strip{grid-template-columns:1fr}.ss{border-right:none!important;padding-left:0!important}}
 </style>
 </head>
 <body>
 
-<!-- LOCK SCREEN -->
+<!-- LOCK -->
 <div id="lock">
-  <div class="lcard">
-    <div class="lcard-top">
-      <div class="l-logo"><span class="name">Harmony Horses</span><span class="sub">Luxury Equestrian</span></div>
-      <div class="lsep"></div>
-      <div class="lbadge">Client portal</div>
-    </div>
-    <div class="ltitle">Project preview</div>
-    <div class="lsub">This page is password-protected. Enter the access code provided by Hassan to view your project dashboard and browse the full website draft.</div>
-    <label class="llbl" for="pwIn">Access code</label>
+  <div class="lock-img">
+    <img src="https://images.unsplash.com/photo-1534053000-56b6da7c3a98?w=1200&q=90&fit=crop&crop=center" alt="Harmony Horses"/>
+  </div>
+  <div class="lock-form">
+    <div class="lf-brand">Harmony Horses</div>
+    <div class="lf-brand-sub">Equestrian &middot; Finland</div>
+    <h2 class="lf-title">Client preview.</h2>
+    <p class="lf-desc">Enter the access code provided by Hassan to view your project dashboard and browse the complete website draft.</p>
+    <label class="lf-lbl" for="pwIn">Access code</label>
     <div class="pw-wrap">
-      <input class="pw-input" type="password" id="pwIn" placeholder="••••••••" autocomplete="current-password"/>
-      <button class="pw-eye" onclick="toggleEye()" type="button" aria-label="Show/hide password">
-        <svg id="eyeSvg" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-      </button>
+      <input class="pw-input" type="password" id="pwIn" placeholder="Enter code…" autocomplete="current-password"/>
+      <button class="pw-eye" onclick="toggleEye()" type="button" id="eyeBtn">&#9679;&#9679;&#9679;</button>
     </div>
-    <div class="errmsg" id="errMsg">Incorrect access code — please try again.</div>
-    <button class="unlock-btn" id="unlockBtn" onclick="doUnlock()">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-      View project
-    </button>
-    <div class="lfoot">No code? <a href="mailto:m.hassan.masood@hotmail.com">Contact Hassan →</a></div>
+    <div class="err-msg" id="errMsg">Incorrect code — please try again.</div>
+    <button class="unlock-btn" id="unlockBtn" onclick="doUnlock()">View project</button>
+    <div class="lf-foot">No code? <a href="mailto:m.hassan.masood@hotmail.com">Contact Hassan</a></div>
   </div>
 </div>
 
 <!-- DASHBOARD -->
 <div id="dash">
   <div class="dash-nav">
-    <div class="dash-logo"><span class="name">Harmony Horses</span><span class="sub">Client Dashboard</span></div>
+    <div class="dash-logo">Harmony Horses<span>Client Dashboard</span></div>
     <div class="dash-right">
-      <div class="dash-pill"><div class="dash-pill-dot"></div>Draft — for review only</div>
-      <button class="lock-again" onclick="doLock()">Lock ↩</button>
+      <div class="dash-badge">Draft &mdash; for review only</div>
+      <button class="lock-again" onclick="doLock()">Lock &hookleftarrow;</button>
     </div>
   </div>
 
   <div class="dash-body">
 
-    <!-- STATUS -->
     <div class="status-strip">
-      <div class="ss-item"><div class="ss-lbl">Project</div><div class="ss-val">Harmony Horses website</div><div class="ss-badge b-prog"><div class="bdot"></div>In progress</div></div>
-      <div class="ss-item"><div class="ss-lbl">Pages built</div><div class="ss-val">7 of 7 complete</div><div class="ss-badge b-done"><div class="bdot"></div>All pages ready</div></div>
-      <div class="ss-item"><div class="ss-lbl">Current stage</div><div class="ss-val">Client review</div><div class="ss-badge b-review"><div class="bdot"></div>Your feedback needed</div></div>
-      <div class="ss-item"><div class="ss-lbl">Images</div><div class="ss-val">Demo photos used</div><div class="ss-badge b-review"><div class="bdot"></div>Your real photos needed</div></div>
+      <div class="ss"><div class="ss-lbl">Project</div><div class="ss-val">Harmony Horses website</div><div class="ss-tag t-prog">In progress</div></div>
+      <div class="ss"><div class="ss-lbl">Pages built</div><div class="ss-val">7 of 7 complete</div><div class="ss-tag t-done">All pages ready</div></div>
+      <div class="ss"><div class="ss-lbl">Stage</div><div class="ss-val">Client review</div><div class="ss-tag t-review">Your feedback needed</div></div>
+      <div class="ss"><div class="ss-lbl">Photos</div><div class="ss-val">Demo images only</div><div class="ss-tag t-review">Real photos needed</div></div>
     </div>
 
-    <!-- MESSAGE -->
-    <div class="msg-box">
-      <div class="msg-from">// message_from_hassan.md</div>
+    <div class="msg">
+      <div class="msg-from">Message from Hassan</div>
       <div class="msg-body">
-        <p>Hello! Here is the complete first draft of your <strong>Harmony Horses website</strong> — all 7 pages are fully built and navigable. Click any page card below to open it. A gold <strong>"Preview mode"</strong> bar will appear at the top of every page so you can move between pages easily and return to this dashboard at any time.</p>
-        <p>The photos used are <strong>demo images from the internet</strong> to show the layout and visual feel. They will all be replaced with your actual stable photos, team portraits, and horse photos before launch. Please review the <strong>structure, copy, services, pricing, and design direction</strong> and let me know your thoughts in the feedback box at the bottom of this page.</p>
-        <p>The main things I need from you: your <strong>real stable photos</strong> · <strong>staff names and bios</strong> · your <strong>exact address and phone number</strong> · confirmation or adjustments to the <strong>pricing</strong> on the services page · your <strong>real upcoming events and dates</strong>. Everything else I can adjust based on your feedback.</p>
+        <p>Welcome to your project preview. All <strong>7 pages of the Harmony Horses website are fully built</strong> and ready to browse. Click any page card below to open it — a thin preview bar will appear at the top of every page so you can move between pages and return to this dashboard at any time.</p>
+        <p>The photos throughout are <strong>placeholder images used to show layout and visual feel.</strong> They will all be replaced with your real stable photos, team portraits, and horse images before launch. Please review the <strong>design, structure, copy, and pricing</strong> and leave your feedback in the box at the bottom.</p>
+        <p>Main things I need from you: <strong>real photos</strong> of the stable, horses, and team &middot; <strong>staff names, titles, and short bios</strong> &middot; your <strong>exact address and phone number</strong> &middot; confirmation of the <strong>pricing</strong> on the services page &middot; your <strong>real upcoming events and dates.</strong></p>
       </div>
     </div>
 
-    <!-- PAGE CARDS -->
-    <div class="ey">Browse the draft</div>
-    <div class="pages-grid">
-      <div class="pg-card" onclick="goPage('harmony/index.html')">
-        <div class="pg-thumb"><img src="https://images.unsplash.com/photo-1534053000-56b6da7c3a98?w=500&q=70&fit=crop" alt=""/></div>
-        <div class="pg-body"><div class="pg-num">01 / 07</div><div class="pg-name">Homepage</div><p class="pg-desc">Hero, intro section, services overview, facilities strip, testimonials, and a call-to-action band. The first impression.</p><div class="pg-cta">Open page →</div></div>
+    <div class="sec-lbl">Browse the draft</div>
+    <div class="pages">
+      <div class="pc" onclick="goPage('harmony/index.html')">
+        <div class="pc-img"><img src="https://images.unsplash.com/photo-1534053000-56b6da7c3a98?w=500&q=70&fit=crop" alt=""/></div>
+        <div class="pc-body"><div class="pc-num">01 / 07</div><div class="pc-name">Homepage</div><p class="pc-desc">Full-viewport hero, mixed-case statement text, services index, editorial image blocks, testimonials, CTA.</p><div class="pc-cta">Open &rarr;</div></div>
       </div>
-      <div class="pg-card" onclick="goPage('harmony/services.html')">
-        <div class="pg-thumb"><img src="https://images.unsplash.com/photo-1569017388730-020b5f80a004?w=500&q=70&fit=crop" alt=""/></div>
-        <div class="pg-body"><div class="pg-num">02 / 07</div><div class="pg-name">Services</div><p class="pg-desc">4 full service sections with alternating image layout, full descriptions, bullet points, pricing, and boarding packages table.</p><div class="pg-cta">Open page →</div></div>
+      <div class="pc" onclick="goPage('harmony/services.html')">
+        <div class="pc-img"><img src="https://images.unsplash.com/photo-1569017388730-020b5f80a004?w=500&q=70&fit=crop" alt=""/></div>
+        <div class="pc-body"><div class="pc-num">02 / 07</div><div class="pc-name">Services</div><p class="pc-desc">4 full service sections with alternating image / text layout, bullet lists, pricing, and boarding packages.</p><div class="pc-cta">Open &rarr;</div></div>
       </div>
-      <div class="pg-card" onclick="goPage('harmony/facilities.html')">
-        <div class="pg-thumb"><img src="https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=500&q=70&fit=crop" alt=""/></div>
-        <div class="pg-body"><div class="pg-num">03 / 07</div><div class="pg-name">Facilities</div><p class="pg-desc">Indoor arena, outdoor arena & courses, stabling & paddocks — each with a full image gallery and detailed spec table. Rider amenities grid.</p><div class="pg-cta">Open page →</div></div>
+      <div class="pc" onclick="goPage('harmony/facilities.html')">
+        <div class="pc-img"><img src="https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=500&q=70&fit=crop" alt=""/></div>
+        <div class="pc-body"><div class="pc-num">03 / 07</div><div class="pc-name">Facilities</div><p class="pc-desc">Indoor arena, outdoor arena &amp; courses, stabling — each with full-bleed images and a detailed spec table.</p><div class="pc-cta">Open &rarr;</div></div>
       </div>
-      <div class="pg-card" onclick="goPage('harmony/staff.html')">
-        <div class="pg-thumb"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=70&fit=crop&crop=top" alt=""/></div>
-        <div class="pg-body"><div class="pg-num">04 / 07</div><div class="pg-name">Our team</div><p class="pg-desc">6 staff cards with photos, roles, bios, and certifications. Values section. Careers / join the team panel. Names are placeholders — yours go here.</p><div class="pg-cta">Open page →</div></div>
+      <div class="pc" onclick="goPage('harmony/staff.html')">
+        <div class="pc-img"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=70&fit=crop&crop=top" alt=""/></div>
+        <div class="pc-body"><div class="pc-num">04 / 07</div><div class="pc-name">Our team</div><p class="pc-desc">6 team cards with portrait photos, roles, and bios. Values section. Join our team panel. Names are placeholders.</p><div class="pc-cta">Open &rarr;</div></div>
       </div>
-      <div class="pg-card" onclick="goPage('harmony/events.html')">
-        <div class="pg-thumb"><img src="https://images.unsplash.com/photo-1548953359-59d56ae9fe5a?w=500&q=70&fit=crop" alt=""/></div>
-        <div class="pg-body"><div class="pg-num">05 / 07</div><div class="pg-name">Events</div><p class="pg-desc">Featured event spotlight, full 2025 calendar with 9 events and spots-remaining indicators, 3 recurring clinic cards.</p><div class="pg-cta">Open page →</div></div>
+      <div class="pc" onclick="goPage('harmony/events.html')">
+        <div class="pc-img"><img src="https://images.unsplash.com/photo-1548953359-59d56ae9fe5a?w=500&q=70&fit=crop" alt=""/></div>
+        <div class="pc-body"><div class="pc-num">05 / 07</div><div class="pc-name">Events</div><p class="pc-desc">Featured event, full 2025 calendar with 9 events and availability indicators, 3 recurring clinic cards.</p><div class="pc-cta">Open &rarr;</div></div>
       </div>
-      <div class="pg-card" onclick="goPage('harmony/contact.html')">
-        <div class="pg-thumb"><img src="https://images.unsplash.com/photo-1534053000-56b6da7c3a98?w=500&q=70&fit=crop" alt=""/></div>
-        <div class="pg-body"><div class="pg-num">06 / 07</div><div class="pg-name">Contact</div><p class="pg-desc">Enquiry form (sends directly to inbox, no email app opens), contact info, opening hours grid, map panel, and testimonials.</p><div class="pg-cta">Open page →</div></div>
+      <div class="pc" onclick="goPage('harmony/contact.html')">
+        <div class="pc-img"><img src="https://images.unsplash.com/photo-1559666126-84f389727b9a?w=500&q=70&fit=crop" alt=""/></div>
+        <div class="pc-body"><div class="pc-num">06 / 07</div><div class="pc-name">Contact</div><p class="pc-desc">Enquiry form (sends direct to inbox), contact info, opening hours grid, map placeholder.</p><div class="pc-cta">Open &rarr;</div></div>
       </div>
-      <div class="pg-card" onclick="goPage('harmony/instagram.html')">
-        <div class="pg-thumb"><img src="https://images.unsplash.com/photo-1559666126-84f389727b9a?w=500&q=70&fit=crop" alt=""/></div>
-        <div class="pg-body"><div class="pg-num">07 / 07</div><div class="pg-name">Instagram</div><p class="pg-desc">Full Instagram-style page: profile with avatar, 8 story highlights, 11-post feed grid with hover effects, and latest post with caption.</p><div class="pg-cta">Open page →</div></div>
+      <div class="pc" onclick="goPage('harmony/instagram.html')">
+        <div class="pc-img"><img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=500&q=70&fit=crop" alt=""/></div>
+        <div class="pc-body"><div class="pc-num">07 / 07</div><div class="pc-name">Instagram</div><p class="pc-desc">Profile, story highlights, full-bleed photo grid with hover effects, latest post with caption and hashtags.</p><div class="pc-cta">Open &rarr;</div></div>
       </div>
     </div>
 
-    <!-- WHAT'S NEEDED -->
-    <div class="ey">What I need from you</div>
-    <div class="needs-grid">
-      <div class="need-item"><div class="need-n">01</div><div class="need-text"><strong>Photos</strong> — stable exterior, indoor and outdoor arenas, stalls, horses, paddocks. At least 20 images at good resolution.</div></div>
-      <div class="need-item"><div class="need-n">02</div><div class="need-text"><strong>Team names & bios</strong> — real first and last names, official job titles, and a 2–3 sentence bio for each person.</div></div>
-      <div class="need-item"><div class="need-n">03</div><div class="need-text"><strong>Contact details</strong> — full stable address, phone number, preferred email address, and any social media handles.</div></div>
-      <div class="need-item"><div class="need-n">04</div><div class="need-text"><strong>Pricing</strong> — confirm, adjust, or remove the prices shown on the Services page. Add anything that's missing.</div></div>
-      <div class="need-item"><div class="need-n">05</div><div class="need-text"><strong>Real events & dates</strong> — your actual upcoming events, clinics, competitions, and recurring sessions for the calendar.</div></div>
-      <div class="need-item"><div class="need-n">06</div><div class="need-text"><strong>Instagram handle</strong> — your real @username so all social links point to the correct account.</div></div>
+    <div class="sec-lbl">What I need from you</div>
+    <div class="needs">
+      <div class="need"><div class="need-n">01</div><div class="need-txt"><strong>Photos</strong> — stable exterior, arenas, stalls, horses, paddocks, team portraits. At least 20 good-resolution images.</div></div>
+      <div class="need"><div class="need-n">02</div><div class="need-txt"><strong>Staff names &amp; bios</strong> — real names, official job titles, and a 2–3 sentence bio for each person.</div></div>
+      <div class="need"><div class="need-n">03</div><div class="need-txt"><strong>Contact details</strong> — full stable address, phone number, preferred email, and all social handles.</div></div>
+      <div class="need"><div class="need-n">04</div><div class="need-txt"><strong>Pricing</strong> — confirm, adjust, or remove the prices shown on the Services page.</div></div>
+      <div class="need"><div class="need-n">05</div><div class="need-txt"><strong>Events &amp; dates</strong> — your real upcoming events, clinics, and recurring sessions for the calendar.</div></div>
+      <div class="need"><div class="need-n">06</div><div class="need-txt"><strong>Instagram handle</strong> — your real @username so all social links point to the correct account.</div></div>
     </div>
 
-    <!-- FEEDBACK -->
-    <div class="ey">Leave your feedback</div>
-    <div class="fb-box">
-      <div class="fb-title">Your thoughts</div>
-      <div class="fb-sub">Design, layout, copy, colours, structure — anything at all. Write it here and it goes straight to Hassan.</div>
-      <textarea class="fb-ta" id="fbText" placeholder="e.g. The gold and black design feels right · Please change the pricing on page X · I'd like to add a page for Y · The staff section looks great but names need updating…"></textarea>
-      <button class="fb-btn" onclick="doFeedback()">Send feedback →</button>
-      <div class="fb-ok" id="fbOk">✓ Feedback sent — Hassan will review and respond shortly.</div>
+    <div class="fb">
+      <div class="fb-title">Your feedback.</div>
+      <div class="fb-sub">Design, layout, copy, colours, structure — anything. Write it here and it goes straight to Hassan.</div>
+      <textarea class="fb-ta" id="fbText" placeholder="e.g. The design looks great &middot; Please change the pricing on page X &middot; I'd like to add a page for Y &middot; The font feels right…"></textarea>
+      <button class="fb-btn" onclick="doFeedback()">Send feedback</button>
+      <div class="fb-ok" id="fbOk">&#10003; Feedback sent &mdash; Hassan will be in touch soon.</div>
     </div>
 
   </div>
 </div>
 
 <script>
-const HASH = 'fd15e486656b8c4536fb32bc1a8e317c948ce0143f18715751f5414309666e89'; // horse123
-const FSPREE = 'YOUR_FORM_ID';
-
-async function sha256(s){
-  const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));
-  return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('');
-}
-
+const HASH='fd15e486656b8c4536fb32bc1a8e317c948ce0143f18715751f5414309666e89';
+const FSPREE='YOUR_FORM_ID';
+async function sha256(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('')}
 async function doUnlock(){
-  const pw=document.getElementById('pwIn').value;
-  const btn=document.getElementById('unlockBtn');
-  const err=document.getElementById('errMsg');
-  const inp=document.getElementById('pwIn');
+  const pw=document.getElementById('pwIn').value;const btn=document.getElementById('unlockBtn');const err=document.getElementById('errMsg');const inp=document.getElementById('pwIn');
   if(!pw){inp.classList.add('err');err.classList.add('show');return}
-  btn.disabled=true;
-  btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Checking…';
-  const h=await sha256(pw);
-  if(h===HASH){
-    sessionStorage.setItem('hh_client','1');
-    document.getElementById('lock').style.display='none';
-    document.getElementById('dash').style.display='block';
-  } else {
-    inp.classList.add('err');err.classList.add('show');
-    inp.parentElement.classList.add('shake');
-    setTimeout(()=>inp.parentElement.classList.remove('shake'),430);
-    btn.disabled=false;
-    btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> View project';
-  }
+  btn.disabled=true;btn.textContent='Verifying…';
+  if(await sha256(pw)===HASH){sessionStorage.setItem('hh_client','1');document.getElementById('lock').style.display='none';document.getElementById('dash').style.display='block';}
+  else{inp.classList.add('err');err.classList.add('show');inp.parentElement.classList.add('shake');setTimeout(()=>inp.parentElement.classList.remove('shake'),320);btn.disabled=false;btn.textContent='View project';}
 }
-
-document.getElementById('pwIn').addEventListener('input',()=>{
-  document.getElementById('pwIn').classList.remove('err');
-  document.getElementById('errMsg').classList.remove('show');
-});
+document.getElementById('pwIn').addEventListener('input',()=>{document.getElementById('pwIn').classList.remove('err');document.getElementById('errMsg').classList.remove('show');});
 document.getElementById('pwIn').addEventListener('keydown',e=>{if(e.key==='Enter')doUnlock()});
-
-function doLock(){
-  sessionStorage.removeItem('hh_client');
-  document.getElementById('dash').style.display='none';
-  document.getElementById('lock').style.display='flex';
-  document.getElementById('pwIn').value='';
-}
-
-function toggleEye(){
-  const i=document.getElementById('pwIn'),s=document.getElementById('eyeSvg');
-  i.type=i.type==='password'?'text':'password';
-  s.innerHTML=i.type==='text'
-    ?'<path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>'
-    :'<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
-}
-
-function goPage(href){
-  sessionStorage.setItem('hh_client','1');
-  window.location.href=href;
-}
-
-if(sessionStorage.getItem('hh_client')==='1'){
-  document.getElementById('lock').style.display='none';
-  document.getElementById('dash').style.display='block';
-}
-
+function doLock(){sessionStorage.removeItem('hh_client');document.getElementById('dash').style.display='none';document.getElementById('lock').style.display='grid';document.getElementById('pwIn').value='';}
+function toggleEye(){const i=document.getElementById('pwIn');i.type=i.type==='password'?'text':'password';}
+function goPage(href){sessionStorage.setItem('hh_client','1');window.location.href=href;}
+if(sessionStorage.getItem('hh_client')==='1'){document.getElementById('lock').style.display='none';document.getElementById('dash').style.display='block';}
 async function doFeedback(){
-  const txt=document.getElementById('fbText').value.trim();
-  if(!txt)return;
-  const btn=document.querySelector('.fb-btn');
-  btn.disabled=true;btn.textContent='Sending…';
-  try{
-    const r=await fetch('https://formspree.io/f/'+FSPREE,{
-      method:'POST',
-      headers:{'Accept':'application/json','Content-Type':'application/json'},
-      body:JSON.stringify({_subject:'Client Feedback — Harmony Horses',message:txt})
-    });
-    if(r.ok){btn.textContent='✓ Sent';document.getElementById('fbOk').style.display='block';document.getElementById('fbText').value='';}
-    else{btn.textContent='Failed — try again';btn.disabled=false;}
-  }catch{btn.textContent='Error — try again';btn.disabled=false;}
+  const txt=document.getElementById('fbText').value.trim();if(!txt)return;
+  const btn=document.querySelector('.fb-btn');btn.disabled=true;btn.textContent='Sending…';
+  try{const r=await fetch('https://formspree.io/f/'+FSPREE,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({_subject:'Client Feedback — Harmony Horses',message:txt})});if(r.ok){btn.textContent='Sent';document.getElementById('fbOk').style.display='block';document.getElementById('fbText').value='';}else{btn.textContent='Failed — try again';btn.disabled=false;}}
+  catch{btn.textContent='Error — try again';btn.disabled=false;}
 }
 </script>
 </body>
