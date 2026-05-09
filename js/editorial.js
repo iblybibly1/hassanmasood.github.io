@@ -1,4 +1,4 @@
-﻿* editorial.js — shared scripts for hassanmasood.fi */
+/* editorial.js — shared scripts for hassanmasood.fi */
 
 (function () {
   /* ─── THEME DEFAULTS ─── */
@@ -205,4 +205,3 @@
     });
   };
 })();
-                                                                                     
