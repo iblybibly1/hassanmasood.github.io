@@ -104,6 +104,35 @@ body::before {
   letter-spacing: -0.005em;
 }
 .nav-links a:hover, .nav-links a.active { color: var(--ink); background: var(--paper-2); }
+
+/* Services dropdown */
+.nav-drop { position: relative; display: flex; align-items: center; }
+.nav-drop-trigger {
+  font-size: 13.5px; padding: 8px 14px; border-radius: 100px;
+  color: var(--ink-2); font-weight: 450; letter-spacing: -0.005em;
+  display: flex; align-items: center; gap: 4px;
+  transition: color .25s, background .25s; cursor: pointer;
+}
+.nav-drop:hover .nav-drop-trigger,
+.nav-drop-trigger.active { color: var(--ink); background: var(--paper-2); }
+.nav-drop-arrow { font-size: 10px; opacity: 0.6; transition: transform .2s; }
+.nav-drop:hover .nav-drop-arrow { transform: rotate(180deg); }
+.nav-drop-menu {
+  display: none;
+  position: absolute; top: calc(100% + 8px); left: 0;
+  background: var(--paper); border: 1px solid var(--line-2);
+  border-radius: 12px; padding: 6px;
+  min-width: 220px; z-index: 200;
+  box-shadow: 0 8px 32px rgba(0,0,0,.12);
+}
+.nav-drop:hover .nav-drop-menu { display: flex; flex-direction: column; }
+.nav-drop-menu a {
+  font-size: 13px; padding: 8px 12px; border-radius: 8px;
+  color: var(--ink-2); font-weight: 450;
+  transition: color .2s, background .2s; white-space: nowrap;
+}
+.nav-drop-menu a:hover { color: var(--ink); background: var(--paper-2); }
+
 .nav-cta {
   background: var(--ink); color: var(--paper);
   padding: 9px 18px;
