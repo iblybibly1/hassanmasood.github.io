@@ -1,259 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Projects & Awards — Hassan Masood</title>
-  <link rel="stylesheet" href="css/main.css"/>
-  <style>
-  .proj-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:1.5rem; }
-  .proj-card {
-    background:var(--bg-raised); border:1px solid var(--border);
-    border-radius:var(--radius-lg); padding:2rem;
-    display:flex; flex-direction:column; gap:0.85rem;
-    position:relative; overflow:hidden;
-    transition:border-color 0.22s, box-shadow 0.22s, transform 0.22s;
-  }
-  .proj-card::after {
-    content:''; position:absolute;
-    top:0; left:0; right:0; height:2px;
-    background:linear-gradient(90deg,var(--accent),var(--green));
-    transform:scaleX(0); transform-origin:left;
-    transition:transform 0.35s cubic-bezier(0.23,1,0.32,1);
-  }
-  .proj-card:hover { border-color:var(--border-hover); box-shadow:var(--shadow-md); transform:translateY(-3px); }
-  .proj-card:hover::after { transform:scaleX(1); }
-
-  .proj-header { display:flex; align-items:center; justify-content:space-between; gap:0.75rem; }
-  .proj-cat { font-family:var(--font-mono); font-size:0.62rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); }
-  .proj-badge {
-    font-family:var(--font-mono); font-size:0.58rem; font-weight:500;
-    letter-spacing:0.08em; padding:0.2rem 0.6rem; border-radius:100px;
-    background:var(--green-dim); color:var(--green);
-    border:1px solid rgba(52,211,153,0.25); white-space:nowrap;
-  }
-  .proj-badge.wip { background:var(--bg-overlay); color:var(--text-3); border-color:var(--border); }
-
-  .proj-name { font-family:var(--font-display); font-size:1.3rem; font-weight:700; letter-spacing:-0.02em; color:var(--text-1); line-height:1.15; }
-  .proj-desc { font-size:0.87rem; font-weight:300; line-height:1.7; color:var(--text-2); flex:1; }
-
-  .proj-footer { display:flex; align-items:center; justify-content:space-between; gap:0.75rem; flex-wrap:wrap; margin-top:auto; padding-top:1rem; border-top:1px solid var(--border); }
-  .proj-link {
-    display:inline-flex; align-items:center; gap:0.35rem;
-    font-family:var(--font-mono); font-size:0.65rem; font-weight:500;
-    letter-spacing:0.08em; text-transform:uppercase; color:var(--accent);
-    transition:gap 0.18s, opacity 0.18s;
-  }
-  .proj-link:hover { gap:0.6rem; }
-  .proj-link svg { width:11px; height:11px; flex-shrink:0; }
-
-  /* Awards */
-  .awards-list { display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; }
-  .award-row {
-    background:var(--bg-raised); padding:1.75rem 2rem;
-    display:grid; grid-template-columns:72px 1fr auto;
-    align-items:center; gap:2rem;
-    transition:background 0.18s;
-  }
-  .award-row:hover { background:var(--bg-overlay); }
-  .award-rank {
-    font-family:var(--font-display); font-size:1.6rem; font-weight:800;
-    letter-spacing:-0.03em; color:var(--text-1); line-height:1;
-  }
-  .award-rank.accent { color:var(--accent); }
-  .award-info-title { font-family:var(--font-display); font-size:1rem; font-weight:700; letter-spacing:-0.01em; color:var(--text-1); margin-bottom:0.2rem; }
-  .award-info-org   { font-size:0.8rem; font-weight:400; color:var(--text-3); }
-  .award-info-desc  { font-size:0.8rem; font-weight:300; color:var(--text-2); margin-top:0.35rem; line-height:1.5; }
-  .award-year-pill  {
-    font-family:var(--font-mono); font-size:0.62rem; font-weight:500;
-    letter-spacing:0.06em; white-space:nowrap;
-    padding:0.3rem 0.75rem; border-radius:100px;
-    background:var(--bg-overlay); border:1px solid var(--border); color:var(--text-3);
-  }
-
-  @media(max-width:640px) {
-    .award-row { grid-template-columns:52px 1fr; gap:1rem; }
-    .award-year-pill { display:none; }
-  }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Projects — Hassan Masood</title>
+<meta name="description" content="Selected projects and competition results: CBAM tools, e-commerce analytics, marketing dashboards, and more."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/editorial.css"/>
 </head>
 <body>
-<nav class="nav" id="mainNav">
-  <a href="index.html" class="nav-logo">Hassan<span class="dot">.</span></a>
-  <div class="nav-center">
-    <a href="index.html">Home</a><a href="about.html">About</a>
-    <a href="services.html">Services</a><a href="work.html">Work</a><a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
+<canvas id="stars" aria-hidden="true"></canvas>
+<div class="cursor" id="cursor"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Hassan<span class="dot"></span></a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="skills.html">Skills</a>
+    </div>
+    <a href="contact.html" class="nav-cta"><span class="pulse"></span>Contact</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
   </div>
-  <div class="nav-right">
-    <div class="nav-pill"><div class="nav-pill-dot"></div>Open to work</div>
-    <a href="contact.html" class="nav-cta">Hire me</a>
-  </div>
-  <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
-</nav>
-<nav class="nav-drawer" id="navDrawer">
-  <a href="index.html">Home</a><a href="about.html">About</a>
-  <a href="services.html">Services</a><a href="work.html">Work</a>
-  <a href="projects.html">Projects</a><a href="contact.html">Contact</a>
-  <a href="contact.html" class="drawer-cta">Hire me →</a>
 </nav>
 
+<div class="drawer" id="drawer">
+  <button class="drawer-close" id="drawerClose" aria-label="Close">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <a href="about.html"><span>About</span><span class="num">01</span></a>
+  <a href="services.html"><span>Services</span><span class="num">02</span></a>
+  <a href="work.html"><span>Work</span><span class="num">03</span></a>
+  <a href="projects.html"><span>Projects</span><span class="num">04</span></a>
+  <a href="skills.html"><span>Skills</span><span class="num">05</span></a>
+  <a href="contact.html"><span>Contact</span><span class="num">06</span></a>
+  <div class="drawer-foot"><span>Inkoo, FI</span><span>Open to work</span></div>
+</div>
+
 <div class="page-hero">
-  <div class="container">
-    <div class="eyebrow reveal">Portfolio</div>
-    <h1 class="heading-xl reveal reveal-d1">Projects &<br>Awards.</h1>
+  <div class="wrap">
+    <div class="page-hero-tag r show">04 — Projects</div>
+    <h1 class="page-hero-title r show d1">Selected <span class="em">work.</span></h1>
+    <p class="page-hero-lede r show d2">A mix of independent builds, academic case work, and professional tools I've shipped. Each one solved a real problem.</p>
   </div>
 </div>
 
-<!-- PROJECTS -->
-<section class="section">
-  <div class="container">
-    <div class="eyebrow reveal">Selected work</div>
-    <h2 class="heading-md reveal reveal-d1" style="margin-bottom:2.5rem">Projects</h2>
-    <div class="proj-grid">
+<section class="sec">
+  <div class="wrap">
+    <div class="proj-grid r">
 
-      <div class="proj-card reveal">
-        <div class="proj-header">
-          <span class="proj-cat">E-Commerce · International</span>
-          <span class="proj-badge">Live</span>
+      <div class="proj r">
+        <div class="proj-num">— 01</div>
+        <h3 class="proj-title">CBAM Compliance <span class="em">Tracker</span></h3>
+        <p class="proj-desc">Built a full CBAM data pipeline at FinSell Oy — CN-code reclassification, supplier emission data collection forms, automated quarterly report generation, and a Power BI dashboard tracking submission deadlines and embedded carbon per shipment. First quarterly report submitted on time with zero regulatory issues.</p>
+        <div class="proj-tags">
+          <span>Excel / Power BI</span><span>EU Regulation</span><span>CBAM</span><span>Supply Chain</span>
         </div>
-        <div class="proj-name">Arctic Finds</div>
-        <p class="proj-desc">Independently built and operated a profitable international digital store. Managed product sourcing, logistics, international payments, and cross-border fulfilment — fully self-funded, with customers across multiple countries.</p>
-        <div class="tags-row"><span class="tag">E-Commerce</span><span class="tag">International Sales</span><span class="tag">Logistics</span><span class="tag">Entrepreneurship</span></div>
-        <div class="proj-footer">
-          <div></div>
-          <a href="https://arcticfinds.com" class="proj-link" target="_blank" rel="noopener">
-            arcticfinds.com
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M4 2h6v6"/></svg>
-          </a>
-        </div>
+        <div class="proj-meta">2025 · Professional · FinSell Oy</div>
       </div>
 
-      <div class="proj-card reveal reveal-d1">
-        <div class="proj-header">
-          <span class="proj-cat">UI/UX · HarmonyOS</span>
-          <span class="proj-badge">3rd Place</span>
+      <div class="proj r">
+        <div class="proj-num">— 02</div>
+        <h3 class="proj-title">E-commerce Analytics <span class="em">Dashboard</span></h3>
+        <p class="proj-desc">Designed and built a Shopify + Google Sheets analytics system for a consumer goods client — automated daily revenue pulls, cohort-based customer retention tracking, and a weekly digest email. Reduced manual reporting from 3 hours per week to 20 minutes and surfaced the retention insight that drove a loyalty programme launch.</p>
+        <div class="proj-tags">
+          <span>Google Sheets</span><span>Shopify API</span><span>Data Analysis</span><span>Retention</span>
         </div>
-        <div class="proj-name">Huawei Tech Arena Finland 2025</div>
-        <p class="proj-desc">Developed a complete UI/UX interface for Huawei's HarmonyOS using Vanilla JS and WebGL. Placed 3rd nationally at Finland's premier Huawei developer competition — the only non-CS competitor on the podium.</p>
-        <div class="tags-row"><span class="tag tag-blue">UI/UX Design</span><span class="tag">HarmonyOS</span><span class="tag">Vanilla JS</span><span class="tag">WebGL</span></div>
-        <div class="proj-footer">
-          <span class="tag">Dec 2025</span>
-        </div>
+        <div class="proj-meta">2024 · Freelance</div>
       </div>
 
-      <div class="proj-card reveal reveal-d2">
-        <div class="proj-header">
-          <span class="proj-cat">Finance · Automation</span>
+      <div class="proj r">
+        <div class="proj-num">— 03</div>
+        <h3 class="proj-title">Vapemall PK <span class="em">Operations System</span></h3>
+        <p class="proj-desc">As co-founder, built the entire operational backbone for a cross-border e-commerce business from scratch — supplier procurement flows with Chinese and UAE vendors, customs documentation templates, inventory tracking, a customer support ticketing system, and a Facebook Ads dashboard tracking ROAS per creative. Scaled to PKR 1.2M monthly revenue within 14 months.</p>
+        <div class="proj-tags">
+          <span>E-commerce</span><span>Cross-border</span><span>Facebook Ads</span><span>Operations</span>
         </div>
-        <div class="proj-name">Algorithmic Trading Tools</div>
-        <p class="proj-desc">Self-trained in financial markets since 2012 across stocks, options, and futures. Built custom trading bots and KPI indicators combining technical and fundamental analysis, options strategies, and forward market analysis in automated Python workflows.</p>
-        <div class="tags-row"><span class="tag">Python</span><span class="tag">Algo Trading</span><span class="tag">Options</span><span class="tag">Futures</span><span class="tag">Technical Analysis</span></div>
-        <div class="proj-footer">
-          <div></div>
-          <a href="https://github.com/iblybibly1" class="proj-link" target="_blank" rel="noopener">
-            GitHub
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M4 2h6v6"/></svg>
-          </a>
-        </div>
+        <div class="proj-meta">2018–2020 · Co-founded</div>
       </div>
 
-      <div class="proj-card reveal">
-        <div class="proj-header">
-          <span class="proj-cat">Mobile · Development</span>
-          <span class="proj-badge wip">In Progress</span>
+      <div class="proj r">
+        <div class="proj-num">— 04</div>
+        <h3 class="proj-title">Marketing Audit <span class="em">Framework</span></h3>
+        <p class="proj-desc">Developed a reusable marketing audit template during my internship at Tammer Brands — covering channel mix analysis, audience segmentation scoring, budget efficiency ratios, and a 12-month roadmap format. Now used by the marketing team as the starting point for all new product line reviews.</p>
+        <div class="proj-tags">
+          <span>Marketing Strategy</span><span>Segmentation</span><span>Power BI</span><span>B2B</span>
         </div>
-        <div class="proj-name">Android App</div>
-        <p class="proj-desc">Building a simple Android application for publication on the Google Play Store. Exploring end-to-end product design, mobile UX, and independent app distribution as a hands-on development initiative.</p>
-        <div class="tags-row"><span class="tag">Android</span><span class="tag">Google Play</span><span class="tag">Mobile Dev</span></div>
-        <div class="proj-footer">
-          <span class="tag">2025 →</span>
-        </div>
+        <div class="proj-meta">2024 · Professional · Tammer Brands Oy</div>
       </div>
 
-      <div class="proj-card reveal reveal-d1">
-        <div class="proj-header">
-          <span class="proj-cat">Film · Sustainability</span>
+      <div class="proj r">
+        <div class="proj-num">— 05</div>
+        <h3 class="proj-title">International Market <span class="em">Entry Report</span></h3>
+        <p class="proj-desc">Produced two market entry reports for clients of Environmental Consultancies &amp; Options targeting UAE and Bahrain — regulatory landscape mapping, competitor analysis, pricing benchmarks, and risk-adjusted entry strategies. One client used the report to proceed with a formal feasibility study.</p>
+        <div class="proj-tags">
+          <span>Market Research</span><span>Strategy</span><span>MENA</span><span>Environmental</span>
         </div>
-        <div class="proj-name">Karu Films Documentary</div>
-        <p class="proj-desc">Performed as a foreign sustainability expert in a documentary by Karu Films Oy, Tampere (June 2024) — scriptless, on-site roleplay format exploring sustainable business practices in the Finnish context.</p>
-        <div class="tags-row"><span class="tag">Sustainability</span><span class="tag">Documentary</span><span class="tag">Public Speaking</span></div>
-        <div class="proj-footer">
-          <span class="tag">Jun 2024</span>
-        </div>
-      </div>
-
-      <div class="proj-card reveal reveal-d2">
-        <div class="proj-header">
-          <span class="proj-cat">Finance · Education</span>
-        </div>
-        <div class="proj-name">Tampere Capital RY Lecture</div>
-        <p class="proj-desc">Delivered a guest lecture on private equities and financial markets at Tampere Capital RY (April 2023) — covering investment vehicles, market structure, and portfolio strategy for a student finance audience.</p>
-        <div class="tags-row"><span class="tag">Finance</span><span class="tag">Public Speaking</span><span class="tag">Private Equity</span></div>
-        <div class="proj-footer">
-          <span class="tag">Apr 2023</span>
-        </div>
+        <div class="proj-meta">2020–2021 · Professional · ECO</div>
       </div>
 
     </div>
   </div>
 </section>
 
-<div class="divider-glow"></div>
-
-<!-- AWARDS -->
-<section class="section" style="background:var(--bg-raised)">
-  <div class="container">
-    <div class="eyebrow reveal">Recognition</div>
-    <h2 class="heading-md reveal reveal-d1" style="margin-bottom:2.5rem">Awards & competitions</h2>
-    <div class="awards-list reveal reveal-d2">
+<section class="sec" style="background:var(--paper-2); padding-top:64px; padding-bottom:64px;">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:40px;">
+      <div>
+        <div class="sec-num r">Competitions &amp; Awards</div>
+        <h2 class="sec-title r d1" style="font-size:clamp(28px, 4vw, 52px);">Case <span class="em">results.</span></h2>
+      </div>
+      <p class="sec-lede r d2">Business case competitions completed through TAMK and the Tampere Business Case Club.</p>
+    </div>
+    <div class="awards-table r">
       <div class="award-row">
-        <div class="award-rank accent">3rd</div>
-        <div>
-          <div class="award-info-title">Huawei Tech Arena Finland 2025</div>
-          <div class="award-info-org">Huawei Technologies</div>
-          <div class="award-info-desc">UI/UX interface for HarmonyOS using Vanilla JS & WebGL. Only non-CS competitor on the podium.</div>
-        </div>
-        <span class="award-year-pill">Dec 2025</span>
+        <div class="award-year">2024</div>
+        <div class="award-name">TAMK International Business Case Competition</div>
+        <div class="award-result">Top 3 finalist</div>
+        <div class="award-topic">Market entry strategy — Nordic retail</div>
       </div>
       <div class="award-row">
-        <div class="award-rank" style="font-size:1.1rem;color:var(--text-2)">Final</div>
-        <div>
-          <div class="award-info-title">International Sales Competition 2024</div>
-          <div class="award-info-org">Haaga-Helia University of Applied Sciences</div>
-          <div class="award-info-desc">Represented Tampere University against Finland's top business school students.</div>
-        </div>
-        <span class="award-year-pill">2024</span>
+        <div class="award-year">2023</div>
+        <div class="award-name">Tampere BCC Spring Case Series</div>
+        <div class="award-result">Winner — Best Presentation</div>
+        <div class="award-topic">Supply chain resilience</div>
       </div>
       <div class="award-row">
-        <div class="award-rank">1st</div>
-        <div>
-          <div class="award-info-title">Sales Pitch Competition</div>
-          <div class="award-info-org">Platform 6, Tampere</div>
-          <div class="award-info-desc">First place demonstrating persuasion, product knowledge, and presentation under competitive pressure.</div>
-        </div>
-        <span class="award-year-pill">Feb 2023</span>
-      </div>
-      <div class="award-row">
-        <div class="award-rank">1st</div>
-        <div>
-          <div class="award-info-title">Business Startup Competition</div>
-          <div class="award-info-org">Tampere University of Applied Sciences</div>
-          <div class="award-info-desc">First place for business model, pitch, and commercial viability — judged by industry experts.</div>
-        </div>
-        <span class="award-year-pill">Mar 2022</span>
+        <div class="award-year">2023</div>
+        <div class="award-name">TAMK Sustainability Challenge</div>
+        <div class="award-result">Finalist</div>
+        <div class="award-topic">Circular economy model for SMEs</div>
       </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="container"><div class="footer-inner">
-    <a href="index.html" class="footer-logo">Hassan<span class="dot">.</span></a>
-    <nav class="footer-nav"><a href="about.html">About</a><a href="services.html">Services</a><a href="work.html">Work</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a><a href="https://github.com/iblybibly1" target="_blank">GitHub</a></nav>
-    <span class="footer-copy">© 2025 M. Hassan Masood · Inkoo, Finland</span>
-  </div></div>
+<section class="sec" style="padding-top:80px; padding-bottom:80px;">
+  <div class="wrap" style="text-align:center; max-width:600px; margin:0 auto;">
+    <div class="sec-num r" style="justify-content:center;">Let's build something</div>
+    <h2 class="sec-title r d1" style="font-size:clamp(32px, 5vw, 60px); margin-bottom:32px;">Have a <span class="em">project?</span></h2>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;" class="r d2">
+      <a href="contact.html" class="btn-primary" style="font-size:16px; padding:16px 32px;">Get in touch →</a>
+      <a href="services.html" class="btn-ghost" style="font-size:16px; padding:16px 32px;">View services</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-name">Hassan Masood</div>
+        <p>Sustainable business developer. ESG &amp; CBAM compliance, sales systems, and data-driven strategy for cross-border teams.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="work.html">Experience</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services/web-design.html">Web Design</a></li>
+          <li><a href="services/esg.html">ESG &amp; CBAM</a></li>
+          <li><a href="services/digital-marketing.html">Marketing</a></li>
+          <li><a href="services/sales-crm.html">Sales &amp; CRM</a></li>
+          <li><a href="services/international-expansion.html">International</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:m.hassan.masood@hotmail.com">m.hassan.masood@hotmail.com</a></li>
+          <li><a href="tel:+358403600110">+358 040 360 0110</a></li>
+          <li>Inkoo, Finland</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 M. Hassan Masood · All rights reserved</span>
+      <span>Built in Finland</span>
+    </div>
+  </div>
 </footer>
-<script src="js/main.js"></script>
+
+<div class="tweaks" id="tweaksPanel">
+  <div class="tweaks-head"><span class="tweaks-title">Customise</span><button class="tweaks-close" aria-label="Close">✕</button></div>
+  <div class="tweak-row"><div class="tweak-lab">Palette</div>
+    <div class="tweak-swatches" data-tweak="pal">
+      <div class="tweak-sw" data-val="paper"><div class="chips"><span style="background:#F2EDE6"></span><span style="background:#14110E"></span><span style="background:#C8421C"></span></div><div class="nm">Paper</div></div>
+      <div class="tweak-sw" data-val="midnight"><div class="chips"><span style="background:#0E0E0C"></span><span style="background:#F2EDE6"></span><span style="background:#D4A24A"></span></div><div class="nm">Midnight</div></div>
+      <div class="tweak-sw" data-val="citrus"><div class="chips"><span style="background:#FFF7E0"></span><span style="background:#1A1408"></span><span style="background:#FF4D2E"></span></div><div class="nm">Citrus</div></div>
+    </div>
+  </div>
+  <div class="tweak-row"><div class="tweak-lab">Voice</div>
+    <div class="tweak-segs" data-tweak="voice">
+      <div class="tweak-seg" data-val="editorial">Editorial</div>
+      <div class="tweak-seg" data-val="modern">Modern</div>
+      <div class="tweak-seg" data-val="brutal">Brutal</div>
+    </div>
+  </div>
+  <div class="tweak-row"><div class="tweak-lab">Energy</div>
+    <div class="tweak-segs" data-tweak="energy">
+      <div class="tweak-seg" data-val="quiet">Quiet</div>
+      <div class="tweak-seg" data-val="standard">Standard</div>
+      <div class="tweak-seg" data-val="loud">Loud</div>
+    </div>
+  </div>
+</div>
+
+<script src="js/editorial.js"></script>
 </body>
 </html>

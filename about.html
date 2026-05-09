@@ -1,223 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>About — Hassan Masood</title>
-  <meta name="description" content="About Hassan Masood — BBA graduate, ESG specialist, and multilingual professional based in Finland."/>
-  <link rel="stylesheet" href="css/main.css"/>
-  <style>
-  .about-layout { display:grid; grid-template-columns:1fr 340px; gap:5rem; align-items:start; }
-  .about-body { max-width:68ch; }
-  .about-body p { font-size:1rem; font-weight:300; line-height:1.85; color:var(--text-2); margin-bottom:1.25rem; }
-  .about-body p:last-child { margin-bottom:0; }
-  .about-body strong { color:var(--text-1); font-weight:500; }
-
-  /* Sidebar */
-  .sidebar { display:flex; flex-direction:column; gap:1rem; position:sticky; top:calc(var(--nav-h) + 1.5rem); }
-  .info-panel {
-    background:var(--bg-raised); border:1px solid var(--border);
-    border-radius:var(--radius-lg); overflow:hidden;
-  }
-  .info-panel-header {
-    background:var(--bg-overlay); padding:1.25rem 1.5rem;
-    border-bottom:1px solid var(--border);
-  }
-  .info-panel-header .label { display:block; margin-bottom:0.3rem; }
-  .info-panel-name { font-family:var(--font-display); font-size:1.15rem; font-weight:700; letter-spacing:-0.02em; color:var(--text-1); }
-  .info-rows { padding:0.25rem 0; }
-  .info-row { padding:0.8rem 1.5rem; border-bottom:1px solid var(--border); display:flex; flex-direction:column; gap:0.2rem; }
-  .info-row:last-child { border-bottom:none; }
-  .info-row .label { display:block; }
-  .info-row-val { font-size:0.85rem; color:var(--text-1); font-weight:400; line-height:1.5; }
-  .info-row-val a { color:var(--accent); transition:opacity 0.15s; }
-  .info-row-val a:hover { opacity:0.75; }
-
-  /* Skills */
-  .skills-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
-  .skill-group { margin-bottom:2rem; }
-  .skill-group:last-child { margin-bottom:0; }
-  .skill-group-label {
-    font-family:var(--font-mono); font-size:0.65rem; font-weight:500;
-    letter-spacing:0.15em; text-transform:uppercase; color:var(--text-3);
-    display:flex; align-items:center; gap:0.75rem; margin-bottom:0.85rem;
-    padding-bottom:0.65rem; border-bottom:1px solid var(--border);
-  }
-  .tags-wrap { display:flex; flex-wrap:wrap; gap:0.4rem; }
-
-  /* Languages */
-  .lang-list { display:flex; flex-direction:column; gap:0; max-width:620px; }
-  .lang-row {
-    display:grid; grid-template-columns:140px 80px 1fr;
-    align-items:center; gap:1.5rem;
-    padding:0.9rem 0; border-bottom:1px solid var(--border);
-  }
-  .lang-row:last-child { border-bottom:none; }
-  .lang-name { font-family:var(--font-display); font-size:0.95rem; font-weight:700; letter-spacing:-0.01em; color:var(--text-1); }
-  .lang-level { font-family:var(--font-mono); font-size:0.62rem; letter-spacing:0.08em; color:var(--text-3); text-transform:uppercase; }
-  .lang-bar { height:3px; background:var(--bg-muted); border-radius:2px; overflow:hidden; }
-  .lang-fill { height:100%; border-radius:2px; background:linear-gradient(90deg, var(--accent) 0%, var(--green) 100%); }
-
-  /* Interests */
-  .int-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; }
-  .int-card { background:var(--bg-raised); padding:1.75rem; display:flex; flex-direction:column; gap:0.6rem; transition:background 0.2s; }
-  .int-card:hover { background:var(--bg-overlay); }
-  .int-icon { font-size:1.3rem; }
-  .int-name { font-family:var(--font-display); font-size:0.9rem; font-weight:700; letter-spacing:-0.01em; color:var(--text-1); }
-  .int-desc { font-size:0.8rem; font-weight:300; color:var(--text-2); line-height:1.6; }
-
-  @media(max-width:960px) { .about-layout,.skills-grid { grid-template-columns:1fr; } .sidebar{position:static;} }
-  @media(max-width:640px) { .lang-row { grid-template-columns:1fr 60px; } .lang-bar-col { display:none; } }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — Hassan Masood</title>
+<meta name="description" content="Hassan Masood — Finland-based International Business developer specialising in ESG compliance, strategy, and data-driven operations."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/editorial.css"/>
+<style>
+.about-full-grid { display: grid; grid-template-columns: 1fr 360px; gap: 80px; align-items: start; }
+.about-full-text { display: flex; flex-direction: column; gap: 0; }
+.about-full-text p { font-family: var(--display); font-size: clamp(20px, 2.2vw, 28px); line-height: 1.35; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--line-2); }
+.about-full-text p:last-child { border-bottom: none; margin-bottom: 0; }
+.about-full-text p .em { font-style: italic; color: var(--accent); }
+.about-sidebar { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px; }
+.about-sidebar-photo { aspect-ratio: 3/4; max-height: 400px; background: linear-gradient(160deg, #D7CDBE, #C2B7A4); border-radius: var(--radius); overflow: hidden; position: relative; }
+.about-sidebar-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; max-height: 400px; }
+.about-sidebar-photo .badge { position: absolute; top: 16px; left: 16px; background: rgba(20,17,16,.8); color: var(--paper); font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding: 7px 12px; border-radius: 100px; display: flex; align-items: center; gap: 8px; backdrop-filter: blur(10px); }
+.about-sidebar-photo .badge .pulse { width: 6px; height: 6px; border-radius: 50%; background: #6BC68A; }
+.about-sidebar-info { background: var(--paper-2); border: 1px solid var(--line-2); border-radius: var(--radius); padding: 24px; }
+.about-sidebar-name { font-family: var(--display); font-size: 24px; letter-spacing: -0.02em; line-height: 1; }
+.about-sidebar-role { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-top: 8px; }
+.about-sidebar-stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line-2); margin-top: 18px; }
+.asi-stat { padding: 14px 0; border-right: 1px solid var(--line-2); }
+.asi-stat:last-child { border-right: none; padding-left: 12px; }
+.asi-stat:nth-child(2) { padding-left: 12px; }
+.asi-stat .v { font-family: var(--display); font-size: 26px; letter-spacing: -0.02em; line-height: 1; }
+.asi-stat .k { font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-top: 5px; }
+.edu-block { display: flex; flex-direction: column; }
+.edu-row { padding: 20px 0; border-bottom: 1px solid var(--line-2); display: grid; grid-template-columns: 130px 1fr; gap: 24px; }
+.edu-row:last-child { border-bottom: none; }
+.edu-year { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); padding-top: 4px; }
+.edu-name { font-family: var(--display); font-size: 22px; letter-spacing: -0.015em; line-height: 1.1; }
+.edu-inst { font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+.edu-detail { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--accent); margin-top: 6px; }
+.values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.value-card { background: var(--paper-2); border: 1px solid var(--line-2); border-radius: var(--radius); padding: 28px; }
+.value-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; }
+.value-title { font-family: var(--display); font-size: 24px; letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 12px; }
+.value-title .em { font-style: italic; color: var(--accent); }
+.value-body { font-size: 14px; line-height: 1.65; color: var(--ink-2); }
+@media (max-width: 960px) {
+  .about-full-grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-sidebar { position: static; }
+  .values-grid { grid-template-columns: 1fr; }
+  .edu-row { grid-template-columns: 1fr; gap: 6px; }
+}
+</style>
 </head>
 <body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<div class="cursor" id="cursor"></div>
 
-<nav class="nav" id="mainNav">
-  <a href="index.html" class="nav-logo">Hassan<span class="dot">.</span></a>
-  <div class="nav-center">
-    <a href="index.html">Home</a><a href="about.html">About</a>
-    <a href="services.html">Services</a><a href="work.html">Work</a><a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Hassan<span class="dot"></span></a>
+    <div class="nav-links">
+      <a href="about.html" class="active">About</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html">Skills</a>
+    </div>
+    <a href="contact.html" class="nav-cta"><span class="pulse"></span>Contact</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
   </div>
-  <div class="nav-right">
-    <div class="nav-pill"><div class="nav-pill-dot"></div>Open to work</div>
-    <a href="contact.html" class="nav-cta">Hire me</a>
-  </div>
-  <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
-</nav>
-<nav class="nav-drawer" id="navDrawer">
-  <a href="index.html">Home</a><a href="about.html">About</a>
-  <a href="services.html">Services</a><a href="work.html">Work</a>
-  <a href="projects.html">Projects</a><a href="contact.html">Contact</a>
-  <a href="contact.html" class="drawer-cta">Hire me →</a>
 </nav>
 
-<div class="page-hero">
-  <div class="container">
-    <div class="eyebrow reveal">About</div>
-    <h1 class="heading-xl reveal reveal-d1">Who I am.</h1>
+<div class="drawer" id="drawer">
+  <button class="drawer-close" id="drawerClose" aria-label="Close">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <a href="about.html"><span>About</span><span class="num">01</span></a>
+  <a href="services.html"><span>Services</span><span class="num">02</span></a>
+  <a href="work.html"><span>Work</span><span class="num">03</span></a>
+  <a href="projects.html"><span>Projects</span><span class="num">04</span></a>
+  <a href="skills.html"><span>Skills</span><span class="num">05</span></a>
+  <a href="contact.html"><span>Contact</span><span class="num">06</span></a>
+  <div class="drawer-foot"><span>Inkoo, FI</span><span>Open to work</span></div>
+</div>
+
+<div class="page-hero" style="background:var(--paper-2);">
+  <div class="wrap">
+    <div class="page-hero-tag r show">01 — About</div>
+    <h1 class="page-hero-title r show d1">Who I <span class="em">am.</span></h1>
+    <p class="page-hero-lede r show d2">A Finland-based International Business professional who turns regulation into commercial advantage, blends operational experience with technology, and works across six languages.</p>
   </div>
 </div>
 
-<!-- BIO -->
-<section class="section">
-  <div class="container">
-    <div class="about-layout">
-      <div class="about-body">
-        <p class="reveal">
-          I'm a Finland-based <strong>International Business professional</strong> specialising in sustainable operations, ESG compliance, and cross-functional strategy. My work sits at the intersection of EU regulation, operational data, and commercial execution — translating complex frameworks like <strong>CBAM and CSRD</strong> into practical systems that organisations can act on.
-        </p>
-        <p class="reveal reveal-d1">
-          I graduated from Tampere University of Applied Sciences (TAMK) in December 2024 with a BBA in International Business, achieving a <strong>CGPA of 4.29/5.0</strong>. During my studies I competed in national and international competitions, ran a profitable international e-commerce store, and completed exchange studies at Ondokuz Mayıs University in Turkey.
-        </p>
-        <p class="reveal reveal-d2">
-          At <strong>Tammer Brands Oy</strong>, I implemented CBAM compliance from the ground up — coordinating supplier data with Finnish Customs (Tulli), reporting to the EU portal, <strong>reclassifying CN codes to reduce customs duties</strong>, and conducting <strong>Life Cycle Assessment (LCA) data collection</strong> across the supply chain. I also led cross-functional training sessions for internal teams and supplier partners on CBAM obligations.
-        </p>
-        <p class="reveal reveal-d3">
-          Beyond compliance, I'm a technologist. Self-trained in financial markets since 2012, I build algorithmic trading tools and custom KPI indicators. I placed <strong>3rd at Huawei Tech Arena Finland 2025</strong> developing a UI/UX interface for HarmonyOS using Vanilla JS and WebGL — the only non-CS competitor on the podium.
-        </p>
-        <p class="reveal">
-          I hold a Finnish driving licence (A & B), am fluent in six languages, and am based in Inkoo with full mobility across Uusimaa. Actively seeking roles in sustainability, compliance, operations, and tech at <strong>€3,500–4,000/month</strong>.
-        </p>
+<section class="sec">
+  <div class="wrap">
+    <div class="about-full-grid">
+      <div class="about-full-text">
+        <p class="r">I am a <span class="em">sustainable business developer</span> — which in practice means I sit where regulation, operations, and commercial strategy intersect. I help companies understand what EU frameworks like CBAM and CSRD actually require of them, build the internal systems to meet those requirements, and ensure that compliance doesn't just reduce risk but generates real business value.</p>
+        <p class="r">My background spans five distinct roles — from managing a cross-border supply chain of 2,400 waste collection centres in Punjab to implementing CSRD frameworks for a Finnish consumer goods brand operating across EU customs jurisdictions. That range is deliberate. I believe the sharpest commercial decisions come from people who have seen both the boardroom strategy and the operational floor.</p>
+        <p class="r">Outside of traditional business consulting, I am a <span class="em">technologist at heart</span>. I have been self-studying financial markets since 2012, building algorithmic trading tools, custom KPI indicators, and backtesting frameworks in Python. I competed at Huawei Tech Arena Finland 2025 — building a complete UI/UX interface for HarmonyOS — and placed 3rd nationally as the only non-computer science candidate on the podium.</p>
+        <p class="r">Language is one of my most practical professional assets. I work fluently in <span class="em">English, Urdu, and Punjabi</span>, am conversational in Finnish and Arabic, and have working knowledge of Swedish. This means I can run a supplier audit in South Asia, negotiate a compliance scope in Helsinki, and communicate directly with MENA-region partners without a layer of translation or cultural friction.</p>
+        <p class="r">I graduated with a BBA in International Business from TAMK in December 2024 with a CGPA of <span class="em">4.29 / 5.0</span>. During my studies I completed an exchange semester at Ondokuz Mayıs University in Turkey, represented Tampere University at international business case and sales competitions across Europe, and ran a profitable international e-commerce store alongside my studies.</p>
+        <p class="r">What drives me is the opportunity to take something <span class="em">genuinely complex</span> — a regulatory framework, a market entry challenge, a broken sales pipeline — and turn it into a system that runs. That's what I'm good at, and that's the kind of problem I'm looking for my next opportunity to solve.</p>
       </div>
-      <div class="sidebar reveal reveal-d2">
-        <div class="info-panel">
-          <div class="info-panel-header">
-            <span class="label">Profile</span>
-            <div class="info-panel-name">M. Hassan Masood</div>
-          </div>
-          <div class="info-rows">
-            <div class="info-row"><span class="label">Location</span><div class="info-row-val">Inkoo, Länsi-Uusimaa, Finland</div></div>
-            <div class="info-row"><span class="label">Education</span><div class="info-row-val">BBA · TAMK · CGPA 4.29/5.0<br>December 2024</div></div>
-            <div class="info-row"><span class="label">Email</span><div class="info-row-val"><a href="mailto:m.hassan.masood@hotmail.com">m.hassan.masood@hotmail.com</a></div></div>
-            <div class="info-row"><span class="label">Phone</span><div class="info-row-val"><a href="tel:+358403600110">(+358) 040-360 0110</a></div></div>
-            <div class="info-row"><span class="label">GitHub</span><div class="info-row-val"><a href="https://github.com/iblybibly1" target="_blank">github.com/iblybibly1</a></div></div>
-            <div class="info-row"><span class="label">Driving licence</span><div class="info-row-val">Finland · Categories A & B</div></div>
-            <div class="info-row"><span class="label">Target salary</span><div class="info-row-val">€3,500 – €4,000 / month</div></div>
-            <div class="info-row"><span class="label">Status</span><div class="info-row-val" style="color:var(--green)">● Available now</div></div>
+
+      <div class="about-sidebar r d2">
+        <div class="about-sidebar-photo">
+          <img src="assets/img/profile.png" alt="Hassan Masood" onerror="this.style.display='none'"/>
+          <div class="badge"><span class="pulse"></span>Open to work</div>
+        </div>
+        <div class="about-sidebar-info">
+          <div class="about-sidebar-name">Hassan Masood</div>
+          <div class="about-sidebar-role">Sustainable Business Developer · Inkoo, FI</div>
+          <div class="about-sidebar-stats">
+            <div class="asi-stat"><div class="v">4.29</div><div class="k">GPA / 5</div></div>
+            <div class="asi-stat"><div class="v">6+</div><div class="k">Languages</div></div>
+            <div class="asi-stat"><div class="v">5+</div><div class="k">Yrs exp</div></div>
           </div>
         </div>
-        <a href="contact.html" class="btn btn-primary btn-md btn-arrow" style="width:100%;justify-content:center">Contact me</a>
+        <a href="contact.html" class="btn-primary" style="justify-content:center; text-align:center; width:100%; box-sizing:border-box;">Get in touch →</a>
+        <a href="work.html" class="btn-ghost" style="justify-content:center; text-align:center; width:100%; box-sizing:border-box;">View experience</a>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider-glow"></div>
-
-<!-- SKILLS -->
-<section class="section" style="background:var(--bg-raised)">
-  <div class="container">
-    <div class="eyebrow reveal">Capabilities</div>
-    <h2 class="heading-md reveal reveal-d1" style="margin-bottom:3rem">Skills & tools</h2>
-    <div class="skills-grid reveal reveal-d2">
+<section class="sec" style="background:var(--paper-2); padding-top:80px; padding-bottom:80px;">
+  <div class="wrap">
+    <div class="sec-head">
       <div>
-        <div class="skill-group">
-          <div class="skill-group-label">Sustainability & Compliance</div>
-          <div class="tags-wrap"><span class="tag tag-green">ESG / CSRD</span><span class="tag tag-green">CBAM</span><span class="tag">Life Cycle Assessment</span><span class="tag">CN Code Classification</span><span class="tag">EU Import Legislation</span><span class="tag">Risk Assessment</span><span class="tag">Supplier Compliance</span></div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-label">Business & Strategy</div>
-          <div class="tags-wrap"><span class="tag">Business Development</span><span class="tag">Strategic Consulting</span><span class="tag">Sales Development</span><span class="tag">Project Management</span><span class="tag">HR Management</span><span class="tag">Market Research</span><span class="tag">Financial Analysis</span></div>
+        <div class="sec-num r">Education</div>
+        <h2 class="sec-title r d1">Academic <span class="em">background.</span></h2>
+      </div>
+      <p class="sec-lede r d2">Practical international education with a strong academic record and real-world application throughout.</p>
+    </div>
+    <div class="edu-block r">
+      <div class="edu-row">
+        <div class="edu-year">2020 – 2024</div>
+        <div>
+          <div class="edu-name">BBA, International Business</div>
+          <div class="edu-inst">Tampere University of Applied Sciences (TAMK) · Tampere, Finland</div>
+          <div class="edu-detail">CGPA 4.29 / 5.0 · Graduated December 2024</div>
         </div>
       </div>
+      <div class="edu-row">
+        <div class="edu-year">2023</div>
+        <div>
+          <div class="edu-name">Exchange Semester</div>
+          <div class="edu-inst">Ondokuz Mayıs University · Samsun, Turkey</div>
+          <div class="edu-detail">International Business · European exchange programme</div>
+        </div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-year">Since 2012</div>
+        <div>
+          <div class="edu-name">Self-directed Study</div>
+          <div class="edu-inst">Financial markets, algorithmic trading, software development</div>
+          <div class="edu-detail">Python · WebGL · Android · Generative AI</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
       <div>
-        <div class="skill-group">
-          <div class="skill-group-label">Data & Technology</div>
-          <div class="tags-wrap"><span class="tag tag-blue">Power BI</span><span class="tag tag-blue">Tableau</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">C++</span><span class="tag">UI/UX Design</span><span class="tag">Generative AI</span><span class="tag">Salesforce</span><span class="tag">HubSpot</span><span class="tag">Oracle AI</span><span class="tag">WebGL</span></div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-label">Finance & Markets</div>
-          <div class="tags-wrap"><span class="tag">Technical Analysis</span><span class="tag">Options Strategies</span><span class="tag">Algo Trading</span><span class="tag">Futures</span><span class="tag">KPI Modelling</span></div>
-        </div>
+        <div class="sec-num r">What I offer</div>
+        <h2 class="sec-title r d1">Core <span class="em">value.</span></h2>
+      </div>
+      <p class="sec-lede r d2">Three capabilities that are rarely found in the same person — and work best together.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card r">
+        <div class="value-num">— 01</div>
+        <div class="value-title">Regulatory to <span class="em">Operational</span></div>
+        <div class="value-body">I don't just read EU frameworks — I build the internal workflows, supplier communication chains, and reporting systems that make compliance operational. ESG and CBAM become working processes, not filing exercises.</div>
+      </div>
+      <div class="value-card r d1">
+        <div class="value-num">— 02</div>
+        <div class="value-title">Strategy to <span class="em">Execution</span></div>
+        <div class="value-body">I have worked as both a strategy consultant advising global companies and as an operational manager. I can frame the right problem at the strategic level and then stay to implement the answer.</div>
+      </div>
+      <div class="value-card r d2">
+        <div class="value-num">— 03</div>
+        <div class="value-title">Technology as a <span class="em">Multiplier</span></div>
+        <div class="value-body">I build custom data tools — Power BI dashboards, Python trading bots, KPI models — that turn information into decisions. Technical work is a natural part of how I solve commercial problems.</div>
+      </div>
+      <div class="value-card r d3">
+        <div class="value-num">— 04</div>
+        <div class="value-title">Cross-border <span class="em">Fluency</span></div>
+        <div class="value-body">Six languages and direct experience across Finnish, EU, South Asian, and Turkish business contexts. I reduce friction in international operations rather than adding translation layers.</div>
       </div>
     </div>
-  </div>
-</section>
-
-<div class="divider-glow"></div>
-
-<!-- LANGUAGES -->
-<section class="section">
-  <div class="container">
-    <div class="eyebrow reveal">Multilingual</div>
-    <h2 class="heading-md reveal reveal-d1" style="margin-bottom:2.5rem">6 languages</h2>
-    <div class="lang-list reveal reveal-d2">
-      <div class="lang-row"><div class="lang-name">English</div><div class="lang-level">Native · C2</div><div class="lang-bar lang-bar-col"><div class="lang-fill" style="width:100%"></div></div></div>
-      <div class="lang-row"><div class="lang-name">Urdu</div><div class="lang-level">Native · C2</div><div class="lang-bar lang-bar-col"><div class="lang-fill" style="width:100%"></div></div></div>
-      <div class="lang-row"><div class="lang-name">Punjabi</div><div class="lang-level">Native · C2</div><div class="lang-bar lang-bar-col"><div class="lang-fill" style="width:100%"></div></div></div>
-      <div class="lang-row"><div class="lang-name">Finnish</div><div class="lang-level">Conv. · B1</div><div class="lang-bar lang-bar-col"><div class="lang-fill" style="width:55%"></div></div></div>
-      <div class="lang-row"><div class="lang-name">Arabic</div><div class="lang-level">Elem. · A2</div><div class="lang-bar lang-bar-col"><div class="lang-fill" style="width:25%"></div></div></div>
-      <div class="lang-row"><div class="lang-name">Swedish</div><div class="lang-level">Beginner · A1</div><div class="lang-bar lang-bar-col"><div class="lang-fill" style="width:12%"></div></div></div>
+    <div style="margin-top:48px; display:flex; gap:16px; flex-wrap:wrap;" class="r">
+      <a href="services.html" class="btn-primary">See all services →</a>
+      <a href="contact.html" class="btn-ghost">Work together</a>
     </div>
   </div>
 </section>
 
-<div class="divider-glow"></div>
-
-<!-- INTERESTS -->
-<section class="section" style="background:var(--bg-raised)">
-  <div class="container">
-    <div class="eyebrow reveal">Beyond work</div>
-    <h2 class="heading-md reveal reveal-d1" style="margin-bottom:2.5rem">Interests</h2>
-    <div class="int-grid reveal reveal-d2">
-      <div class="int-card"><div class="int-icon">♟</div><div class="int-name">Chess</div><div class="int-desc">Rapid ELO 1450. Competitive strategic thinking that sharpens professional decisions.</div></div>
-      <div class="int-card"><div class="int-icon">📈</div><div class="int-name">Financial Markets</div><div class="int-desc">Self-trained since 2012 in stocks, options, and futures. Build custom trading bots and indicators.</div></div>
-      <div class="int-card"><div class="int-icon">✈️</div><div class="int-name">Travel</div><div class="int-desc">Avid traveller — exchange studies in Turkey, international sales, exposure across three continents.</div></div>
-      <div class="int-card"><div class="int-icon">🏊</div><div class="int-name">Swimming</div><div class="int-desc">Regular swimmer. Discipline and endurance in and out of the water.</div></div>
-      <div class="int-card"><div class="int-icon">⚽</div><div class="int-name">Football</div><div class="int-desc">Team strategy, quick decisions, high intensity — on and off the pitch.</div></div>
-      <div class="int-card"><div class="int-icon">💻</div><div class="int-name">Building</div><div class="int-desc">Web apps, games, trading tools. Code is a creative language. 3rd at Huawei Tech Arena 2025.</div></div>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-name">Hassan Masood</div>
+        <p>Sustainable business developer. ESG &amp; CBAM compliance, sales systems, and data-driven strategy for cross-border teams.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="work.html">Experience</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services/web-design.html">Web Design</a></li>
+          <li><a href="services/esg.html">ESG &amp; CBAM</a></li>
+          <li><a href="services/digital-marketing.html">Marketing</a></li>
+          <li><a href="services/sales-crm.html">Sales &amp; CRM</a></li>
+          <li><a href="services.html">All Services</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:m.hassan.masood@hotmail.com">m.hassan.masood@hotmail.com</a></li>
+          <li><a href="tel:+358403600110">+358 040 360 0110</a></li>
+          <li>Inkoo, Finland</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 M. Hassan Masood · All rights reserved</span>
+      <span>Built in Finland</span>
     </div>
   </div>
-</section>
-
-<footer>
-  <div class="container"><div class="footer-inner">
-    <a href="index.html" class="footer-logo">Hassan<span class="dot">.</span></a>
-    <nav class="footer-nav"><a href="about.html">About</a><a href="services.html">Services</a><a href="work.html">Work</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a><a href="https://github.com/iblybibly1" target="_blank">GitHub</a></nav>
-    <span class="footer-copy">© 2025 M. Hassan Masood · Inkoo, Finland</span>
-  </div></div>
 </footer>
-<script src="js/main.js"></script>
+
+<div class="tweaks" id="tweaksPanel">
+  <div class="tweaks-head"><span class="tweaks-title">Customise</span><button class="tweaks-close" aria-label="Close">✕</button></div>
+  <div class="tweak-row"><div class="tweak-lab">Palette</div>
+    <div class="tweak-swatches" data-tweak="pal">
+      <div class="tweak-sw" data-val="paper"><div class="chips"><span style="background:#F2EDE6"></span><span style="background:#14110E"></span><span style="background:#C8421C"></span></div><div class="nm">Paper</div></div>
+      <div class="tweak-sw" data-val="midnight"><div class="chips"><span style="background:#0E0E0C"></span><span style="background:#F2EDE6"></span><span style="background:#D4A24A"></span></div><div class="nm">Midnight</div></div>
+      <div class="tweak-sw" data-val="citrus"><div class="chips"><span style="background:#FFF7E0"></span><span style="background:#1A1408"></span><span style="background:#FF4D2E"></span></div><div class="nm">Citrus</div></div>
+    </div>
+  </div>
+  <div class="tweak-row"><div class="tweak-lab">Voice</div>
+    <div class="tweak-segs" data-tweak="voice">
+      <div class="tweak-seg" data-val="editorial">Editorial</div>
+      <div class="tweak-seg" data-val="modern">Modern</div>
+      <div class="tweak-seg" data-val="brutal">Brutal</div>
+    </div>
+  </div>
+  <div class="tweak-row"><div class="tweak-lab">Energy</div>
+    <div class="tweak-segs" data-tweak="energy">
+      <div class="tweak-seg" data-val="quiet">Quiet</div>
+      <div class="tweak-seg" data-val="standard">Standard</div>
+      <div class="tweak-seg" data-val="loud">Loud</div>
+    </div>
+  </div>
+</div>
+
+<script src="js/editorial.js"></script>
 </body>
 </html>
