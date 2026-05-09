@@ -9,6 +9,28 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="css/editorial.css"/>
+<style>
+.tl-bullets { display: none; margin-top: 12px; }
+.tl-bullets.open { display: block; }
+.tl-toggle {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 10px; padding: 7px 14px;
+  border: 1px solid var(--line-2); border-radius: 100px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+  color: var(--ink-2); cursor: pointer; background: transparent;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.tl-toggle:hover { background: var(--paper-2); color: var(--ink); border-color: var(--ink-3); }
+.tl-toggle.open { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.edu-block { display: flex; flex-direction: column; }
+.edu-row { padding: 20px 0; border-bottom: 1px solid var(--line-2); display: grid; grid-template-columns: 130px 1fr; gap: 24px; }
+.edu-row:last-child { border-bottom: none; }
+.edu-year { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); padding-top: 4px; }
+.edu-name { font-family: var(--display); font-size: 22px; letter-spacing: -0.015em; line-height: 1.1; }
+.edu-inst { font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+.edu-detail { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--accent); margin-top: 6px; }
+@media (max-width: 680px) { .edu-row { grid-template-columns: 1fr; gap: 6px; } }
+</style>
 </head>
 <body>
 <canvas id="stars" aria-hidden="true"></canvas>
@@ -76,6 +98,7 @@
         </div>
         <div class="tl-right">
           <div class="tl-role">Sales &amp; ESG Compliance Manager</div>
+          <button class="tl-toggle" onclick="toggleWork(this)">+ More info</button>
           <ul class="tl-bullets">
             <li>Led CBAM (Carbon Border Adjustment Mechanism) implementation from scratch — built the data collection pipeline, reclassified CN codes, and submitted the first quarterly reports on time with zero regulatory penalties.</li>
             <li>Designed and managed a B2B outreach system targeting Nordic industrial buyers; grew qualified pipeline by 40% in six months through structured prospecting, CRM discipline, and follow-through cadence.</li>
@@ -94,6 +117,7 @@
         </div>
         <div class="tl-right">
           <div class="tl-role">Marketing &amp; Digital Strategy Intern</div>
+          <button class="tl-toggle" onclick="toggleWork(this)">+ More info</button>
           <ul class="tl-bullets">
             <li>Conducted full audience segmentation analysis for two product lines, identifying underserved B2B segments in Scandinavian markets that led to a revised 2025 campaign strategy.</li>
             <li>Built and maintained a monthly KPI dashboard tracking social reach, email open rates, and web traffic — first structured performance review framework in the department.</li>
@@ -111,6 +135,7 @@
         </div>
         <div class="tl-right">
           <div class="tl-role">Event Lead &amp; Case Coordinator</div>
+          <button class="tl-toggle" onclick="toggleWork(this)">+ More info</button>
           <ul class="tl-bullets">
             <li>Organised and facilitated five business case competitions and workshops with 40–120 participants each, managing venue logistics, sponsor relationships, and cross-team coordination.</li>
             <li>Designed case briefs and evaluation rubrics for three industry-sponsored competitions in collaboration with partner companies in finance, logistics, and retail.</li>
@@ -128,6 +153,7 @@
         </div>
         <div class="tl-right">
           <div class="tl-role">Business Development &amp; Client Relations</div>
+          <button class="tl-toggle" onclick="toggleWork(this)">+ More info</button>
           <ul class="tl-bullets">
             <li>Managed a portfolio of 12 corporate clients across manufacturing, textile, and construction sectors — coordinating environmental compliance reviews and project timelines.</li>
             <li>Developed the firm's first formal client onboarding process, reducing initial engagement time from three weeks to six days and improving early client satisfaction scores.</li>
@@ -145,6 +171,7 @@
         </div>
         <div class="tl-right">
           <div class="tl-role">Co-Founder &amp; Operations Lead</div>
+          <button class="tl-toggle" onclick="toggleWork(this)">+ More info</button>
           <ul class="tl-bullets">
             <li>Co-founded and scaled an e-commerce business from zero to a monthly revenue run-rate of PKR 1.2M within 14 months — sourcing product from international suppliers, managing inventory, and running all marketing in-house.</li>
             <li>Built a cross-border procurement chain with suppliers in China and UAE, negotiating terms, managing customs documentation, and maintaining delivery reliability above 92%.</li>
@@ -159,12 +186,56 @@
   </div>
 </section>
 
-<section class="sec" style="background:var(--paper-2); padding-top:64px; padding-bottom:64px;">
-  <div class="wrap" style="text-align:center; max-width:640px; margin:0 auto;">
-    <div class="sec-num r" style="justify-content:center;">Education</div>
-    <h2 class="sec-title r d1" style="font-size:clamp(28px, 4vw, 48px); margin-bottom:24px;">TAMK <span class="em">BBA.</span></h2>
-    <p style="font-size:16px; color:var(--ink-2); line-height:1.65; margin-bottom:8px;" class="r d2">Bachelor of Business Administration — International Business<br/>Tampere University of Applied Sciences, Finland · 2022–2026</p>
-    <p style="font-size:15px; color:var(--ink-3); line-height:1.65;" class="r d3">Exchange semester at Yıldız Technical University, Istanbul. Focus areas: sustainability, digital marketing, and cross-border trade.</p>
+<section class="sec" style="background:var(--paper-2);">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num r">Education</div>
+        <h2 class="sec-title r d1">Academic <span class="em">background.</span></h2>
+      </div>
+    </div>
+    <div class="edu-block r">
+      <div class="edu-row">
+        <div class="edu-year">2020 – 2024</div>
+        <div>
+          <div class="edu-name">BBA, International Business</div>
+          <div class="edu-inst">Tampere University of Applied Sciences (TAMK) · Tampere, Finland</div>
+          <div class="edu-detail">CGPA 4.29 / 5.0 · Graduated December 2024</div>
+        </div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-year"></div>
+        <div>
+          <div class="edu-name">Exchange Semester</div>
+          <div class="edu-inst">Ondokuz Mayıs University · Samsun, Turkey</div>
+          <div class="edu-detail">Economics · Accounting · Regional Development</div>
+        </div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-year">2020</div>
+        <div>
+          <div class="edu-name">A-Levels</div>
+          <div class="edu-inst">University of Cambridge · Lahore Learning Campus</div>
+          <div class="edu-detail">Business · English Language · Information Technology — Grade B in all subjects</div>
+        </div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-year">2009</div>
+        <div>
+          <div class="edu-name">O-Levels</div>
+          <div class="edu-inst">University of Cambridge · Lahore Learning Campus</div>
+          <div class="edu-detail">8 subjects — English Language (A), Mathematics, Physics, Chemistry, Pakistan Studies, Urdu, Biology, Islamiyat</div>
+        </div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-year">Since 2012</div>
+        <div>
+          <div class="edu-name">Self-directed Study</div>
+          <div class="edu-inst">Financial markets, algorithmic trading, software development</div>
+          <div class="edu-detail">Python · WebGL · Android · Generative AI</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -249,5 +320,13 @@
 </div>
 
 <script src="js/editorial.js"></script>
+<script>
+function toggleWork(btn) {
+  var bullets = btn.nextElementSibling;
+  var open = bullets.classList.toggle('open');
+  btn.classList.toggle('open', open);
+  btn.textContent = open ? '− Less' : '+ More info';
+}
+</script>
 </body>
 </html>
