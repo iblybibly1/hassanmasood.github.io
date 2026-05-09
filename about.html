@@ -10,16 +10,55 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="css/editorial.css"/>
 <style>
-.about-full-grid { display: grid; grid-template-columns: 1fr 360px; gap: 80px; align-items: start; }
+.about-full-grid { display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: start; }
 .about-full-text { display: flex; flex-direction: column; gap: 0; }
 .about-full-text p { font-family: var(--display); font-size: clamp(20px, 2.2vw, 28px); line-height: 1.35; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--line-2); }
 .about-full-text p:last-child { border-bottom: none; margin-bottom: 0; }
 .about-full-text p .em { font-style: italic; color: var(--accent); }
-.about-sidebar { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px; }
-.about-sidebar-photo { aspect-ratio: 3/4; max-height: 400px; background: linear-gradient(160deg, #D7CDBE, #C2B7A4); border-radius: var(--radius); overflow: hidden; position: relative; }
-.about-sidebar-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; max-height: 400px; }
-.about-sidebar-photo .badge { position: absolute; top: 16px; left: 16px; background: rgba(20,17,16,.8); color: var(--paper); font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding: 7px 12px; border-radius: 100px; display: flex; align-items: center; gap: 8px; backdrop-filter: blur(10px); }
-.about-sidebar-photo .badge .pulse { width: 6px; height: 6px; border-radius: 50%; background: #6BC68A; }
+.about-sidebar { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 16px; }
+.about-sidebar-photo {
+  aspect-ratio: 4 / 5;
+  background: var(--paper-2);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+.about-sidebar-photo::after {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), inset 0 0 0 1px rgba(255,255,255,0.02);
+  pointer-events: none;
+  z-index: 2;
+}
+.about-sidebar-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+  filter: saturate(0.95) contrast(1.02);
+}
+.about-sidebar-photo .badge {
+  position: absolute; bottom: 14px; left: 14px;
+  background: rgba(20,17,16,.78);
+  color: #F2EDE6;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 3;
+}
+.about-sidebar-photo .badge .pulse { width: 6px; height: 6px; border-radius: 50%; background: #6BC68A; box-shadow: 0 0 0 3px rgba(107,198,138,0.18); }
+.about-sidebar-photo .corner { position: absolute; top: 12px; right: 12px; font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #F2EDE6; opacity: 0.7; z-index: 3; mix-blend-mode: difference; }
 .about-sidebar-info { background: var(--paper-2); border: 1px solid var(--line-2); border-radius: var(--radius); padding: 24px; }
 .about-sidebar-name { font-family: var(--display); font-size: 24px; letter-spacing: -0.02em; line-height: 1; }
 .about-sidebar-role { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-top: 8px; }
@@ -107,6 +146,7 @@
       <div class="about-sidebar r d2">
         <div class="about-sidebar-photo">
           <img src="assets/img/profile.png" alt="Hassan Masood" onerror="this.style.display='none'"/>
+          <div class="corner">— HM · 2026</div>
           <div class="badge"><span class="pulse"></span>Open to work</div>
         </div>
         <div class="about-sidebar-info">
@@ -233,6 +273,7 @@
         <ul>
           <li><a href="mailto:m.hassan.masood@hotmail.com">m.hassan.masood@hotmail.com</a></li>
           <li><a href="tel:+358403600110">+358 040 360 0110</a></li>
+          <li><a href="https://www.linkedin.com/in/hassan-han/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
           <li>Inkoo, Finland</li>
         </ul>
       </div>

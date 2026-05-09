@@ -1,4 +1,4 @@
-/* ─── EDITORIAL DESIGN SYSTEM ─────────────────────────────────── */
+﻿* ─── EDITORIAL DESIGN SYSTEM ─────────────────────────────────── */
 /* Shared stylesheet for hassanmasood.fi                            */
 
 /* ─── GOOGLE FONTS ─── */
@@ -318,16 +318,23 @@ body::before {
   top: 100px;
 }
 .about-photo {
-  aspect-ratio: 3/4;
-  max-height: 420px;
-  background: linear-gradient(160deg, #D7CDBE, #C2B7A4);
+  aspect-ratio: 4 / 5;
+  background: var(--paper-2);
   position: relative;
   overflow: hidden;
+  isolation: isolate;
+}
+.about-photo::after {
+  content: '';
+  position: absolute; inset: 0;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+  pointer-events: none;
 }
 .about-photo img {
   width: 100%; height: 100%;
-  object-fit: cover; object-position: center top;
-  max-height: 420px;
+  object-fit: cover; object-position: center 22%;
+  display: block;
+  filter: saturate(0.95) contrast(1.02);
 }
 .about-photo .badge {
   position: absolute; top: 16px; left: 16px;
@@ -770,6 +777,47 @@ footer.site-footer {
 .r.d3 { transition-delay: .24s; }
 .r.d4 { transition-delay: .32s; }
 
+/* ─── GLOBAL POLISH ─── */
+/* Tighter horizontal padding on small screens so content breathes */
+@media (max-width: 600px) {
+  .wrap { padding: 0 20px; }
+  .page-hero-lede, .sec-lede, .about-text p, .about-full-text p { font-size: 16px; line-height: 1.55; }
+  .svc-detail-intro { font-size: 22px; }
+  .cinfo-row .v, .cinfo-val { font-size: 18px; }
+  /* Forms: prevent iOS zoom-on-focus */
+  input, select, textarea { font-size: 16px !important; }
+}
+/* Prevent overlap between right side rail and content on medium screens */
+@media (min-width: 921px) and (max-width: 1180px) {
+  .sidenav { right: 12px; }
+}
+/* Ensure all stacked CTA rows wrap nicely on tiny screens */
+@media (max-width: 480px) {
+  .btn-primary, .btn-ghost { padding: 14px 20px; font-size: 14px; width: 100%; justify-content: center; }
+}
+/* Visual fix: make sticky elements respect navbar height + safe area */
+@supports (padding: env(safe-area-inset-top)) {
+  .nav { top: calc(16px + env(safe-area-inset-top)); }
+}
+/* Typography: prevent gigantic single words from blowing the page width on very small screens */
+.hero-title, .page-hero-title, .sec-title { overflow-wrap: anywhere; word-break: normal; }
+/* Form focus rings — accessible */
+.cform-field input:focus, .cform-field select:focus, .cform-field textarea:focus {
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 20%, transparent);
+}
+/* Sticky sidebars: drop sticky on short viewports so content doesn't get clipped */
+@media (max-height: 700px) {
+  .about-sidebar, .svc-sidebar, .contact-info { position: static !important; }
+}
+/* Ensure images never break layout */
+img { max-width: 100%; height: auto; }
+/* Reduce motion respect */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  .marquee-track { animation: none !important; }
+  .r { opacity: 1 !important; transform: none !important; }
+}
+
 /* ─── CURSOR ─── */
 .cursor { position: fixed; top: 0; left: 0; width: 36px; height: 36px; border: 1px solid var(--ink); border-radius: 50%; pointer-events: none; z-index: 200; transform: translate(-50%, -50%); transition: width .25s, height .25s, background .25s, border-color .25s, opacity .25s; mix-blend-mode: difference; opacity: 0; }
 .cursor.active { background: var(--paper); width: 72px; height: 72px; }
@@ -975,3 +1023,4 @@ body[data-energy="loud"] .proj-name { font-size: clamp(32px, 3.6vw, 48px); }
 .status-badge.available { background: #1A3A22; border-color: #2F5D3A; color: #7FD898; }
 .status-badge .pulse { width: 6px; height: 6px; border-radius: 50%; background: currentColor; display: inline-block; animation: pulse 2s infinite; }
 
+                                                                                                                                                                                                                                                         
