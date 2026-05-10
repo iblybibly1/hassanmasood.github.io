@@ -838,7 +838,10 @@ body[data-pal="midnight"] .proj { background: var(--paper-2); }
 body[data-pal="midnight"] .about-card { background: #1F1D1A; }
 body[data-pal="midnight"] .svc-preview-card { background: #1F1D1A; border-color: var(--line-2); }
 body[data-pal="midnight"] .svc-preview-card:hover { background: #252320; }
-body[data-pal="midnight"] .svc-preview-card.dark { background: #2A2825; }
+body[data-pal="midnight"] .svc-preview-card.dark { background: #2A2825; color: #F2EDE6; }
+body[data-pal="midnight"] .svc-preview-card.dark .svc-preview-name { color: #F2EDE6; }
+body[data-pal="midnight"] .svc-preview-card.dark .svc-preview-desc { color: rgba(242,237,230,0.65); }
+body[data-pal="midnight"] .svc-preview-card.dark .svc-preview-num { color: rgba(242,237,230,0.35); }
 body[data-pal="midnight"] .svc-sidebar { background: #1F1D1A; }
 
 body[data-pal="citrus"] { --paper:#FFF7E0; --paper-2:#FFE9A8; --ink:#1A1408; --ink-2:#3D3017; --ink-3:#7A6336; --line:#1A140820; --line-2:#1A140828; --accent:#FF4D2E; --accent-2:#7B2CFF; --leaf:#0E7C5A; }
