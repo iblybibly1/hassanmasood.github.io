@@ -159,9 +159,11 @@ body::before {
 }
 .nav-toggle svg { width: 18px; height: 18px; }
 @media (max-width: 920px) {
-  .nav-links, .nav-cta { display: none; }
-  .nav-toggle { display: flex; }
-  .nav-inner { padding: 4px 4px 4px 8px; }
+  .nav-links { display: none; }
+  .nav-cta { font-size: 12px; padding: 7px 13px; gap: 5px; margin-left: 0; }
+  .nav-cta .pulse { width: 5px; height: 5px; }
+  .nav-toggle { display: flex; background: transparent; color: var(--ink); border: 1px solid var(--line); }
+  .nav-inner { padding: 5px 5px 5px 14px; gap: 6px; }
 }
 
 /* ─── MOBILE DRAWER ─── */
@@ -169,35 +171,42 @@ body::before {
   position: fixed; inset: 0;
   background: var(--paper);
   z-index: 90;
-  transform: translateY(-100%);
-  transition: transform .5s cubic-bezier(.7,0,.3,1), visibility 0s linear .5s;
+  transform: translateX(100%);
+  transition: transform .42s cubic-bezier(.7,0,.3,1), visibility 0s linear .42s;
   display: flex; flex-direction: column;
-  padding: 80px 32px 32px;
+  padding: 28px 36px 40px;
   overflow: hidden;
   visibility: hidden;
 }
-.drawer.open { visibility: visible; transition: transform .5s cubic-bezier(.7,0,.3,1), visibility 0s; transform: translateY(0); }
+.drawer.open { visibility: visible; transition: transform .42s cubic-bezier(.2,0,.2,1), visibility 0s; transform: translateX(0); }
 .drawer-close {
-  position: absolute; top: 22px; right: 24px;
-  width: 44px; height: 44px; border-radius: 50%;
-  background: var(--ink); color: var(--paper);
+  align-self: flex-end;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--paper-2); color: var(--ink);
+  border: 1px solid var(--line-2);
   display: flex; align-items: center; justify-content: center;
+  margin-bottom: 24px;
 }
 .drawer a {
   font-family: var(--display);
-  font-size: clamp(40px, 9vw, 64px);
+  font-size: clamp(32px, 8vw, 52px);
   letter-spacing: -0.03em;
   line-height: 1.05;
-  padding: 12px 0;
+  padding: 10px 0;
   display: flex; align-items: baseline; justify-content: space-between;
   border-bottom: 1px solid var(--line-2);
+  color: var(--ink);
+  transition: color .2s, padding-left .2s;
 }
-.drawer a .num { font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.1em; }
+.drawer a:hover { color: var(--accent); padding-left: 6px; }
+.drawer a:last-of-type { border-bottom: none; color: var(--accent); }
+.drawer a .num { font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.1em; }
 .drawer-foot {
   margin-top: auto;
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
   text-transform: uppercase; color: var(--ink-3);
   display: flex; justify-content: space-between;
+  padding-top: 20px; border-top: 1px solid var(--line-2);
 }
 
 /* ─── HERO ─── */
