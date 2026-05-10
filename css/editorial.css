@@ -158,6 +158,17 @@ body::before {
   align-items: center; justify-content: center;
 }
 .nav-toggle svg { width: 18px; height: 18px; }
+.lang-toggle {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 7px 13px; border-radius: 100px;
+  background: transparent; border: 1px solid var(--line); color: var(--ink-2);
+  cursor: pointer; transition: background .2s, color .2s, border-color .2s;
+  flex-shrink: 0;
+}
+.lang-toggle:hover { background: var(--paper-2); color: var(--ink); border-color: var(--ink-3); }
+html[lang="fi"] .lang-toggle { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+html[lang="fi"] .tl-hint::before { content: 'Näytä tiedot  ↓'; }
+html[lang="fi"] .tl-row.expand .tl-hint::before { content: 'Sulje  ↑'; }
 @media (max-width: 920px) {
   .nav-links { display: none; }
   .nav-cta { font-size: 12px; padding: 7px 13px; gap: 5px; margin-left: 0; }
