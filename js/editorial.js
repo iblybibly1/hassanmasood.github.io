@@ -256,6 +256,10 @@
       'proj-page-num': '04 — Projektit',
       'proj-page-title': 'Valittu <span class="em">työ.</span>',
       'proj-page-lede': 'Sekoitus itsenäisiä toteutuksia, akateemisia case-töitä ja ammatillisia työkaluja. Jokainen ratkaisi todellisen ongelman.',
+      'proj-lock-title': 'Vain <span class="em">asiakkaille.</span>',
+      'proj-lock-desc': 'Yksityiskohtaiset projektityöt ja toimituskohteet jaetaan suoraan asiakkaille ja potentiaalisille yhteistyökumppaneille. Jos olet kiinnostunut tilanteeseesi sopivista casestudeista, ota yhteyttä ja jaan soveltuvat materiaalit.',
+      'proj-lock-btn1': 'Pyydä pääsyä →',
+      'proj-lock-btn2': 'Katso kokemus',
       /* skills page */
       'skills-page-num': '05 — Taidot',
       'skills-page-title': 'Työkalut &amp; <span class="em">osaaminen.</span>',
