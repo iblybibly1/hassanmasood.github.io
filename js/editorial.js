@@ -91,6 +91,18 @@
     updateSpy();
   }
 
+  /* ─── NAV DROPDOWN ─── */
+  document.querySelectorAll('.nav-drop').forEach(drop => {
+    let closeTimer;
+    drop.addEventListener('mouseenter', () => {
+      clearTimeout(closeTimer);
+      drop.classList.add('open');
+    });
+    drop.addEventListener('mouseleave', () => {
+      closeTimer = setTimeout(() => drop.classList.remove('open'), 200);
+    });
+  });
+
   /* ─── TIMELINE EXPAND ─── */
   document.querySelectorAll('.tl-row').forEach(row => {
     row.addEventListener('click', () => row.classList.toggle('expand'));
