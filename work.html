@@ -21,9 +21,19 @@
 .tl-bullets li { font-size: 15.5px; color: var(--ink-2); line-height: 1.7; padding-left: 20px; position: relative; max-width: 70ch; }
 .tl-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-family: var(--mono); font-size: 13px; top: 3px; }
 .tl-row { cursor: pointer; }
-.tl-row::after { content: '+'; position: absolute; right: 0; top: 34px; font-family: var(--mono); font-size: 20px; color: var(--ink-3); transition: color .2s; }
-.tl-row.expand::after { content: '−'; color: var(--accent); }
-@media (max-width: 720px) { .tl-row::after { top: 24px; } }
+.tl-hint {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 14px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--ink-2); border: 1px solid var(--line-2); border-radius: 100px;
+  padding: 6px 16px; background: var(--paper-2);
+  transition: background .2s, color .2s, border-color .2s;
+  pointer-events: none;
+}
+.tl-hint::before { content: 'View details  ↓'; }
+.tl-row:hover .tl-hint { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.tl-row.expand .tl-hint::before { content: 'Close  ↑'; }
+.tl-row.expand .tl-hint { background: transparent; color: var(--accent); border-color: var(--accent); }
 .edu-block { display: flex; flex-direction: column; }
 .edu-row { padding: 20px 0; border-bottom: 1px solid var(--line-2); display: grid; grid-template-columns: 130px 1fr; gap: 24px; }
 .edu-row:last-child { border-bottom: none; }
@@ -100,6 +110,7 @@
         </div>
         <div class="tl-right">
           <div class="tl-role">Sales &amp; ESG Compliance Manager</div>
+          <span class="tl-hint"></span>
           <ul class="tl-bullets">
             <li>Led CBAM (Carbon Border Adjustment Mechanism) implementation from scratch — built the data collection pipeline, reclassified CN codes, and submitted the first quarterly reports on time with zero regulatory penalties.</li>
             <li>Designed and managed a B2B outreach system targeting Nordic industrial buyers; grew qualified pipeline by 40% in six months through structured prospecting, CRM discipline, and follow-through cadence.</li>
@@ -118,6 +129,7 @@
         </div>
         <div class="tl-right">
           <div class="tl-role">Marketing &amp; Digital Strategy Intern</div>
+          <span class="tl-hint"></span>
           <ul class="tl-bullets">
             <li>Conducted full audience segmentation analysis for two product lines, identifying underserved B2B segments in Scandinavian markets that led to a revised 2025 campaign strategy.</li>
             <li>Built and maintained a monthly KPI dashboard tracking social reach, email open rates, and web traffic — first structured performance review framework in the department.</li>
@@ -135,6 +147,7 @@
         </div>
         <div class="tl-right">
           <div class="tl-role">Event Lead &amp; Case Coordinator</div>
+          <span class="tl-hint"></span>
           <ul class="tl-bullets">
             <li>Organised and facilitated five business case competitions and workshops with 40–120 participants each, managing venue logistics, sponsor relationships, and cross-team coordination.</li>
             <li>Designed case briefs and evaluation rubrics for three industry-sponsored competitions in collaboration with partner companies in finance, logistics, and retail.</li>
@@ -152,6 +165,7 @@
         </div>
         <div class="tl-right">
           <div class="tl-role">Business Development &amp; Client Relations</div>
+          <span class="tl-hint"></span>
           <ul class="tl-bullets">
             <li>Managed a portfolio of 12 corporate clients across manufacturing, textile, and construction sectors — coordinating environmental compliance reviews and project timelines.</li>
             <li>Developed the firm's first formal client onboarding process, reducing initial engagement time from three weeks to six days and improving early client satisfaction scores.</li>
@@ -169,6 +183,7 @@
         </div>
         <div class="tl-right">
           <div class="tl-role">Co-Founder &amp; Operations Lead</div>
+          <span class="tl-hint"></span>
           <ul class="tl-bullets">
             <li>Co-founded and scaled an e-commerce business from zero to a monthly revenue run-rate of PKR 1.2M within 14 months — sourcing product from international suppliers, managing inventory, and running all marketing in-house.</li>
             <li>Built a cross-border procurement chain with suppliers in China and UAE, negotiating terms, managing customs documentation, and maintaining delivery reliability above 92%.</li>
