@@ -352,6 +352,15 @@ body::before {
   margin-bottom: 24px;
 }
 .about-text p .em { font-style: italic; color: var(--accent); }
+.about-full-text p {
+  font-family: var(--display);
+  font-size: clamp(17px, 1.6vw, 21px);
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+.about-full-text p .em { font-style: italic; color: var(--accent); }
 .about-card {
   background: var(--paper);
   border: 1px solid var(--line-2);
@@ -865,13 +874,13 @@ body[data-pal="citrus"] .foot-mark, body[data-pal="citrus"] footer { background:
 /* ─── VOICE VARIANTS ─── */
 body[data-voice="modern"] { --display: 'Space Grotesk', system-ui, sans-serif; --body: 'Space Grotesk', system-ui, sans-serif; }
 body[data-voice="modern"] .em { font-style: normal !important; font-weight: 600; }
-body[data-voice="modern"] .hero-title, body[data-voice="modern"] .sec-title, body[data-voice="modern"] .tl-role, body[data-voice="modern"] .proj-name, body[data-voice="modern"] .svc-name, body[data-voice="modern"] .lang-name, body[data-voice="modern"] .cinfo-row .v, body[data-voice="modern"] .about-text p, body[data-voice="modern"] .awards-row .name, body[data-voice="modern"] .awards-row .rank, body[data-voice="modern"] .about-card-name, body[data-voice="modern"] .about-stat .v, body[data-voice="modern"] .hero-stat .v, body[data-voice="modern"] .nav-logo, body[data-voice="modern"] .marquee, body[data-voice="modern"] .foot-mark-inner, body[data-voice="modern"] .drawer a, body[data-voice="modern"] .page-hero-title, body[data-voice="modern"] .svc-preview-name, body[data-voice="modern"] .svc-detail-intro { font-family: 'Space Grotesk', system-ui, sans-serif !important; font-weight: 500; letter-spacing: -0.04em; }
+body[data-voice="modern"] .hero-title, body[data-voice="modern"] .sec-title, body[data-voice="modern"] .tl-role, body[data-voice="modern"] .proj-name, body[data-voice="modern"] .svc-name, body[data-voice="modern"] .lang-name, body[data-voice="modern"] .cinfo-row .v, body[data-voice="modern"] .about-text p, body[data-voice="modern"] .about-full-text p, body[data-voice="modern"] .awards-row .name, body[data-voice="modern"] .awards-row .rank, body[data-voice="modern"] .about-card-name, body[data-voice="modern"] .about-stat .v, body[data-voice="modern"] .hero-stat .v, body[data-voice="modern"] .nav-logo, body[data-voice="modern"] .marquee, body[data-voice="modern"] .foot-mark-inner, body[data-voice="modern"] .drawer a, body[data-voice="modern"] .page-hero-title, body[data-voice="modern"] .svc-preview-name, body[data-voice="modern"] .svc-detail-intro { font-family: 'Space Grotesk', system-ui, sans-serif !important; font-weight: 500; letter-spacing: -0.04em; }
 body[data-voice="modern"] .marquee { font-style: normal; font-weight: 500; }
 body[data-voice="modern"] .foot-mark-inner { font-style: normal; font-weight: 700; }
 body[data-voice="brutal"] { --display: 'JetBrains Mono', ui-monospace, monospace; --body: 'JetBrains Mono', ui-monospace, monospace; }
 body[data-voice="brutal"] .hero-title, body[data-voice="brutal"] .sec-title, body[data-voice="brutal"] .tl-role, body[data-voice="brutal"] .proj-name, body[data-voice="brutal"] .svc-name, body[data-voice="brutal"] .page-hero-title { font-family: 'JetBrains Mono', monospace !important; text-transform: uppercase; letter-spacing: -0.02em; font-weight: 700; line-height: 0.95; }
 body[data-voice="brutal"] .em { font-style: normal !important; color: var(--accent); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
-body[data-voice="brutal"] .nav-logo, body[data-voice="brutal"] .marquee, body[data-voice="brutal"] .foot-mark-inner, body[data-voice="brutal"] .lang-name, body[data-voice="brutal"] .cinfo-row .v, body[data-voice="brutal"] .about-text p, body[data-voice="brutal"] .awards-row .name, body[data-voice="brutal"] .awards-row .rank, body[data-voice="brutal"] .about-card-name, body[data-voice="brutal"] .about-stat .v, body[data-voice="brutal"] .hero-stat .v, body[data-voice="brutal"] .drawer a { font-family: 'JetBrains Mono', monospace !important; font-style: normal !important; }
+body[data-voice="brutal"] .nav-logo, body[data-voice="brutal"] .marquee, body[data-voice="brutal"] .foot-mark-inner, body[data-voice="brutal"] .lang-name, body[data-voice="brutal"] .cinfo-row .v, body[data-voice="brutal"] .about-text p, body[data-voice="brutal"] .about-full-text p, body[data-voice="brutal"] .awards-row .name, body[data-voice="brutal"] .awards-row .rank, body[data-voice="brutal"] .about-card-name, body[data-voice="brutal"] .about-stat .v, body[data-voice="brutal"] .hero-stat .v, body[data-voice="brutal"] .drawer a { font-family: 'JetBrains Mono', monospace !important; font-style: normal !important; }
 body[data-voice="brutal"] .marquee { font-weight: 700; text-transform: uppercase; font-size: 22px; letter-spacing: 0; }
 body[data-voice="brutal"] .foot-mark-inner { font-style: normal; font-weight: 700; text-transform: uppercase; letter-spacing: -0.03em; font-size: clamp(70px, 18vw, 240px); }
 body[data-voice="brutal"] .hero-title, body[data-voice="brutal"] .sec-title { font-size: clamp(48px, 10vw, 140px); }
