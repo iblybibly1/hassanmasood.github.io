@@ -833,7 +833,11 @@ body[data-pal="midnight"] .tag { background: #F2EDE608; color: var(--ink-2); bor
 body[data-pal="midnight"] .tag.accent { color: var(--accent); border-color: #D4A24A40; background: #D4A24A12; }
 body[data-pal="midnight"] .tag.leaf { color: var(--leaf); border-color: #7AC58E40; background: #7AC58E12; }
 body[data-pal="midnight"] #work, body[data-pal="midnight"] #contact, body[data-pal="midnight"] .foot-mark, body[data-pal="midnight"] footer { background: #1C1A18; color: var(--ink); }
-body[data-pal="midnight"] .svc.feat { background: #2A2825; }
+body[data-pal="midnight"] .svc.feat { background: #2A2825; color: #F2EDE6; }
+body[data-pal="midnight"] .svc.feat .svc-name { color: #F2EDE6; }
+body[data-pal="midnight"] .svc.feat .svc-desc { color: rgba(242,237,230,0.6); }
+body[data-pal="midnight"] .svc.feat .svc-num { color: rgba(242,237,230,0.35); }
+body[data-pal="midnight"] .svc.feat::after { color: #F2EDE6; }
 body[data-pal="midnight"] .proj { background: var(--paper-2); }
 body[data-pal="midnight"] .about-card { background: #1F1D1A; }
 body[data-pal="midnight"] .svc-preview-card { background: #1F1D1A; border-color: var(--line-2); }
