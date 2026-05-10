@@ -12,8 +12,11 @@
 <style>
 .sec-view-all { display: flex; justify-content: flex-end; margin-top: 40px; }
 
-/* Hero photo */
-.hero-inner { display: grid; grid-template-columns: 1fr 320px; align-items: center; gap: 60px; }
+/* Hero photo + extended layout */
+.hero-inner { display: grid; grid-template-columns: 1fr 300px; align-items: start; gap: 64px; }
+.hero-offers { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.hero-stats-row { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+.hero-cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
 .hero-photo {
   position: relative; border-radius: 16px; overflow: hidden;
   aspect-ratio: 3/4; max-height: 460px;
@@ -26,11 +29,13 @@
 
 /* ─── Mobile ─── */
 @media (max-width: 860px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 32px; }
-  .hero-photo { max-height: 280px; aspect-ratio: 4/3; border-radius: 12px; box-shadow: 5px 5px 0 0 var(--accent), 0 16px 40px rgba(0,0,0,.2); margin-right: 5px; margin-bottom: 5px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+  .hero-photo { max-height: 300px; aspect-ratio: 4/3; border-radius: 12px; box-shadow: 5px 5px 0 0 var(--accent), 0 16px 40px rgba(0,0,0,.2); margin-right: 5px; margin-bottom: 5px; order: -1; }
   .hero-title { font-size: clamp(52px, 14vw, 80px) !important; }
-  .hero-bio { font-size: 15px !important; }
-  .hero-meta { gap: 12px; }
+  .hero-bio { font-size: 16px !important; }
+  .hero-stats-row { gap: 20px; }
+  .hero-cta-row { flex-direction: column; }
+  .hero-cta-row a { text-align: center; }
 }
 @media (max-width: 600px) {
   .sec-head { gap: 12px; }
@@ -113,36 +118,42 @@
         </h1>
         <div class="hero-meta">
           <p class="hero-bio r show d2">
-            Sustainable business developer crafting <b>ESG &amp; CBAM compliance systems</b>, sharper sales pipelines, and <b>data-driven strategy</b> for businesses operating across borders.
-            <span style="font-style:italic; font-family:var(--display); font-size:22px;">Six languages.</span>
-            One mission: turn complex regulation into commercial advantage.
+            Finland-based <b>sustainable business developer</b> at the intersection of EU regulation, operations, and commercial strategy. I turn frameworks like <b>CBAM and CSRD</b> into systems organisations can actually run — supplier data flows, CN-code reclassifications, LCA collection, internal training.
           </p>
-          <div class="hero-stat r show d3">
-            <div class="k">Years exp</div>
-            <div class="v">5<small>+</small></div>
+          <p class="hero-bio r show d2" style="margin-top:14px;">
+            Five years across three continents: from managing cross-border supply chains across <b>2,400 sites in Pakistan</b> to deploying CSRD compliance for Finnish exporters. BBA from TAMK, CGPA 4.29/5.0. Placed <b>3rd at Huawei Tech Arena Finland 2025</b> — the only non-CS competitor on the podium.
+          </p>
+          <div class="hero-offers r show d2">
+            <span class="tag leaf">ESG &amp; CBAM</span>
+            <span class="tag leaf">CSRD</span>
+            <span class="tag">Web Design</span>
+            <span class="tag">Sales &amp; CRM</span>
+            <span class="tag">Digital Marketing</span>
+            <span class="tag">International Expansion</span>
           </div>
-          <div class="hero-stat r show d3">
-            <div class="k">BBA · CGPA</div>
-            <div class="v">4.29<small>/5</small></div>
+          <div class="hero-stats-row r show d3">
+            <div class="hero-stat">
+              <div class="k">Experience</div>
+              <div class="v">5<small>+ yrs</small></div>
+            </div>
+            <div class="hero-stat">
+              <div class="k">BBA · CGPA</div>
+              <div class="v">4.29<small>/5</small></div>
+            </div>
+            <div class="hero-stat">
+              <div class="k">Languages</div>
+              <div class="v">6</div>
+            </div>
+          </div>
+          <div class="hero-cta-row r show d3">
+            <a href="about.html" class="btn-primary">Full story →</a>
+            <a href="contact.html" class="btn-ghost">Get in touch</a>
           </div>
         </div>
       </div>
       <div class="hero-photo r show d2">
         <img src="assets/img/profile.png" alt="Hassan Masood"/>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── ABOUT PREVIEW ─── -->
-<section class="sec" id="about" style="background:var(--paper-2);">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="sec-num r">01 — About</div>
-        <h2 class="sec-title r d1">Who I <span class="em">am.</span></h2>
-      </div>
-      <p class="sec-lede r d2">Finland-based International Business professional at the intersection of EU regulation, operational data, and commercial execution.</p>
     </div>
   </div>
 </section>
