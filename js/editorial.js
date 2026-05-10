@@ -269,7 +269,36 @@
       /* services page */
       'services-page-num': '02 — Palvelut',
       'services-page-title': 'Mitä <span class="em">tarjoan.</span>',
-      'services-page-lede': 'Kahdeksan palvelualuetta: ESG-vaatimustenmukaisuus, verkkokehitys, markkinointi, myynti ja kansainvälinen liiketoiminta. Kaikki saatavilla englanniksi, suomeksi, ruotsiksi, arabiaksi, turkiksi ja urduksi.'
+      'services-page-lede': 'Kahdeksan palvelualuetta: ESG-vaatimustenmukaisuus, verkkokehitys, markkinointi, myynti ja kansainvälinen liiketoiminta. Kaikki saatavilla englanniksi, suomeksi, ruotsiksi, arabiaksi, turkiksi ja urduksi.',
+      /* index — service preview card names & descriptions */
+      'svc-1-name': 'Verkkosuunnittelu &amp;<br/><span class="em">Kehitys</span>',
+      'svc-1-desc': 'Puhtaat, nopeat, mobiiliystävälliset verkkosivut — konseptista julkaisuun.',
+      'svc-2-name': 'ESG &amp; <span class="em">Kestävyys</span>',
+      'svc-2-desc': 'CBAM, CSRD, toimittajadata, LCA — rakennettu käytännön toteutuskokemuksesta.',
+      'svc-3-name': 'Digitaalinen <span class="em">Markkinointi</span>',
+      'svc-3-desc': 'Kohderyhmätutkimus, kanavamix, KPI-koontinäytöt — dataohjattu alusta alkaen.',
+      'svc-4-name': 'Myynti &amp; <span class="em">CRM</span>',
+      'svc-4-desc': 'Asiakashankintajärjestelmät, putkiliiketoiminta, HubSpot tai Salesforce B2B- ja verkkokaupalle.',
+      'svc-5-name': 'Kansainvälinen <span class="em">Laajeneminen</span>',
+      'svc-5-desc': 'Rajat ylittävä verkkokauppa, toimittaja-auditointi, EU-vaatimustenmukaisuus, lokalisointi 6 kielellä.',
+      'svc-6-name': 'Brändi, Sosiaalinen &amp;<br/><span class="em">Liiketoimintakehitys</span>',
+      'svc-6-desc': 'Brändisisältö, sosiaalinen + maksettu mainonta, markkinoille pääsy ja kumppanuudet.',
+      /* about — bio paragraphs */
+      'about-bio-1': 'Olen <span class="em">kestävä liiketoimintakehittäjä</span> — käytännössä se tarkoittaa, että toimin säätelyn, operaatioiden ja kaupallisen strategian risteyksessä. Autan yrityksiä ymmärtämään, mitä EU-viitekehykset kuten CBAM ja CSRD todella vaativat, rakennan sisäiset järjestelmät vaatimusten täyttämiseksi ja varmistan, että vaatimustenmukaisuus ei vain vähennä riskiä vaan tuottaa todellista liiketoiminta-arvoa.',
+      'about-bio-2': 'Taustani kattaa viisi erilaista roolia — rajat ylittävän toimitusketjun hallinnasta 2 400 jätekuljetuskeskuksessa Punjabissa CSRD-kehysten käyttöönottoon suomalaisen kuluttajatuotteiden brändin hyväksi EU:n tullialueilla. Tämä laajuus on tarkoituksellinen. Uskon, että terävimmät kaupalliset päätökset tulevat ihmisiltä, jotka ovat nähneet sekä johdon strategian että operatiivisen työn.',
+      'about-bio-3': 'Perinteisen liikkeenjohdon konsultoinnin ulkopuolella olen <span class="em">teknologiaihminen sydämeltäni</span>. Olen opiskellut finanssimarkkinoita itsenäisesti vuodesta 2012, rakentanut algoritmisia kaupankäyntityökaluja, mukautettuja KPI-indikaattoreita ja backtesting-kehyksiä Pythonilla. Osallistuin Huawei Tech Arena Finland 2025 -kilpailuun — rakensin täydellisen UI/UX-rajapinnan HarmonyOS:lle — ja sijoituin 3. sijalle kansallisesti ainoana ei-tietotekniikan ehdokkaana podiumilla.',
+      'about-bio-4': 'Kieli on yksi käytännöllisimmistä ammatillisista vahvuuksistani. Työskentelen sujuvasti <span class="em">englanniksi ja urduksi</span>, puhun suomea ja arabiaa sujuvasti ja hallitsen ruotsin ja turkin työkielellä. Tämä tarkoittaa, että voin suorittaa toimittaja-auditoinnin Etelä-Aasiassa, neuvotella vaatimustenmukaisuuden laajuudesta Helsingissä ja kommunikoida suoraan MENA-alueen kumppanien kanssa ilman lisäkäännöstasoa.',
+      'about-bio-5': 'Valmistuin BBA:ksi kansainvälisestä liiketoiminnasta TAMK:sta joulukuussa 2024 CGPA:lla <span class="em">4,29 / 5,0</span>. Opintojeni aikana suoritin vaihtovaiheen Ondokuz Mayısin yliopistossa Turkissa, edusti Tampereen yliopistoa kansainvälisissä liiketoimintacase- ja myyntikilpailuissa eri puolilla Eurooppaa ja pyöritti kannattavaa kansainvälistä verkkokauppaa opintojen ohella.',
+      'about-bio-6': 'Minua ajaa mahdollisuus ottaa jokin <span class="em">aidosti monimutkainen</span> asia — sääntelykehys, markkinoille pääsyn haaste, rikkinäinen myyntiputki — ja muuttaa se toimivaksi järjestelmäksi. Siinä olen hyvä, ja sellainen ongelma on se, jonka haluan seuraavaksi ratkaista.',
+      /* about — value cards */
+      'val-1-title': 'Sääntelystä <span class="em">Operatiiviseksi</span>',
+      'val-1-body': 'En vain lue EU-kehyksiä — rakennan sisäiset työnkulut, toimittajaviestintäketjut ja raportointijärjestelmät, jotka tekevät vaatimustenmukaisuudesta operatiivista. ESG ja CBAM muuttuvat toimiviksi prosesseiksi, ei arkistointiharjoituksiksi.',
+      'val-2-title': 'Strategiasta <span class="em">Toteutukseen</span>',
+      'val-2-body': 'Olen toiminut sekä strategiakonsulttina neuvoen globaaleja yrityksiä että operatiivisena johtajana. Osaan muotoilla oikean ongelman strategisella tasolla ja jäädä sitten toteuttamaan vastauksen.',
+      'val-3-title': 'Teknologia <span class="em">Kertoimena</span>',
+      'val-3-body': 'Rakennan mukautettuja datatyökaluja — Power BI -koontinäyttöjä, Python-kaupankäyntibotteja, KPI-malleja — jotka muuttavat tiedon päätöksiksi. Tekninen työ on luonnollinen osa kaupallisten ongelmien ratkaisemistani.',
+      'val-4-title': 'Rajat ylittävä <span class="em">Sujuvuus</span>',
+      'val-4-body': 'Kuusi kieltä ja suora kokemus suomalaisista, EU:n, Etelä-Aasian ja turkkilaisista liiketoimintaympäristöistä. Vähennän kitkaa kansainvälisissä toiminnoissa sen sijaan, että lisäisin käännöstasoja.'
     };
 
     function hrefBase(h) {
