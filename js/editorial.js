@@ -193,7 +193,7 @@
       footHome: 'Etusivu', footAbout: 'Tietoa', footWork: 'Kokemus', footProjects: 'Projektit', footSkills: 'Taidot',
       footWebDesign: 'Verkkosuunnittelu', footESG: 'ESG & CBAM', footMarketing: 'Markkinointi',
       footSalesCRM: 'Myynti & CRM', footAllServices: 'Kaikki palvelut',
-      footBottom: '© 2026 M. Hassan Masood · Kaikki oikeudet pidätetään',
+      footBottom: '© 2026 M. Hassan Masood · Kaikki oikeudet pidätetään · Y-tunnus 3573040-9',
       footBuilt: 'Rakennettu Suomessa'
     };
     var NAV_EN = {
@@ -205,7 +205,7 @@
       footHome: 'Home', footAbout: 'About', footWork: 'Experience', footProjects: 'Projects', footSkills: 'Skills',
       footWebDesign: 'Web Design', footESG: 'ESG & CBAM', footMarketing: 'Marketing',
       footSalesCRM: 'Sales & CRM', footAllServices: 'All Services',
-      footBottom: '© 2026 M. Hassan Masood · All rights reserved',
+      footBottom: '© 2026 M. Hassan Masood · All rights reserved · Y-tunnus 3573040-9',
       footBuilt: 'Built in Finland'
     };
 
