@@ -278,7 +278,7 @@
       'services-hero-p3': 'Tarvitsitpa yksittäisen toimituksen tai jatkuvan kumppanin, työskentelen suoraan — ei siirtelyjä, ei juniorisijaisuuksia. Useimmat toimeksiannot alkavat lyhyellä keskustelulla, jotta ymmärrän tarkalleen, mitä tarvitset.',
       /* services page — service grid cards */
       'svc-pg-01-name': 'Verkkosuunnittelu &amp;<br/><span class="em">Kehitys</span>',
-      'svc-pg-01-desc': 'Puhtaat, nopeat, mobiiliystävälliset verkkosivut, jotka on rakennettu konvertoimaan. Konseptista käyttöönottoon täydellisellä dokumentaatiolla. Suunnittelen ja rakennan sivustoja, jotka tekevät töitä yhtä kovaa kuin liiketoimintasi.',
+      'svc-pg-01-desc': 'Selkeät, salamannopeat ja mobiilissa erinomaisesti toimivat sivut, jotka on tehty myymään. Konseptista julkaisuun täydellisellä dokumentaatiolla. Suunnittelen ja rakennan sivustoja, jotka tekevät töitä yhtä kovaa kuin liiketoimintasi.',
       'svc-pg-02-name': 'ESG &amp; <span class="em">Kestävyys</span>konsultointi',
       'svc-pg-02-desc': 'CBAM, CSRD, toimittajatietojen keräys, CN-koodiuudelleenluokittelu, LCA — rakennettu käytännön kokemuksesta näiden järjestelmien toteuttamisessa alusta alkaen. Käytännöllistä vaatimustenmukaisuutta, ei vain raportteja.',
       'svc-pg-03-name': 'Digitaalinen <span class="em">Markkinointi</span>',
