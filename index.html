@@ -177,6 +177,18 @@
         ::-webkit-scrollbar-thumb { background: theme('colors.smoke-gray'); }
         ::-webkit-scrollbar-thumb:hover { background: theme('colors.primary-container'); }
 
+        /* Disable diagonal clips on mobile — clip-path % is relative to element height,
+           which is much taller on mobile, causing content to be sliced */
+        @media (max-width: 767px) {
+            .slant-top, .slant-bottom, .slant-both, .slant-reverse-bottom {
+                clip-path: none !important;
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+        }
+
         @media (prefers-reduced-motion: no-preference) {
             .reveal {
                 opacity: 0;
@@ -284,9 +296,9 @@
 </div>
 <div class="absolute inset-0 z-0 bg-gradient-to-b from-void-black/80 via-transparent to-void-black/90"></div>
 <!-- Profile photo — absolute, bleeds into background -->
-<div class="absolute inset-y-0 right-0 w-5/12 hidden md:flex items-end overflow-hidden" style="z-index:1;">
-<img src="assets/img/profile.png" alt="Hassan Masood" class="h-[88%] w-full object-contain object-bottom object-right"/>
-<div class="absolute inset-0" style="background:linear-gradient(to right,#050505 0%,rgba(5,5,5,0.5) 25%,transparent 60%);"></div>
+<div class="absolute inset-y-0 right-0 flex items-end overflow-hidden" style="z-index:1;width:100%;max-width:42%;">
+<img src="assets/img/profile.png" alt="Hassan Masood" class="h-[88%] w-full object-contain object-bottom object-right opacity-30 md:opacity-100"/>
+<div class="absolute inset-0" style="background:linear-gradient(to right,#050505 0%,rgba(5,5,5,0.7) 30%,transparent 65%);"></div>
 <div class="absolute bottom-0 left-0 right-0 h-2/5" style="background:linear-gradient(to top,#050505 0%,transparent 100%);"></div>
 <div class="absolute top-0 left-0 right-0 h-1/4" style="background:linear-gradient(to bottom,rgba(5,5,5,0.9) 0%,transparent 100%);"></div>
 </div>
