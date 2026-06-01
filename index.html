@@ -279,7 +279,14 @@
 <div class="absolute inset-0 z-0 opacity-70 mix-blend-screen bg-cover bg-center animate-drift" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDOChsInUwqOB6Hp2Bv_L3Uuw7q1nHugsO0rZQtizZF7tK9wU7J3EH8R0he535IRS0407rxiI7dJ4lS_NqlPX5kTdb0PGg_DdrR6V9ZoSYs6oIMqe_1UIBfVCqb6mlV_LDQvYzxrHgSrQLUbD7cXkh6dSFCu58tXY4b0r_KVPkL0GYQiWVEsOzyvnTCieHeu1eAXdsc7tJBBfSq2oHtUQZXVpE0DVyhHlB__hiGQvM2I8f-_9SkyZlJ4sdMyvi2omtRRd2YMoqHQpFN");'></div>
 <div class="absolute inset-0 z-0 opacity-90 mix-blend-multiply bg-cover bg-center animate-drift" style='animation-delay: -10s; background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA8SUwqN4Ci22bJrJm5wRBiadJ7oQ89yAAKzrhixnspz1hxlcIbKakLGIyJvxLVVJhWCzyE0vziGOo1mgvThg7I-gIAHgGHNgMhFQCnEw_W3VLCD2AY4YYoWqNPdmHeE1u3g-7D6oFHPJPL2fgeIXoVhjsUznO5zvblxELRXUV6tfmHOfc9IBOvLhjKFZr9kiCr22e3r70rwsuq3McRNtoR4Q15GRJI19pqeXXvDPWWy5ktpyKwsvhP_jMIiNj7MH5zlpmwcdn9Dcl5");'></div>
 <div class="absolute inset-0 z-0 bg-gradient-to-b from-void-black/80 via-transparent to-void-black/90"></div>
-<div class="max-w-container-max mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-gutter items-center relative z-10 pt-20 pb-32">
+<!-- Profile photo — absolute, bleeds into background -->
+<div class="absolute inset-y-0 right-0 w-5/12 hidden md:flex items-end overflow-hidden" style="z-index:1;">
+<img src="assets/img/profile.png" alt="Hassan Masood" class="h-[88%] w-full object-contain object-bottom object-right"/>
+<div class="absolute inset-0" style="background:linear-gradient(to right,#050505 0%,rgba(5,5,5,0.5) 25%,transparent 60%);"></div>
+<div class="absolute bottom-0 left-0 right-0 h-2/5" style="background:linear-gradient(to top,#050505 0%,transparent 100%);"></div>
+<div class="absolute top-0 left-0 right-0 h-1/4" style="background:linear-gradient(to bottom,rgba(5,5,5,0.9) 0%,transparent 100%);"></div>
+</div>
+<div class="max-w-container-max mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-gutter items-center relative z-10 pt-20 pb-20">
 <!-- Text Content -->
 <div class="col-span-1 md:col-span-7 space-y-6">
 <div class="inline-flex items-center gap-2 px-4 py-2 bg-void-black/80 border border-primary/50 font-label-sm text-label-sm text-primary uppercase tracking-widest backdrop-blur-sm reveal">
@@ -300,20 +307,13 @@ Get in Touch
 </a>
 </div>
 </div>
-<!-- Hero Image -->
-<div class="col-span-1 md:col-span-5 relative h-screen flex justify-center items-end overflow-hidden">
-<img src="assets/img/profile.png" alt="Hassan Masood" class="relative z-10 max-h-[90%] w-full object-contain object-bottom"/>
-<div class="absolute inset-0 z-20 bg-gradient-to-t from-void-black via-transparent to-transparent"></div>
-<div class="absolute left-0 top-0 bottom-0 w-16 z-20 bg-gradient-to-r from-void-black to-transparent"></div>
-<div class="absolute right-0 top-0 bottom-0 w-16 z-20 bg-gradient-to-l from-void-black to-transparent"></div>
-</div>
 </div>
 </section>
 
 <!-- About / Story Section -->
-<section class="py-section-padding px-margin-mobile md:px-gutter relative bg-white z-0" id="about">
+<section class="slant-top pb-section-padding px-margin-mobile md:px-gutter relative bg-white z-0" id="about">
 <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
-<div class="max-w-container-max mx-auto relative pt-10">
+<div class="max-w-container-max mx-auto relative">
 <div class="flex items-end gap-6 mb-12 reveal">
 <span class="text-[120px] font-display-xl leading-none text-void-black opacity-10 -mb-4 transition-opacity hover:opacity-20 duration-300">01</span>
 <div>
