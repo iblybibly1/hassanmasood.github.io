@@ -289,15 +289,15 @@
 <section class="relative min-h-screen flex items-center px-margin-mobile md:px-gutter slant-bottom bg-void-black overflow-hidden z-10">
 <div class="absolute inset-0 z-0 overflow-hidden">
 <video autoplay loop muted playsinline preload="auto" aria-hidden="true"
-  class="absolute inset-0 w-full h-full object-cover"
-  style="opacity:0.75;mix-blend-mode:screen;">
+  class="absolute inset-0 w-full h-full object-cover bg-vid"
+  style="opacity:0.75;mix-blend-mode:screen;transform:scale(1.12);filter:blur(0.4px);">
   <source src="assets/img/bg-hero.mp4" type="video/mp4">
 </video>
 </div>
 <div class="absolute inset-0 z-0 overflow-hidden">
 <video autoplay loop muted playsinline preload="auto" aria-hidden="true"
-  class="absolute inset-0 w-full h-full object-cover"
-  style="opacity:0.85;mix-blend-mode:multiply;">
+  class="absolute inset-0 w-full h-full object-cover bg-vid"
+  style="opacity:0.85;mix-blend-mode:multiply;transform:scale(1.12);filter:blur(0.4px);">
   <source src="assets/img/bg-hero.mp4" type="video/mp4">
 </video>
 </div>
@@ -588,4 +588,12 @@ Hassan Masood
     });
 </script>
 <script src="js/lang.js"></script>
+<script>
+document.querySelectorAll('.bg-vid').forEach(function(v) {
+  function setRate() { v.playbackRate = 0.35; }
+  setRate();
+  v.addEventListener('loadedmetadata', setRate);
+  v.addEventListener('play', setRate);
+});
+</script>
 </body></html>
