@@ -288,14 +288,14 @@
 <!-- Hero Section -->
 <section class="relative min-h-screen flex items-center px-margin-mobile md:px-gutter slant-bottom bg-void-black overflow-hidden z-10">
 <div class="absolute inset-0 z-0 overflow-hidden">
-<video id="bg-video-1" muted playsinline preload="auto" aria-hidden="true"
+<video autoplay loop muted playsinline preload="auto" aria-hidden="true"
   class="absolute inset-0 w-full h-full object-cover animate-drift"
   style="opacity:0.75;mix-blend-mode:screen;">
   <source src="assets/img/bg-hero.mp4" type="video/mp4">
 </video>
 </div>
 <div class="absolute inset-0 z-0 overflow-hidden">
-<video id="bg-video-2" muted playsinline preload="auto" aria-hidden="true"
+<video autoplay loop muted playsinline preload="auto" aria-hidden="true"
   class="absolute inset-0 w-full h-full object-cover animate-drift"
   style="opacity:0.85;mix-blend-mode:multiply;animation-delay:-8s;">
   <source src="assets/img/bg-hero.mp4" type="video/mp4">
@@ -588,41 +588,4 @@ Hassan Masood
     });
 </script>
 <script src="js/lang.js"></script>
-<script>
-(function () {
-  function pingPong(videoEl, offsetSeconds) {
-    if (!videoEl) return;
-    var reversing = false;
-    var rafId;
-
-    function startReverse() {
-      reversing = true;
-      cancelAnimationFrame(rafId);
-      (function step() {
-        if (videoEl.currentTime <= 0.05) {
-          reversing = false;
-          videoEl.currentTime = 0;
-          videoEl.play();
-          return;
-        }
-        videoEl.currentTime = Math.max(0, videoEl.currentTime - 0.033);
-        rafId = requestAnimationFrame(step);
-      }());
-    }
-
-    videoEl.addEventListener('ended', startReverse);
-
-    videoEl.addEventListener('canplay', function handler() {
-      videoEl.removeEventListener('canplay', handler);
-      videoEl.currentTime = offsetSeconds || 0;
-      videoEl.play();
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    pingPong(document.getElementById('bg-video-1'), 0);
-    pingPong(document.getElementById('bg-video-2'), 4);
-  });
-}());
-</script>
 </body></html>
