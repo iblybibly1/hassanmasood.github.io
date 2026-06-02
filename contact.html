@@ -88,8 +88,8 @@ body { background-color:#131311; color:#e5e2de; overflow-x:hidden; font-family:'
 <div class="inline-flex items-center gap-2 mb-6 font-label-sm text-label-sm text-primary uppercase tracking-widest">
 <span class="w-2 h-2 bg-primary rotate-45 inline-block"></span> 06 &mdash; Contact
 </div>
-<h1 class="font-display-xl text-[52px] md:text-[80px] text-white leading-[0.9] uppercase mb-6">Let's<br/><span class="text-primary">Talk.</span></h1>
-<p class="font-body-md text-body-lg text-secondary max-w-2xl border-l-4 border-primary pl-6 py-2">Most good engagements start with a short conversation. Tell me what you're working on &mdash; I'll tell you honestly whether and how I can help.</p>
+<h1 class="font-display-xl text-[52px] md:text-[80px] text-white leading-[0.9] uppercase mb-6" data-t="contact-h1">Otetaan<br/><span class="text-primary">Yhteyttä.</span></h1>
+<p class="font-body-md text-body-lg text-secondary max-w-2xl border-l-4 border-primary pl-6 py-2" data-t="contact-lede">Useimmat hyvät toimeksiannot alkavat lyhyellä keskustelulla. Kerro mitä olet tekemässä — kerron rehellisesti pystynkö auttamaan ja miten.</p>
 </div>
 </section>
 
@@ -113,7 +113,7 @@ body { background-color:#131311; color:#e5e2de; overflow-x:hidden; font-family:'
 <div class="border-b border-gray-200 pb-6">
 <div class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Tila</div>
 <div class="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-800 font-label-sm text-label-sm uppercase tracking-widest px-4 py-2">
-<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse inline-block"></span> Available now
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse inline-block"></span> <span data-t="contact-status">Saatavilla nyt</span>
 </div>
 </div>
 <div class="border-b border-gray-200 pb-6">
@@ -131,7 +131,7 @@ body { background-color:#131311; color:#e5e2de; overflow-x:hidden; font-family:'
 <a href="services/esg.html" class="font-label-sm text-label-sm bg-paper-white border border-smoke-gray text-void-black px-4 py-2 uppercase hover:bg-primary hover:text-white transition-colors">ESG &amp; CBAM</a>
 <a href="services/digital-marketing.html" class="font-label-sm text-label-sm bg-paper-white border border-smoke-gray text-void-black px-4 py-2 uppercase hover:bg-primary hover:text-white transition-colors">Digitaalinen Markkinointi</a>
 <a href="services/sales-crm.html" class="font-label-sm text-label-sm bg-paper-white border border-smoke-gray text-void-black px-4 py-2 uppercase hover:bg-primary hover:text-white transition-colors">Sales &amp; CRM</a>
-<a href="services/international-expansion.html" class="font-label-sm text-label-sm bg-paper-white border border-smoke-gray text-void-black px-4 py-2 uppercase hover:bg-primary hover:text-white transition-colors">International Expansion</a>
+<a href="services/international-expansion.html" class="font-label-sm text-label-sm bg-paper-white border border-smoke-gray text-void-black px-4 py-2 uppercase hover:bg-primary hover:text-white transition-colors">Kansainvälinen Laajeneminen</a>
 <a href="services/brand-content.html" class="font-label-sm text-label-sm bg-paper-white border border-smoke-gray text-void-black px-4 py-2 uppercase hover:bg-primary hover:text-white transition-colors">Brändi &amp; Sisältö</a>
 </div>
 </div>
@@ -141,42 +141,42 @@ body { background-color:#131311; color:#e5e2de; overflow-x:hidden; font-family:'
 <form class="space-y-6" onsubmit="event.preventDefault(); submitForm();">
 <div class="grid grid-cols-2 gap-4">
 <div>
-<label for="fn" class="block font-label-sm text-label-sm text-void-black uppercase tracking-widest mb-2">First name</label>
+<label for="fn" class="block font-label-sm text-label-sm text-void-black uppercase tracking-widest mb-2" data-t="contact-label-fn">Etunimi</label>
 <input id="fn" type="text" placeholder="Hassan" required class="w-full bg-paper-white border border-smoke-gray text-void-black font-body-md text-body-md px-4 py-3 focus:outline-none focus:border-primary transition-colors"/>
 </div>
 <div>
-<label for="ln" class="block font-label-sm text-label-sm text-void-black uppercase tracking-widest mb-2">Last name</label>
+<label for="ln" class="block font-label-sm text-label-sm text-void-black uppercase tracking-widest mb-2" data-t="contact-label-ln">Sukunimi</label>
 <input id="ln" type="text" placeholder="Masood" required class="w-full bg-paper-white border border-smoke-gray text-void-black font-body-md text-body-md px-4 py-3 focus:outline-none focus:border-primary transition-colors"/>
 </div>
 </div>
 <div>
-<label for="em" class="block font-label-sm text-label-sm text-void-black uppercase tracking-widest mb-2">Email</label>
+<label for="em" class="block font-label-sm text-label-sm text-void-black uppercase tracking-widest mb-2" data-t="contact-label-email">Sähköposti</label>
 <input id="em" type="email" placeholder="you@company.com" required class="w-full bg-paper-white border border-smoke-gray text-void-black font-body-md text-body-md px-4 py-3 focus:outline-none focus:border-primary transition-colors"/>
 </div>
 <div>
-<label for="org" class="block font-label-sm text-label-sm text-void-black uppercase tracking-widest mb-2">Company / Organisation <span class="text-surface-container-highest">(optional)</span></label>
+<label for="org" class="block font-label-sm text-label-sm text-void-black uppercase tracking-widest mb-2" data-t="contact-label-org">Yritys / Organisaatio <span class="text-surface-container-highest">(valinnainen)</span></label>
 <input id="org" type="text" placeholder="Acme Ltd" class="w-full bg-paper-white border border-smoke-gray text-void-black font-body-md text-body-md px-4 py-3 focus:outline-none focus:border-primary transition-colors"/>
 </div>
 <div>
-<label for="typ" class="block font-label-sm text-label-sm text-void-black uppercase tracking-widest mb-2">What are you looking for?</label>
+<label for="typ" class="block font-label-sm text-label-sm text-void-black uppercase tracking-widest mb-2" data-t="contact-label-typ">Mitä etsit?</label>
 <select id="typ" class="w-full bg-paper-white border border-smoke-gray text-void-black font-body-md text-body-md px-4 py-3 focus:outline-none focus:border-primary transition-colors">
-<option value="">Select a service area</option>
-<option value="web-design">Web Design &amp; Development</option>
-<option value="esg">ESG &amp; Sustainability Consulting</option>
-<option value="digital-marketing">Digital Marketing</option>
-<option value="sales-crm">Sales &amp; CRM</option>
-<option value="international-expansion">International Expansion</option>
-<option value="brand-content">Brand &amp; Content</option>
-<option value="social-paid">Social &amp; Paid Ads</option>
-<option value="business-development">Business Development</option>
-<option value="other">Something else</option>
+<option value="" data-t="contact-opt-default">Valitse palvelualue</option>
+<option value="web-design">Verkkosuunnittelu &amp; Kehitys</option>
+<option value="esg">ESG &amp; Kestävyyskonsultointi</option>
+<option value="digital-marketing">Digitaalinen Markkinointi</option>
+<option value="sales-crm">Myynti &amp; CRM</option>
+<option value="international-expansion">Kansainvälinen Laajeneminen</option>
+<option value="brand-content">Brändi &amp; Sisältö</option>
+<option value="social-paid">Sosiaalinen &amp; Mainokset</option>
+<option value="business-development">Liiketoimintakehitys</option>
+<option value="other">Jotain muuta</option>
 </select>
 </div>
 <div>
-<label for="msg" class="block font-label-sm text-label-sm text-void-black uppercase tracking-widest mb-2">Message</label>
-<textarea id="msg" rows="5" placeholder="Tell me what you're working on, where you're stuck, or what you want to build. The more context, the better." required class="w-full bg-paper-white border border-smoke-gray text-void-black font-body-md text-body-md px-4 py-3 focus:outline-none focus:border-primary transition-colors resize-none"></textarea>
+<label for="msg" class="block font-label-sm text-label-sm text-void-black uppercase tracking-widest mb-2" data-t="contact-label-msg">Viesti</label>
+<textarea id="msg" rows="5" placeholder="Kerro mitä olet tekemässä, missä olet jumissa, tai mitä haluat rakentaa. Mitä enemmän kontekstia, sen parempi." required class="w-full bg-paper-white border border-smoke-gray text-void-black font-body-md text-body-md px-4 py-3 focus:outline-none focus:border-primary transition-colors resize-none"></textarea>
 </div>
-<button id="submitBtn" type="submit" class="w-full bg-primary text-void-black px-8 py-4 font-label-sm text-label-sm uppercase hover:bg-void-black hover:text-white transition-colors font-bold btn-pulse">Send message &rarr;</button>
+<button id="submitBtn" type="submit" class="w-full bg-primary text-void-black px-8 py-4 font-label-sm text-label-sm uppercase hover:bg-void-black hover:text-white transition-colors font-bold btn-pulse" data-t="contact-submit">Lähetä viesti &rarr;</button>
 <div id="cstatus" class="font-label-sm text-label-sm uppercase tracking-widest text-center" aria-live="polite"></div>
 </form>
 </div>
@@ -200,7 +200,7 @@ body { background-color:#131311; color:#e5e2de; overflow-x:hidden; font-family:'
 <div class="flex flex-col gap-8 md:flex-row md:gap-16">
 <div><h5 class="font-headline-lg text-lg text-primary uppercase mb-6 tracking-widest">Sivusto</h5>
 <ul class="space-y-3 font-label-sm text-label-sm uppercase tracking-wider">
-<li><a class="text-secondary hover:text-white transition-colors" href="index.html">Home</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="index.html">Etusivu</a></li>
 <li><a class="text-secondary hover:text-white transition-colors" href="about.html">Tietoa</a></li>
 <li><a class="text-secondary hover:text-white transition-colors" href="work.html">Kokemus</a></li>
 <li><a class="text-secondary hover:text-white transition-colors" href="projects.html">Projektit</a></li>
@@ -208,14 +208,14 @@ body { background-color:#131311; color:#e5e2de; overflow-x:hidden; font-family:'
 </ul></div>
 <div><h5 class="font-headline-lg text-lg text-primary uppercase mb-6 tracking-widest">Palvelut</h5>
 <ul class="space-y-3 font-label-sm text-label-sm uppercase tracking-wider">
-<li><a class="text-secondary hover:text-white transition-colors" href="services/web-design.html">Web Design</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="services/web-design.html">Verkkosuunnittelu</a></li>
 <li><a class="text-secondary hover:text-white transition-colors" href="services/esg.html">ESG &amp; CBAM</a></li>
 <li><a class="text-secondary hover:text-white transition-colors" href="services/sales-crm.html">Sales &amp; CRM</a></li>
-<li><a class="text-secondary hover:text-white transition-colors" href="services.html">All Services</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="services.html">Kaikki palvelut</a></li>
 </ul></div>
 <div><h5 class="font-headline-lg text-lg text-primary uppercase mb-6 tracking-widest">Yhteystiedot</h5>
 <ul class="space-y-3 font-label-sm text-label-sm uppercase tracking-wider">
-<li><a class="text-secondary hover:text-white transition-colors" href="contact.html">Contact Page</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="contact.html">Yhteystiedot</a></li>
 <li><a class="text-secondary hover:text-white transition-colors" href="https://www.linkedin.com/in/hassan-masood-fi/" target="_blank" rel="noopener">LinkedIn</a></li>
 </ul></div>
 </div></div>

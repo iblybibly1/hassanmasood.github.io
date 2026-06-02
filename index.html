@@ -177,7 +177,7 @@
         ::-webkit-scrollbar-thumb { background: theme('colors.smoke-gray'); }
         ::-webkit-scrollbar-thumb:hover { background: theme('colors.primary-container'); }
 
-        /* Disable diagonal clips on mobile â€” clip-path % is relative to element height,
+        /* Disable diagonal clips on mobile — clip-path % is relative to element height,
            which is much taller on mobile, causing content to be sliced */
         @media (max-width: 767px) {
             .slant-top, .slant-bottom, .slant-both, .slant-reverse-bottom {
@@ -294,7 +294,7 @@
 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8SUwqN4Ci22bJrJm5wRBiadJ7oQ89yAAKzrhixnspz1hxlcIbKakLGIyJvxLVVJhWCzyE0vziGOo1mgvThg7I-gIAHgGHNgMhFQCnEw_W3VLCD2AY4YYoWqNPdmHeE1u3g-7D6oFHPJPL2fgeIXoVhjsUznO5zvblxELRXUV6tfmHOfc9IBOvLhjKFZr9kiCr22e3r70rwsuq3McRNtoR4Q15GRJI19pqeXXvDPWWy5ktpyKwsvhP_jMIiNj7MH5zlpmwcdn9Dcl5=w3840" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover opacity-90 mix-blend-multiply animate-drift" style="animation-delay:-10s;image-rendering:auto;"/>
 </div>
 <div class="absolute inset-0 z-0 bg-gradient-to-b from-void-black/80 via-transparent to-void-black/90"></div>
-<!-- Profile photo â€” desktop only, absolute right column -->
+<!-- Profile photo — desktop only, absolute right column -->
 <div class="absolute inset-y-0 right-0 hidden md:flex items-end overflow-hidden" style="z-index:1;width:42%;">
 <img src="assets/img/profile.png" alt="Hassan Masood" class="h-[88%] w-full object-contain object-bottom object-right"/>
 <div class="absolute inset-0" style="background:linear-gradient(to right,#050505 0%,rgba(5,5,5,0.4) 20%,transparent 55%);"></div>
@@ -315,15 +315,15 @@
 <h1 class="font-display-xl text-[60px] md:text-[100px] text-white leading-[0.9] uppercase reveal stagger-1">
 Hassan<br/><span class="text-primary">Masood</span>
 </h1>
-<p class="font-body-md text-body-lg text-secondary max-w-xl border-l-4 border-primary pl-6 py-2 bg-void-black/40 backdrop-blur-sm reveal stagger-2">
+<p class="font-body-md text-body-lg text-secondary max-w-xl border-l-4 border-primary pl-6 py-2 bg-void-black/40 backdrop-blur-sm reveal stagger-2" data-t="hero-tagline">
 Kestävä liiketoimintakehittäjä, joka erikoistuu ESG- ja CBAM-vaatimustenmukaisuuteen sekä kansainväliseen kaupalliseen strategiaan.
 </p>
 <div class="flex flex-wrap gap-4 pt-6 reveal stagger-3">
-<a class="bg-primary text-void-black px-8 py-4 font-label-sm text-label-sm uppercase hover:bg-white transition-colors inline-flex items-center gap-2 font-bold btn-pulse" href="about.html">
-Full Story <span class="material-symbols-outlined text-sm">arrow_forward</span>
+<a class="bg-primary text-void-black px-8 py-4 font-label-sm text-label-sm uppercase hover:bg-white transition-colors inline-flex items-center gap-2 font-bold btn-pulse" href="about.html" data-t="hero-cta1">
+Koko tarina <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
-<a class="border border-primary/50 text-primary px-8 py-4 font-label-sm text-label-sm uppercase hover:bg-primary hover:text-void-black transition-colors inline-flex items-center gap-2 font-bold" href="contact.html">
-Get in Touch
+<a class="border border-primary/50 text-primary px-8 py-4 font-label-sm text-label-sm uppercase hover:bg-primary hover:text-void-black transition-colors inline-flex items-center gap-2 font-bold" href="contact.html" data-t="hero-cta2">
+Ota yhteyttä
 </a>
 </div>
 </div>
@@ -337,22 +337,22 @@ Get in Touch
 <div class="flex items-end gap-6 mb-12 reveal">
 <span class="text-[120px] font-display-xl leading-none text-void-black opacity-10 -mb-4 transition-opacity hover:opacity-20 duration-300">01</span>
 <div>
-<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-void-black uppercase">Tarina</h2>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-void-black uppercase" data-t="story-h2">Tarina</h2>
 <div class="w-16 h-1 bg-primary mt-2"></div>
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter reveal stagger-1">
 <div class="md:col-span-8 space-y-6 font-body-md text-body-lg text-surface-container-highest">
-<p>I'm a Finland-based sustainable business developer specialising in <strong class="text-inverse-primary font-bold">ESG and CBAM compliance</strong>, sales systems, and cross-border commercial strategy. I translate complex EU frameworks â€” CBAM, CSRD, supplier data collection, CN-code reclassification â€” into practical systems that organisations can actually operate day to day.</p>
-<p>Over five years and three continents, I've managed cross-border supply chains across 2,400 collection sites in Pakistan, deployed CSRD compliance frameworks for Finnish exporters, and built data-driven sales pipelines for both B2B and e-commerce businesses.</p>
-<p>Alongside compliance work, I offer <strong class="text-inverse-primary font-bold">web design and development</strong>, digital marketing strategy, CRM implementation on HubSpot and Salesforce, and international market entry support. Available in six languages: English, Finnish, Swedish, Arabic, Turkish, and Urdu.</p>
+<p data-t="story-p1">Olen Suomessa toimiva kestävä liiketoimintakehittäjä, joka erikoistuu <strong class="text-inverse-primary font-bold">ESG- ja CBAM-vaatimustenmukaisuuteen</strong>, myyntijärjestelmiin ja rajat ylittävään kaupalliseen strategiaan. Muunnan monimutkaiset EU-viitekehykset — CBAM, CSRD, toimittajatietojen kerääminen, CN-koodiuudelleenluokittelu — käytännön järjestelmiksi, joita organisaatiot voivat operoida päivittäin.</p>
+<p data-t="story-p2">Viiden vuoden ja kolmen mantereen aikana olen hallinnoinut rajat ylittäviä toimitusketjuja 2 400 keräyspisteessä Pakistanissa, ottanut käyttöön CSRD-vaatimustenmukaisuuskehyksiä suomalaisille viejille ja rakentanut dataohjattuja myyntiputkia sekä B2B- että verkkokauppaliketoiminnalle.</p>
+<p data-t="story-p3">Vaatimustenmukaisuustyön ohella tarjoan <strong class="text-inverse-primary font-bold">verkkosuunnittelua ja -kehitystä</strong>, digitaalista markkinointistrategiaa, CRM-käyttöönottoa HubSpotissa ja Salesforcessa sekä kansainvälistä markkinoille pääsyn tukea. Saatavilla kuudella kielellä: englanti, suomi, ruotsi, arabia, turkki ja urdu.</p>
 <div class="p-8 mt-10 border-l-4 border-l-primary bg-paper-white relative group transition-colors hover:bg-white">
 <span class="material-symbols-outlined absolute top-4 right-4 text-primary/40 text-4xl transition-transform group-hover:scale-110 group-hover:text-primary/60">format_quote</span>
-<p class="relative z-10 italic text-void-black font-body-lg">"I hold a BBA from TAMK with a CGPA of 4.29/5.0 and placed 3rd at Huawei Tech Arena Finland 2025 â€” the only non-CS competitor on the podium."</p>
+<p class="relative z-10 italic text-void-black font-body-lg" data-t="story-quote">"Minulla on BBA TAMK:lta CGPA:lla 4,29/5,0 ja sijoituin 3. sijalle Huawei Tech Arena Finland 2025:ssa — ainoana ei-CS-kilpailijana podiumilla."</p>
 </div>
 <div class="pt-4">
-<a class="inline-flex items-center gap-2 bg-void-black text-white px-8 py-4 font-label-sm text-label-sm uppercase hover:bg-primary hover:text-void-black transition-colors font-bold btn-pulse" href="about.html">
-Full Story <span class="material-symbols-outlined text-sm">arrow_forward</span>
+<a class="inline-flex items-center gap-2 bg-void-black text-white px-8 py-4 font-label-sm text-label-sm uppercase hover:bg-primary hover:text-void-black transition-colors font-bold btn-pulse" href="about.html" data-t="story-cta1">
+Koko tarina <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
 </div>
 </div>
@@ -370,8 +370,8 @@ Full Story <span class="material-symbols-outlined text-sm">arrow_forward</span>
 <div class="flex items-end gap-6 mb-16 md:mb-24 reveal">
 <span class="text-[120px] font-display-xl leading-none text-white opacity-20 -mb-4 transition-opacity hover:opacity-40 duration-300">02</span>
 <div>
-<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white uppercase">Palvelut</h2>
-<p class="font-body-md text-secondary mt-2 max-w-md">Käytännön työtä kaupallisella fokuksella. Saatavilla kuudella kielellä.</p>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white uppercase" data-t="svc-h2">Palvelut</h2>
+<p class="font-body-md text-secondary mt-2 max-w-md" data-t="svc-lede">Käytännön työtä kaupallisella fokuksella. Saatavilla kuudella kielellä.</p>
 </div>
 </div>
 <!-- Diamond Services Layout -->
@@ -385,7 +385,7 @@ Full Story <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </div>
 <div class="flex-1 border-b border-smoke-gray pb-6 transition-colors duration-300 group-hover:border-primary/50">
 <h3 class="font-headline-lg text-2xl md:text-3xl text-white mb-3 uppercase group-hover:text-primary transition-colors duration-300">ESG &amp; Kestävyys</h3>
-<p class="font-body-md text-secondary max-w-2xl group-hover:text-white transition-colors duration-300">CBAM, CSRD, supplier data, LCA â€” built from hands-on implementation experience.</p>
+<p class="font-body-md text-secondary max-w-2xl group-hover:text-white transition-colors duration-300" data-t="svc-esg-p">CBAM, CSRD, toimittajatiedot, elinkaariarviointi — rakennettu käytännön toteutuskokemuksesta.</p>
 </div>
 </a>
 <!-- Service 2 -->
@@ -421,7 +421,7 @@ Full Story <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </div>
 <div class="flex-1 border-b border-smoke-gray pb-6 transition-colors duration-300 group-hover:border-primary/50">
 <h3 class="font-headline-lg text-2xl md:text-3xl text-white mb-3 uppercase group-hover:text-primary transition-colors duration-300">Verkkosuunnittelu &amp; Kehitys</h3>
-<p class="font-body-md text-secondary max-w-2xl md:ml-auto group-hover:text-white transition-colors duration-300">Clean, fast, mobile-first websites built to convert â€” concept to go-live.</p>
+<p class="font-body-md text-secondary max-w-2xl md:ml-auto group-hover:text-white transition-colors duration-300" data-t="svc-web-p">Puhtaat, nopeat, mobiiliensijaiset verkkosivut — konseptista julkaisuun.</p>
 </div>
 </a>
 </div>
@@ -439,7 +439,7 @@ Näytä kaikki 8 palvelua <span class="material-symbols-outlined text-sm">arrow_
 <div class="flex items-end gap-6 mb-16 reveal">
 <span class="text-[120px] font-display-xl leading-none text-outline opacity-30 -mb-4 transition-opacity hover:opacity-60 duration-300">03</span>
 <div>
-<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase text-void-black">Osaaminen</h2>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase text-void-black" data-t="cap-h2">Osaaminen</h2>
 <div class="w-16 h-1 bg-primary mt-2"></div>
 </div>
 </div>
