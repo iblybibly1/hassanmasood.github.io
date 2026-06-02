@@ -227,7 +227,10 @@ body { background-color:#131311; color:#e5e2de; overflow-x:hidden; font-family:'
 function submitForm(){
   const btn=document.getElementById('submitBtn'),status=document.getElementById('cstatus');
   btn.textContent='Sending...';btn.disabled=true;
-  setTimeout(()=>{status.textContent="Message sent! I'll be in touch soon.";status.className='font-label-sm text-label-sm uppercase tracking-widest text-center text-green-600';btn.textContent='Send message →';btn.disabled=false;},1200);
+  var lang = localStorage.getItem('hm_lang') || 'fi';
+  var sentMsg = lang === 'en' ? "Message sent! I'll be in touch soon." : "Viesti lähetetty! Otan yhteyttä pian.";
+  var sendLabel = lang === 'en' ? 'Send message →' : 'Lähetä viesti →';
+  setTimeout(()=>{status.textContent=sentMsg;status.className='font-label-sm text-label-sm uppercase tracking-widest text-center text-green-600';btn.textContent=sendLabel;btn.disabled=false;},1200);
 }
 document.addEventListener("DOMContentLoaded",()=>{
   const obs=new IntersectionObserver((e,o)=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('active');o.unobserve(en.target)}})},{threshold:0.1});
