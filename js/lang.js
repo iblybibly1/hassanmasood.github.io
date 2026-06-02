@@ -447,6 +447,11 @@
       applyLang('en');
     }
 
+    // On mobile, remove scale/blur from bg-vid — they worsen quality on small screens
+    var mobileStyle = document.createElement('style');
+    mobileStyle.textContent = '@media (max-width:767px){.bg-vid{transform:none!important;filter:brightness(0.5)!important;}}';
+    document.head.appendChild(mobileStyle);
+
     // Background pause button
     if (document.querySelector('.bg-vid')) {
       var pauseBtn = document.createElement('button');
