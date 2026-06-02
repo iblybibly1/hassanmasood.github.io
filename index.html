@@ -304,11 +304,6 @@
 <div class="max-w-container-max mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-gutter items-center relative z-10 pt-12 pb-20">
 <!-- Text Content -->
 <div class="col-span-1 md:col-span-7 space-y-6">
-<!-- Mobile photo: above text, desktop hidden -->
-<div class="md:hidden flex justify-center -mx-4 mb-2 relative h-72 overflow-hidden">
-<img src="assets/img/profile.png" alt="Hassan Masood" class="h-full object-contain object-bottom"/>
-<div class="absolute bottom-0 left-0 right-0 h-1/3" style="background:linear-gradient(to top,#050505,transparent);"></div>
-</div>
 <div class="inline-flex items-center gap-2 px-4 py-2 bg-void-black/80 border border-primary/50 font-label-sm text-label-sm text-primary uppercase tracking-widest backdrop-blur-sm reveal">
 <span class="w-2 h-2 bg-primary animate-pulse"></span> Available · Inkoo, Finland · 2026
 </div>
@@ -318,13 +313,20 @@ Hassan<br/><span class="text-primary">Masood</span>
 <p class="font-body-md text-body-lg text-secondary max-w-xl border-l-4 border-primary pl-6 py-2 bg-void-black/40 backdrop-blur-sm reveal stagger-2" data-t="hero-tagline">
 Kestävä liiketoimintakehittäjä, joka erikoistuu ESG- ja CBAM-vaatimustenmukaisuuteen sekä kansainväliseen kaupalliseen strategiaan.
 </p>
-<div class="flex flex-wrap gap-4 pt-6 reveal stagger-3">
+<!-- Buttons + small photo side by side on mobile -->
+<div class="flex items-end gap-4 pt-6 reveal stagger-3">
+<div class="flex flex-col gap-3 flex-1">
 <a class="bg-primary text-void-black px-8 py-4 font-label-sm text-label-sm uppercase hover:bg-white transition-colors inline-flex items-center gap-2 font-bold btn-pulse" href="about.html" data-t="hero-cta1">
 Koko tarina <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
 <a class="border border-primary/50 text-primary px-8 py-4 font-label-sm text-label-sm uppercase hover:bg-primary hover:text-void-black transition-colors inline-flex items-center gap-2 font-bold" href="contact.html" data-t="hero-cta2">
 Ota yhteyttä
 </a>
+</div>
+<div class="md:hidden relative w-28 shrink-0 overflow-hidden" style="height:140px;">
+<img src="assets/img/profile.png" alt="Hassan Masood" class="w-full h-full object-contain object-bottom"/>
+<div class="absolute bottom-0 left-0 right-0 h-6" style="background:linear-gradient(to top,#050505,transparent);"></div>
+</div>
 </div>
 </div>
 </div>
