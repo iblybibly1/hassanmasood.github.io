@@ -402,7 +402,7 @@
     applyFooter(t);
     applyPageContent(lang);
     document.documentElement.setAttribute('lang', lang);
-    document.querySelectorAll('#lang-btn, #lang-btn-mobile').forEach(function(b) {
+    document.querySelectorAll('#lang-btn, #lang-btn-mobile, #lang-btn-mobile-nav').forEach(function(b) {
       b.textContent = lang === 'fi' ? 'EN' : 'FI';
     });
   }
@@ -427,6 +427,20 @@
     // Add mobile toggle at bottom of mobile menu
     var mobileInner = document.querySelector('#mobileMenu > div');
     if (mobileInner) addToggleBtn(mobileInner, 'lang-btn-mobile', 'w-full text-center');
+
+    // Add always-visible mobile toggle next to hamburger button in nav bar
+    var hamburger = document.getElementById('mobileMenuBtn');
+    if (hamburger) {
+      var mobileNavBtn = document.createElement('button');
+      mobileNavBtn.id = 'lang-btn-mobile-nav';
+      mobileNavBtn.className = 'md:hidden font-label-sm text-label-sm border border-smoke-gray px-3 py-1 uppercase tracking-widest transition-colors hover:border-primary hover:text-primary text-on-surface-variant';
+      mobileNavBtn.textContent = currentLang === 'fi' ? 'EN' : 'FI';
+      mobileNavBtn.setAttribute('aria-label', 'Toggle language');
+      mobileNavBtn.addEventListener('click', function() {
+        applyLang(currentLang === 'fi' ? 'en' : 'fi');
+      });
+      hamburger.parentNode.insertBefore(mobileNavBtn, hamburger);
+    }
 
     // Apply saved language on load
     if (currentLang === 'en') {
