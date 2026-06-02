@@ -288,10 +288,10 @@
 <!-- Hero Section -->
 <section class="relative min-h-screen flex items-center px-margin-mobile md:px-gutter slant-bottom bg-void-black overflow-hidden z-10">
 <div class="absolute inset-0 z-0 overflow-hidden">
-<img src="assets/img/bg-hero.png" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover opacity-70 mix-blend-screen animate-drift" style="image-rendering:auto;"/>
+<canvas id="gif-bg-1" aria-hidden="true" class="absolute inset-0 w-full h-full animate-drift" style="opacity:0.7;mix-blend-mode:screen;object-fit:cover;"></canvas>
 </div>
 <div class="absolute inset-0 z-0 overflow-hidden">
-<img src="assets/img/bg-hero.png" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover opacity-90 mix-blend-multiply animate-drift" style="animation-delay:-10s;image-rendering:auto;"/>
+<canvas id="gif-bg-2" aria-hidden="true" class="absolute inset-0 w-full h-full animate-drift" style="opacity:0.9;mix-blend-mode:multiply;object-fit:cover;animation-delay:-10s;"></canvas>
 </div>
 <div class="absolute inset-0 z-0 bg-gradient-to-b from-void-black/80 via-transparent to-void-black/90"></div>
 <!-- Profile photo — desktop only, absolute right column -->
@@ -580,4 +580,85 @@ Hassan Masood
     });
 </script>
 <script src="js/lang.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gifler@0.1.0/gifler.min.js"></script>
+<script>
+(function () {
+  var GIF = 'assets/img/bg-hero.gif';
+  var canvasIds = ['gif-bg-1', 'gif-bg-2'];
+
+  function startPingPong(canvasEl, frames, delays) {
+    var ctx = canvasEl.getContext('2d');
+    var idx = 0, dir = 1;
+
+    function resize() {
+      canvasEl.width = canvasEl.offsetWidth || canvasEl.parentElement.offsetWidth;
+      canvasEl.height = canvasEl.offsetHeight || canvasEl.parentElement.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function drawCover(src) {
+      var sw = src.width, sh = src.height;
+      var cw = canvasEl.width, ch = canvasEl.height;
+      if (!cw || !ch || !sw || !sh) return;
+      var scale = Math.max(cw / sw, ch / sh);
+      ctx.clearRect(0, 0, cw, ch);
+      ctx.drawImage(src, (cw - sw * scale) / 2, (ch - sh * scale) / 2, sw * scale, sh * scale);
+    }
+
+    (function tick() {
+      drawCover(frames[idx]);
+      var delay = Math.max(delays[idx] || 80, 30);
+      idx += dir;
+      if (idx >= frames.length - 1) dir = -1;
+      else if (idx <= 0) dir = 1;
+      setTimeout(tick, delay);
+    }());
+  }
+
+  function loadGif(canvasEl) {
+    var frames = [], delays = [], done = false;
+    var tmp = document.createElement('canvas');
+
+    gifler(GIF).get(function (animator) {
+      tmp.width = animator.width;
+      tmp.height = animator.height;
+      var total = animator._reader ? animator._reader.numFrames() : 0;
+
+      animator.frames(tmp, function (ctx, frame) {
+        if (done) return;
+        var copy = document.createElement('canvas');
+        copy.width = tmp.width; copy.height = tmp.height;
+        copy.getContext('2d').drawImage(tmp, 0, 0);
+        frames.push(copy);
+        delays.push(Math.max((frame.delay || 8) * 10, 30));
+
+        if (total > 0 && frames.length >= total) {
+          done = true;
+          animator.stop();
+          startPingPong(canvasEl, frames, delays);
+        }
+      }, true);
+
+      // Fallback if _reader not accessible
+      if (!total) {
+        setTimeout(function () {
+          if (!done && frames.length > 1) {
+            done = true;
+            animator.stop();
+            startPingPong(canvasEl, frames, delays);
+          }
+        }, 6000);
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    canvasIds.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) loadGif(el);
+    });
+  });
+}());
+</script>
 </body></html>
