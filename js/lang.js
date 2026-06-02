@@ -31,63 +31,58 @@
     footWebDesign: 'Verkkosuunnittelu', footESG: 'ESG & CBAM',
     footSales: 'Myynti & CRM', footAll: 'Kaikki palvelut', footContactPage: 'Yhteystiedot',
     footBrand: 'Kestävä liiketoimintakehittäjä. ESG- ja CBAM-vaatimustenmukaisuus, myynti- ja dataohjattu strategia.',
-    footBottom: '© 2026 M. Hassan Masood · Kaikki oikeudet pidätetään · Y-tunnus 3573040-9 · Inkoo, Suomi',
+    footBottom: '© 2026 M. Hassan Masood · Kaikki oikeudet pidätетään · Y-tunnus 3573040-9 · Inkoo, Suomi',
   };
 
   function applyNav(t) {
     document.querySelectorAll('nav a').forEach(function(a) {
       var href = a.getAttribute('href') || '';
-      var hasIcon = !!a.querySelector('span.material-symbols-outlined');
-      if (hasIcon) return; // skip logo and links with icons
+      if (a.querySelector('span.material-symbols-outlined')) return;
       var txt = a.textContent.trim();
       if (href.endsWith('about.html') && (txt === 'Tietoa' || txt === 'About')) a.textContent = t.about;
       else if (href.endsWith('work.html') && (txt === 'Kokemus' || txt === 'Work')) a.textContent = t.work;
       else if (href.endsWith('projects.html') && (txt === 'Projektit' || txt === 'Projects')) a.textContent = t.projects;
       else if (href.endsWith('skills.html') && (txt === 'Taidot' || txt === 'Skills')) a.textContent = t.skills;
     });
-    // Services dropdown trigger (has chevron icon)
     document.querySelectorAll('nav a[href$="services.html"]').forEach(function(a) {
       var icon = a.querySelector('span');
       if (icon) { a.textContent = t.services; a.appendChild(icon); }
     });
-    // CTA hire me button
     document.querySelectorAll('a.bg-primary[href$="contact.html"], a.font-bold[href$="contact.html"]').forEach(function(a) {
-      a.textContent = t.hireMeBtn;
+      if (!a.id) a.textContent = t.hireMeBtn;
     });
-    // Dropdown items
     document.querySelectorAll('nav .absolute a').forEach(function(a) {
       var href = a.getAttribute('href') || '';
-      if (href.includes('web-design'))       a.textContent = t.ddWebDesign;
-      else if (href.includes('esg'))         a.textContent = t.ddESG;
-      else if (href.includes('digital'))     a.textContent = t.ddDigital;
-      else if (href.includes('sales-crm'))   a.textContent = t.ddSales;
+      if (href.includes('web-design'))        a.textContent = t.ddWebDesign;
+      else if (href.includes('esg'))          a.textContent = t.ddESG;
+      else if (href.includes('digital'))      a.textContent = t.ddDigital;
+      else if (href.includes('sales-crm'))    a.textContent = t.ddSales;
       else if (href.includes('international')) a.textContent = t.ddIntl;
-      else if (href.includes('brand'))       a.textContent = t.ddBrand;
-      else if (href.includes('social'))      a.textContent = t.ddSocial;
-      else if (href.includes('business'))    a.textContent = t.ddBiz;
+      else if (href.includes('brand'))        a.textContent = t.ddBrand;
+      else if (href.includes('social'))       a.textContent = t.ddSocial;
+      else if (href.includes('business'))     a.textContent = t.ddBiz;
     });
   }
 
   function applyFooter(t) {
     document.querySelectorAll('footer h5').forEach(function(h) {
       var txt = h.textContent.trim();
-      if (txt === 'Sivusto' || txt === 'Site')             h.textContent = t.footSiteH;
-      else if (txt === 'Palvelut' || txt === 'Services')   h.textContent = t.footSvcH;
+      if (txt === 'Sivusto' || txt === 'Site')              h.textContent = t.footSiteH;
+      else if (txt === 'Palvelut' || txt === 'Services')    h.textContent = t.footSvcH;
       else if (txt === 'Yhteystiedot' || txt === 'Contact') h.textContent = t.footContactH;
     });
     document.querySelectorAll('footer ul a').forEach(function(a) {
       var href = a.getAttribute('href') || '';
-      var txt = a.textContent.trim();
-      if (href.includes('index'))              a.textContent = t.footHome;
-      else if (href.includes('about'))         a.textContent = t.footAbout;
-      else if (href.includes('work'))          a.textContent = t.footWork;
-      else if (href.includes('projects'))      a.textContent = t.footProjects;
-      else if (href.includes('skills'))        a.textContent = t.footSkills;
-      else if (href.includes('web-design'))    a.textContent = t.footWebDesign;
-      else if (href.includes('esg'))           a.textContent = t.footESG;
-      else if (href.includes('sales-crm'))     a.textContent = t.footSales;
+      if (href.includes('index'))               a.textContent = t.footHome;
+      else if (href.includes('about'))          a.textContent = t.footAbout;
+      else if (href.includes('work'))           a.textContent = t.footWork;
+      else if (href.includes('projects'))       a.textContent = t.footProjects;
+      else if (href.includes('skills'))         a.textContent = t.footSkills;
+      else if (href.includes('web-design'))     a.textContent = t.footWebDesign;
+      else if (href.includes('esg'))            a.textContent = t.footESG;
+      else if (href.includes('sales-crm'))      a.textContent = t.footSales;
       else if (href.includes('services') && !href.includes('/services/')) a.textContent = t.footAll;
-      else if (href.includes('contact'))       a.textContent = t.footContactPage;
+      else if (href.includes('contact'))        a.textContent = t.footContactPage;
     });
     var brandP = document.querySelector('footer .flex-col > p');
     if (brandP) brandP.textContent = t.footBrand;
@@ -109,28 +104,13 @@
     });
   }
 
-  function addToggleBtn(container, id, extraClass) {
-    var btn = document.createElement('button');
-    btn.id = id;
-    btn.className = 'font-label-sm text-label-sm border border-smoke-gray px-3 py-1 uppercase tracking-widest transition-colors hover:border-primary hover:text-primary text-on-surface-variant ' + (extraClass || '');
-    btn.textContent = currentLang === 'fi' ? 'EN' : 'FI';
-    btn.setAttribute('aria-label', 'Toggle language');
-    btn.addEventListener('click', function() {
-      applyLang(currentLang === 'fi' ? 'en' : 'fi');
-    });
-    container.appendChild(btn);
+  /* Expose toggle globally for inline onclick */
+  window.__toggleLang = function() {
+    applyLang(currentLang === 'fi' ? 'en' : 'fi');
+  };
+
+  /* Apply saved preference on load */
+  if (currentLang === 'en') {
+    applyLang('en');
   }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    // Add desktop toggle between nav links and CTA button
-    var desktopNav = document.querySelector('nav .hidden.md\\:flex');
-    if (desktopNav) addToggleBtn(desktopNav, 'lang-btn', '');
-
-    // Add mobile toggle at bottom of mobile menu
-    var mobileInner = document.querySelector('#mobileMenu > div');
-    if (mobileInner) addToggleBtn(mobileInner, 'lang-btn-mobile', 'w-full text-center');
-
-    // Apply saved language on load
-    if (currentLang === 'en') applyLang('en');
-  });
 })();
