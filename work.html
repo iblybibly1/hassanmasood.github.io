@@ -1,374 +1,347 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Work History — Hassan Masood</title>
+<html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Work | Hassan Masood</title>
 <meta name="description" content="Full work history: sales, ESG compliance, e-commerce, and business development across Finland, Pakistan, and the UAE."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="css/editorial.css"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@700;800&amp;family=DM+Sans:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "inverse-primary": "#c00003","on-surface-variant": "#ebbcb4","primary": "#C8421C",
+          "surface-variant": "#353532","surface": "#131311","secondary": "#c6c6c7",
+          "surface-container-high": "#2a2a28","paper-white": "#F2EDE6","glow-red": "#FF4D4D",
+          "surface-container-lowest": "#0e0e0c","primary-container": "#ff5542",
+          "surface-container": "#20201d","smoke-gray": "#2D2D2A","void-black": "#050505",
+          "tertiary-container": "#92908d","surface-bright": "#3a3937","on-background": "#e5e2de",
+          "background": "#131311","surface-container-highest": "#353532"
+        },
+        "spacing": {
+          "stack-sm": "0.5rem","margin-mobile": "1rem","gutter": "2rem",
+          "section-padding": "8rem","container-max": "1440px","stack-md": "1.5rem","stack-lg": "4rem"
+        },
+        "fontFamily": {
+          "display-xl": ["Anybody"],"body-lg": ["DM Sans"],"headline-lg-mobile": ["Anybody"],
+          "label-sm": ["JetBrains Mono"],"headline-lg": ["Anybody"],"body-md": ["DM Sans"]
+        },
+        "fontSize": {
+          "display-xl": ["80px",{"lineHeight":"1.0","letterSpacing":"-0.04em","fontWeight":"800"}],
+          "body-lg": ["18px",{"lineHeight":"1.6","fontWeight":"400"}],
+          "headline-lg-mobile": ["32px",{"lineHeight":"1.2","fontWeight":"700"}],
+          "label-sm": ["12px",{"lineHeight":"1.4","letterSpacing":"0.1em","fontWeight":"500"}],
+          "headline-lg": ["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"700"}],
+          "body-md": ["16px",{"lineHeight":"1.6","fontWeight":"400"}]
+        }
+      }
+    }
+  }
+</script>
 <style>
-.tl-bullets {
-  list-style: none;
-  display: flex; flex-direction: column; gap: 10px;
-  max-height: 0; opacity: 0; overflow: hidden;
-  transition: max-height .5s ease, opacity .35s ease, padding-top .35s;
-  padding-top: 0;
+body { background-color:#131311; color:#e5e2de; overflow-x:hidden; font-family:'DM Sans',system-ui,sans-serif; }
+::-webkit-scrollbar{width:8px} ::-webkit-scrollbar-track{background:#050505} ::-webkit-scrollbar-thumb{background:#2D2D2A}
+.btn-pulse{position:relative;overflow:hidden}
+.btn-pulse::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(to right,transparent,rgba(255,255,255,0.3),transparent);transform:skewX(-20deg);transition:left 0.5s ease}
+.btn-pulse:hover::after{left:150%}
+@media (prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s cubic-bezier(0.5,0,0,1),transform 0.7s cubic-bezier(0.5,0,0,1)}
+  .reveal.active{opacity:1;transform:translateY(0)}
+  .stagger-1{transition-delay:100ms} .stagger-2{transition-delay:200ms} .stagger-3{transition-delay:300ms}
 }
-.tl-row.expand .tl-bullets { max-height: 900px; opacity: 1; padding-top: 16px; }
-.tl-bullets li { font-size: 15.5px; color: var(--ink-2); line-height: 1.7; padding-left: 20px; position: relative; max-width: 70ch; }
-.tl-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-family: var(--mono); font-size: 13px; top: 3px; }
-.tl-row { cursor: pointer; }
-.tl-hint {
-  display: inline-flex; align-items: center; gap: 6px;
-  margin-top: 14px;
-  font-family: var(--mono); font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase;
-  color: var(--ink-2); border: 1px solid var(--line-2); border-radius: 100px;
-  padding: 6px 16px; background: var(--paper-2);
-  transition: background .2s, color .2s, border-color .2s;
-  pointer-events: none;
-}
-.tl-hint::before { content: 'View details  ↓'; }
-.tl-row:hover .tl-hint { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.tl-row.expand .tl-hint::before { content: 'Close  ↑'; }
-.tl-row.expand .tl-hint { background: transparent; color: var(--accent); border-color: var(--accent); }
-.edu-block { display: flex; flex-direction: column; }
-.edu-row { padding: 20px 0; border-bottom: 1px solid var(--line-2); display: grid; grid-template-columns: 130px 1fr; gap: 24px; }
-.edu-row:last-child { border-bottom: none; }
-.edu-year { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); padding-top: 4px; }
-.edu-name { font-family: var(--display); font-size: 22px; letter-spacing: -0.015em; line-height: 1.1; }
-.edu-inst { font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
-.edu-detail { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--accent); margin-top: 6px; }
-@media (max-width: 680px) { .edu-row { grid-template-columns: 1fr; gap: 6px; } }
+.tl-bullets { display:none; }
+.tl-item.open .tl-bullets { display:block; }
+.tl-item.open .tl-icon { transform: rotate(45deg); }
+.tl-icon { transition: transform 0.3s ease; display:inline-block; }
 </style>
 </head>
-<body>
-<canvas id="stars" aria-hidden="true"></canvas>
-<div class="cursor" id="cursor"></div>
+<body class="flex flex-col min-h-screen">
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">Hassan<span class="dot"></span></a>
-    <div class="nav-links">
-      <a href="about.html">About</a>
-      <div class="nav-drop">
-      <a href="services.html" class="nav-drop-trigger">Services <span class="nav-drop-arrow">▾</span></a>
-      <div class="nav-drop-menu">
-        <a href="services/web-design.html">Web Design</a>
-        <a href="services/esg.html">ESG &amp; CBAM</a>
-        <a href="services/digital-marketing.html">Digital Marketing</a>
-        <a href="services/sales-crm.html">Sales &amp; CRM</a>
-        <a href="services/international-expansion.html">International Expansion</a>
-        <a href="services/brand-content.html">Brand &amp; Content</a>
-        <a href="services/social-paid.html">Social &amp; Paid Ads</a>
-        <a href="services/business-development.html">Business Development</a>
-      </div>
-    </div>
-      <a href="work.html" class="active">Work</a>
-      <a href="projects.html">Projects</a>
-      <a href="skills.html">Skills</a>
-    </div>
-    <a href="contact.html" class="nav-cta"><span class="pulse"></span>Contact</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-  </div>
-</nav>
+<nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-primary/20 transition-all duration-300">
+<div class="flex justify-between items-center px-margin-mobile md:px-gutter py-4 max-w-container-max mx-auto">
+<a class="font-display-xl text-body-lg uppercase tracking-widest text-white flex items-center gap-2" href="index.html">
+<span class="material-symbols-outlined text-primary">change_history</span> HASSAN MASOOD</a>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant hover:text-primary transition-all duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="about.html">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="services.html">Services</a>
+<a class="text-primary transition-all duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="work.html">Work</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="projects.html">Projects</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="skills.html">Skills</a>
+</div>
+<a class="hidden md:inline-flex bg-primary text-void-black px-6 py-2 font-label-sm text-label-sm uppercase hover:bg-white transition-colors items-center justify-center font-bold btn-pulse" href="contact.html">Hire Me</a>
+<button class="md:hidden text-white p-2 hover:text-primary transition-colors" id="mobileMenuBtn" aria-label="Open menu">
+<span class="material-symbols-outlined" id="mobileMenuIcon">menu</span></button>
+</div>
+<div class="md:hidden hidden bg-background border-t border-smoke-gray" id="mobileMenu">
+<div class="px-margin-mobile py-6 flex flex-col gap-5">
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-sm text-label-sm uppercase tracking-widest" href="about.html">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-sm text-label-sm uppercase tracking-widest" href="services.html">Services</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-sm text-label-sm uppercase tracking-widest" href="work.html">Work</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-sm text-label-sm uppercase tracking-widest" href="projects.html">Projects</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-sm text-label-sm uppercase tracking-widest" href="skills.html">Skills</a>
+<a class="bg-primary text-void-black px-6 py-3 font-label-sm text-label-sm uppercase font-bold text-center" href="contact.html">Hire Me</a>
+</div></div></nav>
 
-<div class="drawer" id="drawer">
-  <button class="drawer-close" id="drawerClose" aria-label="Close">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
-  </button>
-  <a href="about.html"><span>About</span><span class="num">01</span></a>
-  <a href="services.html"><span>Services</span><span class="num">02</span></a>
-  <a href="work.html"><span>Work</span><span class="num">03</span></a>
-  <a href="projects.html"><span>Projects</span><span class="num">04</span></a>
-  <a href="skills.html"><span>Skills</span><span class="num">05</span></a>
-  <a href="contact.html"><span>Contact</span><span class="num">06</span></a>
-  <div class="drawer-foot"><span>Inkoo, FI</span><span>Open to work</span></div>
+<main class="flex-grow pt-[80px]">
+<section class="relative py-24 md:py-32 px-margin-mobile md:px-gutter bg-void-black overflow-hidden">
+<div class="absolute inset-0 opacity-20" style="background:radial-gradient(ellipse at 70% 50%,rgba(200,66,28,0.3),transparent 70%);"></div>
+<div class="max-w-container-max mx-auto relative z-10">
+<div class="inline-flex items-center gap-2 mb-6 font-label-sm text-label-sm text-primary uppercase tracking-widest">
+<span class="w-2 h-2 bg-primary rotate-45 inline-block"></span> 03 &mdash; Work
+</div>
+<h1 class="font-display-xl text-[52px] md:text-[80px] text-white leading-[0.9] uppercase mb-6">Recent<br/><span class="text-primary">Positions.</span></h1>
+<p class="font-body-md text-body-lg text-secondary max-w-2xl border-l-4 border-primary pl-6 py-2">Five roles across sales, ESG compliance, e-commerce operations, and business development &mdash; spanning Finland, Pakistan, and the UAE.</p>
+</div>
+</section>
+
+<section class="py-16 md:py-24 px-margin-mobile md:px-gutter bg-white">
+<div class="max-w-container-max mx-auto">
+<div class="mb-12 reveal">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-void-black uppercase">Experience</h2>
+<div class="w-16 h-1 bg-primary mt-2"></div>
+</div>
+<div class="reveal stagger-1">
+
+<div class="tl-item border-b border-smoke-gray pb-8 mb-8 cursor-pointer" onclick="this.classList.toggle('open')">
+<div class="flex justify-between items-start">
+<div>
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Mar 2025 &mdash; Dec 2025</div>
+<div class="font-headline-lg text-xl text-void-black uppercase mb-1">Sales &amp; ESG Compliance Manager</div>
+<div class="font-body-md text-body-md text-surface-container-highest">FinSell Oy &middot; Tampere, Finland</div>
+</div>
+<span class="material-symbols-outlined text-primary tl-icon text-2xl mt-1">add</span>
+</div>
+<ul class="tl-bullets mt-4 space-y-3">
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Led CBAM (Carbon Border Adjustment Mechanism) implementation from scratch &mdash; built the data collection pipeline, reclassified CN codes, and submitted the first quarterly reports on time with zero regulatory penalties.</span></li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Designed and managed a B2B outreach system targeting Nordic industrial buyers; grew qualified pipeline by 40% in six months through structured prospecting, CRM discipline, and follow-through cadence.</span></li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Coordinated supplier ESG data collection across six international vendors, developing a repeatable questionnaire and scoring framework now used as the company standard.</span></li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Built internal dashboards in Power BI to track compliance deadlines, emission data, and sales KPIs &mdash; reducing reporting time from two days per quarter to under four hours.</span></li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Served as primary point of contact for EU customs authorities during the transitional CBAM phase, translating regulatory guidance into actionable internal processes.</span></li>
+</ul>
 </div>
 
-<div class="page-hero">
-  <div class="wrap">
-    <div class="page-hero-tag r show" data-i18n="work-page-num">03 — Work History</div>
-    <h1 class="page-hero-title r show d1" data-i18n="work-page-title">Recent <span class="em">positions.</span></h1>
-    <p class="page-hero-lede r show d2" data-i18n="work-page-lede">Five roles across sales, ESG compliance, e-commerce operations, and business development — spanning Finland, Pakistan, and the UAE.</p>
-  </div>
+<div class="tl-item border-b border-smoke-gray pb-8 mb-8 cursor-pointer" onclick="this.classList.toggle('open')">
+<div class="flex justify-between items-start">
+<div>
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Jun 2024 &mdash; Oct 2024</div>
+<div class="font-headline-lg text-xl text-void-black uppercase mb-1">Marketing &amp; Digital Strategy Intern</div>
+<div class="font-body-md text-body-md text-surface-container-highest">Tammer Brands Oy &middot; Tampere, Finland</div>
+</div>
+<span class="material-symbols-outlined text-primary tl-icon text-2xl mt-1">add</span>
+</div>
+<ul class="tl-bullets mt-4 space-y-3">
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Conducted full audience segmentation analysis for two product lines, identifying underserved B2B segments in Scandinavian markets that led to a revised 2025 campaign strategy.</span></li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Built and maintained a monthly KPI dashboard tracking social reach, email open rates, and web traffic &mdash; first structured performance review framework in the department.</span></li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Produced copy and creative briefs for email campaigns and product launches, coordinating with external design freelancers on timelines and brand consistency.</span></li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Assisted in planning and executing a product photography shoot and resulting catalogue refresh, improving product page conversion rate by 18% over the following quarter.</span></li>
+</ul>
 </div>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="timeline r">
-
-      <div class="tl-row r">
-        <div class="tl-left">
-          <div class="tl-date">Mar 2025 — Dec 2025</div>
-          <div class="tl-co">FinSell Oy</div>
-          <div class="tl-loc">Tampere, Finland</div>
-        </div>
-        <div class="tl-right">
-          <div class="tl-role">Sales &amp; ESG Compliance Manager</div>
-          <span class="tl-hint"></span>
-          <ul class="tl-bullets">
-            <li>Led CBAM (Carbon Border Adjustment Mechanism) implementation from scratch — built the data collection pipeline, reclassified CN codes, and submitted the first quarterly reports on time with zero regulatory penalties.</li>
-            <li>Designed and managed a B2B outreach system targeting Nordic industrial buyers; grew qualified pipeline by 40% in six months through structured prospecting, CRM discipline, and follow-through cadence.</li>
-            <li>Coordinated supplier ESG data collection across six international vendors, developing a repeatable questionnaire and scoring framework now used as the company standard.</li>
-            <li>Built internal dashboards in Power BI to track compliance deadlines, emission data, and sales KPIs — reducing reporting time from two days per quarter to under four hours.</li>
-            <li>Served as primary point of contact for EU customs authorities during the transitional CBAM phase, translating regulatory guidance into actionable internal processes.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="tl-row r">
-        <div class="tl-left">
-          <div class="tl-date">Jun 2024 — Oct 2024</div>
-          <div class="tl-co">Tammer Brands Oy</div>
-          <div class="tl-loc">Tampere, Finland</div>
-        </div>
-        <div class="tl-right">
-          <div class="tl-role">Marketing &amp; Digital Strategy Intern</div>
-          <span class="tl-hint"></span>
-          <ul class="tl-bullets">
-            <li>Conducted full audience segmentation analysis for two product lines, identifying underserved B2B segments in Scandinavian markets that led to a revised 2025 campaign strategy.</li>
-            <li>Built and maintained a monthly KPI dashboard tracking social reach, email open rates, and web traffic — first structured performance review framework in the department.</li>
-            <li>Produced copy and creative briefs for email campaigns and product launches, coordinating with external design freelancers on timelines and brand consistency.</li>
-            <li>Assisted in planning and executing a product photography shoot and resulting catalogue refresh, improving product page conversion rate by 18% over the following quarter.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="tl-row r">
-        <div class="tl-left">
-          <div class="tl-date">May 2023 — Dec 2024</div>
-          <div class="tl-co">Tampere Business Case Club</div>
-          <div class="tl-loc">Tampere, Finland</div>
-        </div>
-        <div class="tl-right">
-          <div class="tl-role">Event Lead &amp; Case Coordinator</div>
-          <span class="tl-hint"></span>
-          <ul class="tl-bullets">
-            <li>Organised and facilitated five business case competitions and workshops with 40–120 participants each, managing venue logistics, sponsor relationships, and cross-team coordination.</li>
-            <li>Designed case briefs and evaluation rubrics for three industry-sponsored competitions in collaboration with partner companies in finance, logistics, and retail.</li>
-            <li>Grew club membership from 60 to 110 active members over 18 months through targeted recruitment campaigns and an expanded event calendar.</li>
-            <li>Secured two new corporate sponsors by writing tailored partnership proposals and presenting to company representatives — covering full event costs for the 2024 spring series.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="tl-row r">
-        <div class="tl-left">
-          <div class="tl-date">Jun 2020 — Mar 2021</div>
-          <div class="tl-co">Environmental Consultancies &amp; Options</div>
-          <div class="tl-loc">Lahore, Pakistan</div>
-        </div>
-        <div class="tl-right">
-          <div class="tl-role">Business Development &amp; Client Relations</div>
-          <span class="tl-hint"></span>
-          <ul class="tl-bullets">
-            <li>Managed a portfolio of 12 corporate clients across manufacturing, textile, and construction sectors — coordinating environmental compliance reviews and project timelines.</li>
-            <li>Developed the firm's first formal client onboarding process, reducing initial engagement time from three weeks to six days and improving early client satisfaction scores.</li>
-            <li>Researched and drafted two market entry reports for clients exploring expansion into UAE and Bahrain environmental service markets, covering regulatory landscape, competitor analysis, and positioning recommendations.</li>
-            <li>Supported proposal writing and bid responses for government-tendered contracts; two bids progressed to final evaluation stage during my tenure.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="tl-row r">
-        <div class="tl-left">
-          <div class="tl-date">Dec 2017 — Jan 2020</div>
-          <div class="tl-co">Vapemall PK</div>
-          <div class="tl-loc">Lahore, Pakistan</div>
-        </div>
-        <div class="tl-right">
-          <div class="tl-role">Co-Founder &amp; Operations Lead</div>
-          <span class="tl-hint"></span>
-          <ul class="tl-bullets">
-            <li>Co-founded and scaled an e-commerce business from zero to a monthly revenue run-rate of PKR 1.2M within 14 months — sourcing product from international suppliers, managing inventory, and running all marketing in-house.</li>
-            <li>Built a cross-border procurement chain with suppliers in China and UAE, negotiating terms, managing customs documentation, and maintaining delivery reliability above 92%.</li>
-            <li>Ran all digital marketing: Facebook and Instagram organic content plus paid campaigns; managed a monthly ad budget of PKR 150K and maintained a 3.8× ROAS over 18 months.</li>
-            <li>Oversaw all customer service operations — introduced a structured ticketing approach that reduced average resolution time from 48 to 11 hours and earned repeat purchase rates above 35%.</li>
-            <li>Managed a small team of three — setting targets, reviewing performance, and handling supplier negotiations independently while completing undergraduate coursework.</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="sec" style="background:var(--paper-2);">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="sec-num r" data-i18n="about-edu-num">Education</div>
-        <h2 class="sec-title r d1" data-i18n="about-edu-title">Academic <span class="em">background.</span></h2>
-      </div>
-    </div>
-    <div class="edu-block r">
-      <div class="edu-row">
-        <div class="edu-year">2020 – 2024</div>
-        <div>
-          <div class="edu-name">BBA, International Business</div>
-          <div class="edu-inst">Tampere University of Applied Sciences (TAMK) · Tampere, Finland</div>
-          <div class="edu-detail">CGPA 4.29 / 5.0 · Graduated December 2024</div>
-        </div>
-      </div>
-      <div class="edu-row">
-        <div class="edu-year"></div>
-        <div>
-          <div class="edu-name">Exchange Semester</div>
-          <div class="edu-inst">Ondokuz Mayıs University · Samsun, Turkey</div>
-          <div class="edu-detail">Economics · Accounting · Regional Development</div>
-        </div>
-      </div>
-      <div class="edu-row">
-        <div class="edu-year">2020</div>
-        <div>
-          <div class="edu-name">A-Levels</div>
-          <div class="edu-inst">University of Cambridge · Lahore Learning Campus</div>
-          <div class="edu-detail">Business · English Language · Information Technology — Grade B in all subjects</div>
-        </div>
-      </div>
-      <div class="edu-row">
-        <div class="edu-year">2009</div>
-        <div>
-          <div class="edu-name">O-Levels</div>
-          <div class="edu-inst">University of Cambridge · Lahore Learning Campus</div>
-          <div class="edu-detail">8 subjects — English Language (A), Mathematics, Physics, Chemistry, Pakistan Studies, Urdu, Biology, Islamiyat</div>
-        </div>
-      </div>
-      <div class="edu-row">
-        <div class="edu-year">Since 2012</div>
-        <div>
-          <div class="edu-name">Self-directed Study</div>
-          <div class="edu-inst">Financial markets, algorithmic trading, software development</div>
-          <div class="edu-detail">Python · WebGL · Android · Generative AI</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:64px; padding-bottom:64px;">
-  <div class="wrap">
-    <div class="sec-head" style="margin-bottom:40px;">
-      <div>
-        <div class="sec-num r" data-i18n="work-awards-num">Competitions &amp; Awards</div>
-        <h2 class="sec-title r d1" data-i18n="work-awards-title">Case <span class="em">results.</span></h2>
-      </div>
-      <p class="sec-lede r d2" data-i18n="work-awards-lede">Competitions and awards from TAMK, the Tampere Business Case Club, and Huawei Finland.</p>
-    </div>
-    <div class="awards-table r">
-      <div class="award-row">
-        <div class="award-year">2025</div>
-        <div class="award-name">Huawei Tech Arena Finland</div>
-        <div class="award-result">3rd Place — National</div>
-        <div class="award-topic">UI/UX interface for HarmonyOS · Only non-CS competitor on the podium</div>
-      </div>
-      <div class="award-row">
-        <div class="award-year">2024</div>
-        <div class="award-name">TAMK International Business Case Competition</div>
-        <div class="award-result">Top 3 Finalist</div>
-        <div class="award-topic">Market entry strategy — Nordic retail</div>
-      </div>
-      <div class="award-row">
-        <div class="award-year">2023</div>
-        <div class="award-name">Tampere BCC Spring Case Series</div>
-        <div class="award-result">Winner — Best Presentation</div>
-        <div class="award-topic">Supply chain resilience</div>
-      </div>
-      <div class="award-row">
-        <div class="award-year">2023</div>
-        <div class="award-name">TAMK Sustainability Challenge</div>
-        <div class="award-result">Finalist</div>
-        <div class="award-topic">Circular economy model for SMEs</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:80px; padding-bottom:80px;">
-  <div class="wrap" style="text-align:center; max-width:600px; margin:0 auto;">
-    <div class="sec-num r" style="justify-content:center;">Next</div>
-    <h2 class="sec-title r d1" style="font-size:clamp(32px, 5vw, 60px); margin-bottom:32px;">Work with <span class="em">me.</span></h2>
-    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;" class="r d2">
-      <a href="contact.html" class="btn-primary" style="font-size:16px; padding:16px 32px;">Start a conversation →</a>
-      <a href="about.html" class="btn-ghost" style="font-size:16px; padding:16px 32px;">About me</a>
-      <a href="skills.html" class="btn-ghost" style="font-size:16px; padding:16px 32px;">Skills &amp; tools</a>
-    </div>
-  </div>
-</section>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <div class="foot-name">Hassan Masood</div>
-        <p>Sustainable business developer. ESG &amp; CBAM compliance, sales systems, and data-driven strategy for cross-border teams.</p>
-      </div>
-      <div class="foot-col">
-        <h4>Site</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="work.html">Experience</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="skills.html">Skills</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="services/web-design.html">Web Design</a></li>
-          <li><a href="services/esg.html">ESG &amp; CBAM</a></li>
-          <li><a href="services/digital-marketing.html">Marketing</a></li>
-          <li><a href="services/sales-crm.html">Sales &amp; CRM</a></li>
-          <li><a href="services/international-expansion.html">International</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:m.hassan.masood@hotmail.com">m.hassan.masood@hotmail.com</a></li>
-          <li><a href="tel:+358403600110">+358 040 360 0110</a></li>
-          <li>Inkoo, Finland</li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 M. Hassan Masood · All rights reserved</span>
-      <span>Built in Finland</span>
-    </div>
-  </div>
-</footer>
-
-<div class="tweaks" id="tweaksPanel">
-  <div class="tweaks-head"><span class="tweaks-title">Customise</span><button class="tweaks-close" aria-label="Close">✕</button></div>
-  <div class="tweak-row"><div class="tweak-lab">Palette</div>
-    <div class="tweak-swatches" data-tweak="pal">
-      <div class="tweak-sw" data-val="paper"><div class="chips"><span style="background:#F2EDE6"></span><span style="background:#14110E"></span><span style="background:#C8421C"></span></div><div class="nm">Paper</div></div>
-      <div class="tweak-sw" data-val="midnight"><div class="chips"><span style="background:#0E0E0C"></span><span style="background:#F2EDE6"></span><span style="background:#D4A24A"></span></div><div class="nm">Midnight</div></div>
-      <div class="tweak-sw" data-val="citrus"><div class="chips"><span style="background:#FFF7E0"></span><span style="background:#1A1408"></span><span style="background:#FF4D2E"></span></div><div class="nm">Citrus</div></div>
-    </div>
-  </div>
-  <div class="tweak-row"><div class="tweak-lab">Voice</div>
-    <div class="tweak-segs" data-tweak="voice">
-      <div class="tweak-seg" data-val="editorial">Editorial</div>
-      <div class="tweak-seg" data-val="modern">Modern</div>
-      <div class="tweak-seg" data-val="brutal">Brutal</div>
-    </div>
-  </div>
-  <div class="tweak-row"><div class="tweak-lab">Energy</div>
-    <div class="tweak-segs" data-tweak="energy">
-      <div class="tweak-seg" data-val="quiet">Quiet</div>
-      <div class="tweak-seg" data-val="standard">Standard</div>
-      <div class="tweak-seg" data-val="loud">Loud</div>
-    </div>
-  </div>
+<div class="tl-item border-b border-smoke-gray pb-8 mb-8 cursor-pointer" onclick="this.classList.toggle('open')">
+<div class="flex justify-between items-start">
+<div>
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">May 2023 &mdash; Dec 2024</div>
+<div class="font-headline-lg text-xl text-void-black uppercase mb-1">Event Lead &amp; Case Coordinator</div>
+<div class="font-body-md text-body-md text-surface-container-highest">Tampere Business Case Club &middot; Tampere, Finland</div>
+</div>
+<span class="material-symbols-outlined text-primary tl-icon text-2xl mt-1">add</span>
+</div>
+<ul class="tl-bullets mt-4 space-y-3">
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Organised and facilitated five business case competitions and workshops with 40&ndash;120 participants each, managing venue logistics, sponsor relationships, and cross-team coordination.</span></li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Designed case briefs and evaluation rubrics for three industry-sponsored competitions in collaboration with partner companies in finance, logistics, and retail.</span></li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Grew club membership from 60 to 110 active members over 18 months through targeted recruitment campaigns and an expanded event calendar.</span></li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Secured two new corporate sponsors by writing tailored partnership proposals and presenting to company representatives &mdash; covering full event costs for the 2024 spring series.</span></li>
+</ul>
 </div>
 
-<script src="js/editorial.js"></script>
+<div class="tl-item border-b border-smoke-gray pb-8 mb-8 cursor-pointer" onclick="this.classList.toggle('open')">
+<div class="flex justify-between items-start">
+<div>
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Jun 2020 &mdash; Mar 2021</div>
+<div class="font-headline-lg text-xl text-void-black uppercase mb-1">Business Development &amp; Client Relations</div>
+<div class="font-body-md text-body-md text-surface-container-highest">Environmental Consultancies &amp; Options &middot; Lahore, Pakistan</div>
+</div>
+<span class="material-symbols-outlined text-primary tl-icon text-2xl mt-1">add</span>
+</div>
+<ul class="tl-bullets mt-4 space-y-3">
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Managed a portfolio of 12 corporate clients across manufacturing, textile, and construction sectors &mdash; coordinating environmental compliance reviews and project timelines.</span></li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Developed the firm's first formal client onboarding process, reducing initial engagement time from three weeks to six days and improving early client satisfaction scores.</span></li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Researched and drafted two market entry reports for clients exploring expansion into UAE and Bahrain environmental service markets, covering regulatory landscape, competitor analysis, and positioning recommendations.</span></li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Supported proposal writing and bid responses for government-tendered contracts; two bids progressed to final evaluation stage during my tenure.</span></li>
+</ul>
+</div>
+
+<div class="tl-item border-b border-smoke-gray pb-8 mb-8 cursor-pointer" onclick="this.classList.toggle('open')">
+<div class="flex justify-between items-start">
+<div>
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Dec 2017 &mdash; Jan 2020</div>
+<div class="font-headline-lg text-xl text-void-black uppercase mb-1">Co-Founder &amp; Operations Lead</div>
+<div class="font-body-md text-body-md text-surface-container-highest">Vapemall PK &middot; Lahore, Pakistan</div>
+</div>
+<span class="material-symbols-outlined text-primary tl-icon text-2xl mt-1">add</span>
+</div>
+<ul class="tl-bullets mt-4 space-y-3">
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Co-founded and scaled an e-commerce business from zero to a monthly revenue run-rate of PKR 1.2M within 14 months &mdash; sourcing product from international suppliers, managing inventory, and running all marketing in-house.</span></li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Built a cross-border procurement chain with suppliers in China and UAE, negotiating terms, managing customs documentation, and maintaining delivery reliability above 92%.</span></li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Ran all digital marketing: Facebook and Instagram organic content plus paid campaigns; managed a monthly ad budget of PKR 150K and maintained a 3.8&times; ROAS over 18 months.</span></li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Oversaw all customer service operations &mdash; introduced a structured ticketing approach that reduced average resolution time from 48 to 11 hours and earned repeat purchase rates above 35%.</span></li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-3"><span class="text-primary mt-1 shrink-0">&rarr;</span><span>Managed a small team of three &mdash; setting targets, reviewing performance, and handling supplier negotiations independently while completing undergraduate coursework.</span></li>
+</ul>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="py-16 md:py-24 px-margin-mobile md:px-gutter bg-void-black">
+<div class="max-w-container-max mx-auto">
+<div class="mb-12 reveal">
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Education</div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white uppercase">Academic <span class="text-primary">Background.</span></h2>
+<div class="w-16 h-1 bg-primary mt-2"></div>
+</div>
+<div class="divide-y divide-smoke-gray reveal stagger-1">
+<div class="grid md:grid-cols-[160px_1fr] gap-6 py-8">
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest pt-1">2020 &ndash; 2024</div>
+<div>
+<div class="font-headline-lg text-xl text-white uppercase mb-1">BBA, International Business</div>
+<div class="font-body-md text-secondary mt-1">Tampere University of Applied Sciences (TAMK) &middot; Tampere, Finland</div>
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest mt-2">CGPA 4.29 / 5.0 &middot; Graduated December 2024</div>
+</div>
+</div>
+<div class="grid md:grid-cols-[160px_1fr] gap-6 py-8">
+<div></div>
+<div>
+<div class="font-headline-lg text-xl text-white uppercase mb-1">Exchange Semester</div>
+<div class="font-body-md text-secondary mt-1">Ondokuz May&#305;s University &middot; Samsun, Turkey</div>
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest mt-2">Economics &middot; Accounting &middot; Regional Development</div>
+</div>
+</div>
+<div class="grid md:grid-cols-[160px_1fr] gap-6 py-8">
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest pt-1">2020</div>
+<div>
+<div class="font-headline-lg text-xl text-white uppercase mb-1">A-Levels</div>
+<div class="font-body-md text-secondary mt-1">University of Cambridge &middot; Lahore Learning Campus</div>
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest mt-2">Business &middot; English Language &middot; Information Technology &mdash; Grade B in all subjects</div>
+</div>
+</div>
+<div class="grid md:grid-cols-[160px_1fr] gap-6 py-8">
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest pt-1">2009</div>
+<div>
+<div class="font-headline-lg text-xl text-white uppercase mb-1">O-Levels</div>
+<div class="font-body-md text-secondary mt-1">University of Cambridge &middot; Lahore Learning Campus</div>
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest mt-2">8 subjects &mdash; English Language (A), Mathematics, Physics, Chemistry, Pakistan Studies, Urdu, Biology, Islamiyat</div>
+</div>
+</div>
+<div class="grid md:grid-cols-[160px_1fr] gap-6 py-8">
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest pt-1">Since 2012</div>
+<div>
+<div class="font-headline-lg text-xl text-white uppercase mb-1">Self-directed Study</div>
+<div class="font-body-md text-secondary mt-1">Financial markets, algorithmic trading, software development</div>
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest mt-2">Python &middot; WebGL &middot; Android &middot; Generative AI</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="py-16 md:py-24 px-margin-mobile md:px-gutter bg-white">
+<div class="max-w-container-max mx-auto">
+<div class="mb-12 reveal">
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Competitions &amp; Awards</div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-void-black uppercase">Case <span class="text-primary">Results.</span></h2>
+<div class="w-16 h-1 bg-primary mt-2 mb-4"></div>
+<p class="font-body-md text-body-lg text-surface-container-highest">Competitions and awards from TAMK, the Tampere Business Case Club, and Huawei Finland.</p>
+</div>
+<div class="divide-y divide-smoke-gray reveal stagger-1">
+<div class="grid md:grid-cols-[80px_1fr_auto_1fr] gap-6 py-6 items-center">
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest">2025</div>
+<div class="font-headline-lg text-base text-void-black uppercase">Huawei Tech Arena Finland</div>
+<div class="font-label-sm text-label-sm bg-primary text-white px-3 py-1 uppercase whitespace-nowrap">3rd Place &mdash; National</div>
+<div class="font-body-md text-body-md text-surface-container-highest">UI/UX interface for HarmonyOS &middot; Only non-CS competitor on the podium</div>
+</div>
+<div class="grid md:grid-cols-[80px_1fr_auto_1fr] gap-6 py-6 items-center">
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest">2024</div>
+<div class="font-headline-lg text-base text-void-black uppercase">TAMK International Business Case Competition</div>
+<div class="font-label-sm text-label-sm border border-smoke-gray text-void-black px-3 py-1 uppercase whitespace-nowrap">Top 3 Finalist</div>
+<div class="font-body-md text-body-md text-surface-container-highest">Market entry strategy &mdash; Nordic retail</div>
+</div>
+<div class="grid md:grid-cols-[80px_1fr_auto_1fr] gap-6 py-6 items-center">
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest">2023</div>
+<div class="font-headline-lg text-base text-void-black uppercase">Tampere BCC Spring Case Series</div>
+<div class="font-label-sm text-label-sm border border-smoke-gray text-void-black px-3 py-1 uppercase whitespace-nowrap">Winner &mdash; Best Presentation</div>
+<div class="font-body-md text-body-md text-surface-container-highest">Supply chain resilience</div>
+</div>
+<div class="grid md:grid-cols-[80px_1fr_auto_1fr] gap-6 py-6 items-center">
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest">2023</div>
+<div class="font-headline-lg text-base text-void-black uppercase">TAMK Sustainability Challenge</div>
+<div class="font-label-sm text-label-sm border border-smoke-gray text-void-black px-3 py-1 uppercase whitespace-nowrap">Finalist</div>
+<div class="font-body-md text-body-md text-surface-container-highest">Circular economy model for SMEs</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="py-16 md:py-24 px-margin-mobile md:px-gutter bg-void-black">
+<div class="max-w-[600px] mx-auto text-center reveal">
+<div class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-4">Next</div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white uppercase mb-8">Work with <span class="text-primary">Me.</span></h2>
+<div class="flex gap-4 justify-center flex-wrap">
+<a href="contact.html" class="bg-primary text-void-black px-8 py-4 font-label-sm text-label-sm uppercase hover:bg-white transition-colors font-bold btn-pulse">Start a conversation &rarr;</a>
+<a href="about.html" class="border border-primary/50 text-primary px-8 py-4 font-label-sm text-label-sm uppercase hover:bg-primary hover:text-void-black transition-colors font-bold">About me</a>
+<a href="skills.html" class="border border-primary/50 text-primary px-8 py-4 font-label-sm text-label-sm uppercase hover:bg-primary hover:text-void-black transition-colors font-bold">Skills &amp; tools</a>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="w-full py-16 md:py-24 bg-void-black border-t-4 border-primary">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12 px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div>
+<div class="font-display-xl text-2xl md:text-4xl text-white mb-4 uppercase tracking-widest flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">change_history</span> Hassan Masood</div>
+<p class="font-body-md text-secondary max-w-sm mb-6">Sustainable business developer. ESG &amp; CBAM compliance, sales systems, and data-driven strategy.</p>
+<div class="font-label-sm text-label-sm text-white space-y-2 uppercase tracking-wider">
+<p><a href="mailto:m.hassan.masood@hotmail.com" class="hover:text-primary transition-colors">m.hassan.masood@hotmail.com</a></p>
+<p><a href="tel:+358403600110" class="hover:text-primary transition-colors">+358 040 360 0110</a></p>
+<p class="text-smoke-gray mt-4">Inkoo, Finland</p>
+</div></div>
+<div class="flex flex-col gap-8 md:flex-row md:gap-16">
+<div><h5 class="font-headline-lg text-lg text-primary uppercase mb-6 tracking-widest">Site</h5>
+<ul class="space-y-3 font-label-sm text-label-sm uppercase tracking-wider">
+<li><a class="text-secondary hover:text-white transition-colors" href="index.html">Home</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="about.html">About</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="work.html">Work</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="projects.html">Projects</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="skills.html">Skills</a></li>
+</ul></div>
+<div><h5 class="font-headline-lg text-lg text-primary uppercase mb-6 tracking-widest">Services</h5>
+<ul class="space-y-3 font-label-sm text-label-sm uppercase tracking-wider">
+<li><a class="text-secondary hover:text-white transition-colors" href="services/web-design.html">Web Design</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="services/esg.html">ESG &amp; CBAM</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="services/sales-crm.html">Sales &amp; CRM</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="services.html">All Services</a></li>
+</ul></div>
+<div><h5 class="font-headline-lg text-lg text-primary uppercase mb-6 tracking-widest">Contact</h5>
+<ul class="space-y-3 font-label-sm text-label-sm uppercase tracking-wider">
+<li><a class="text-secondary hover:text-white transition-colors" href="contact.html">Contact Page</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="https://www.linkedin.com/in/hassan-masood-fi/" target="_blank" rel="noopener">LinkedIn</a></li>
+</ul></div>
+</div></div>
+<div class="mt-12 pt-6 border-t border-smoke-gray text-center px-margin-mobile">
+<p class="font-label-sm text-xs text-smoke-gray uppercase tracking-widest">&copy; 2026 Hassan Masood &middot; All rights reserved &middot; Inkoo, Finland</p>
+</div></footer>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  const obs=new IntersectionObserver((e,o)=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('active');o.unobserve(en.target)}})},{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  const btn=document.getElementById('mobileMenuBtn'),menu=document.getElementById('mobileMenu'),icon=document.getElementById('mobileMenuIcon');
+  if(btn&&menu){btn.addEventListener('click',()=>{const o=!menu.classList.contains('hidden');menu.classList.toggle('hidden');icon.textContent=o?'menu':'close'})}
+});
+</script>
 </body>
 </html>

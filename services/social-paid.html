@@ -1,214 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Social &amp; Paid Ads — Hassan Masood</title>
+<html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Social &amp; Paid Ads | Hassan Masood</title>
 <meta name="description" content="Instagram and Facebook organic content plus paid ad management. Creative, targeting, optimisation, and transparent reporting."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="../css/editorial.css"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@700;800&amp;family=DM+Sans:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "inverse-primary": "#c00003","on-surface-variant": "#ebbcb4","primary": "#C8421C",
+          "surface-variant": "#353532","surface": "#131311","secondary": "#c6c6c7",
+          "surface-container-high": "#2a2a28","paper-white": "#F2EDE6","glow-red": "#FF4D4D",
+          "surface-container-lowest": "#0e0e0c","primary-container": "#ff5542",
+          "surface-container": "#20201d","smoke-gray": "#2D2D2A","void-black": "#050505",
+          "tertiary-container": "#92908d","surface-bright": "#3a3937","on-background": "#e5e2de",
+          "background": "#131311","surface-container-highest": "#353532"
+        },
+        "spacing": {
+          "stack-sm": "0.5rem","margin-mobile": "1rem","gutter": "2rem",
+          "section-padding": "8rem","container-max": "1440px","stack-md": "1.5rem","stack-lg": "4rem"
+        },
+        "fontFamily": {
+          "display-xl": ["Anybody"],"body-lg": ["DM Sans"],"headline-lg-mobile": ["Anybody"],
+          "label-sm": ["JetBrains Mono"],"headline-lg": ["Anybody"],"body-md": ["DM Sans"]
+        },
+        "fontSize": {
+          "display-xl": ["80px",{"lineHeight":"1.0","letterSpacing":"-0.04em","fontWeight":"800"}],
+          "body-lg": ["18px",{"lineHeight":"1.6","fontWeight":"400"}],
+          "headline-lg-mobile": ["32px",{"lineHeight":"1.2","fontWeight":"700"}],
+          "label-sm": ["12px",{"lineHeight":"1.4","letterSpacing":"0.1em","fontWeight":"500"}],
+          "headline-lg": ["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"700"}],
+          "body-md": ["16px",{"lineHeight":"1.6","fontWeight":"400"}]
+        }
+      }
+    }
+  }
+</script>
+<style>
+body { background-color:#131311; color:#e5e2de; overflow-x:hidden; font-family:'DM Sans',system-ui,sans-serif; }
+::-webkit-scrollbar{width:8px} ::-webkit-scrollbar-track{background:#050505} ::-webkit-scrollbar-thumb{background:#2D2D2A}
+.btn-pulse{position:relative;overflow:hidden}
+.btn-pulse::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(to right,transparent,rgba(255,255,255,0.3),transparent);transform:skewX(-20deg);transition:left 0.5s ease}
+.btn-pulse:hover::after{left:150%}
+@media (prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s cubic-bezier(0.5,0,0,1),transform 0.7s cubic-bezier(0.5,0,0,1)}
+  .reveal.active{opacity:1;transform:translateY(0)}
+  .stagger-1{transition-delay:100ms} .stagger-2{transition-delay:200ms} .stagger-3{transition-delay:300ms}
+}
+</style>
 </head>
-<body>
-<canvas id="stars" aria-hidden="true"></canvas>
-<div class="cursor" id="cursor"></div>
-
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="../index.html" class="nav-logo">Hassan<span class="dot"></span></a>
-    <div class="nav-links">
-      <a href="../about.html">About</a>
-      <div class="nav-drop">
-      <a href="../services.html" class="nav-drop-trigger active">Services <span class="nav-drop-arrow">▾</span></a>
-      <div class="nav-drop-menu">
-        <a href="../services/web-design.html">Web Design</a>
-        <a href="../services/esg.html">ESG &amp; CBAM</a>
-        <a href="../services/digital-marketing.html">Digital Marketing</a>
-        <a href="../services/sales-crm.html">Sales &amp; CRM</a>
-        <a href="../services/international-expansion.html">International Expansion</a>
-        <a href="../services/brand-content.html">Brand &amp; Content</a>
-        <a href="../services/social-paid.html">Social &amp; Paid Ads</a>
-        <a href="../services/business-development.html">Business Development</a>
-      </div>
-    </div>
-      <a href="../work.html">Work</a>
-      <a href="../projects.html">Projects</a>
-      <a href="../skills.html">Skills</a>
-    </div>
-    <a href="../contact.html" class="nav-cta"><span class="pulse"></span>Contact</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-  </div>
-</nav>
-
-<div class="drawer" id="drawer">
-  <button class="drawer-close" id="drawerClose" aria-label="Close">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
-  </button>
-  <a href="../about.html"><span>About</span><span class="num">01</span></a>
-  <a href="../services.html"><span>Services</span><span class="num">02</span></a>
-  <a href="../work.html"><span>Work</span><span class="num">03</span></a>
-  <a href="../projects.html"><span>Projects</span><span class="num">04</span></a>
-  <a href="../skills.html"><span>Skills</span><span class="num">05</span></a>
-  <a href="../contact.html"><span>Contact</span><span class="num">06</span></a>
-  <div class="drawer-foot"><span>Inkoo, FI</span><span>Open to work</span></div>
+<body class="flex flex-col min-h-screen">
+<nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-primary/20 transition-all duration-300">
+<div class="flex justify-between items-center px-margin-mobile md:px-gutter py-4 max-w-container-max mx-auto">
+<a class="font-display-xl text-body-lg uppercase tracking-widest text-white flex items-center gap-2" href="../index.html"><span class="material-symbols-outlined text-primary">change_history</span> HASSAN MASOOD</a>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant hover:text-primary transition-all duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="../about.html">About</a>
+<a class="text-primary transition-all duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="../services.html">Services</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="../work.html">Work</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="../projects.html">Projects</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="../skills.html">Skills</a>
 </div>
-
-<div class="page-hero">
-  <div class="wrap">
-    <div class="page-hero-tag r show"><a href="../services.html" style="color:inherit;text-decoration:none;">02 — Services</a> / 07</div>
-    <h1 class="page-hero-title r show d1">Social &amp; <span class="em">Paid Ads</span></h1>
-    <p class="page-hero-lede r show d2">Instagram and Facebook organic content plus paid ad management. Creative, targeting, optimisation, and transparent reporting.</p>
-  </div>
+<a class="hidden md:inline-flex bg-primary text-void-black px-6 py-2 font-label-sm text-label-sm uppercase hover:bg-white transition-colors items-center justify-center font-bold btn-pulse" href="../contact.html">Hire Me</a>
+<button class="md:hidden text-white p-2 hover:text-primary transition-colors" id="mobileMenuBtn" aria-label="Open menu"><span class="material-symbols-outlined" id="mobileMenuIcon">menu</span></button>
 </div>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="svc-detail-wrap r">
-      <div class="svc-sidebar">
-        <div class="svc-sidebar-block">
-          <div class="svc-sidebar-label">Platforms</div>
-          <div class="svc-sidebar-tags"><span>Instagram</span><span>Facebook</span><span>Meta Ads</span></div>
-        </div>
-        <div class="svc-sidebar-block">
-          <div class="svc-sidebar-label">Typical engagement</div>
-          <div class="svc-sidebar-val">Monthly retainer</div>
-        </div>
-        <div class="svc-sidebar-block">
-          <div class="svc-sidebar-label">Deliverables</div>
-          <ul class="includes-list">
-            <li>Content calendar (monthly)</li>
-            <li>Organic posts (copy + brief)</li>
-            <li>Ad campaign setup &amp; targeting</li>
-            <li>Creative testing framework</li>
-            <li>Weekly performance report</li>
-            <li>Monthly optimisation review</li>
-          </ul>
-        </div>
-        <a href="../contact.html" class="btn-primary" style="width:100%;text-align:center;margin-top:32px;">Discuss your ads →</a>
-      </div>
-      <div class="svc-body">
-        <h2 class="r">Earned from running it</h2>
-        <p class="r d1">I ran Facebook and Instagram campaigns for Vapemall PK for 18 months — managing a PKR 150K monthly ad budget with a 3.8× ROAS maintained throughout. I didn't just set up the campaigns; I wrote the creatives, refined the targeting, and reviewed the data weekly to reallocate budget where it was working.</p>
-        <p class="r d2">Social advertising works when the creative, the audience, and the offer align. I manage all three — and I report on results in plain language, not vanity metrics.</p>
-
-        <h2 class="r" style="margin-top:48px;">What I manage</h2>
-        <div class="process-steps r">
-          <div class="process-step">
-            <div class="ps-num">01</div>
-            <div class="ps-content">
-              <div class="ps-title">Organic content</div>
-              <div class="ps-desc">Monthly content calendar, post copy, and creative briefs for Instagram and Facebook. Consistent publishing cadence that builds audience without burning out your team.</div>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="ps-num">02</div>
-            <div class="ps-content">
-              <div class="ps-title">Paid campaign setup</div>
-              <div class="ps-desc">Campaign structure, audience definition, placement selection, budget allocation across ad sets, and pixel configuration — built for the objective, not the platform defaults.</div>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="ps-num">03</div>
-            <div class="ps-content">
-              <div class="ps-title">Creative testing</div>
-              <div class="ps-desc">Systematic A/B testing of headlines, visuals, and CTAs with a clear hypothesis for each test. Scaled winners, killed losers, documented learnings.</div>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="ps-num">04</div>
-            <div class="ps-content">
-              <div class="ps-title">Reporting &amp; optimisation</div>
-              <div class="ps-desc">Weekly results snapshot and monthly review covering ROAS, CPM, CTR, conversion rate, and cost per acquisition — with clear recommendations for the next period.</div>
-            </div>
-          </div>
-        </div>
-
-        <h2 class="r" style="margin-top:48px;">Available in six languages</h2>
-        <p class="r d1">Ad copy and organic content available in English, Finnish, Swedish, Arabic, Turkish, or Urdu — letting you run campaigns in the language your audience actually uses.</p>
-      </div>
-    </div>
-  </div>
+<div class="md:hidden hidden bg-background border-t border-smoke-gray" id="mobileMenu">
+<div class="px-margin-mobile py-6 flex flex-col gap-5">
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-sm text-label-sm uppercase tracking-widest" href="../about.html">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-sm text-label-sm uppercase tracking-widest" href="../services.html">Services</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-sm text-label-sm uppercase tracking-widest" href="../work.html">Work</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-sm text-label-sm uppercase tracking-widest" href="../projects.html">Projects</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-label-sm text-label-sm uppercase tracking-widest" href="../skills.html">Skills</a>
+<a class="bg-primary text-void-black px-6 py-3 font-label-sm text-label-sm uppercase font-bold text-center" href="../contact.html">Hire Me</a>
+</div></div></nav>
+<main class="flex-grow pt-[80px]">
+<section class="relative py-24 md:py-32 px-margin-mobile md:px-gutter bg-void-black overflow-hidden">
+<div class="absolute inset-0 opacity-20" style="background:radial-gradient(ellipse at 70% 50%,rgba(200,66,28,0.3),transparent 70%);"></div>
+<div class="max-w-container-max mx-auto relative z-10">
+<div class="inline-flex items-center gap-2 mb-6 font-label-sm text-label-sm text-primary uppercase tracking-widest"><span class="w-2 h-2 bg-primary rotate-45 inline-block"></span> <a href="../services.html" class="hover:text-white transition-colors">02 &mdash; Services</a> / 07</div>
+<h1 class="font-display-xl text-[52px] md:text-[80px] text-white leading-[0.9] uppercase mb-6">Social &amp;<br/><span class="text-primary">Paid Ads</span></h1>
+<p class="font-body-md text-body-lg text-secondary max-w-2xl border-l-4 border-primary pl-6 py-2">Instagram and Facebook organic content plus paid ad management. Creative, targeting, optimisation, and transparent reporting.</p>
+</div>
 </section>
-
-<section class="sec" style="background:var(--paper-2);padding-top:64px;padding-bottom:64px;">
-  <div class="wrap" style="text-align:center;max-width:580px;margin:0 auto;">
-    <h2 class="sec-title r" style="font-size:clamp(28px,4vw,48px);margin-bottom:16px;">Ads not <span class="em">performing?</span></h2>
-    <p style="color:var(--ink-2);margin-bottom:32px;" class="r d1">Tell me your current setup, budget, and what's not working. I'll tell you what I'd change first.</p>
-    <a href="../contact.html" class="btn-primary r d2" style="font-size:16px;padding:16px 32px;">Get in touch →</a>
-  </div>
-</section>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <div class="foot-name">Hassan Masood</div>
-        <p>Sustainable business developer. ESG &amp; CBAM compliance, sales systems, and data-driven strategy for cross-border teams.</p>
-      </div>
-      <div class="foot-col">
-        <h4>Site</h4>
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../about.html">About</a></li>
-          <li><a href="../work.html">Experience</a></li>
-          <li><a href="../projects.html">Projects</a></li>
-          <li><a href="../skills.html">Skills</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="web-design.html">Web Design</a></li>
-          <li><a href="esg.html">ESG &amp; CBAM</a></li>
-          <li><a href="digital-marketing.html">Marketing</a></li>
-          <li><a href="sales-crm.html">Sales &amp; CRM</a></li>
-          <li><a href="international-expansion.html">International</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:m.hassan.masood@hotmail.com">m.hassan.masood@hotmail.com</a></li>
-          <li><a href="tel:+358403600110">+358 040 360 0110</a></li>
-          <li>Inkoo, Finland</li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 M. Hassan Masood · All rights reserved</span>
-      <span>Built in Finland</span>
-    </div>
-  </div>
-</footer>
-
-<div class="tweaks" id="tweaksPanel">
-  <div class="tweaks-head"><span class="tweaks-title">Customise</span><button class="tweaks-close" aria-label="Close">✕</button></div>
-  <div class="tweak-row"><div class="tweak-lab">Palette</div>
-    <div class="tweak-swatches" data-tweak="pal">
-      <div class="tweak-sw" data-val="paper"><div class="chips"><span style="background:#F2EDE6"></span><span style="background:#14110E"></span><span style="background:#C8421C"></span></div><div class="nm">Paper</div></div>
-      <div class="tweak-sw" data-val="midnight"><div class="chips"><span style="background:#0E0E0C"></span><span style="background:#F2EDE6"></span><span style="background:#D4A24A"></span></div><div class="nm">Midnight</div></div>
-      <div class="tweak-sw" data-val="citrus"><div class="chips"><span style="background:#FFF7E0"></span><span style="background:#1A1408"></span><span style="background:#FF4D2E"></span></div><div class="nm">Citrus</div></div>
-    </div>
-  </div>
-  <div class="tweak-row"><div class="tweak-lab">Voice</div>
-    <div class="tweak-segs" data-tweak="voice">
-      <div class="tweak-seg" data-val="editorial">Editorial</div>
-      <div class="tweak-seg" data-val="modern">Modern</div>
-      <div class="tweak-seg" data-val="brutal">Brutal</div>
-    </div>
-  </div>
-  <div class="tweak-row"><div class="tweak-lab">Energy</div>
-    <div class="tweak-segs" data-tweak="energy">
-      <div class="tweak-seg" data-val="quiet">Quiet</div>
-      <div class="tweak-seg" data-val="standard">Standard</div>
-      <div class="tweak-seg" data-val="loud">Loud</div>
-    </div>
-  </div>
+<section class="py-16 md:py-24 px-margin-mobile md:px-gutter bg-white">
+<div class="max-w-container-max mx-auto">
+<div class="grid md:grid-cols-[280px_1fr] gap-16 reveal">
+<div class="space-y-8">
+<div><div class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-3">Platforms</div>
+<div class="flex flex-wrap gap-2">
+<span class="font-label-sm text-label-sm bg-paper-white border border-smoke-gray text-void-black px-3 py-1 uppercase">Instagram</span>
+<span class="font-label-sm text-label-sm bg-paper-white border border-smoke-gray text-void-black px-3 py-1 uppercase">Facebook</span>
+<span class="font-label-sm text-label-sm bg-paper-white border border-smoke-gray text-void-black px-3 py-1 uppercase">Meta Ads</span>
+</div></div>
+<div><div class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Typical engagement</div><div class="font-body-md text-body-lg text-void-black">Monthly retainer</div></div>
+<div><div class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-3">Deliverables</div>
+<ul class="space-y-2">
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-2"><span class="text-primary shrink-0">&rarr;</span>Content calendar (monthly)</li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-2"><span class="text-primary shrink-0">&rarr;</span>Organic posts (copy + brief)</li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-2"><span class="text-primary shrink-0">&rarr;</span>Ad campaign setup &amp; targeting</li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-2"><span class="text-primary shrink-0">&rarr;</span>Creative testing framework</li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-2"><span class="text-primary shrink-0">&rarr;</span>Weekly performance report</li>
+<li class="font-body-md text-body-md text-surface-container-highest flex gap-2"><span class="text-primary shrink-0">&rarr;</span>Monthly optimisation review</li>
+</ul></div>
+<a href="../contact.html" class="bg-primary text-void-black px-8 py-4 font-label-sm text-label-sm uppercase hover:bg-void-black hover:text-white transition-colors font-bold btn-pulse block text-center">Discuss your ads &rarr;</a>
 </div>
-
-<script src="../js/editorial.js"></script>
+<div class="space-y-10">
+<div><h2 class="font-headline-lg text-2xl text-void-black uppercase mb-4">Earned from running it</h2><div class="w-12 h-1 bg-primary mb-6"></div>
+<p class="font-body-md text-body-lg text-surface-container-highest mb-4">I ran Facebook and Instagram campaigns for Vapemall PK for 18 months &mdash; managing a PKR 150K monthly ad budget with a 3.8&times; ROAS maintained throughout. I didn't just set up the campaigns; I wrote the creatives, refined the targeting, and reviewed the data weekly to reallocate budget where it was working.</p>
+<p class="font-body-md text-body-lg text-surface-container-highest">Social advertising works when the creative, the audience, and the offer align. I manage all three &mdash; and I report on results in plain language, not vanity metrics.</p></div>
+<div><h2 class="font-headline-lg text-2xl text-void-black uppercase mb-4">What I manage</h2><div class="w-12 h-1 bg-primary mb-6"></div>
+<div class="space-y-6">
+<div class="flex gap-6"><div class="font-display-xl text-3xl text-primary font-bold shrink-0 w-10">01</div><div><div class="font-headline-lg text-lg text-void-black uppercase mb-2">Organic content</div><div class="font-body-md text-body-md text-surface-container-highest">Monthly content calendar, post copy, and creative briefs for Instagram and Facebook. Consistent publishing cadence that builds audience without burning out your team.</div></div></div>
+<div class="flex gap-6"><div class="font-display-xl text-3xl text-primary font-bold shrink-0 w-10">02</div><div><div class="font-headline-lg text-lg text-void-black uppercase mb-2">Paid campaign setup</div><div class="font-body-md text-body-md text-surface-container-highest">Campaign structure, audience definition, placement selection, budget allocation across ad sets, and pixel configuration &mdash; built for the objective, not the platform defaults.</div></div></div>
+<div class="flex gap-6"><div class="font-display-xl text-3xl text-primary font-bold shrink-0 w-10">03</div><div><div class="font-headline-lg text-lg text-void-black uppercase mb-2">Creative testing</div><div class="font-body-md text-body-md text-surface-container-highest">Systematic A/B testing of headlines, visuals, and CTAs with a clear hypothesis for each test. Scaled winners, killed losers, documented learnings.</div></div></div>
+<div class="flex gap-6"><div class="font-display-xl text-3xl text-primary font-bold shrink-0 w-10">04</div><div><div class="font-headline-lg text-lg text-void-black uppercase mb-2">Reporting &amp; optimisation</div><div class="font-body-md text-body-md text-surface-container-highest">Weekly results snapshot and monthly review covering ROAS, CPM, CTR, conversion rate, and cost per acquisition &mdash; with clear recommendations for the next period.</div></div></div>
+</div></div>
+<div><h2 class="font-headline-lg text-2xl text-void-black uppercase mb-4">Available in six languages</h2><div class="w-12 h-1 bg-primary mb-4"></div>
+<p class="font-body-md text-body-lg text-surface-container-highest">Ad copy and organic content available in English, Finnish, Swedish, Arabic, Turkish, or Urdu &mdash; letting you run campaigns in the language your audience actually uses.</p></div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 md:py-24 px-margin-mobile md:px-gutter bg-void-black">
+<div class="max-w-[580px] mx-auto text-center reveal">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white uppercase mb-4">Ads not <span class="text-primary">performing?</span></h2>
+<p class="font-body-md text-body-lg text-secondary mb-10">Tell me your current setup, budget, and what's not working. I'll tell you what I'd change first.</p>
+<a href="../contact.html" class="bg-primary text-void-black px-8 py-4 font-label-sm text-label-sm uppercase hover:bg-white transition-colors font-bold btn-pulse">Get in touch &rarr;</a>
+</div>
+</section>
+</main>
+<footer class="w-full py-16 md:py-24 bg-void-black border-t-4 border-primary">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12 px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div>
+<div class="font-display-xl text-2xl md:text-4xl text-white mb-4 uppercase tracking-widest flex items-center gap-3"><span class="material-symbols-outlined text-primary">change_history</span> Hassan Masood</div>
+<p class="font-body-md text-secondary max-w-sm mb-6">Sustainable business developer. ESG &amp; CBAM compliance, sales systems, and data-driven strategy.</p>
+<div class="font-label-sm text-label-sm text-white space-y-2 uppercase tracking-wider">
+<p><a href="mailto:m.hassan.masood@hotmail.com" class="hover:text-primary transition-colors">m.hassan.masood@hotmail.com</a></p>
+<p><a href="tel:+358403600110" class="hover:text-primary transition-colors">+358 040 360 0110</a></p>
+<p class="text-smoke-gray mt-4">Inkoo, Finland</p>
+</div></div>
+<div class="flex flex-col gap-8 md:flex-row md:gap-16">
+<div><h5 class="font-headline-lg text-lg text-primary uppercase mb-6 tracking-widest">Site</h5>
+<ul class="space-y-3 font-label-sm text-label-sm uppercase tracking-wider">
+<li><a class="text-secondary hover:text-white transition-colors" href="../index.html">Home</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="../about.html">About</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="../work.html">Work</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="../projects.html">Projects</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="../skills.html">Skills</a></li>
+</ul></div>
+<div><h5 class="font-headline-lg text-lg text-primary uppercase mb-6 tracking-widest">Services</h5>
+<ul class="space-y-3 font-label-sm text-label-sm uppercase tracking-wider">
+<li><a class="text-secondary hover:text-white transition-colors" href="web-design.html">Web Design</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="esg.html">ESG &amp; CBAM</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="sales-crm.html">Sales &amp; CRM</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="../services.html">All Services</a></li>
+</ul></div>
+<div><h5 class="font-headline-lg text-lg text-primary uppercase mb-6 tracking-widest">Contact</h5>
+<ul class="space-y-3 font-label-sm text-label-sm uppercase tracking-wider">
+<li><a class="text-secondary hover:text-white transition-colors" href="../contact.html">Contact Page</a></li>
+<li><a class="text-secondary hover:text-white transition-colors" href="https://www.linkedin.com/in/hassan-masood-fi/" target="_blank" rel="noopener">LinkedIn</a></li>
+</ul></div>
+</div></div>
+<div class="mt-12 pt-6 border-t border-smoke-gray text-center px-margin-mobile">
+<p class="font-label-sm text-xs text-smoke-gray uppercase tracking-widest">&copy; 2026 Hassan Masood &middot; All rights reserved &middot; Inkoo, Finland</p>
+</div></footer>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  const obs=new IntersectionObserver((e,o)=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('active');o.unobserve(en.target)}})},{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  const btn=document.getElementById('mobileMenuBtn'),menu=document.getElementById('mobileMenu'),icon=document.getElementById('mobileMenuIcon');
+  if(btn&&menu){btn.addEventListener('click',()=>{const o=!menu.classList.contains('hidden');menu.classList.toggle('hidden');icon.textContent=o?'menu':'close'})}
+});
+</script>
 </body>
 </html>
