@@ -3,7 +3,7 @@
   var KEY = 'hm_lang';
 
   var EN = {
-    about: 'About', services: 'Services', work: 'Work',
+    about: 'About', services: 'My Services', work: 'Work',
     projects: 'Projects', skills: 'Skills', hireMeBtn: 'Contact Me',
     ddWebDesign: 'Web Design & Dev', ddESG: 'ESG & CBAM',
     ddDigital: 'Digital Marketing', ddSales: 'Sales & CRM',
@@ -326,27 +326,34 @@
       else if (href.endsWith('projects.html') && (txt === 'Projektit' || txt === 'Projects')) a.textContent = t.projects;
       else if (href.endsWith('skills.html') && (txt === 'Taidot' || txt === 'Skills')) a.textContent = t.skills;
     });
-    // Services dropdown trigger (has chevron icon)
+    // Services dropdown trigger (desktop = has chevron icon, mobile = no icon)
     document.querySelectorAll('nav a[href$="services.html"]').forEach(function(a) {
       var icon = a.querySelector('span');
       if (icon) { a.textContent = t.services; a.appendChild(icon); }
+      else { a.textContent = t.services; }
     });
+    // Mobile services accordion toggle label
+    var mobileToggleLabel = document.querySelector('[data-mobile-svc-label]');
+    if (mobileToggleLabel) mobileToggleLabel.textContent = t.services;
     // CTA hire me button
     document.querySelectorAll('a.bg-primary[href$="contact.html"], a.font-bold[href$="contact.html"]').forEach(function(a) {
       a.textContent = t.hireMeBtn;
     });
-    // Dropdown items
-    document.querySelectorAll('nav .absolute a').forEach(function(a) {
+    // Dropdown items — desktop and mobile sub-menu (both use data-dd-svc)
+    document.querySelectorAll('nav .absolute a, [data-dd-svc]').forEach(function(a) {
       var href = a.getAttribute('href') || '';
-      if (href.includes('web-design'))       a.textContent = t.ddWebDesign;
-      else if (href.includes('esg'))         a.textContent = t.ddESG;
-      else if (href.includes('digital'))     a.textContent = t.ddDigital;
-      else if (href.includes('sales-crm'))   a.textContent = t.ddSales;
+      if (href.includes('web-design'))         a.textContent = t.ddWebDesign;
+      else if (href.includes('esg'))           a.textContent = t.ddESG;
+      else if (href.includes('digital'))       a.textContent = t.ddDigital;
+      else if (href.includes('sales-crm'))     a.textContent = t.ddSales;
       else if (href.includes('international')) a.textContent = t.ddIntl;
-      else if (href.includes('brand'))       a.textContent = t.ddBrand;
-      else if (href.includes('social'))      a.textContent = t.ddSocial;
-      else if (href.includes('business'))    a.textContent = t.ddBiz;
+      else if (href.includes('brand'))         a.textContent = t.ddBrand;
+      else if (href.includes('social'))        a.textContent = t.ddSocial;
+      else if (href.includes('business'))      a.textContent = t.ddBiz;
     });
+    // "All services" link in mobile sub-menu
+    var mobileAllSvc = document.querySelector('[data-mobile-svc-all]');
+    if (mobileAllSvc) mobileAllSvc.textContent = t.footAll;
   }
 
   function applyFooter(t) {
@@ -407,6 +414,66 @@
     });
   }
 
+  function buildMobileServicesDropdown() {
+    var mobileInner = document.querySelector('#mobileMenu > div');
+    if (!mobileInner) return;
+    var servicesLink = mobileInner.querySelector('a[href$="services.html"]');
+    if (!servicesLink) return;
+
+    // Grab service sub-links from the desktop dropdown (correct relative paths per page)
+    var desktopLinks = Array.from(document.querySelectorAll('nav .absolute a'));
+
+    var wrapper = document.createElement('div');
+
+    // Toggle button replacing the plain services link
+    var toggle = document.createElement('button');
+    toggle.className = 'w-full text-left bg-transparent border-0 p-0 cursor-pointer font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all uppercase tracking-widest flex items-center justify-between';
+    var label = document.createElement('span');
+    label.setAttribute('data-mobile-svc-label', '');
+    label.textContent = servicesLink.textContent;
+    var chevron = document.createElement('span');
+    chevron.className = 'material-symbols-outlined';
+    chevron.style.cssText = 'font-size:14px;transition:transform 0.25s;';
+    chevron.textContent = 'expand_more';
+    toggle.appendChild(label);
+    toggle.appendChild(chevron);
+
+    // Sub-menu panel
+    var panel = document.createElement('div');
+    panel.style.display = 'none';
+    panel.className = 'flex flex-col gap-3 pl-4 pt-2 pb-1';
+
+    // "All services" link
+    var allLink = document.createElement('a');
+    allLink.href = servicesLink.getAttribute('href');
+    allLink.setAttribute('data-mobile-svc-all', '');
+    allLink.className = 'font-label-sm text-label-sm text-primary uppercase tracking-widest';
+    allLink.textContent = currentLang === 'fi' ? 'Kaikki palvelut' : 'All Services';
+    panel.appendChild(allLink);
+
+    // Individual service links
+    desktopLinks.forEach(function(dl) {
+      var a = document.createElement('a');
+      a.href = dl.getAttribute('href');
+      a.setAttribute('data-dd-svc', '');
+      a.className = 'font-label-sm text-label-sm text-secondary hover:text-primary transition-colors uppercase tracking-widest';
+      a.style.fontSize = '11px';
+      a.textContent = dl.textContent;
+      panel.appendChild(a);
+    });
+
+    toggle.addEventListener('click', function() {
+      var open = panel.style.display !== 'none';
+      panel.style.display = open ? 'none' : 'flex';
+      panel.style.flexDirection = 'column';
+      chevron.style.transform = open ? '' : 'rotate(180deg)';
+    });
+
+    wrapper.appendChild(toggle);
+    wrapper.appendChild(panel);
+    servicesLink.parentNode.replaceChild(wrapper, servicesLink);
+  }
+
   function addToggleBtn(container, id, extraClass) {
     var btn = document.createElement('button');
     btn.id = id;
@@ -427,6 +494,9 @@
     // Add mobile toggle at bottom of mobile menu
     var mobileInner = document.querySelector('#mobileMenu > div');
     if (mobileInner) addToggleBtn(mobileInner, 'lang-btn-mobile', 'w-full text-center');
+
+    // Build expandable services sub-menu in mobile menu
+    buildMobileServicesDropdown();
 
     // Add always-visible mobile toggle next to hamburger button in nav bar
     var hamburger = document.getElementById('mobileMenuBtn');
