@@ -117,6 +117,62 @@
     'contact-label-msg': 'Viesti',
     'contact-submit': 'Lähetä viesti →',
     'contact-status': 'Saatavilla nyt',
+    'contact-sidebar-email': 'Sähköposti',
+    'contact-sidebar-phone': 'Puhelin',
+    'contact-sidebar-location': 'Sijainti',
+    'contact-sidebar-status': 'Tila',
+    'contact-sidebar-services': 'Palvelut',
+    'contact-svc-web': 'Verkkosuunnittelu &amp; Kehitys',
+    'contact-svc-esg': 'ESG &amp; CBAM',
+    'contact-svc-digital': 'Digitaalinen Markkinointi',
+    'contact-svc-sales': 'Sales &amp; CRM',
+    'contact-svc-intl': 'Kansainvälinen Laajeneminen',
+    'contact-svc-brand': 'Brändi &amp; Sisältö',
+    'contact-opt-default': 'Valitse palvelualue',
+    'contact-opt-web': 'Verkkosuunnittelu &amp; Kehitys',
+    'contact-opt-esg': 'ESG &amp; Kestävyyskonsultointi',
+    'contact-opt-digital': 'Digitaalinen Markkinointi',
+    'contact-opt-sales': 'Myynti &amp; CRM',
+    'contact-opt-intl': 'Kansainvälinen Laajeneminen',
+    'contact-opt-brand': 'Brändi &amp; Sisältö',
+    'contact-opt-social': 'Sosiaalinen &amp; Mainokset',
+    'contact-opt-biz': 'Liiketoimintakehitys',
+    'contact-opt-other': 'Jotain muuta',
+    'contact-ph-msg': 'Kerro mitä olet tekemässä, missä olet jumissa, tai mitä haluat rakentaa. Mitä enemmän kontekstia, sen parempi.',
+    /* about.html CTA buttons */
+    'about-cta-services': 'Näytä kaikki palvelut &rarr;',
+    'about-cta-collab': 'Tehdään yhteistyötä',
+    /* services.html cards */
+    'svc-card-01-h3': 'Verkkosuunnittelu &amp;<br/><span class="text-primary">Kehitys</span>',
+    'svc-card-01-p': 'Puhtaat, nopeat, mobiiliensijaiset verkkosivut, jotka on rakennettu konvertoimaan. Konseptista käyttöönottoon täydellä luovutuksella ja dokumentaatiolla.',
+    'svc-card-02-h3': 'ESG &amp; <span class="text-primary">Kestävyys</span>konsultointi',
+    'svc-card-02-p': 'CBAM, CSRD, toimittajatietojen keruu, CN-koodiuudelleenluokittelu, LCA — rakennettu käytännön kokemuksesta näiden järjestelmien toteuttamisesta alusta alkaen.',
+    'svc-card-03-h3': 'Digitaalinen <span class="text-primary">Markkinointi</span>',
+    'svc-card-03-p': 'Yleisötutkimus, kanavayhdistelmästrategia, KPI-kojelaudat, kuukausittaiset arviointikehykset — dataohjattu alusta asti.',
+    'svc-card-04-h3': 'Myynti &amp; <span class="text-primary">CRM</span>',
+    'svc-card-04-p': 'Hankintajärjestelmät, putkiliiketoiminta, B2B ja DTC-verkkokauppa. CRM-suunnittelu ja -käyttöönotto HubSpotissa tai Salesforcessa.',
+    'svc-card-05-h3': 'Kansainvälinen <span class="text-primary">Laajeneminen</span>',
+    'svc-card-05-p': 'Rajat ylittävä verkkokauppa, toimittajan tarkastus, EU:n tuontivaatimustenmukaisuus, lokalisointi kuudella kielellä.',
+    'svc-card-06-h3': 'Brändi &amp; <span class="text-primary">Sisältö</span>',
+    'svc-card-06-p': 'Brändiääni, verkkosivutekstit, sähköpostikampanjat ja pitch-esitykset — laadittu useilla kielillä kansainvälisille yleisöille.',
+    'svc-card-07-h3': 'Sosiaalinen &amp; <span class="text-primary">Mainokset</span>',
+    'svc-card-07-p': 'Instagram- ja Facebook-orgaaninen sisältö sekä maksullinen mainosten hallinta. Luovuus, kohdentaminen, optimointi ja läpinäkyvä raportointi.',
+    'svc-card-08-h3': 'Liiketoiminta<span class="text-primary">kehitys</span>',
+    'svc-card-08-p': 'Markkinoilletulostrategia, kumppanuuksien kehittäminen, tulojen monipuolistaminen — rakennettu todelliseen operatiiviseen kokemukseen kolmella mantereella.',
+    'svc-lang-label': '&mdash; Tuki 6 kielellä',
+    'svc-cta-label': 'Epävarma mikä sopii?',
+    'svc-cta-h2': 'Jutellaan <span class="text-primary">ensin.</span>',
+    'svc-cta-p': 'Useimmat toimeksiannot alkavat lyhyellä keskustelulla. Kerro mitä olet tekemässä ja kerron rehellisesti pystynkö auttamaan ja miten.',
+    'svc-cta-btn': 'Aloita keskustelu &rarr;',
+    /* work.html */
+    'work-comp-label': 'Kilpailut &amp; Palkinnot',
+    'work-cta-btn': 'Aloita keskustelu &rarr;',
+    'work-cta-about': 'Tietoa minusta',
+    'work-cta-skills': 'Taidot &amp; työkalut',
+    /* skills.html */
+    'skills-how-label': 'Miten työskentelen',
+    'skills-cta-btn': 'Aloita keskustelu &rarr;',
+    'skills-cta-services': 'Näytä palvelut',
   };
 
   var PAGE_EN = {
@@ -201,6 +257,62 @@
     'contact-label-msg': 'Message',
     'contact-submit': 'Send message →',
     'contact-status': 'Available now',
+    'contact-sidebar-email': 'Email',
+    'contact-sidebar-phone': 'Phone',
+    'contact-sidebar-location': 'Location',
+    'contact-sidebar-status': 'Status',
+    'contact-sidebar-services': 'Services',
+    'contact-svc-web': 'Web Design &amp; Dev',
+    'contact-svc-esg': 'ESG &amp; CBAM',
+    'contact-svc-digital': 'Digital Marketing',
+    'contact-svc-sales': 'Sales &amp; CRM',
+    'contact-svc-intl': 'International Expansion',
+    'contact-svc-brand': 'Brand &amp; Content',
+    'contact-opt-default': 'Select service area',
+    'contact-opt-web': 'Web Design &amp; Development',
+    'contact-opt-esg': 'ESG &amp; Sustainability Consulting',
+    'contact-opt-digital': 'Digital Marketing',
+    'contact-opt-sales': 'Sales &amp; CRM',
+    'contact-opt-intl': 'International Expansion',
+    'contact-opt-brand': 'Brand &amp; Content',
+    'contact-opt-social': 'Social &amp; Paid Ads',
+    'contact-opt-biz': 'Business Development',
+    'contact-opt-other': 'Something else',
+    'contact-ph-msg': 'Tell me what you\'re working on, where you\'re stuck, or what you\'d like to build. The more context, the better.',
+    /* about.html CTA buttons */
+    'about-cta-services': 'View All Services &rarr;',
+    'about-cta-collab': 'Let\'s Collaborate',
+    /* services.html cards */
+    'svc-card-01-h3': 'Web Design &amp;<br/><span class="text-primary">Development</span>',
+    'svc-card-01-p': 'Clean, fast, mobile-first websites built to convert. Concept to go-live with full handover and documentation.',
+    'svc-card-02-h3': 'ESG &amp; <span class="text-primary">Sustainability</span> Consulting',
+    'svc-card-02-p': 'CBAM, CSRD, supplier data collection, CN-code reclassification, LCA — built from hands-on experience implementing these systems from scratch.',
+    'svc-card-03-h3': 'Digital <span class="text-primary">Marketing</span>',
+    'svc-card-03-p': 'Audience research, channel mix strategy, KPI dashboards, monthly review frameworks — data-driven from the start.',
+    'svc-card-04-h3': 'Sales &amp; <span class="text-primary">CRM</span>',
+    'svc-card-04-p': 'Outreach systems, pipeline operations, B2B and DTC e-commerce. CRM design and implementation on HubSpot or Salesforce.',
+    'svc-card-05-h3': 'International <span class="text-primary">Expansion</span>',
+    'svc-card-05-p': 'Cross-border e-commerce, supplier vetting, EU import compliance, localisation in six languages.',
+    'svc-card-06-h3': 'Brand &amp; <span class="text-primary">Content</span>',
+    'svc-card-06-p': 'Brand voice, web copy, email campaigns, and pitch presentations — crafted in multiple languages for international audiences.',
+    'svc-card-07-h3': 'Social &amp; <span class="text-primary">Paid Ads</span>',
+    'svc-card-07-p': 'Instagram and Facebook organic content plus paid ad management. Creative, targeting, optimisation, and transparent reporting.',
+    'svc-card-08-h3': 'Business <span class="text-primary">Development</span>',
+    'svc-card-08-p': 'Market entry strategy, partnership development, revenue diversification — built on real operational experience across three continents.',
+    'svc-lang-label': '&mdash; Supported in 6 languages',
+    'svc-cta-label': 'Not sure which fits?',
+    'svc-cta-h2': 'Let\'s talk <span class="text-primary">first.</span>',
+    'svc-cta-p': 'Most engagements start with a short conversation. Tell me what you\'re working on and I\'ll tell you honestly whether and how I can help.',
+    'svc-cta-btn': 'Start a conversation &rarr;',
+    /* work.html */
+    'work-comp-label': 'Competitions &amp; Awards',
+    'work-cta-btn': 'Start a conversation &rarr;',
+    'work-cta-about': 'About Me',
+    'work-cta-skills': 'Skills &amp; Tools',
+    /* skills.html */
+    'skills-how-label': 'How I Work',
+    'skills-cta-btn': 'Start a conversation &rarr;',
+    'skills-cta-services': 'View Services',
   };
 
   function applyNav(t) {
@@ -258,7 +370,7 @@
       else if (href.includes('services') && !href.includes('/services/')) a.textContent = t.footAll;
       else if (href.includes('contact'))       a.textContent = t.footContactPage;
     });
-    var brandP = document.querySelector('footer .flex-col > p');
+    var brandP = document.querySelector('footer .flex-col > div > p');
     if (brandP) brandP.textContent = t.footBrand;
     var bottomP = document.querySelector('footer .border-t p');
     if (bottomP) bottomP.textContent = t.footBottom;
@@ -270,6 +382,12 @@
       var key = el.getAttribute('data-t');
       if (PAGE[key] !== undefined) {
         el.innerHTML = PAGE[key];
+      }
+    });
+    document.querySelectorAll('[data-tp]').forEach(function(el) {
+      var key = el.getAttribute('data-tp');
+      if (PAGE[key] !== undefined) {
+        el.placeholder = PAGE[key];
       }
     });
   }
