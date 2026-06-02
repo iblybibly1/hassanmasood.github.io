@@ -446,5 +446,44 @@
     if (currentLang === 'en') {
       applyLang('en');
     }
+
+    // Background pause button
+    if (document.querySelector('.bg-vid')) {
+      var pauseBtn = document.createElement('button');
+      pauseBtn.id = 'bg-pause-btn';
+      pauseBtn.title = 'Pause / resume background';
+      pauseBtn.setAttribute('aria-label', 'Pause background animation');
+      pauseBtn.style.cssText = [
+        'position:fixed',
+        'bottom:1.25rem',
+        'right:1.25rem',
+        'z-index:9999',
+        'width:2rem',
+        'height:2rem',
+        'background:rgba(5,5,5,0.75)',
+        'border:1px solid rgba(200,66,28,0.45)',
+        'border-radius:50%',
+        'color:#c6c6c7',
+        'display:flex',
+        'align-items:center',
+        'justify-content:center',
+        'cursor:pointer',
+        'transition:border-color 0.2s,color 0.2s',
+      ].join(';');
+      pauseBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size:13px;line-height:1;user-select:none;">pause</span>';
+      document.body.appendChild(pauseBtn);
+
+      var bgPaused = false;
+      pauseBtn.addEventListener('click', function() {
+        bgPaused = !bgPaused;
+        document.querySelectorAll('.bg-vid').forEach(function(v) {
+          bgPaused ? v.pause() : v.play();
+        });
+        var icon = pauseBtn.querySelector('.material-symbols-outlined');
+        icon.textContent = bgPaused ? 'play_arrow' : 'pause';
+        pauseBtn.style.borderColor = bgPaused ? 'rgba(200,66,28,0.9)' : 'rgba(200,66,28,0.45)';
+        pauseBtn.style.color = bgPaused ? '#C8421C' : '#c6c6c7';
+      });
+    }
   });
 })();
