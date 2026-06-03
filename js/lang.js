@@ -44,7 +44,7 @@
     'story-h2': 'Tarina',
     'story-p1': 'Olen Suomessa toimiva kestävä liiketoimintakehittäjä, joka erikoistuu <strong class="text-inverse-primary font-bold">ESG- ja CBAM-vaatimustenmukaisuuteen</strong>, myyntijärjestelmiin ja rajat ylittävään kaupalliseen strategiaan. Muunnan monimutkaiset EU-viitekehykset — CBAM, CSRD, toimittajatietojen kerääminen, CN-koodiuudelleenluokittelu — käytännön järjestelmiksi, joita organisaatiot voivat operoida päivittäin.',
     'story-p2': 'Suomessa ja Pakistanissa, rajat ylittävää työtä EU:hun, Arabiemiraatteihin ja Kiinaan, olen hallinnoinut käänteistä toimitusketjua joka kattaa noin 2 400 keräyspistettä Punjabin alueella, ottanut käyttöön CSRD-kehyksiä suomalaisille viejille ja rakentanut dataohjattuja myyntiputkia.',
-    'story-p3': 'Vaatimustenmukaisuustyön ohella tarjoan <strong class="text-inverse-primary font-bold">verkkosuunnittelua ja -kehitystä</strong>, digitaalista markkinointistrategiaa, CRM-käyttöönottoa HubSpotissa ja Salesforcessa sekä kansainvälistä markkinoille pääsyn tukea. Saatavilla: englanti, urdu ja punjabi (äidinkieli), suomi (keskustelutaso, B1) sekä alkeet arabiassa ja ruotsissa.',
+    'story-p3': 'Vaatimustenmukaisuustyön ohella tarjoan <strong class="text-inverse-primary font-bold">verkkosuunnittelua ja -kehitystä</strong>, digitaalista markkinointistrategiaa, CRM-käyttöönottoa HubSpotissa ja Salesforcessa sekä kansainvälistä markkinoille pääsyn tukea. Saatavilla: englanti, suomi (keskustelutaso, B1), urdu ja punjabi (äidinkieli) sekä alkeet arabiassa ja ruotsissa.',
     'story-quote': '&ldquo;Minulla on BBA TAMK:lta CGPA:lla 4,29/5,0 ja sijoituin 3. sijalle Huawei Tech Arena Finland 2025:ssa — ainoana ei-CS-kilpailijana podiumilla.&rdquo;',
     'story-cta1': 'Koko tarina <span class="material-symbols-outlined text-sm">arrow_forward</span>',
     /* index.html — services section */
@@ -73,7 +73,7 @@
     'about-p1': 'Olen <strong class="text-primary">kestävä liiketoimintakehittäjä</strong> — käytännössä se tarkoittaa, että istun siinä risteyksessä, jossa regulaatio, operatiivinen arki ja kaupallinen strategia kohtaavat. Autan yrityksiä ymmärtämään, mitä EU-viitekehykset — CBAM, CSRD, toimittaja-auditoinnit — tarkoittavat käytännössä, ja rakennan sitten järjestelmät niiden toteuttamiseen.',
     'about-p2': 'Taustani kattaa viisi erilaista roolia — käänteisen toimitusketjun hallinnasta joka kattoi noin 2 400 keräyspistettä Punjabin alueella CSRD-kehysten käyttöönottoon suomalaisen kuluttajatuotteiden brändin hyväksi EU:n tullialueilla. Tämä laajuus on tarkoituksellinen. Terävimmät kaupalliset päätökset tulevat ihmisiltä, jotka ovat nähneet sekä johdon strategian että operatiivisen työn.',
     'about-p3': 'Perinteisen liikkeenjohdon konsultoinnin ulkopuolella olen <strong class="text-primary">teknologiaihminen sydämeltäni</strong>. Olen opiskellut finanssimarkkinoita itsenäisesti vuodesta 2012, rakentanut algoritmisia kaupankäyntityökaluja, mukautettuja KPI-indikaattoreita ja backtesting-kehyksiä Pythonilla. Osallistuin Huawei Tech Arena Finland 2025 -kilpailuun ja sijoituin 3. sijalle kansallisesti ainoana ei-tietotekniikan ehdokkaana podiumilla.',
-    'about-p4': 'Kielet ovat yksi käytännöllisimmistä vahvuuksistani. Äidinkieleni ovat <strong class="text-primary">englanti, urdu ja punjabi</strong>, puhun suomea keskustelutasolla (B1) ja minulla on perusteet arabiasta ja ruotsista. Tämä kirjo antaa minun hoitaa toimittajakeskustelut Etelä-Aasiassa heidän omalla kielellään ja toimia päivittäin suomalaisessa liiketoimintaympäristössä.',
+    'about-p4': 'Kielet ovat yksi käytännöllisimmistä vahvuuksistani. Puhun <strong class="text-primary">englantia äidinkielenä</strong>, suomea keskustelutasolla (B1) ja urdu sekä punjabi ovat myös äidinkieleni; minulla on lisäksi alkeet arabiasta ja ruotsista. Tämä kirjo antaa minun hoitaa toimittajakeskustelut Etelä-Aasiassa heidän omalla kielellään ja toimia päivittäin suomalaisessa liiketoimintaympäristössä.',
     'about-p5': 'Valmistuin BBA:ksi kansainvälisestä liiketoiminnasta TAMK:sta joulukuussa 2024 CGPA:lla <strong class="text-primary">4,29 / 5,0</strong>. Opintojeni aikana suoritin vaihtovaiheen Ondokuz Mayıs\'n yliopistossa Turkissa, edusti Tampereen yliopistoa kansainvälisissä liiketoimintacase- ja myyntikilpailuissa eri puolilla Eurooppaa ja pyöritti kannattavaa kansainvälistä verkkokauppaa opintojen ohella.',
     'about-p6': 'Minua ajaa mahdollisuus ottaa jokin <strong class="text-primary">aidosti monimutkainen</strong> asia — sääntelykehys, markkinoille pääsyn haaste, rikkinäinen myyntiputki — ja muuttaa se toimivaksi järjestelmäksi. Siinä olen hyvä, ja sellainen ongelma on se, jonka haluan seuraavaksi ratkaista.',
     'about-edu-label': 'Koulutus',
@@ -103,7 +103,7 @@
     'skills-lang-p': 'Kielet, joilla työskentelen ammattimaisesti:',
     /* services.html */
     'svc-page-h1': 'Mitä<br/><span class="text-primary">Tarjoan.</span>',
-    'svc-page-lede': 'Kahdeksan palvelualuetta kattaen ESG-vaatimustenmukaisuuden, verkkokehityksen, markkinoinnin, myynnin ja kansainvälisen liiketoiminnan. Saatavilla englanniksi, urduksi, punjabin kielellä, suomeksi, arabiaksi ja ruotsiksi.',
+    'svc-page-lede': 'Kahdeksan palvelualuetta kattaen ESG-vaatimustenmukaisuuden, verkkokehityksen, markkinoinnin, myynnin ja kansainvälisen liiketoiminnan. Saatavilla englanniksi, suomeksi, urduksi, punjabin kielellä, arabiaksi ja ruotsiksi.',
     'svc-page-p1': 'Jokainen toimeksianto on käytännöllinen, ei teoreettinen. Olen toteuttanut nämä järjestelmät omin käsin — CBAM-ilmoittajatilien rekisteröinnistä ja toimittajien hiilijalanjälkitietojen keräämisestä satojen toimipisteiden kautta täysien CRM-putkilinjojen rakentamiseen ja verkkokauppakanavien avaamiseen rajojen yli.',
     'svc-page-p2': 'Tarvitsetpa yksittäisen toimituksen tai jatkuvan kumppanin, teen työtä suoraan — ei välikäsiä, ei juniorien sijaisia. Useimmat toimeksiannot alkavat lyhyellä keskustelulla sen selvittämiseksi, mitä tarkalleen tarvitset.',
     /* contact.html */
@@ -159,7 +159,7 @@
     'svc-card-07-p': 'Instagram- ja Facebook-orgaaninen sisältö sekä maksullinen mainosten hallinta. Luovuus, kohdentaminen, optimointi ja läpinäkyvä raportointi.',
     'svc-card-08-h3': 'Liiketoiminta<span class="text-primary">kehitys</span>',
     'svc-card-08-p': 'Markkinoilletulostrategia, kumppanuuksien kehittäminen, tulojen monipuolistaminen — rakennettu todelliseen operatiiviseen kokemukseen Suomessa ja Pakistanissa, rajat ylittävää työtä EU:hun, Arabiemiraatteihin ja Kiinaan.',
-    'svc-lang-label': '&mdash; Saatavilla EN, urdu, punjabi, FI, AR, SV',
+    'svc-lang-label': '&mdash; Saatavilla EN, FI, urdu, punjabi, AR, SV',
     'svc-cta-label': 'Epävarma mikä sopii?',
     'svc-cta-h2': 'Jutellaan <span class="text-primary">ensin.</span>',
     'svc-cta-p': 'Useimmat toimeksiannot alkavat lyhyellä keskustelulla. Kerro mitä olet tekemässä ja kerron rehellisesti pystynkö auttamaan ja miten.',
@@ -219,7 +219,7 @@
     'story-h2': 'The Story',
     'story-p1': 'I\'m a Finland-based sustainable business developer specialising in <strong class="text-inverse-primary font-bold">ESG and CBAM compliance</strong>, sales systems, and cross-border commercial strategy. I translate complex EU frameworks — CBAM, CSRD, supplier data collection, CN-code reclassification — into practical systems that organisations can actually operate day to day.',
     'story-p2': 'Across Finland and Pakistan, with cross-border work into the EU, UAE and China, I have managed supply chains spanning approximately 2,400 collection centres across the Punjab region, deployed CSRD compliance frameworks for Finnish exporters, and built data-driven sales pipelines for both B2B and e-commerce businesses.',
-    'story-p3': 'Alongside compliance work, I offer <strong class="text-inverse-primary font-bold">web design and development</strong>, digital marketing strategy, CRM implementation on HubSpot and Salesforce, and international market entry support. Available in English, Urdu and Punjabi (native), Finnish (conversational, B1), with a basic grounding in Arabic and Swedish.',
+    'story-p3': 'Alongside compliance work, I offer <strong class="text-inverse-primary font-bold">web design and development</strong>, digital marketing strategy, CRM implementation on HubSpot and Salesforce, and international market entry support. Available in English, Finnish (conversational, B1), Urdu and Punjabi (native), with a basic grounding in Arabic and Swedish.',
     'story-quote': '&ldquo;I hold a BBA from TAMK with a CGPA of 4.29/5.0 and placed 3rd at Huawei Tech Arena Finland 2025 — the only non-CS competitor on the podium.&rdquo;',
     'story-cta1': 'Full Story <span class="material-symbols-outlined text-sm">arrow_forward</span>',
     /* index.html — services section */
@@ -248,7 +248,7 @@
     'about-p1': 'I am a <strong class="text-primary">sustainable business developer</strong> — which in practice means I sit where regulation, operations, and commercial strategy intersect. I help companies understand what EU frameworks like CBAM and CSRD actually require of them, build the internal systems to meet those requirements, and ensure that compliance doesn\'t just reduce risk but generates real business value.',
     'about-p2': 'My background spans five distinct roles — from managing a reverse supply chain spanning approximately 2,400 collection centres across the Punjab region to implementing CSRD frameworks for a Finnish consumer goods brand operating across EU customs jurisdictions. That range is deliberate. I believe the sharpest commercial decisions come from people who have seen both the boardroom strategy and the operational floor.',
     'about-p3': 'Outside of traditional business consulting, I am a <strong class="text-primary">technologist at heart</strong>. I have been self-studying financial markets since 2012, building algorithmic trading tools, custom KPI indicators, and backtesting frameworks in Python. I competed at Huawei Tech Arena Finland 2025 and placed 3rd nationally as the only non-computer science candidate on the podium.',
-    'about-p4': 'Languages are one of my most practical strengths. I work natively in <strong class="text-primary">English, Urdu and Punjabi</strong>, hold conversational Finnish (B1), and have a basic grounding in Arabic and Swedish. That range lets me run supplier conversations across South Asia in their own language and operate day-to-day in a Finnish business environment.',
+    'about-p4': 'Languages are one of my most practical strengths. I work natively in <strong class="text-primary">English</strong>, hold conversational Finnish (B1), and also work natively in Urdu and Punjabi, with a basic grounding in Arabic and Swedish. That range lets me run supplier conversations across South Asia in their own language and operate day-to-day in a Finnish business environment.',
     'about-p5': 'I graduated with a BBA in International Business from TAMK in December 2024 with a CGPA of <strong class="text-primary">4.29 / 5.0</strong>. During my studies I completed an exchange semester at Ondokuz Mayıs University in Turkey, represented Tampere University at international business case and sales competitions across Europe, and ran a profitable international e-commerce store alongside my studies.',
     'about-p6': 'What drives me is the opportunity to take something <strong class="text-primary">genuinely complex</strong> — a regulatory framework, a market entry challenge, a broken sales pipeline — and turn it into a system that runs. That\'s what I\'m good at, and that\'s the kind of problem I\'m looking for my next opportunity to solve.',
     'about-edu-label': 'Education',
@@ -278,7 +278,7 @@
     'skills-lang-p': 'Languages I work in professionally:',
     /* services.html */
     'svc-page-h1': 'What I<br/><span class="text-primary">Offer.</span>',
-    'svc-page-lede': 'Eight service areas covering ESG compliance, web development, marketing, sales, and international business. Available in English, Urdu, Punjabi, Finnish, Arabic and Swedish.',
+    'svc-page-lede': 'Eight service areas covering ESG compliance, web development, marketing, sales, and international business. Available in English, Finnish, Urdu, Punjabi, Arabic and Swedish.',
     'svc-page-p1': 'Every engagement is practical, not theoretical. I\'ve implemented these systems first-hand — from registering CBAM declarant accounts and running supplier carbon footprint data collection across hundreds of sites, to building full CRM pipelines and launching e-commerce channels across borders.',
     'svc-page-p2': 'Whether you need a single deliverable or an ongoing partner, I work directly — no hand-offs, no junior substitutes. Most engagements start with a short conversation to understand exactly what you need.',
     /* contact.html */
@@ -334,7 +334,7 @@
     'svc-card-07-p': 'Instagram and Facebook organic content plus paid ad management. Creative, targeting, optimisation, and transparent reporting.',
     'svc-card-08-h3': 'Business <span class="text-primary">Development</span>',
     'svc-card-08-p': 'Market entry strategy, partnership development, revenue diversification — built on real operational experience across Finland and Pakistan, with cross-border work into the EU, UAE and China.',
-    'svc-lang-label': '&mdash; Available in EN, Urdu, Punjabi, FI, AR, SV',
+    'svc-lang-label': '&mdash; Available in EN, FI, Urdu, Punjabi, AR, SV',
     'svc-cta-label': 'Not sure which fits?',
     'svc-cta-h2': 'Let\'s talk <span class="text-primary">first.</span>',
     'svc-cta-p': 'Most engagements start with a short conversation. Tell me what you\'re working on and I\'ll tell you honestly whether and how I can help.',
