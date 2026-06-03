@@ -527,7 +527,7 @@
 
     // On mobile, remove scale/blur from bg-vid — they worsen quality on small screens
     var mobileStyle = document.createElement('style');
-    mobileStyle.textContent = '@media (max-width:767px){.bg-vid{transform:none!important;filter:brightness(0.5)!important;}}';
+    mobileStyle.textContent = '@media (max-width:767px){.bg-vid{filter:brightness(0.7)!important;}}';
     document.head.appendChild(mobileStyle);
 
     // Background pause button
