@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /harmony/
+Disallow: /harmony-preview.html
+Disallow: /client-preview.html
+
+Sitemap: https://hassanmasood.fi/sitemap.xml
