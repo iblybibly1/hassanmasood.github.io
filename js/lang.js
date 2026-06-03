@@ -517,6 +517,14 @@
       applyLang('en');
     }
 
+    // Set background video playback speed to 80%
+    document.querySelectorAll('.bg-vid').forEach(function(v) {
+      function setRate() { v.playbackRate = 0.8; }
+      setRate();
+      v.addEventListener('loadedmetadata', setRate);
+      v.addEventListener('play', setRate);
+    });
+
     // On mobile, remove scale/blur from bg-vid — they worsen quality on small screens
     var mobileStyle = document.createElement('style');
     mobileStyle.textContent = '@media (max-width:767px){.bg-vid{transform:none!important;filter:brightness(0.5)!important;}}';
