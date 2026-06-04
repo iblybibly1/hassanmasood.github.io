@@ -1,13 +1,7 @@
-/* Google Analytics 4
- * --------------------------------------------------
- * SETUP: Replace G-XXXXXXXXXX with your Measurement ID.
- * Get it from: analytics.google.com → Admin → Data Streams
- * --------------------------------------------------
- */
+/* Google Analytics 4 — G-260VJ86WLE */
 (function () {
-  var GA_ID = 'G-XXXXXXXXXX'; // ← REPLACE WITH YOUR GA4 MEASUREMENT ID
+  var GA_ID = 'G-260VJ86WLE';
 
-  // Inject the GA4 loader script
   var s = document.createElement('script');
   s.async = true;
   s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
@@ -17,7 +11,7 @@
   function gtag() { dataLayer.push(arguments); }
   window.gtag = gtag;
   gtag('js', new Date());
-  gtag('config', GA_ID, { send_page_view: true });
+  gtag('config', GA_ID);
 
   // Track contact form submission as a lead conversion
   document.addEventListener('DOMContentLoaded', function () {
