@@ -69,15 +69,48 @@ body { background-color:#131311; color:#e5e2de; overflow-x:hidden; font-family:'
   .stagger-1{transition-delay:100ms} .stagger-2{transition-delay:200ms} .stagger-3{transition-delay:300ms}
 }
 
-        @keyframes drift {
-            0% { transform: scale(1) translate(0, 0); }
-            50% { transform: scale(1.08) translate(3%, 2%); }
-            100% { transform: scale(1) translate(0, 0); }
-        }
-        .animate-drift {
-            animation: drift 15s ease-in-out infinite alternate;
-        }
-    </style>
+@keyframes drift{0%{transform:scale(1) translate(0,0)}50%{transform:scale(1.08) translate(3%,2%)}100%{transform:scale(1) translate(0,0)}}
+.animate-drift{animation:drift 15s ease-in-out infinite alternate}
+/* CDN fallback — layout integrity when Tailwind CDN is blocked or slow */
+.hidden{display:none!important}.invisible{visibility:hidden}.opacity-0{opacity:0}
+.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}
+.inset-0{inset:0}.top-0{top:0}.left-0{left:0}.top-full{top:100%}
+.z-50{z-index:50}.z-40{z-index:40}.z-10{z-index:10}.z-0{z-index:0}
+.w-full{width:100%}.h-full{height:100%}.flex-grow{flex-grow:1}.max-w-container-max{max-width:1440px}
+.overflow-hidden{overflow:hidden}.object-cover{object-fit:cover}
+.flex{display:flex}.grid{display:grid}.block{display:block}.inline-flex{display:inline-flex}
+.items-center{align-items:center}.justify-between{justify-content:space-between}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.shrink-0{flex-shrink:0}
+.mx-auto{margin-left:auto;margin-right:auto}
+.gap-2{gap:.5rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.gap-12{gap:3rem}.gap-16{gap:4rem}
+.space-y-2>*+*{margin-top:.5rem}.space-y-3>*+*{margin-top:.75rem}.space-y-6>*+*{margin-top:1.5rem}.space-y-8>*+*{margin-top:2rem}.space-y-10>*+*{margin-top:2.5rem}
+.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}
+.mt-12{margin-top:3rem}.pt-6{padding-top:1.5rem}.pl-6{padding-left:1.5rem}
+.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}
+.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-24{padding-top:6rem;padding-bottom:6rem}.py-32{padding-top:8rem;padding-bottom:8rem}
+.px-margin-mobile{padding-left:1rem;padding-right:1rem}.pt-\[80px\]{padding-top:80px}.px-gutter{padding-left:2rem;padding-right:2rem}
+.bg-void-black{background-color:#050505}.bg-white{background-color:#fff}.bg-primary{background-color:#C8421C}.bg-paper-white{background-color:#F2EDE6}
+.bg-background\/90{background-color:rgba(19,19,17,.9)}.bg-background\/95{background-color:rgba(19,19,17,.95)}.bg-void-black\/40{background-color:rgba(5,5,5,.4)}
+.text-white{color:#fff}.text-primary{color:#C8421C}.text-secondary{color:#c6c6c7}.text-void-black{color:#050505}.text-surface-container-highest{color:#353532}
+.border-b{border-bottom:1px solid}.border-t{border-top:1px solid}.border{border:1px solid}.border-l-4{border-left:4px solid}
+.border-primary{border-color:#C8421C}.border-smoke-gray{border-color:#2D2D2A}.border-smoke-gray\/20{border-color:rgba(45,45,42,.2)}
+.uppercase{text-transform:uppercase}.text-center{text-align:center}.text-xs{font-size:.75rem}
+.font-bold{font-weight:700}.tracking-widest{letter-spacing:.1em}.tracking-wider{letter-spacing:.05em}
+.font-display-xl{font-family:'Anybody',sans-serif}.font-body-md,.font-body-lg{font-family:'DM Sans',sans-serif}.font-label-sm{font-family:'JetBrains Mono',monospace}.font-headline-lg{font-family:'Anybody',sans-serif}
+.text-body-lg{font-size:18px;line-height:1.6}.text-body-md{font-size:16px;line-height:1.6}.text-label-sm{font-size:12px;line-height:1.4;letter-spacing:.1em}
+.text-\[52px\]{font-size:52px}.leading-\[0\.9\]{line-height:.9}.rotate-45{transform:rotate(45deg)}
+.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}
+.max-w-2xl{max-width:42rem}.max-w-sm{max-width:24rem}.max-w-\[580px\]{max-width:580px}.w-2{width:.5rem}.h-2{height:.5rem}.w-10{width:2.5rem}.w-12{width:3rem}.h-1{height:.25rem}
+@media(min-width:768px){
+.md\:flex{display:flex!important}.md\:hidden{display:none!important}.md\:block{display:block!important}
+.md\:grid-cols-\[280px_1fr\]{grid-template-columns:280px 1fr}
+.md\:flex-row{flex-direction:row!important}
+.md\:px-gutter{padding-left:2rem!important;padding-right:2rem!important}
+.md\:py-24{padding-top:6rem!important;padding-bottom:6rem!important}
+.md\:py-32{padding-top:8rem!important;padding-bottom:8rem!important}
+.md\:text-\[80px\]{font-size:80px!important}
+.md\:text-4xl{font-size:2.25rem!important;line-height:2.5rem!important}
+}
+</style>
 </head>
 <body class="flex flex-col min-h-screen">
 <nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-primary/20 transition-all duration-300">
