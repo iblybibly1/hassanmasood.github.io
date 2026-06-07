@@ -100,13 +100,32 @@ body { background-color:#131311; color:#e5e2de; overflow-x:hidden; font-family:'
 .text-\[52px\]{font-size:52px}.leading-\[0\.9\]{line-height:.9}.rotate-45{transform:rotate(45deg)}
 .text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}
 .max-w-2xl{max-width:42rem}.max-w-sm{max-width:24rem}.max-w-\[580px\]{max-width:580px}.w-2{width:.5rem}.h-2{height:.5rem}.w-10{width:2.5rem}.w-12{width:3rem}.h-1{height:.25rem}
+/* nav/footer specific */
+.space-x-8>*+*{margin-left:2rem}
+.text-on-surface-variant{color:#ebbcb4}
+.border-primary\/20{border-color:rgba(200,66,28,.2)}
+.border-t-4{border-top:4px solid}
+.border-t-4.border-primary{border-top-color:#C8421C}
+.text-smoke-gray{color:#2D2D2A}
+.bg-surface-container{background-color:#20201d}
+.w-60{width:15rem}.mt-1{margin-top:.25rem}.ml-1{margin-left:.25rem}
+.z-\[100\]{z-index:100}
+.shadow-2xl{box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}
+.transition-colors{transition:color .15s,background-color .15s,border-color .15s}
+.transition-all{transition:all .15s}
+.hover\:text-primary:hover{color:#C8421C}.hover\:text-white:hover{color:#fff}
+.hover\:bg-surface-container:hover{background-color:#20201d}
+.hover\:bg-white:hover{background-color:#fff}.hover\:bg-void-black:hover{background-color:#050505}
+.group:hover .group-hover\:opacity-100{opacity:1}
+.group:hover .group-hover\:visible{visibility:visible}
 @media(min-width:768px){
-.md\:flex{display:flex!important}.md\:hidden{display:none!important}.md\:block{display:block!important}
+.md\:flex{display:flex!important}.md\:inline-flex{display:inline-flex!important}.md\:hidden{display:none!important}.md\:block{display:block!important}
 .md\:grid-cols-\[280px_1fr\]{grid-template-columns:280px 1fr}
 .md\:flex-row{flex-direction:row!important}
 .md\:px-gutter{padding-left:2rem!important;padding-right:2rem!important}
 .md\:py-24{padding-top:6rem!important;padding-bottom:6rem!important}
 .md\:py-32{padding-top:8rem!important;padding-bottom:8rem!important}
+.md\:gap-16{gap:4rem!important}
 .md\:text-\[80px\]{font-size:80px!important}
 .md\:text-4xl{font-size:2.25rem!important;line-height:2.5rem!important}
 }
