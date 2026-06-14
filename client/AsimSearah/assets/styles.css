@@ -28,9 +28,9 @@
   background-image: url('hero.jpg');
   mix-blend-mode: luminosity;
 }
-/* About portrait reuses the hero shot (grayscale) until a dedicated portrait is added. */
+/* About / "Veteran Experience" portrait. Swap assets/about.jpg to change. */
 .about-bg {
-  background-image: url('hero.jpg');
+  background-image: url('about.jpg');
   filter: grayscale(1) contrast(1.15);
 }
 
