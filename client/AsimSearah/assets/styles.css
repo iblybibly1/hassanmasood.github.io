@@ -43,7 +43,7 @@
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #ffb4aa;
+  color: #e61919;
   transition: all 0.2s ease;
   pointer-events: none;
 }
@@ -97,7 +97,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 .social-tile:hover .social-tile__icon svg {
-  fill: #ff6a5d;
+  fill: #ffffff;
   transform: scale(1.08);
 }
 .social-tile__label {
